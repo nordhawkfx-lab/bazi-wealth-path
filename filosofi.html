@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filosofi Saya: Mengapa Saya Fokus pada Remedy | Bazi Wealth Path by djnordhawk</title>
+  <meta name="description" content="Kisah personal, filosofi, dan alasan di balik fokus utama Bazi Wealth Path pada Crafting Remedy untuk ketenangan pengambilan keputusan dan stabilitas wealth.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       DESIGN SYSTEM & TOKENS (UNIFIED WITH LANDING PAGE)
+    ================================================================ */
+    :root {
+      --ink-deep:      #0A0F1A;
+      --ink-mid:       #111827;
+      --ink-surface:   #162032;
+      --ink-raised:    #1C2D45;
+      --ink-border:    rgba(212, 175, 55, 0.14);
+      --ink-muted:     rgba(245, 232, 199, 0.38);
+      
+      --gold:          #D4AF37;
+      --gold-light:    #F5E8C7;
+      --gold-dim:      rgba(212, 175, 55, 0.10);
+      --gold-border:   rgba(212, 175, 55, 0.28);
+      --teal:          #0D9488;
+      --teal-light:    #14B8A6;
+      --teal-dim:      rgba(13, 148, 136, 0.12);
+      --cream-warm:    #FDF6E3;
+      --wa-green:      #25D366;
+      --wa-hover:      #1DB954;
+
+      --font-display:  'Bodoni Moda', Georgia, serif;
+      --font-reading:  'Jost', system-ui, sans-serif;
+      --font-ui:       'Jost', system-ui, sans-serif;
+
+      --t-display:  clamp(2.4rem, 5vw, 4rem);
+      --t-h1:       clamp(2rem, 4.5vw, 3.4rem);
+      --t-h2:       clamp(1.6rem, 3.2vw, 2.4rem);
+      --t-h3:       clamp(1.2rem, 2.2vw, 1.6rem);
+      --t-body:     clamp(1.05rem, 1.15vw, 1.18rem);
+      --t-sm:       0.9rem;
+      --t-xs:       0.78rem;
+
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 16px;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --dur-fast: 160ms;
+      --dur-mid: 300ms;
+      --dur-slow: 480ms;
+    }
+
+    /* ---- BASE RESET ---------------------------------------------- */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overscroll-behavior: none; }
+    body {
+      font-family: var(--font-reading);
+      background: var(--ink-deep);
+      color: var(--gold-light);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: var(--r-sm);
+    }
+
+    /* ---- LAYOUT & CONTAINERS ------------------------------------- */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 4rem);
+    }
+    .prose-container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ---- NAVBAR -------------------------------------------------- */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem clamp(1.25rem, 5vw, 4rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10, 15, 26, 0.88);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 0.5px solid rgba(212, 175, 55, 0.14);
+    }
+    .navbar-logo {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      letter-spacing: 0.01em;
+    }
+    .navbar-logo span {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      letter-spacing: 0.12em;
+      margin-top: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+    }
+    .nav-link {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      transition: color var(--dur-fast);
+      padding: 4px 0;
+      position: relative;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--gold-light);
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1.5px;
+      background: var(--gold);
+    }
+
+    /* ---- BUTTONS ------------------------------------------------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      border: none;
+      border-radius: var(--r-sm);
+      cursor: pointer;
+      padding: 12px 24px;
+      transition: background var(--dur-fast), transform var(--dur-fast), box-shadow var(--dur-mid);
+    }
+    .btn-wa {
+      background: var(--wa-green);
+      color: #fff;
+    }
+    .btn-wa:hover {
+      background: var(--wa-hover);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.25);
+    }
+    .btn-gold-outline {
+      background: transparent;
+      color: var(--gold-light);
+      border: 0.5px solid var(--gold-border);
+    }
+    .btn-gold-outline:hover {
+      background: var(--gold-dim);
+      border-color: var(--gold);
+    }
+
+    /* ---- HERO SECTION -------------------------------------------- */
+    .hero {
+      padding: 160px 0 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 350px;
+      background: radial-gradient(circle, rgba(13,148,136,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      font-family: var(--font-ui);
+      font-size: var(--t-xs);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: var(--t-display);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+    }
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-style: italic;
+      color: var(--gold);
+      font-weight: 400;
+      max-width: 620px;
+      margin: 0 auto 3rem;
+      line-height: 1.4;
+    }
+
+    /* ---- WATER RIPPLE SVG ANIMATION ------------------------------- */
+    .hero-visual {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+    .ripple-ring {
+      transform-origin: 100px 100px;
+      animation: ripple 6s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+    }
+    .ripple-ring:nth-child(2) { animation-delay: 2s; }
+    .ripple-ring:nth-child(3) { animation-delay: 4s; }
+    .ripple-center {
+      animation: breathe 3s ease-in-out infinite;
+      transform-origin: 100px 100px;
+    }
+    @keyframes ripple {
+      0% { r: 5; opacity: 1; stroke-width: 1px; }
+      100% { r: 90; opacity: 0; stroke-width: 0.5px; }
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    /* ---- EDITORIAL CONTENT ---------------------------------------- */
+    .section-content {
+      padding: 60px 0 100px;
+    }
+    .prose-body {
+      font-size: var(--t-body);
+      color: rgba(245, 232, 199, 0.72);
+      margin-bottom: 2.5rem;
+    }
+    .prose-body p {
+      margin-bottom: 1.8rem;
+    }
+    .prose-body p strong {
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+    .drop-cap::first-letter {
+      font-family: var(--font-display);
+      font-size: 4.8rem;
+      float: left;
+      line-height: 0.75;
+      padding-right: 12px;
+      padding-top: 4px;
+      color: var(--gold);
+    }
+
+    /* Blockquote styled editorial side note */
+    .quote-callout {
+      border-left: 2px solid var(--gold);
+      padding: 1.5rem 2rem;
+      background: var(--ink-surface);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      margin: 3rem 0;
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .quote-callout p {
+      margin-bottom: 0;
+    }
+    .quote-author {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: var(--t-xs);
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      margin-top: 8px;
+    }
+
+    /* ---- INFORMATION DESIGN: 5 LAYERS DIAGRAM --------------------- */
+    .layers-section {
+      background: var(--ink-mid);
+      border-top: 0.5px solid var(--ink-border);
+      border-bottom: 0.5px solid var(--ink-border);
+      padding: 80px 0;
+    }
+    .section-header-center {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--t-h2);
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-family: var(--font-reading);
+      font-size: var(--t-sm);
+      font-style: italic;
+      color: var(--ink-muted);
+    }
+
+    .layers-diagram-wrapper {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    
+    /* Layer items vertical stack */
+    .layers-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .layer-card {
+      background: var(--ink-surface);
+      border: 0.5px solid var(--ink-border);
+      border-radius: var(--r-md);
+      padding: 1.2rem 1.6rem;
+      cursor: pointer;
+      transition: all var(--dur-mid) var(--ease);
+      position: relative;
+    }
+    .layer-card:hover, .layer-card.active {
+      border-color: var(--gold-border);
+      transform: translateX(6px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .layer-card.active {
+      border-color: var(--gold);
+      background: var(--ink-raised);
+    }
+    .layer-card.active::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--gold);
+      border-radius: 3px 0 0 3px;
+    }
+    .layer-num {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 2px;
+    }
+    .layer-card:nth-child(5) .layer-num {
+      color: var(--gold);
+    }
+    .layer-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--gold-light);
+    }
+    .layer-card.active .layer-name {
+      color: #fff;
+    }
+
+    /* Layer details panel */
+    .layer-detail-panel {
+      background: var(--ink-surface);
+      border: 0.5px solid var(--ink-border);
+      border-radius: var(--r-lg);
+      padding: 2.5rem;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .layer-detail-content {
+      animation: fadeIn var(--dur-mid) var(--ease);
+    }
+    .detail-layer-num {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 8px;
+    }
+    .detail-layer-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+      line-height: 1.25;
+    }
+    .detail-layer-body {
+      font-size: 0.95rem;
+      color: rgba(245, 232, 199, 0.68);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .detail-badge-apex {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: rgba(212, 175, 55, 0.12);
+      color: var(--gold);
+      border: 0.5px solid rgba(212, 175, 55, 0.3);
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      align-self: flex-start;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- CORE BELIEF BLOCK ---------------------------------------- */
+    .belief-block {
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 10% 20%, rgba(13, 148, 136, 0.04) 0%, transparent 60%);
+    }
+    .belief-card {
+      border: 1px solid var(--gold-border);
+      background: var(--ink-surface);
+      border-radius: var(--r-lg);
+      padding: 3.5rem clamp(2rem, 5vw, 4rem);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+      text-align: center;
+    }
+    .belief-icon {
+      margin-bottom: 1.5rem;
+    }
+    .belief-icon svg {
+      width: 42px;
+      height: 42px;
+      stroke: var(--gold);
+      fill: none;
+    }
+    .belief-quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 3.2vw, 2.1rem);
+      line-height: 1.38;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 2rem;
+    }
+    .belief-explain {
+      max-width: 580px;
+      margin: 0 auto;
+      font-size: var(--t-sm);
+      color: rgba(245,232,199,0.58);
+      line-height: 1.8;
+    }
+
+    /* ---- TRANSPARENCY / GURU FRAME ------------------------------- */
+    .transparency-section {
+      padding: 60px 0 100px;
+    }
+    .transparency-card {
+      background: rgba(255,255,255,0.015);
+      border: 0.5px solid rgba(255,255,255,0.06);
+      border-radius: var(--r-md);
+      padding: 2.5rem;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .transparency-card svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--gold);
+      fill: none;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .transparency-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .transparency-card p {
+      font-size: 0.92rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    /* ---- FINAL CTA / FOOTER -------------------------------------- */
+    .cta-footer-wrap {
+      background: var(--ink-mid);
+      border-top: 0.5px solid var(--ink-border);
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: var(--t-h2);
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+    }
+    .cta-desc {
+      font-size: var(--t-sm);
+      color: rgba(245, 232, 199, 0.6);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+    
+    .footer {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 0.5px solid rgba(255,255,255,0.04);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--gold-light);
+      text-align: left;
+    }
+    .footer-brand span {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.8rem;
+    }
+    .footer-link {
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      color: var(--ink-muted);
+      transition: color var(--dur-fast);
+    }
+    .footer-link:hover {
+      color: var(--gold-light);
+    }
+    .copyright {
+      width: 100%;
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      color: rgba(245,232,199,0.22);
+      margin-top: 30px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- RESPONSIVE STYLES --------------------------------------- */
+    @media (max-width: 820px) {
+      .layers-diagram-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .layer-detail-panel {
+        min-height: auto;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero {
+        padding: 120px 0 50px;
+      }
+      .transparency-card {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-brand {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <a href="index.html">Bazi Wealth Path</a>
+      <span>by djnordhawk</span>
+    </div>
+    <div class="nav-links">
+      <a href="filosofi.html" class="nav-link active">Filosofi</a>
+      <a href="pendekatan.html" class="nav-link">Pendekatan</a>
+      <a href="artikel.html" class="nav-link">Artikel</a>
+    </div>
+    <a
+      href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F"
+      target="_blank"
+      rel="noopener"
+      class="btn btn-gold-outline"
+      style="min-height: 44px;"
+    >
+      WhatsApp
+    </a>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">Filosofi & Kisah</div>
+      <h1 class="hero-title">Filosofi Saya:<br>Mengapa Saya Fokus pada Remedy</h1>
+      <p class="hero-subtitle">Bukan tentang mengetahui lebih banyak. Tapi tentang bagaimana membuat hidup lebih tenang.</p>
+      
+      <div class="hero-visual" aria-hidden="true">
+        <!-- Ripple SVG Dynamic Animation -->
+        <svg viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+          <circle class="ripple-ring" cx="100" cy="100" r="5" fill="none" stroke="var(--teal)" opacity="0.6"/>
+          <circle class="ripple-ring" cx="100" cy="100" r="5" fill="none" stroke="var(--gold)" opacity="0.5"/>
+          <circle class="ripple-ring" cx="100" cy="100" r="5" fill="none" stroke="var(--teal)" opacity="0.4"/>
+          <!-- Steady center dot representing the quiet remedy center -->
+          <circle class="ripple-center" cx="100" cy="100" r="7" fill="var(--gold)"/>
+          <circle cx="100" cy="100" r="14" fill="none" stroke="rgba(212,175,55,0.22)" stroke-width="0.5"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN EDITORIAL CONTENT -->
+  <article class="section-content">
+    <div class="container">
+      <div class="prose-container">
+        
+        <div class="prose-body drop-cap">
+          <p>
+            Saya percaya bahwa pada akhirnya, yang paling dicari manusia bukanlah kekayaan yang terus bertambah tanpa batas, melainkan <strong>hidup yang tenang tanpa gejolak yang berlebihan</strong>.
+          </p>
+          <p>
+            Banyak orang datang ke saya dengan harapan bisa memahami peta pilar kehidupan mereka. Itu sangat penting. Tapi menurut pengalaman saya, pemahaman saja tidak cukup. Mengetahui bahwa ada badai di depan tidak secara otomatis menghentikan kerusakan yang ditimbulkannya. Yang benar-benar mengubah arah hidup dan bisnis adalah ketika kita bisa merancang langkah konkret untuk <strong>mengurangi dampak gejolak</strong> tersebut.
+          </p>
+          <p>
+            Tujuannya agar kekayaan yang telah Anda perjuangkan bisa bertahan (*retain wealth*), keputusan penting bisa diambil dengan kepala dingin, dan hidup bisa dijalani dengan beban mental yang jauh lebih ringan. Itulah alasan dasar mengapa saya memusatkan seluruh praktek konsultasi ini pada <strong>crafting remedy</strong>.
+          </p>
+          
+          <div class="quote-callout">
+            <p>"Saya mempelajari Bazi melalui bimbingan langsung dari dua guru yang sangat saya hormati secara personal, disusul oleh sertifikasi Vedic Astrology terstruktur. Dari penggabungan dua tradisi inilah, saya menyadari bahwa nilai tertinggi bukanlah pada pembacaan nasib yang pasrah, melainkan pada ketepatan merancang langkah penyeimbang (remedy)."</p>
+            <cite class="quote-author">djnordhawk, Bazi Strategist</cite>
+          </div>
+
+          <p>
+            Mengetahui kelemahan pilar kelahiran Anda tidak ada gunanya jika Anda hanya pulang dengan rasa cemas. Melalui pendekatan terpadu ini, analisis diubah menjadi sebuah peta mitigasi taktis — mirip dengan bagaimana seorang analis data keuangan melihat risiko portofolio untuk melindunginya dari fluktuasi pasar ekstrem.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- 5 LAYERS keilmuan section (Information Design) -->
+  <section class="layers-section">
+    <div class="container">
+      
+      <div class="section-header-center">
+        <h2 class="section-title">5 Layer Keilmuan</h2>
+        <p class="section-subtitle">Dari pemetaan karakteristik paling luar hingga tingkat tindakan tertinggi.</p>
+      </div>
+
+      <div class="layers-diagram-wrapper">
+        <!-- Interactive Stack list -->
+        <div class="layers-stack">
+          
+          <div class="layer-card" onclick="showLayer(1)" id="layer-card-1">
+            <div class="layer-num">Layer 01</div>
+            <div class="layer-name">Analisa Karakter</div>
+          </div>
+
+          <div class="layer-card" onclick="showLayer(2)" id="layer-card-2">
+            <div class="layer-num">Layer 02</div>
+            <div class="layer-name">Analisa Life Event</div>
+          </div>
+
+          <div class="layer-card" onclick="showLayer(3)" id="layer-card-3">
+            <div class="layer-num">Layer 03</div>
+            <div class="layer-name">Timing of Event</div>
+          </div>
+
+          <div class="layer-card" onclick="showLayer(4)" id="layer-card-4">
+            <div class="layer-num">Layer 04</div>
+            <div class="layer-name">Identifikasi Masalah</div>
+          </div>
+
+          <div class="layer-card active" onclick="showLayer(5)" id="layer-card-5">
+            <div class="layer-num">Layer 05 — Utama</div>
+            <div class="layer-name">Crafting Remedy</div>
+          </div>
+
+        </div>
+
+        <!-- Detail display panel -->
+        <div class="layer-detail-panel" id="detail-panel">
+          <!-- Default is Layer 5 -->
+          <div class="layer-detail-content" id="detail-content">
+            <span class="detail-badge-apex">⭐ Fokus Utama</span>
+            <div class="detail-layer-num">Layer 05 — Puncak Keilmuan</div>
+            <h3 class="detail-layer-title">Crafting Remedy</h3>
+            <p class="detail-layer-body">
+              Ini adalah fokus tertinggi dari metode saya. Kami mencari cara konkret, penyesuaian operasional, dan perlindungan strategis agar gejolak bisa diminimalkan. Nilai terbesar dari analisis Bazi bukan untuk memprediksi masa depan secara mistis, melainkan menyusun langkah penyeimbang taktis agar bisnis dan keuangan Anda terlindungi dari risiko keputusan yang salah.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CORE BELIEF BLOCK -->
+  <section class="belief-block">
+    <div class="container">
+      <div class="belief-card">
+        <div class="belief-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="1.5">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <p class="belief-quote">
+          "Remedy yang berhasil bukanlah yang membuat hidup Anda sempurna seketika. Tapi yang membuat gejolak risiko menjadi seminimal mungkin — sehingga Anda bisa menjaga apa yang sudah dibangun dengan tenang."
+        </p>
+        <p class="belief-explain">
+          Crafting remedy mencakup penyesuaian arah bisnis strategis, cara mempertahankan modal (*retain wealth*), grow yang lambat tapi aman, dan pembersihan titik buta psikologis saat mengambil keputusan penting.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GURU FRAME TRANSPARENCY CARD -->
+  <section class="transparency-section">
+    <div class="container">
+      <div class="prose-container">
+        <div class="transparency-card">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="16" x2="12" y2="12"/>
+            <line x1="12" y1="8" x2="12.01" y2="8"/>
+          </svg>
+          <div>
+            <h3>Guide, Not Guru</h3>
+            <p>
+              Saya tidak mengklaim pendekatan analisis Bazi dan Vedic ini adalah satu-satunya kebenaran mutlak di dunia. Saya hanya membagikan kerangka mitigasi yang, dari pengalaman klinis dan konsultasi saya, terbukti paling membantu para entrepreneur mencapai ketenangan dalam menavigasi wealth dan keputusan bisnis strategis mereka. Keputusan akhir tetap seutuhnya ada di bawah kendali rasional Anda.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA & FOOTER -->
+  <section class="cta-footer-wrap">
+    <div class="container">
+      <h2 class="cta-title">Siap untuk Menemukan Ketenangan Langkah Anda?</h2>
+      <p class="cta-desc">
+        Jika Anda merasa filosofi penyeimbang risiko (*remedy*) ini masuk akal untuk situasi bisnis Anda saat ini, mari kita bicarakan situasinya secara langsung tanpa komitmen apa pun di awal.
+      </p>
+      <a
+        href="https://wa.me/6282117175544?text=Halo%2C+saya+membaca+Filosofi+Remedy+Anda.+Boleh+saya+ceritakan+situasi+saya%3F"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-wa"
+        style="padding: 15px 30px; font-size: 0.9rem;"
+      >
+        <!-- WA SVG Icon Inline -->
+        <svg style="width:16px;height:16px;fill:#fff;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Mulai Percakapan via WhatsApp
+      </a>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-brand">
+          Bazi Wealth Path
+          <span>by djnordhawk</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="filosofi.html" class="footer-link">Filosofi</a>
+          <a href="pendekatan.html" class="footer-link">Pendekatan</a>
+          <a href="artikel.html" class="footer-link">Artikel</a>
+        </div>
+        <p class="copyright">© 2026 Bazi Wealth Path. All rights reserved.</p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- DATA & LOGIC FOR INTERACTIVE LAYER DIAGRAM -->
+  <script>
+    const layersData = {
+      1: {
+        num: "Layer 01 — Fondasi Dasar",
+        title: "Analisa Karakter",
+        body: "Memetakan kecenderungan alami, respon instingtif, serta kekuatan dan kelemahan personal berdasarkan cetak biru pilar kelahiran Anda. Membantu mengidentifikasi gaya kepemimpinan natural Anda di dalam tim.",
+        badge: ""
+      },
+      2: {
+        num: "Layer 02 — Konteks Kehidupan",
+        title: "Analisa Life Event",
+        body: "Meneliti peristiwa besar yang sudah terjadi di masa lalu untuk memetakan bagaimana pola keputusan Anda di masa lampau membentuk situasi wealth saat ini. Memberikan grounding data empiris.",
+        badge: ""
+      },
+      3: {
+        num: "Layer 03 — Pemetaan Waktu",
+        title: "Timing of Event",
+        body: "Mengidentifikasi periode waktu kapan pilar kelahiran Anda berinteraksi aktif dengan siklus tahun berjalan. Menunjukkan periode kapan risiko kerugian tinggi (clash) atau kapan peluang ekspansi lebih stabil.",
+        badge: ""
+      },
+      4: {
+        num: "Layer 04 — Diagnosis Utama",
+        title: "Identifikasi Masalah",
+        body: "Mengkorelasikan kondisi pilar Anda saat ini dengan hambatan nyata di dunia bisnis Anda. Kami mengisolasi di mana tepatnya kebocoran wealth atau ketidakselarasan keputusan sedang terjadi.",
+        badge: ""
+      },
+      5: {
+        num: "Layer 05 — Puncak Keilmuan",
+        title: "Crafting Remedy",
+        body: "Ini adalah fokus tertinggi dari metode saya. Kami mencari cara konkret, penyesuaian operasional, dan perlindungan strategis agar gejolak bisa diminimalkan. Nilai terbesar dari analisis Bazi bukan untuk memprediksi masa depan secara mistis, melainkan menyusun langkah penyeimbang taktis agar bisnis dan keuangan Anda terlindungi dari risiko keputusan yang salah.",
+        badge: "⭐ Fokus Utama"
+      }
+    };
+
+    function showLayer(layerId) {
+      // Remove active class from all cards
+      document.querySelectorAll('.layer-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      // Add active class to clicked card
+      document.getElementById(`layer-card-${layerId}`).classList.add('active');
+
+      const data = layersData[layerId];
+      const panel = document.getElementById('detail-panel');
+      
+      // Update details with transition
+      panel.innerHTML = `
+        <div class="layer-detail-content">
+          ${data.badge ? `<span class="detail-badge-apex">${data.badge}</span>` : ''}
+          <div class="detail-layer-num">${data.num}</div>
+          <h3 class="detail-layer-title">${data.title}</h3>
+          <p class="detail-layer-body">${data.body}</p>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
