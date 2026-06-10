@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bazi Wealth Path — kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih. Bukan ramalan. Rekomendasi yang bisa dieksekusi." />
+  <meta property="og:title" content="Konsultasi Bazi untuk Bisnis & Karir | Bazi Wealth Path by djnordhawk" />
+  <meta property="og:description" content="Bukan ramalan. Kerangka analisis berbasis pola untuk memahami kecenderungan pengambilan keputusan dan periode yang lebih kondusif untuk langkah bisnis Anda." />
+  <meta property="og:type" content="website" />
+  <title>Konsultasi Bazi untuk Bisnis & Karir | Bazi Wealth Path by djnordhawk</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#F7F5F0',
+            charcoal: '#1A1A18',
+            teal: '#2D5C5C',
+            'teal-light': '#3D7070',
+            gold: '#C9A96E',
+            umber: '#8B7355',
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            widest: '0.25em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ─── Base ─── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: #F7F5F0;
+      color: #1A1A18;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Typography ─── */
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8B7355;
+    }
+
+    /* ─── Nav ─── */
+    #main-nav {
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    #main-nav.scrolled {
+      background: rgba(247, 245, 240, 0.97);
+      box-shadow: 0 1px 0 rgba(26,26,24,0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    /* ─── Hero diagonal hairline ─── */
+    .hero-slash {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero-slash::after {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: 8%;
+      width: 1px;
+      height: 130%;
+      background: linear-gradient(to bottom, transparent 0%, #2D5C5C 30%, #2D5C5C 70%, transparent 100%);
+      transform: rotate(-8deg);
+      transform-origin: top center;
+      opacity: 0.18;
+    }
+    .hero-slash::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: 12%;
+      width: 1px;
+      height: 130%;
+      background: linear-gradient(to bottom, transparent 0%, #C9A96E 30%, #C9A96E 70%, transparent 100%);
+      transform: rotate(-8deg);
+      transform-origin: top center;
+      opacity: 0.12;
+    }
+
+    /* ─── Bazi Chart decoration ─── */
+    .bazi-char {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      color: #2D5C5C;
+      opacity: 0.15;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* ─── Horizontal rule ─── */
+    .rule-teal {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #2D5C5C 30%, #2D5C5C 70%, transparent);
+      opacity: 0.2;
+    }
+    .rule-gold {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C9A96E 30%, #C9A96E 70%, transparent);
+      opacity: 0.35;
+    }
+
+    /* ─── Buttons ─── */
+    .btn-primary {
+      display: inline-block;
+      background: #2D5C5C;
+      color: #F7F5F0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      transition: background 0.25s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #3D7070; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      border: 1px solid #2D5C5C;
+      color: #2D5C5C;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-ghost:hover { background: #2D5C5C; color: #F7F5F0; transform: translateY(-1px); }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #C9A96E;
+      color: #1A1A18;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.875rem 2rem;
+      transition: background 0.25s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-wa:hover { background: #b8955a; transform: translateY(-1px); }
+
+    /* ─── Service cards ─── */
+    .service-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(26,26,24,0.07);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(26,26,24,0.08);
+      transform: translateY(-3px);
+    }
+    .service-card-featured {
+      background: #2D5C5C;
+      color: #F7F5F0;
+    }
+    .service-card-featured .eyebrow { color: rgba(201,169,110,0.8); }
+
+    /* ─── Process step ─── */
+    .step-line {
+      position: absolute;
+      top: 2rem;
+      left: calc(50% + 1.5rem);
+      width: calc(100% - 3rem);
+      height: 1px;
+      background: rgba(45,92,92,0.15);
+    }
+
+    /* ─── Testimonial ─── */
+    .testimonial-card {
+      background: #FFFFFF;
+      border-left: 2px solid #C9A96E;
+    }
+    .quote-mark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      line-height: 0.5;
+      color: #C9A96E;
+      opacity: 0.5;
+      font-style: italic;
+    }
+
+    /* ─── Insights card ─── */
+    .insight-card {
+      border-top: 1px solid rgba(26,26,24,0.1);
+      transition: border-color 0.2s ease;
+    }
+    .insight-card:hover { border-top-color: #2D5C5C; }
+
+    /* ─── Layer visual ─── */
+    .layer-bar {
+      height: 3px;
+      background: linear-gradient(to right, #2D5C5C, #C9A96E);
+    }
+
+    /* ─── Scroll reveal ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Mobile menu ─── */
+    #mobile-menu {
+      display: none;
+      background: rgba(247, 245, 240, 0.98);
+      backdrop-filter: blur(12px);
+    }
+    #mobile-menu.open { display: block; }
+
+    /* ─── Section spacing ─── */
+    .section { padding: 6rem 0; }
+    @media (max-width: 768px) { .section { padding: 4rem 0; } }
+
+    /* ─── Anchor nav offset ─── */
+    [id] { scroll-margin-top: 5rem; }
+
+    /* ─── Footer ─── */
+    footer a:hover { color: #C9A96E; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVIGATION — Sticky
+  ════════════════════════════════════════════ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50" style="background: transparent;">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+      <div class="flex items-center justify-between h-16 md:h-20">
+
+        <!-- Wordmark -->
+        <a href="#" class="flex flex-col leading-none group">
+          <span class="font-display text-lg md:text-xl font-medium tracking-wide transition-colors" 
+                id="nav-wordmark" style="color:#F7F5F0;">Bazi Wealth Path</span>
+          <span class="eyebrow" id="nav-sub" style="font-size:0.55rem; letter-spacing:0.28em; color:rgba(201,169,110,0.7);">by djnordhawk</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="eyebrow hover:text-gold transition-colors cursor-pointer nav-link" style="color:rgba(247,245,240,0.75);">About</a>
+          <a href="#approach" class="eyebrow hover:text-gold transition-colors cursor-pointer nav-link" style="color:rgba(247,245,240,0.75);">The Approach</a>
+          <a href="#services" class="eyebrow hover:text-gold transition-colors cursor-pointer nav-link" style="color:rgba(247,245,240,0.75);">Services</a>
+          <a href="#insights" class="eyebrow hover:text-gold transition-colors cursor-pointer nav-link" style="color:rgba(247,245,240,0.75);">Insights</a>
+          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F" 
+             target="_blank" rel="noopener" class="btn-wa py-2.5 px-5" style="font-size:0.6rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+            Konsultasi
+          </a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="menu-toggle" class="md:hidden p-2" aria-label="Toggle menu">
+          <div class="w-5 h-px mb-1.5 transition-all" id="bar1" style="background:#F7F5F0;"></div>
+          <div class="w-5 h-px mb-1.5 transition-all" id="bar2" style="background:#F7F5F0;"></div>
+          <div class="w-3 h-px transition-all" id="bar3" style="background:#F7F5F0;"></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="border-t border-charcoal/10">
+      <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-5">
+        <a href="#about" class="eyebrow" onclick="closeMobileMenu()">About</a>
+        <a href="#approach" class="eyebrow" onclick="closeMobileMenu()">The Approach</a>
+        <a href="#services" class="eyebrow" onclick="closeMobileMenu()">Services</a>
+        <a href="#insights" class="eyebrow" onclick="closeMobileMenu()">Insights</a>
+        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F"
+           target="_blank" rel="noopener" class="btn-wa self-start mt-2">Konsultasi via WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO
+  ════════════════════════════════════════════ -->
+  <section class="relative min-h-screen flex items-center overflow-hidden pt-16" id="hero">
+
+    <!-- Background photo — sawah pagi Jawa -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1600&auto=format&q=80"
+           alt=""
+           aria-hidden="true"
+           class="w-full h-full object-cover object-center"
+           style="filter: saturate(0.7);" />
+      <!-- Multi-layer overlay: dark teal base + soft vignette -->
+      <div class="absolute inset-0"
+           style="background: linear-gradient(135deg, rgba(18,38,38,0.88) 0%, rgba(26,40,35,0.80) 50%, rgba(18,30,30,0.72) 100%);"></div>
+      <!-- Bottom fade to ivory for smooth transition -->
+      <div class="absolute bottom-0 left-0 right-0 h-40"
+           style="background: linear-gradient(to bottom, transparent, #0e2020dd);"></div>
+    </div>
+
+    <!-- Signature diagonal hairlines (still visible over photo) -->
+    <div class="hero-slash" style="z-index:2;"></div>
+
+    <!-- Background Bazi characters — ambient -->
+    <div class="absolute right-0 top-0 bottom-0 flex items-center pr-8 pointer-events-none select-none overflow-hidden z-[1]"
+         style="width: 18vw; opacity:0.07;" aria-hidden="true">
+      <div class="font-display" style="color:#C9A96E; font-size: clamp(3rem,8vw,7rem); line-height:1; writing-mode: vertical-rl; letter-spacing: 0.3em;">
+        年壬月甲日戊时丙
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-12 py-20 w-full">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Left: Text -->
+        <div class="relative z-10">
+          <p class="eyebrow mb-8" style="color:rgba(201,169,110,0.75);">Bazi Wealth Path · Konsultasi Strategis</p>
+
+          <h1 class="font-display mb-6 leading-tight"
+              style="font-size: clamp(2.5rem, 5.5vw, 4.25rem); font-weight:400; letter-spacing:-0.01em; color:#F7F5F0;">
+            Bisnis Anda<br />
+            tidak stagnan karena<br />
+            <em style="font-style:italic; color:#C9A96E;">kurang kerja keras.</em>
+          </h1>
+
+          <hr class="my-7 max-w-xs" style="border:none; height:1px; background:linear-gradient(to right, transparent, rgba(201,169,110,0.5) 30%, rgba(201,169,110,0.5) 70%, transparent);" />
+
+          <p class="leading-relaxed mb-10 max-w-lg" style="font-size:1.0625rem; font-weight:300; color:rgba(247,245,240,0.75);">
+            Mungkin ada variabel yang belum pernah Anda hitung.
+            Bazi adalah kerangka analisis berbasis pola — bukan ramalan,
+            melainkan cara memperjelas kecenderungan keputusan, titik buta wealth,
+            dan timing yang lebih kondusif untuk langkah Anda.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F"
+               target="_blank" rel="noopener" class="btn-wa">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+              Mulai Konsultasi
+            </a>
+            <a href="#approach" class="btn-ghost">Lihat Pendekatan</a>
+          </div>
+
+          <p class="mt-6" style="font-size:0.75rem; letter-spacing:0.04em; color:rgba(247,245,240,0.35);">
+            Tidak ada komitmen di awal — cukup mulai dari percakapan.
+          </p>
+        </div>
+
+        <!-- Right: Portrait + Bazi chart card -->
+        <div class="relative z-10 flex flex-col items-center lg:items-end">
+          <!-- Portrait image -->
+          <div class="relative">
+            <div class="absolute -inset-3 opacity-5 rounded-sm"
+                 style="background: linear-gradient(135deg, #2D5C5C, #C9A96E); z-index:-1;"></div>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=480&h=600&fit=crop&crop=faces&auto=format&q=80"
+                 alt="djnordhawk — Founder & Bazi Strategist"
+                 class="w-64 md:w-72 lg:w-80 object-cover"
+                 style="aspect-ratio: 4/5; filter: grayscale(20%) contrast(1.05);"
+                 loading="lazy" />
+            <!-- Gold corner accent -->
+            <div class="absolute -bottom-2 -left-2 w-8 h-8 border-l-2 border-b-2 border-gold opacity-60"></div>
+            <div class="absolute -top-2 -right-2 w-8 h-8 border-t-2 border-r-2 border-teal opacity-40"></div>
+          </div>
+
+          <!-- Bazi chart mini-card -->
+          <div class="mt-4 bg-white border border-charcoal/8 px-6 py-5 w-64 md:w-72 lg:w-80">
+            <p class="eyebrow mb-3">Kartu Bazi · djnordhawk</p>
+            <div class="grid grid-cols-4 gap-1.5 mb-3">
+              <div v-for="col in ['时','日','月','年']" class="text-center">
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">丙</div>
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">戌</div>
+              </div>
+              <div class="text-center">
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">戊</div>
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">午</div>
+              </div>
+              <div class="text-center">
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">甲</div>
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">寅</div>
+              </div>
+              <div class="text-center">
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">壬</div>
+                <div class="bazi-char font-display" style="font-size:1.5rem; opacity:0.6; color:#2D5C5C;">子</div>
+              </div>
+            </div>
+            <div class="layer-bar w-full mt-3 opacity-60"></div>
+            <p class="font-body text-charcoal/50 mt-2" style="font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase;">Founder & Bazi Strategist</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom fade to next section -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-[2]"
+         style="background: linear-gradient(to bottom, transparent, #F7F5F0);"></div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       2. FOUNDER STORY
+  ════════════════════════════════════════════ -->
+  <section class="section bg-white" id="about">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12">
+
+      <div class="text-center mb-16 reveal">
+        <p class="eyebrow mb-4">Founder · Kisah</p>
+        <h2 class="font-display text-charcoal" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:400; line-height:1.2;">
+          Pemahaman saja tidak cukup.<br />
+          <em style="color:#2D5C5C;">Yang mengubah arah adalah langkah konkret.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-5 gap-12 items-start">
+        <div class="md:col-span-2 reveal">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=360&h=440&fit=crop&crop=faces&auto=format&q=80"
+               alt="djnordhawk"
+               class="w-full object-cover"
+               style="aspect-ratio:4/5; filter: grayscale(15%);"
+               loading="lazy" />
+          <div class="mt-4 pl-4 border-l-2 border-gold/50">
+            <p class="font-display text-charcoal text-xl font-medium">djnordhawk</p>
+            <p class="eyebrow mt-1">Bazi Strategist · Konsultan Wealth</p>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 reveal" style="transition-delay:0.15s">
+          <blockquote class="font-display text-charcoal/80 leading-relaxed mb-8"
+                       style="font-size:1.25rem; font-weight:300; font-style:italic; border-left: 2px solid #C9A96E; padding-left:1.25rem;">
+            "Saya mempelajari Bazi melalui bimbingan langsung dari dua guru yang sangat saya hormati secara personal, 
+            disusul oleh sertifikasi Vedic Astrology terstruktur. Dari penggabungan dua tradisi inilah, 
+            saya menyadari bahwa nilai tertinggi bukanlah pada pembacaan nasib yang pasrah — 
+            melainkan pada ketepatan merancang langkah penyeimbang."
+          </blockquote>
+
+          <p class="text-charcoal/65 leading-relaxed mb-6" style="font-weight:300; font-size:0.975rem;">
+            Banyak orang datang dengan harapan bisa memahami peta pilar kehidupan mereka. Itu penting. 
+            Tapi mengetahui bahwa ada badai di depan tidak secara otomatis menghentikan kerusakan yang ditimbulkannya.
+          </p>
+
+          <p class="text-charcoal/65 leading-relaxed mb-8" style="font-weight:300; font-size:0.975rem;">
+            Yang benar-benar mengubah arah hidup dan bisnis adalah ketika kita bisa merancang langkah konkret 
+            untuk <strong class="text-charcoal font-medium">mengurangi dampak gejolak</strong> tersebut — 
+            agar kekayaan yang telah Anda perjuangkan bisa bertahan, keputusan penting bisa diambil 
+            dengan kepala dingin, dan hidup bisa dijalani dengan beban mental yang jauh lebih ringan.
+          </p>
+
+          <div class="flex gap-8">
+            <div>
+              <p class="font-display text-teal" style="font-size:2.5rem; font-weight:300;">15+</p>
+              <p class="eyebrow">Tahun Studi</p>
+            </div>
+            <div class="w-px bg-charcoal/10 self-stretch"></div>
+            <div>
+              <p class="font-display text-teal" style="font-size:2.5rem; font-weight:300;">2</p>
+              <p class="eyebrow">Tradisi Keilmuan</p>
+            </div>
+            <div class="w-px bg-charcoal/10 self-stretch"></div>
+            <div>
+              <p class="font-display text-teal" style="font-size:2.5rem; font-weight:300;">1</p>
+              <p class="eyebrow">Fokus: Remedy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       3. CORE PHILOSOPHY — "Crafting Remedy"
+  ════════════════════════════════════════════ -->
+  <section class="section relative overflow-hidden" id="approach">
+    <!-- Borobudur background — misty, very subtle -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1400&auto=format&q=75"
+           alt="" aria-hidden="true"
+           class="w-full h-full object-cover object-center"
+           style="filter: saturate(0.3) brightness(0.4);" />
+      <div class="absolute inset-0" style="background: rgba(247,245,240,0.94);"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: The philosophy statement -->
+        <div class="reveal">
+          <p class="eyebrow mb-6">Filosofi Inti · The Approach</p>
+          <h2 class="font-display text-charcoal mb-6" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:400; line-height:1.2;">
+            Ini bukan tentang nasib.<br />
+            <em style="color:#2D5C5C;">Ini tentang pola.</em>
+          </h2>
+
+          <hr class="rule-teal mb-8" style="max-width:10rem;" />
+
+          <p class="text-charcoal/65 leading-relaxed mb-6" style="font-size:0.975rem; font-weight:300;">
+            Bazi adalah sistem yang membaca interaksi pola karakteristik berdasarkan data kelahiran. 
+            Bukan untuk menetapkan nasib — melainkan untuk mengidentifikasi bagaimana seseorang secara natural 
+            cenderung membuat keputusan, di mana titik buta yang sering muncul, dan kapan kondisi lebih 
+            kondusif untuk langkah tertentu.
+          </p>
+
+          <div class="bg-white border border-charcoal/8 p-6 mb-8">
+            <p class="eyebrow mb-3 text-gold" style="color:#C9A96E;">Yang dilakukan</p>
+            <p class="text-charcoal/70 text-sm leading-relaxed mb-4" style="font-weight:300;">
+              Membaca pola pengambilan keputusan, mengidentifikasi area potensi yang belum teroptimalkan, 
+              dan mendiskusikan periode yang lebih kondusif — dikaitkan dengan situasi bisnis atau karir yang konkret.
+            </p>
+            <hr class="border-charcoal/8 mb-4" />
+            <p class="eyebrow mb-3 text-umber">Yang tidak dilakukan</p>
+            <p class="text-charcoal/60 text-sm leading-relaxed" style="font-weight:300;">
+              Tidak ada prediksi spesifik, jaminan hasil, atau asumsi bahwa masa depan sudah tertulis.
+            </p>
+          </div>
+
+          <a href="filosofi.html" class="btn-ghost">Baca Filosofi Lengkap</a>
+        </div>
+
+        <!-- Right: 5 Layer visual -->
+        <div class="reveal" style="transition-delay:0.15s;">
+          <div class="space-y-3">
+            <!-- Layers -->
+            <div class="layer-item bg-white border border-charcoal/7 p-5 flex items-center gap-4" 
+                 style="opacity:0.6;">
+              <span class="eyebrow w-16 shrink-0" style="color:#8B7355;">Layer 01</span>
+              <div>
+                <p class="font-display text-charcoal text-lg font-medium">Analisa Karakter</p>
+                <p class="text-charcoal/50 text-xs" style="font-weight:300;">Kecenderungan psikologis natural</p>
+              </div>
+            </div>
+            <div class="layer-item bg-white border border-charcoal/7 p-5 flex items-center gap-4" 
+                 style="opacity:0.7;">
+              <span class="eyebrow w-16 shrink-0" style="color:#8B7355;">Layer 02</span>
+              <div>
+                <p class="font-display text-charcoal text-lg font-medium">Life Event</p>
+                <p class="text-charcoal/50 text-xs" style="font-weight:300;">Validasi pola keputusan masa lalu</p>
+              </div>
+            </div>
+            <div class="layer-item bg-white border border-charcoal/7 p-5 flex items-center gap-4" 
+                 style="opacity:0.8;">
+              <span class="eyebrow w-16 shrink-0" style="color:#8B7355;">Layer 03</span>
+              <div>
+                <p class="font-display text-charcoal text-lg font-medium">Timing of Event</p>
+                <p class="text-charcoal/50 text-xs" style="font-weight:300;">Periode stabil vs periode clash</p>
+              </div>
+            </div>
+            <div class="layer-item bg-white border border-charcoal/7 p-5 flex items-center gap-4" 
+                 style="opacity:0.9;">
+              <span class="eyebrow w-16 shrink-0" style="color:#8B7355;">Layer 04</span>
+              <div>
+                <p class="font-display text-charcoal text-lg font-medium">Diagnosis</p>
+                <p class="text-charcoal/50 text-xs" style="font-weight:300;">Titik sumbatan keputusan bisnis Anda</p>
+              </div>
+            </div>
+
+            <!-- Layer 05 — FEATURED -->
+            <div class="relative bg-teal p-5 flex items-center gap-4" 
+                 style="background:#2D5C5C;">
+              <div class="absolute top-3 right-3">
+                <span class="eyebrow text-gold/80 text-xs" style="color:rgba(201,169,110,0.8);">⭐ Fokus Utama</span>
+              </div>
+              <span class="eyebrow w-16 shrink-0" style="color:rgba(201,169,110,0.7);">Layer 05</span>
+              <div>
+                <p class="font-display text-ivory text-xl font-medium" style="color:#F7F5F0;">Crafting Remedy</p>
+                <p class="text-ivory/60 text-xs mt-0.5" style="font-weight:300; color:rgba(247,245,240,0.6);">
+                  Taktik mitigasi operasional & perlindungan wealth konkret
+                </p>
+              </div>
+              <div class="layer-bar absolute bottom-0 left-0 right-0" style="height:2px; opacity:0.5;"></div>
+            </div>
+
+            <p class="text-charcoal/40 text-xs text-right pt-1" style="font-weight:300; letter-spacing:0.06em;">
+              Dari pemetaan paling luar hingga tingkat tindakan tertinggi
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       4. SERVICES
+  ════════════════════════════════════════════ -->
+  <section class="section bg-charcoal" id="services" style="background:#1A1A18;">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+
+      <div class="text-center mb-16 reveal">
+        <p class="eyebrow mb-4" style="color:#8B7355;">Layanan · Services</p>
+        <h2 class="font-display text-ivory" style="font-size: clamp(2rem, 4vw, 3rem); font-weight:400; color:#F7F5F0; line-height:1.2;">
+          Ada dua cara saya bisa<br />
+          <em style="color:#C9A96E;">membantu Anda saat ini.</em>
+        </h2>
+        <p class="text-ivory/50 mt-4 max-w-md mx-auto text-sm" style="font-weight:300;">
+          Pilih yang paling sesuai dengan apa yang sedang Anda hadapi sekarang.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 reveal" style="transition-delay:0.1s;">
+
+        <!-- Card 1 — Clarity -->
+        <div class="service-card p-8 flex flex-col">
+          <p class="eyebrow mb-5">Mulai Dari Sini</p>
+          <h3 class="font-display text-charcoal mb-3" style="font-size:1.5rem; font-weight:400; line-height:1.3;">
+            Clarity & Direction Consultation
+          </h3>
+          <p class="text-charcoal/60 text-sm leading-relaxed mb-8 flex-1" style="font-weight:300;">
+            Untuk Anda yang sedang menghadapi keputusan penting — baik di bisnis maupun kehidupan pribadi — 
+            dan butuh perspektif yang lebih jelas sebelum mengambil langkah.
+          </p>
+          <div class="border-t border-charcoal/8 pt-5 mb-6 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-charcoal/50" style="font-weight:300;">
+              <span class="w-1 h-1 rounded-full bg-teal/60 shrink-0"></span>
+              60 menit via Zoom
+            </div>
+            <div class="flex items-center gap-2 text-xs text-charcoal/50" style="font-weight:300;">
+              <span class="w-1 h-1 rounded-full bg-teal/60 shrink-0"></span>
+              1-on-1, privat, direkam
+            </div>
+          </div>
+          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Clarity+%26+Direction+Consultation.+Boleh+saya+tanya+lebih+lanjut%3F"
+             target="_blank" rel="noopener" class="btn-ghost self-start text-xs">Tanya via WhatsApp</a>
+        </div>
+
+        <!-- Card 2 — Wealth Path (FEATURED) -->
+        <div class="service-card service-card-featured p-8 flex flex-col relative overflow-hidden">
+          <!-- Background pattern -->
+          <div class="absolute top-0 right-0 w-24 h-24 opacity-5 pointer-events-none" aria-hidden="true">
+            <div class="font-display text-white" style="font-size:5rem; line-height:1; font-weight:300;">財</div>
+          </div>
+
+          <p class="eyebrow mb-5">Layanan Utama</p>
+          <h3 class="font-display mb-3" style="font-size:1.5rem; font-weight:400; line-height:1.3; color:#F7F5F0;">
+            Wealth Path Bazi Session
+          </h3>
+          <p class="text-ivory/70 text-sm leading-relaxed mb-6 flex-1" style="font-weight:300; color:rgba(247,245,240,0.7);">
+            Untuk entrepreneur dan professional yang ingin memahami situasi bisnis dan wealth mereka 
+            dengan lebih jernih. Kita akan memetakan pola pengambilan keputusan, mengidentifikasi 
+            area potensi wealth yang belum teroptimalkan, melihat titik buta, dan mendiskusikan timing.
+          </p>
+          <div class="border-t border-ivory/15 pt-5 mb-6 space-y-2">
+            <div class="flex items-center gap-2 text-xs text-ivory/50" style="font-weight:300;">
+              <span class="w-1 h-1 rounded-full bg-gold/70 shrink-0"></span>
+              90 menit via Zoom
+            </div>
+            <div class="flex items-center gap-2 text-xs text-ivory/50" style="font-weight:300;">
+              <span class="w-1 h-1 rounded-full bg-gold/70 shrink-0"></span>
+              1-on-1, privat, direkam
+            </div>
+            <div class="flex items-center gap-2 text-xs text-ivory/50" style="font-weight:300;">
+              <span class="w-1 h-1 rounded-full bg-gold/70 shrink-0"></span>
+              + Ringkasan rekomendasi tertulis
+            </div>
+          </div>
+          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Wealth+Path+Bazi+Session.+Boleh+saya+tanya+lebih+lanjut%3F"
+             target="_blank" rel="noopener" class="btn-wa self-start">Mulai Sesi</a>
+        </div>
+
+        <!-- Card 3 — Fortress (Coming Soon) -->
+        <div class="service-card p-8 flex flex-col relative" style="opacity:0.8;">
+          <div class="absolute top-4 right-4">
+            <span class="eyebrow text-gold/70 bg-gold/10 px-3 py-1" style="font-size:0.5rem; color:#C9A96E;">Segera Hadir</span>
+          </div>
+          <p class="eyebrow mb-5">Integrasi Penuh</p>
+          <h3 class="font-display text-charcoal mb-3" style="font-size:1.5rem; font-weight:400; line-height:1.3;">
+            Fortress Wealth Path
+          </h3>
+          <p class="text-charcoal/60 text-sm leading-relaxed mb-8 flex-1" style="font-weight:300;">
+            Integrasi penuh antara analisis Bazi dan konsultasi Fengshui untuk bisnis — dua kerangka yang 
+            selama ini jarang dijalankan bersamaan secara terstruktur. Untuk business owner yang ingin 
+            mengoptimalkan pola keputusan strategis sekaligus kondisi lingkungan operasional.
+          </p>
+          <div class="border-t border-charcoal/8 pt-5 mb-6">
+            <p class="text-charcoal/40 text-xs" style="font-weight:300;">Saat ini dalam tahap finalisasi.</p>
+          </div>
+          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Fortress+Wealth+Path.+Mohon+info+lebih+lanjut."
+             target="_blank" rel="noopener" class="btn-ghost self-start text-xs opacity-70">Daftarkan Minat</a>
+        </div>
+      </div>
+
+      <!-- Not sure CTA -->
+      <div class="text-center mt-12 reveal" style="transition-delay:0.2s;">
+        <p class="text-ivory/40 text-sm mb-4" style="font-weight:300;">
+          Tidak yakin harus mulai dari mana?
+        </p>
+        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+belum+tahu+harus+mulai+dari+mana.+Boleh+saya+ceritakan+situasi+saya%3F"
+           target="_blank" rel="noopener" class="text-ivory/60 hover:text-gold transition-colors text-xs" 
+           style="font-weight:300; letter-spacing:0.1em; text-decoration:underline; text-underline-offset:4px;">
+          Chat dulu via WhatsApp → kami yang bantu Anda memilih
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       5. HOW IT WORKS / PROCESS
+  ════════════════════════════════════════════ -->
+  <section class="section bg-white" id="process">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+
+      <div class="text-center mb-16 reveal">
+        <p class="eyebrow mb-4">Cara Kerja · Process</p>
+        <h2 class="font-display text-charcoal" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight:400; line-height:1.3;">
+          Dari data kelahiran<br />
+          <em style="color:#2D5C5C;">menuju langkah nyata di meja kerja.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8 reveal" style="transition-delay:0.1s;">
+
+        <div class="relative text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-10 h-10 bg-teal/8 border border-teal/20 mb-4"
+               style="background:rgba(45,92,92,0.06);">
+            <span class="font-display text-teal text-lg" style="font-weight:300;">01</span>
+          </div>
+          <h4 class="font-display text-charcoal text-lg font-medium mb-2">Percakapan Awal</h4>
+          <p class="text-charcoal/55 text-sm leading-relaxed" style="font-weight:300;">
+            Ceritakan situasi nyata Anda via WhatsApp. Tidak ada formulir, tidak ada komitmen.
+          </p>
+        </div>
+
+        <div class="relative text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-10 h-10 bg-teal/8 border border-teal/20 mb-4"
+               style="background:rgba(45,92,92,0.06);">
+            <span class="font-display text-teal text-lg" style="font-weight:300;">02</span>
+          </div>
+          <h4 class="font-display text-charcoal text-lg font-medium mb-2">Pemetaan Pola</h4>
+          <p class="text-charcoal/55 text-sm leading-relaxed" style="font-weight:300;">
+            Saya membaca chart kelahiran Anda dan menghubungkan pola dengan konteks bisnis yang Anda bawa.
+          </p>
+        </div>
+
+        <div class="relative text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-10 h-10 bg-teal/8 border border-teal/20 mb-4"
+               style="background:rgba(45,92,92,0.06);">
+            <span class="font-display text-teal text-lg" style="font-weight:300;">03</span>
+          </div>
+          <h4 class="font-display text-charcoal text-lg font-medium mb-2">Sesi Konsultasi</h4>
+          <p class="text-charcoal/55 text-sm leading-relaxed" style="font-weight:300;">
+            90 menit 1-on-1 via Zoom. Tidak ada template — sesi mengikuti situasi nyata Anda.
+          </p>
+        </div>
+
+        <div class="relative text-center md:text-left">
+          <div class="inline-flex items-center justify-center w-10 h-10 border border-gold/40 mb-4"
+               style="background:rgba(201,169,110,0.06);">
+            <span class="font-display text-gold text-lg" style="font-weight:300; color:#C9A96E;">04</span>
+          </div>
+          <h4 class="font-display text-charcoal text-lg font-medium mb-2">Crafting Remedy</h4>
+          <p class="text-charcoal/55 text-sm leading-relaxed" style="font-weight:300;">
+            Ringkasan tertulis berisi rekomendasi taktis yang langsung bisa Anda bawa ke meja kerja.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- What you get -->
+      <div class="mt-16 bg-ivory border border-charcoal/7 p-8 md:p-12 reveal" style="transition-delay:0.15s;">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="border-l-2 border-teal/30 pl-5">
+            <p class="font-display text-charcoal text-lg font-medium mb-1">Rekaman Lengkap</p>
+            <p class="text-charcoal/55 text-sm" style="font-weight:300;">
+              Dikirim dalam 24 jam. Putar ulang kapanpun Anda butuhkan.
+            </p>
+          </div>
+          <div class="border-l-2 border-teal/30 pl-5">
+            <p class="font-display text-charcoal text-lg font-medium mb-1">Ringkasan Tertulis</p>
+            <p class="text-charcoal/55 text-sm" style="font-weight:300;">
+              Bukan catatan panjang. Rekomendasi yang bisa langsung dieksekusi.
+            </p>
+          </div>
+          <div class="border-l-2 border-gold/50 pl-5">
+            <p class="font-display text-charcoal text-lg font-medium mb-1">Kerahasiaan Penuh</p>
+            <p class="text-charcoal/55 text-sm" style="font-weight:300;">
+              Semua yang dibicarakan dalam sesi dijaga kerahasiaannya sepenuhnya.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       6. TESTIMONIALS
+  ════════════════════════════════════════════ -->
+  <section class="section relative overflow-hidden" id="testimonials">
+    <!-- Subtle Java rice field — very washed out -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&auto=format&q=70"
+           alt="" aria-hidden="true"
+           class="w-full h-full object-cover object-bottom"
+           style="filter: saturate(0.15) brightness(1.1);" />
+      <div class="absolute inset-0" style="background: rgba(247,245,240,0.96);"></div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6 lg:px-12 relative z-10">
+
+      <div class="text-center mb-16 reveal">
+        <p class="eyebrow mb-4">Hasil Nyata · Testimonial</p>
+        <h2 class="font-display text-charcoal" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight:400; line-height:1.3;">
+          Apa yang biasanya berubah<br />
+          <em style="color:#2D5C5C;">setelah satu sesi.</em>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 reveal" style="transition-delay:0.1s;">
+
+        <div class="testimonial-card p-7">
+          <div class="quote-mark mb-4">"</div>
+          <p class="text-charcoal/70 leading-relaxed mb-6 text-sm" style="font-weight:300;">
+            Setelah sesi, saya akhirnya paham kenapa saya selalu ragu di momen yang justru paling krusial. 
+            Saya kira itu ketakutan biasa — ternyata ada pola yang lebih dalam dari itu.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-teal/20 flex items-center justify-center shrink-0">
+              <span class="font-display text-teal text-sm font-medium">E</span>
+            </div>
+            <div>
+              <p class="text-charcoal font-medium text-sm">Entrepreneur</p>
+              <p class="eyebrow" style="font-size:0.55rem;">Jakarta · Wealth Path Bazi Session</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card p-7">
+          <div class="quote-mark mb-4">"</div>
+          <p class="text-charcoal/70 leading-relaxed mb-6 text-sm" style="font-weight:300;">
+            Saya datang dengan skeptis tinggi. Yang membuat saya tetap ikut adalah karena dari awal 
+            sudah dibilang ini bukan ramalan. Dan memang, tidak ada satu pun klaim yang tidak bisa 
+            saya evaluasi sendiri.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-teal/20 flex items-center justify-center shrink-0">
+              <span class="font-display text-teal text-sm font-medium">R</span>
+            </div>
+            <div>
+              <p class="text-charcoal font-medium text-sm">Professional</p>
+              <p class="eyebrow" style="font-size:0.55rem;">Surabaya · Clarity & Direction</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card p-7">
+          <div class="quote-mark mb-4">"</div>
+          <p class="text-charcoal/70 leading-relaxed mb-6 text-sm" style="font-weight:300;">
+            Yang saya hargai adalah djnordhawk tidak buru-buru memberikan jawaban. Dia menghubungkan 
+            analisis dengan situasi nyata bisnis saya — bukan template generik. 
+            Ringkasan tertulisnya masih saya pakai sampai sekarang.
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-teal/20 flex items-center justify-center shrink-0">
+              <span class="font-display text-teal text-sm font-medium">A</span>
+            </div>
+            <div>
+              <p class="text-charcoal font-medium text-sm">Business Owner</p>
+              <p class="eyebrow" style="font-size:0.55rem;">Bali · Wealth Path Bazi Session</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-center text-charcoal/35 text-xs mt-8" style="font-weight:300; letter-spacing:0.05em;">
+        Nama, kota, dan detail disamarkan sepenuhnya atas permintaan klien.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       7. INSIGHTS / ARTIKEL
+  ════════════════════════════════════════════ -->
+  <section class="section bg-white" id="insights">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 reveal">
+        <div>
+          <p class="eyebrow mb-3">Featured Insights · Artikel</p>
+          <h2 class="font-display text-charcoal" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight:400; line-height:1.2;">
+            Perspektif yang jarang<br />
+            <em style="color:#2D5C5C;">dibicarakan di tempat lain.</em>
+          </h2>
+        </div>
+        <a href="artikel.html" class="btn-ghost shrink-0 self-start md:self-end">Semua Artikel</a>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-0 reveal" style="transition-delay:0.1s;">
+
+        <article class="insight-card p-7 cursor-pointer group">
+          <p class="eyebrow mb-3">Wealth Psychology</p>
+          <h4 class="font-display text-charcoal text-xl font-medium leading-snug mb-3 group-hover:text-teal transition-colors">
+            Mengapa Orang Cerdas Pun Bisa Membuat Keputusan Keuangan yang Buruk
+          </h4>
+          <p class="text-charcoal/55 text-xs leading-relaxed mb-6" style="font-weight:300;">
+            Titik buta bukan soal kecerdasan. Ini soal pola yang tidak terlihat dari dalam.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="eyebrow" style="font-size:0.55rem; color:#8B7355;">Maret 2026</span>
+            <span class="text-teal/60 group-hover:text-teal transition-colors" style="font-size:1.2rem;">→</span>
+          </div>
+        </article>
+
+        <article class="insight-card p-7 cursor-pointer group md:border-l md:border-r border-charcoal/7">
+          <p class="eyebrow mb-3">Bazi & Bisnis</p>
+          <h4 class="font-display text-charcoal text-xl font-medium leading-snug mb-3 group-hover:text-teal transition-colors">
+            Apa itu Yongshen dan Mengapa Ini Lebih Penting dari Membaca Shio
+          </h4>
+          <p class="text-charcoal/55 text-xs leading-relaxed mb-6" style="font-weight:300;">
+            Sebagian besar konten Bazi berhenti di permukaan. Ini tidak.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="eyebrow" style="font-size:0.55rem; color:#8B7355;">Februari 2026</span>
+            <span class="text-teal/60 group-hover:text-teal transition-colors" style="font-size:1.2rem;">→</span>
+          </div>
+        </article>
+
+        <article class="insight-card p-7 cursor-pointer group">
+          <p class="eyebrow mb-3">Timing Strategy</p>
+          <h4 class="font-display text-charcoal text-xl font-medium leading-snug mb-3 group-hover:text-teal transition-colors">
+            Kapan Sebenarnya Waktu yang Tepat untuk Ekspansi Bisnis?
+          </h4>
+          <p class="text-charcoal/55 text-xs leading-relaxed mb-6" style="font-weight:300;">
+            Bukan soal memilih bulan keberuntungan. Ini soal membaca kondisi sebelum melangkah.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="eyebrow" style="font-size:0.55rem; color:#8B7355;">Januari 2026</span>
+            <span class="text-teal/60 group-hover:text-teal transition-colors" style="font-size:1.2rem;">→</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       8. FINAL CTA
+  ════════════════════════════════════════════ -->
+  <section class="section relative overflow-hidden" id="contact">
+    <!-- Prambanan background photo -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1600&auto=format&q=80"
+           alt="" aria-hidden="true"
+           class="w-full h-full object-cover object-center"
+           style="filter: saturate(0.5) brightness(0.35);" />
+      <!-- Deep overlay — dark teal -->
+      <div class="absolute inset-0"
+           style="background: linear-gradient(160deg, rgba(15,35,35,0.88) 0%, rgba(30,55,45,0.85) 100%);"></div>
+    </div>
+
+    <!-- Ambient Bazi character -->
+    <div class="absolute right-0 top-0 bottom-0 flex items-center overflow-hidden pointer-events-none select-none z-[1]" aria-hidden="true"
+         style="opacity:0.06;">
+      <div class="font-display text-ivory" style="font-size: clamp(8rem,20vw,18rem); font-weight:300; line-height:1; color:#F7F5F0;">
+        財
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center relative z-10 reveal">
+      <p class="eyebrow mb-6" style="color:rgba(201,169,110,0.7);">Mulai Percakapan</p>
+
+      <h2 class="font-display text-ivory mb-6" style="font-size: clamp(2rem, 4.5vw, 3.5rem); font-weight:400; color:#F7F5F0; line-height:1.2;">
+        Remedy yang berhasil bukan yang membuat hidup sempurna seketika —
+        tapi yang membuat <em style="color:#C9A96E;">gejolak risiko seminimal mungkin.</em>
+      </h2>
+
+      <hr class="rule-gold my-8" style="opacity:0.3;" />
+
+      <p class="text-ivory/60 mb-10 max-w-lg mx-auto text-sm leading-relaxed" style="font-weight:300;">
+        Jika kerangka ini masuk akal untuk situasi bisnis Anda saat ini — 
+        mari kita bicarakan situasinya secara langsung, tanpa komitmen apa pun di awal.
+      </p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F"
+           target="_blank" rel="noopener" class="btn-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
+          Mulai Percakapan
+        </a>
+        <a href="pendekatan.html" class="btn-ghost" style="border-color:rgba(247,245,240,0.35); color:#F7F5F0;">
+          Pelajari Pendekatan
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════ -->
+  <footer class="bg-charcoal py-12" style="background:#111110;">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+
+      <div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
+        <!-- Brand -->
+        <div class="max-w-xs">
+          <p class="font-display text-ivory text-lg mb-1" style="color:#F7F5F0;">Bazi Wealth Path</p>
+          <p class="eyebrow mb-4" style="color:#8B7355;">by djnordhawk</p>
+          <p class="text-ivory/35 text-xs leading-relaxed" style="font-weight:300;">
+            Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami 
+            situasi bisnis dan wealth mereka dengan lebih jernih.
+          </p>
+        </div>
+
+        <!-- Nav links -->
+        <div class="grid grid-cols-2 md:flex gap-8 md:gap-12">
+          <div>
+            <p class="eyebrow mb-3" style="color:#8B7355; font-size:0.55rem;">Halaman</p>
+            <ul class="space-y-2">
+              <li><a href="filosofi.html" class="text-ivory/50 text-xs hover:text-gold transition-colors" style="font-weight:300;">Filosofi</a></li>
+              <li><a href="pendekatan.html" class="text-ivory/50 text-xs hover:text-gold transition-colors" style="font-weight:300;">Pendekatan</a></li>
+              <li><a href="artikel.html" class="text-ivory/50 text-xs hover:text-gold transition-colors" style="font-weight:300;">Artikel</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="eyebrow mb-3" style="color:#8B7355; font-size:0.55rem;">Layanan</p>
+            <ul class="space-y-2">
+              <li><a href="#services" class="text-ivory/50 text-xs hover:text-gold transition-colors" style="font-weight:300;">Clarity & Direction</a></li>
+              <li><a href="#services" class="text-ivory/50 text-xs hover:text-gold transition-colors" style="font-weight:300;">Wealth Path Session</a></li>
+              <li><a href="#services" class="text-ivory/50 text-xs hover:text-gold transition-colors" style="font-weight:300;">Fortress Wealth Path</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="eyebrow mb-3" style="color:#8B7355; font-size:0.55rem;">Kontak</p>
+            <ul class="space-y-2">
+              <li>
+                <a href="https://wa.me/6282117175544" target="_blank" rel="noopener"
+                   class="text-ivory/50 text-xs hover:text-gold transition-colors" style="font-weight:300;">WhatsApp</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-ivory/8 mb-6" />
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-3">
+        <p class="text-ivory/25 text-xs" style="font-weight:300;">
+          © 2026 Bazi Wealth Path by djnordhawk. All rights reserved.
+        </p>
+        <p class="text-ivory/20 text-xs" style="font-weight:300; letter-spacing:0.1em;">
+          GUIDE, NOT GURU.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════ -->
+  <script>
+    // ─── Sticky nav scroll effect — transparent over hero, ivory when scrolled ───
+    const nav = document.getElementById('main-nav');
+    const navWordmark = document.getElementById('nav-wordmark');
+    const navSub = document.getElementById('nav-sub');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const bars = [document.getElementById('bar1'), document.getElementById('bar2'), document.getElementById('bar3')];
+
+    function updateNav() {
+      const scrolled = window.scrollY > 80;
+      if (scrolled) {
+        nav.style.background = 'rgba(247, 245, 240, 0.97)';
+        nav.style.boxShadow = '0 1px 0 rgba(26,26,24,0.08)';
+        nav.style.backdropFilter = 'blur(8px)';
+        navWordmark.style.color = '#1A1A18';
+        navSub.style.color = '#8B7355';
+        navLinks.forEach(l => { l.style.color = '#8B7355'; });
+        bars.forEach(b => { b.style.background = '#1A1A18'; });
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.boxShadow = 'none';
+        nav.style.backdropFilter = 'none';
+        navWordmark.style.color = '#F7F5F0';
+        navSub.style.color = 'rgba(201,169,110,0.7)';
+        navLinks.forEach(l => { l.style.color = 'rgba(247,245,240,0.75)'; });
+        bars.forEach(b => { b.style.background = '#F7F5F0'; });
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // ─── Mobile menu toggle ───
+    const toggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      const isOpen = mobileMenu.classList.contains('open');
+      document.getElementById('bar1').style.transform = isOpen ? 'rotate(45deg) translate(3px, 3px)' : '';
+      document.getElementById('bar2').style.opacity = isOpen ? '0' : '1';
+      document.getElementById('bar3').style.transform = isOpen ? 'rotate(-45deg) translate(2px, -2px)' : '';
+      document.getElementById('bar3').style.width = isOpen ? '20px' : '12px';
+      // After open, bars are always dark (menu is ivory bg)
+      if (isOpen) bars.forEach(b => { b.style.background = '#1A1A18'; });
+      else updateNav();
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      document.getElementById('bar1').style.transform = '';
+      document.getElementById('bar2').style.opacity = '1';
+      document.getElementById('bar3').style.transform = '';
+      document.getElementById('bar3').style.width = '12px';
+    }
+
+    // ─── Close mobile menu on link click ───
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // ─── Scroll reveal ───
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // ─── Smooth scroll for anchor links ───
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
