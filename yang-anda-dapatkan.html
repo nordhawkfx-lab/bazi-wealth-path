@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apa yang Anda Dapatkan — Wealth Path Bazi Session | Bazi Wealth Path</title>
+  <meta name="description" content="Penjelasan lengkap mengenai sesi konsultasi 90 menit Wealth Path Bazi Session: apa yang terjadi sebelum, selama, dan setelah sesi, serta bentuk laporan tertulis yang Anda terima." />
+  <link rel="stylesheet" href="bazi.css" />  <style>
+    /* ════════════════════════════════════════════════════════
+       YANG ANDA DAPATKAN — page-specific styles
+       Semua token dari bazi.css. Zero hardcoded hex body copy.
+       ════════════════════════════════════════════════════════ */
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero--yd {
+      padding: var(--sp-8) var(--sp-gutter) var(--sp-6);
+      text-align: center;
+      background: var(--charcoal-d);
+      position: relative;
+      overflow: hidden;
+      min-height: auto;
+    }
+
+    /* Decorative SVG background using system palette mappings: stroke %23B8860B matches --gold-warm, stroke %230C3C2D matches --emerald */
+    .hero--yd::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500"><path d="M-80 200 Q300 120 520 240 Q780 80 1020 220 Q1180 140 1380 260" fill="none" stroke="%23B8860B" stroke-width="1.5" stroke-opacity="0.07"/><path d="M-60 340 Q280 260 500 380 Q760 220 1000 360 Q1180 270 1400 400" fill="none" stroke="%230C3C2D" stroke-width="1.2" stroke-opacity="0.09"/><path d="M-100 460 Q200 390 440 500 Q720 330 980 470 Q1180 380 1400 510" fill="none" stroke="%23B8860B" stroke-width="1" stroke-opacity="0.05"/></svg>');
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+    }
+
+    .hero-glow--yd {
+      position: absolute; top: -5%; left: 50%;
+      transform: translateX(-50%);
+      width: 640px; height: 280px;
+      background: var(--emerald-alpha-10);
+      filter: blur(100px); border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-zh--yd {
+      position: absolute; right: 5%; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--ff-display); font-size: 14rem;
+      color: var(--gold-warm); opacity: 0.07; line-height: 1;
+      pointer-events: none; user-select: none;
+    }
+
+    .hero-content--yd {
+      position: relative; z-index: 2;
+      max-width: 760px; margin: 0 auto;
+    }
+
+    /* ── OVERVIEW STRIP ───────────────────────────────── */
+    .overview-section {
+      background: var(--charcoal);
+      padding: var(--sp-7) var(--sp-gutter);
+    }
+    .overview-inner { max-width: 1200px; margin: 0 auto; }
+    .overview-header { margin-bottom: var(--sp-5); }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-3);
+    }
+
+    .overview-card {
+      padding: var(--sp-5) var(--sp-4);
+      border: 1px solid var(--border-dk);
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease, background .3s;
+    }
+    .overview-card.visible { opacity: 1; transform: translateY(0); }
+    .overview-card:hover { background: var(--gold-alpha-03); }
+
+    .overview-zh {
+      font-family: var(--ff-display); font-size: 3rem;
+      color: var(--gold-warm); opacity: .2; line-height: 1; margin-bottom: var(--sp-3);
+    }
+    .overview-num {
+      font-size: var(--font-micro); letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-dk-meta); margin-bottom: var(--sp-1); font-family: var(--ff-body);
+    }
+    .overview-title {
+      font-family: var(--ff-display); font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+      font-weight: 500; color: #fff; margin-bottom: var(--sp-2); line-height: 1.25;
+    }
+    .overview-body {
+      font-size: var(--font-prose); line-height: var(--line-prose);
+      color: var(--text-dk-secondary); max-width: 38ch;
+    }
+
+    /* ── DELIVERABLES — light cards on dark bg ────────── */
+    .deliverables-section {
+      background: var(--charcoal-d);
+      padding: var(--sp-7) var(--sp-gutter);
+    }
+    .deliverables-inner { max-width: 1200px; margin: 0 auto; }
+    .deliverables-header { margin-bottom: var(--sp-5); }
+
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-3);
+    }
+
+    .deliv-card {
+      padding: var(--sp-5) var(--sp-4);
+      display: flex; gap: var(--sp-3); align-items: flex-start;
+      border: 1px solid var(--border-dk);
+      transition: background .3s;
+    }
+    .deliv-card:hover { background: var(--gold-alpha-025); }
+
+    .deliv-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(184,134,11,.06);
+      border: 1px solid rgba(184,134,11,.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .deliv-icon svg { width: 18px; height: 18px; color: var(--gold-warm); }
+
+    .deliv-title {
+      font-family: var(--ff-display); font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      font-weight: 500; color: #fff; margin-bottom: var(--sp-1); line-height: 1.3;
+    }
+    .deliv-body {
+      font-size: var(--font-prose); line-height: var(--line-prose);
+      color: var(--text-dk-secondary); max-width: 44ch;
+    }
+
+    /* ── DETAIL BREAKDOWN — full width table-ish ──────── */
+    .breakdown-section {
+      background: var(--charcoal);
+      padding: var(--sp-7) var(--sp-gutter);
+    }
+    .breakdown-inner { max-width: 1200px; margin: 0 auto; }
+    .breakdown-header { margin-bottom: var(--sp-5); }
+
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+    }
+
+    .breakdown-col-head {
+      font-size: var(--font-micro); letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-dk-meta); padding-bottom: var(--sp-2);
+      border-bottom: 1px solid var(--border-dk); margin-bottom: var(--sp-3);
+      font-family: var(--ff-body);
+    }
+
+    .breakdown-item {
+      display: flex; gap: var(--sp-3); align-items: flex-start;
+      padding: var(--sp-3) 0;
+      border-bottom: 1px solid var(--border-dk);
+    }
+    .breakdown-item:last-child { border-bottom: none; }
+
+    .bi-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold-warm); opacity: .5;
+      flex-shrink: 0; margin-top: .55rem;
+    }
+    .bi-dot--muted {
+      background: var(--text-dk-meta); opacity: .5;
+    }
+    .bi-text--muted {
+      color: var(--text-dk-meta) !important;
+    }
+    .bi-text { font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: var(--line-prose); }
+    .bi-text strong { color: var(--champagne); font-weight: 500; }
+
+    /* ── TIMELINE ─────────────────────────────────────── */
+    .timeline-section {
+      background: var(--charcoal-d);
+      padding: var(--sp-7) var(--sp-gutter);
+    }
+    .timeline-inner { max-width: 860px; margin: 0 auto; }
+    .timeline-header { margin-bottom: var(--sp-5); }
+
+    .timeline-list { display: flex; flex-direction: column; gap: var(--sp-2); }
+
+    .timeline-step {
+      display: grid; grid-template-columns: 5.5rem 1fr;
+      border: 1px solid var(--border-dk);
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(16px);
+      transition: opacity .55s ease, transform .55s ease, border-color .25s;
+    }
+    .timeline-step.visible { opacity: 1; transform: translateY(0); }
+    .timeline-step:hover { border-color: var(--border-gold); }
+    .timeline-step.featured {
+      border-color: var(--gold-alpha-30);
+      background: var(--gold-alpha-03);
+    }
+
+    .timeline-num {
+      display: flex; align-items: center; justify-content: center;
+      border-right: 1px solid var(--border-dk);
+      font-family: var(--ff-display); font-size: 2rem;
+      color: var(--gold-warm); opacity: .45; font-weight: 300;
+    }
+    .timeline-step.featured .timeline-num { opacity: .8; }
+
+    .timeline-body { padding: var(--sp-4); }
+
+    .timeline-badge {
+      font-size: var(--font-micro); letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dk-meta); margin-bottom: var(--sp-1); font-family: var(--ff-body);
+    }
+    .timeline-step.featured .timeline-badge { color: var(--gold-warm); }
+
+    .timeline-title {
+      font-family: var(--ff-display); font-size: clamp(.98rem, 1.2vw, 1.2rem);
+      font-weight: 500; color: #fff; margin-bottom: var(--sp-1);
+    }
+    .timeline-desc {
+      font-size: var(--font-prose); color: var(--text-dk-secondary);
+      line-height: var(--line-prose); max-width: 56ch;
+    }
+
+    /* ── TRUST STRIP ─────────────────────────────────── */
+    .trust-section {
+      background: var(--charcoal);
+      padding: var(--sp-6) var(--sp-gutter);
+    }
+    .trust-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-4);
+    }
+
+    .trust-card {
+      text-align: center; padding: var(--sp-5) var(--sp-4);
+      border: 1px solid var(--border-dk);
+      transition: border-color .3s;
+    }
+    .trust-card:hover { border-color: var(--border-gold); }
+
+    .trust-num {
+      font-family: var(--ff-display); font-size: clamp(2.2rem, 4vw, 3rem);
+      color: var(--gold-warm); line-height: 1; margin-bottom: var(--sp-1);
+    }
+    .trust-label {
+      font-size: var(--font-micro); letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dk-meta); font-family: var(--ff-body);
+    }
+
+    /* CTA Specific */
+    .cta-section .cta-bg--yd {
+      background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&auto=format&q=75');
+    }
+
+    /* ── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .overview-grid     { grid-template-columns: 1fr; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .breakdown-grid    { grid-template-columns: 1fr; }
+      .trust-inner       { grid-template-columns: 1fr; }
+      .overview-section, .deliverables-section,
+      .breakdown-section, .timeline-section, .trust-section { padding-left: var(--sp-3); padding-right: var(--sp-3); }
+      .hero--yd          { padding-left: var(--sp-3); padding-right: var(--sp-3); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .overview-card, .timeline-step { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<svg style="display:none">
+  <symbol id="wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+</svg>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    Bazi Wealth Path
+    <small>by djnordhawk</small>
+  </a>
+  <div class="nav-links">
+    <a href="filosofi.html">Filosofi</a>
+    <a href="pendekatan.html">Pendekatan</a>
+    <a href="artikel.html">Artikel</a>
+    <a href="yang-anda-dapatkan.html" class="active">Layanan</a>
+    <a href="faq.html">FAQ</a>
+    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+konsultasi+Bazi+Wealth+Path." class="btn-nav">
+      <svg><use href="#wa"/></svg> <span class="btn-nav-text">Konsultasi</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero--yd">
+  <div class="hero-glow--yd"></div>
+  <span class="hero-zh--yd">會</span>
+  <div class="hero-content--yd">
+    <p class="hero-eyebrow anim-fade-up anim-delay-1">Wealth Path Bazi Session · 90 Menit</p>
+    <h1 class="hero-h1 anim-fade-up anim-delay-2">Apa yang sebenarnya Anda <em>dapatkan</em> dari sesi ini?</h1>
+    <div class="hero-hr anim-fade-up anim-delay-3"></div>
+    <p class="hero-sub anim-fade-up anim-delay-3" style="margin:0 auto;">
+      Bukan ramalan, bukan sekadar pembacaan karakter. Halaman ini menjelaskan secara konkret apa yang terjadi sebelum, selama, dan setelah 90 menit bersama saya — termasuk bentuk laporan tertulis yang akan Anda terima.
+    </p>
+  </div>
+</section>
+
+<!-- OVERVIEW: 3 PHASE STRIP -->
+<section class="overview-section">
+  <div class="overview-inner">
+    <div class="overview-header">
+      <span class="section-eyebrow">Gambaran Umum</span>
+      <h2 class="section-h2">Tiga fase, satu <em>alur yang jelas.</em></h2>
+      <div class="section-hr"></div>
+    </div>
+    <div class="overview-grid">
+
+      <div class="overview-card">
+        <div class="overview-zh">前</div>
+        <div class="overview-num">Sebelum Sesi</div>
+        <div class="overview-title">Persiapan &amp; Pemetaan Awal</div>
+        <div class="overview-body">Anda mengisi formulir data kelahiran dan menjawab beberapa pertanyaan singkat tentang situasi bisnis Anda. Ini memastikan 90 menit diskusi bisa langsung ke inti masalah.</div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-zh">中</div>
+        <div class="overview-num">Selama Sesi</div>
+        <div class="overview-title">Diskusi 1-on-1 via Zoom</div>
+        <div class="overview-body">Kita memetakan pola keputusan, mengidentifikasi area potensi wealth, dan membahas timing — selalu dikaitkan dengan situasi nyata yang sedang Anda hadapi. Tidak ada template.</div>
+      </div>
+
+      <div class="overview-card">
+        <div class="overview-zh">後</div>
+        <div class="overview-num">Setelah Sesi</div>
+        <div class="overview-title">Ringkasan Rekomendasi Tertulis</div>
+        <div class="overview-body">Dalam 3–5 hari kerja, Anda menerima dokumen ringkasan: poin-poin kunci dari diskusi, peta kuartal kerawanan, dan langkah remedy yang bisa langsung dijalankan.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="deliverables-section">
+  <div class="deliverables-inner">
+    <div class="deliverables-header">
+      <span class="section-eyebrow">Yang Anda Terima</span>
+      <h2 class="section-h2">Output <em>konkret</em> setelah sesi selesai.</h2>
+      <div class="section-hr"></div>
+    </div>
+    <div class="deliverables-grid">
+
+      <div class="deliv-card">
+        <div class="deliv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <div>
+          <div class="deliv-title">Ringkasan Rekomendasi Tertulis</div>
+          <div class="deliv-body">Dokumen ringkas berisi 2–3 langkah remedy konkret, peta kuartal kerawanan tahun berjalan, dan area potensi wealth yang bisa langsung dieksekusi. Dikirim dalam 3–5 hari kerja.</div>
+        </div>
+      </div>
+
+      <div class="deliv-card">
+        <div class="deliv-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <div class="deliv-title">Rekaman Sesi 90 Menit</div>
+          <div class="deliv-body">Rekaman lengkap sesi via Zoom dikirim dalam 24 jam setelah sesi selesai. Anda bisa memutar ulang setiap bagian diskusi kapan pun dibutuhkan.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BREAKDOWN: What's inside the report -->
+<section class="breakdown-section">
+  <div class="breakdown-inner">
+    <div class="breakdown-header">
+      <span class="section-eyebrow">Isi Laporan Tertulis</span>
+      <h2 class="section-h2">Apa yang <em>ada di dalam</em> dokumen ringkasan?</h2>
+      <div class="section-hr"></div>
+    </div>
+    <div class="breakdown-grid">
+      <div>
+        <div class="breakdown-col-head">Isi Laporan</div>
+        <div class="breakdown-item">
+          <div class="bi-dot"></div>
+          <div class="bi-text"><strong>Peta Pilar Personal</strong> — Ringkasan pilar kelahiran Anda beserta karakteristik dominan yang paling relevan dengan konteks bisnis.</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-dot"></div>
+          <div class="bi-text"><strong>Peta Kuartal Kerawanan</strong> — Bulan atau kuartal di tahun berjalan yang berisiko tinggi terhadap keputusan ekspansif atau pengeluaran besar.</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-dot"></div>
+          <div class="bi-text"><strong>Area Potensi Wealth</strong> — Tipe bisnis, kolaborasi, dan pendekatan yang paling selaras dengan pola pilar Anda untuk pertumbuhan yang stabil.</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-dot"></div>
+          <div class="bi-text"><strong>2–3 Langkah Remedy Konkret</strong> — Tindakan spesifik yang bisa langsung dijalankan untuk memitigasi risiko yang teridentifikasi selama sesi.</div>
+        </div>
+      </div>
+      <div>
+        <div class="breakdown-col-head">Yang Tidak Ada</div>
+        <div class="breakdown-item">
+          <div class="bi-dot bi-dot--muted"></div>
+          <div class="bi-text bi-text--muted">Prediksi nasib yang bersifat deterministik — tidak ada pernyataan "Anda akan rugi" atau "Anda pasti sukses".</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-dot bi-dot--muted"></div>
+          <div class="bi-text bi-text--muted">Ramalan yang meminta Anda menyerahkan keputusan sepenuhnya — kendali tetap ada di tangan Anda.</div>
+        </div>
+        <div class="breakdown-item">
+          <div class="bi-dot bi-dot--muted"></div>
+          <div class="bi-text bi-text--muted">Rekomendasi yang bertentangan dengan prinsip bisnis yang sudah terbukti — laporan ini melengkapi, bukan menggantikan, analisis rasional Anda.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE: How it works -->
+<section class="timeline-section">
+  <div class="timeline-inner">
+    <div class="timeline-header">
+      <span class="section-eyebrow">Proses</span>
+      <h2 class="section-h2">Dari data kelahiran menuju <em>langkah nyata.</em></h2>
+      <div class="section-hr"></div>
+    </div>
+    <div class="timeline-list">
+
+      <div class="timeline-step">
+        <div class="timeline-num">01</div>
+        <div class="timeline-body">
+          <div class="timeline-badge">Percakapan Awal</div>
+          <div class="timeline-title">Ceritakan Situasi Anda</div>
+          <div class="timeline-desc">Anda menghubungi via WhatsApp dan menceritakan situasi bisnis atau keputusan yang sedang dihadapi. Tidak ada komitmen di tahap ini.</div>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-num">02</div>
+        <div class="timeline-body">
+          <div class="timeline-badge">Persiapan</div>
+          <div class="timeline-title">Isi Formulir &amp; Konfirmasi Jadwal</div>
+          <div class="timeline-desc">Anda mengisi data kelahiran (tanggal, jam, lokasi) dan deskripsi singkat situasi bisnis. Jadwal Zoom dikonfirmasi bersama.</div>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-num">03</div>
+        <div class="timeline-body">
+          <div class="timeline-badge">Analisis</div>
+          <div class="timeline-title">Pemetaan Chart Sebelum Sesi</div>
+          <div class="timeline-desc">Saya membaca chart kelahiran Anda dan menghubungkan pola dengan konteks bisnis yang diceritakan sebelumnya — sehingga diskusi bisa langsung ke inti.</div>
+        </div>
+      </div>
+
+      <div class="timeline-step featured">
+        <div class="timeline-num">04</div>
+        <div class="timeline-body">
+          <div class="timeline-badge">Sesi Konsultasi</div>
+          <div class="timeline-title">90 Menit 1-on-1 via Zoom</div>
+          <div class="timeline-desc">Diskusi mendalam tanpa template. Kita memetakan pola keputusan, mengidentifikasi timing, dan merancang langkah remedy bersama.</div>
+        </div>
+      </div>
+
+      <div class="timeline-step">
+        <div class="timeline-num">05</div>
+        <div class="timeline-body">
+          <div class="timeline-badge">Hasil</div>
+          <div class="timeline-title">Ringkasan Tertulis &amp; Rekaman</div>
+          <div class="timeline-desc">Dalam 3–5 hari kerja Anda menerima dokumen ringkasan. Rekaman sesi tersedia dalam 24 jam.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TRUST NUMBERS -->
+<section class="trust-section">
+  <div class="trust-inner">
+    <div class="trust-card">
+      <div class="trust-num">90'</div>
+      <div class="trust-label">Durasi sesi via Zoom</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-num">3–5</div>
+      <div class="trust-label">Hari kerja untuk laporan tertulis</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-num">1×</div>
+      <div class="trust-label">One-off — tanpa langganan</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-bg cta-bg--yd"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <span class="cta-zh">會</span>
+    <p class="cta-eyebrow">Mulai Percakapan</p>
+    <h2 class="cta-h2">Siap memahami pola di balik <em>keputusan bisnis Anda?</em></h2>
+    <div class="cta-hr"></div>
+    <p class="cta-body">Tidak ada komitmen di percakapan awal. Mari bicarakan situasi Anda terlebih dahulu.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Wealth+Path+Bazi+Session." class="btn-wa">
+        <svg><use href="#wa"/></svg> Mulai Percakapan via WhatsApp
+      </a>
+      <a href="faq.html" class="btn-ghost">Lihat FAQ</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <!-- Kolom 1: Brand & Tagline -->
+    <div>
+      <div class="footer-brand">
+        Bazi Wealth Path <span class="footer-sub-brand">by djnordhawk</span>
+      </div>
+      <p class="footer-tagline">
+        Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
+      </p>
+      <p class="footer-tag">Guide, Not Guru.</p>
+    </div>
+    
+    <!-- Kolom 2: Navigasi Halaman Utama -->
+    <div>
+      <p class="footer-label">Halaman</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="pendekatan.html">Pendekatan</a></li>
+        <li><a href="artikel.html">Artikel</a></li>
+        <li><a href="yang-anda-dapatkan.html" class="active">Layanan</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <!-- Kolom 3: Layanan Sub-halaman -->
+    <div>
+      <p class="footer-label">Layanan</p>
+      <ul class="footer-links">
+        <li><a href="yang-anda-dapatkan.html#services">Clarity &amp; Direction</a></li>
+        <li><a href="yang-anda-dapatkan.html#timeline">Wealth Path Session</a></li>
+      </ul>
+    </div>
+    
+    <!-- Kolom 4: Kontak & Dukungan -->
+    <div>
+      <p class="footer-label">Kontak</p>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/6282117175544">WhatsApp</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Footer Bottom Info -->
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Bazi Wealth Path by djnordhawk. All Rights Reserved.</span>
+    <span class="footer-guide">Guide, Not Guru.</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.overview-card, .timeline-step');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

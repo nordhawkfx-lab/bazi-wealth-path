@@ -1,2450 +1,603 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Konsultasi Bazi untuk Bisnis & Karir | Bazi Wealth Path by djnordhawk</title>
-  <meta name="description" content="Bazi Wealth Path — kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih. Bukan ramalan. Rekomendasi yang bisa dieksekusi.">
-
-  <!-- OG Meta Tags -->
-  <meta property="og:title" content="Konsultasi Bazi untuk Bisnis & Karir | Bazi Wealth Path by djnordhawk">
-  <meta property="og:description" content="Bukan ramalan. Kerangka analisis berbasis pola untuk memahami kecenderungan pengambilan keputusan dan periode yang lebih kondusif untuk langkah bisnis Anda.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="og-image.jpg">
-
-  <!-- Schema Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "djnordhawk",
-    "jobTitle": "Bazi Strategist & Wealth Consultant",
-    "url": "https://baziwealthpath.com",
-    "sameAs": ["https://wa.me/6282117175544"]
-  }
-  </script>
-
-  <!-- [OPT-1] Google Fonts with display=swap to prevent FOIT -->
-  <!-- Critical font preload for fastest LCP -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Bazi Wealth Path — kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih. Bukan ramalan. Rekomendasi yang bisa dieksekusi." />
+  <meta property="og:title" content="Konsultasi Bazi untuk Bisnis & Karir | Bazi Wealth Path by djnordhawk" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="bazi.css" />
 
   <style>
-    /* ================================================================
-       BAZI WEALTH PATH — QUIET AUTHORITY
-       Design System v1.0 | Wu Xing Color System + Warm Editorial
-    ================================================================ */
-
-    /* ---- DESIGN TOKENS (WU XING SYSTEM) -------------------------- */
-    :root {
-      /* Water — Depth & Wisdom */
-      --ink-deep:      #0A0F1A;
-      --ink-mid:       #111827;
-      --ink-surface:   #162032;
-      --ink-raised:    #1C2D45;
-      --ink-border:    rgba(212, 175, 55, 0.14);
-      --ink-muted:     rgba(245, 232, 199, 0.38);
-
-      /* Metal — Precision & Prestige */
-      --gold:          #D4AF37;
-      --gold-light:    #F5E8C7;
-      --gold-dim:      rgba(212, 175, 55, 0.10);
-      --gold-border:   rgba(212, 175, 55, 0.28);
-      --gold-strong:   rgba(212, 175, 55, 0.50);
-
-      /* Wood — Growth & Exploration */
-      --teal:          #0D9488;
-      --teal-light:    #14B8A6;
-      --teal-dim:      rgba(13, 148, 136, 0.12);
-
-      /* Fire — Action & Conversion */
-      --coral:         #F97316;
-      --coral-hover:   #EA6C0A;
-      --coral-dim:     rgba(249, 115, 22, 0.12);
-
-      /* Earth — Grounding & Neutrality */
-      --cream-warm:    #FDF6E3;
-      --cream-mid:     #F0E8D0;
-
-      /* WA Green */
-      --wa-green:      #25D366;
-      --wa-hover:      #1DB954;
-
-      /* Typography */
-      --font-display:  'Bodoni Moda', Georgia, serif;
-      --font-reading:  'Jost', system-ui, sans-serif;
-      --font-ui:       'Jost', system-ui, sans-serif;
-
-      /* Type Scale (fluid) */
-      --t-display:  clamp(2.6rem, 6vw, 4.5rem);
-      --t-h1:       clamp(2.2rem, 5vw, 3.8rem);
-      --t-h2:       clamp(1.6rem, 3.5vw, 2.6rem);
-      --t-h3:       clamp(1.2rem, 2.2vw, 1.65rem);
-      --t-h4:       clamp(1rem, 1.8vw, 1.25rem);
-      --t-body:     clamp(1rem, 1.1vw, 1.125rem);
-      --t-sm:       0.9rem;
-      --t-xs:       0.78rem;
-
-      /* Spacing */
-      --sp-1:  0.25rem;
-      --sp-2:  0.5rem;
-      --sp-3:  0.75rem;
-      --sp-4:  1rem;
-      --sp-5:  1.25rem;
-      --sp-6:  1.5rem;
-      --sp-8:  2rem;
-      --sp-10: 2.5rem;
-      --sp-12: 3rem;
-      --sp-16: 4rem;
-      --sp-20: 5rem;
-      --sp-24: 6rem;
-      --section-y: clamp(4.5rem, 9vw, 8rem);
-      --section-x: clamp(1.25rem, 5vw, 4rem);
-
-      /* Layout */
-      --max-w:   1200px;
-      --prose-w: 680px;
-
-      /* Radius */
-      --r-xs: 3px;
-      --r-sm: 6px;
-      --r-md: 10px;
-      --r-lg: 16px;
-      --r-xl: 24px;
-
-      /* Shadows */
-      --shadow-card:    0 4px 24px rgba(0,0,0,0.38);
-      --shadow-gold:    0 0 0 1px rgba(212,175,55,0.22), 0 6px 32px rgba(0,0,0,0.45);
-      --shadow-wa:      0 8px 32px rgba(37,211,102,0.30);
-
-      /* Transitions */
-      --ease:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
-      --dur-fast:  160ms;
-      --dur-mid:   300ms;
-      --dur-slow:  480ms;
-    }
-
-    /* ---- RESET & BASE ------------------------------------------- */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: var(--font-reading);
-      background: var(--ink-deep);
-      color: var(--gold-light);
-      line-height: 1.78;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      /* [OPT-1] Faster text rendering, prevents layout shift during font load */
-      text-rendering: optimizeSpeed;
-      /* [OPT-4] Prevent accidental pull-to-refresh on mobile */
-      overscroll-behavior: none;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      overscroll-behavior: none;
-    }
-
-    img { max-width: 100%; display: block; }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* [OPT-2] Focus-visible rings — keyboard navigation accessible */
-    :focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-      border-radius: var(--r-xs);
-    }
-    /* Suppress mouse-click focus on links/buttons (only keyboard) */
-    a:focus:not(:focus-visible),
-    button:focus:not(:focus-visible) {
-      outline: none;
-    }
-
-    /* ---- UTILITY CLASSES ----------------------------------------- */
-    .container {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 var(--section-x);
-    }
-
-    .eyebrow {
-      font-family: var(--font-ui);
-      font-size: var(--t-xs);
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--teal-light);
-      display: flex;
-      align-items: center;
-      gap: var(--sp-3);
-      margin-bottom: var(--sp-4);
-    }
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 22px;
-      height: 1px;
-      background: var(--teal);
-      flex-shrink: 0;
-    }
-
-    .divider-gold {
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      margin: var(--sp-6) 0;
-      opacity: 0.6;
-    }
-
-    /* ---- BUTTONS ------------------------------------------------- */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-ui);
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      border: none;
-      border-radius: var(--r-sm);
-      cursor: pointer;
-      text-decoration: none;
-      transition:
-        background var(--dur-fast) var(--ease),
-        border-color var(--dur-fast) var(--ease),
-        transform var(--dur-fast),
-        box-shadow var(--dur-mid);
-    }
-
-    .btn-wa {
-      background: var(--wa-green);
-      color: #fff;
-      padding: 14px 26px;
-    }
-    .btn-wa:hover {
-      background: var(--wa-hover);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-wa);
-    }
-    .btn-wa:active { transform: translateY(0); }
-
-    .btn-gold-outline {
-      background: transparent;
-      color: var(--gold-light);
-      border: 0.5px solid var(--gold-border);
-      padding: 12px 22px;
-    }
-    .btn-gold-outline:hover {
-      background: var(--gold-dim);
-      border-color: var(--gold);
-    }
-
-    .btn-coral {
-      background: var(--coral);
-      color: #fff;
-      padding: 13px 24px;
-    }
-    .btn-coral:hover {
-      background: var(--coral-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 28px rgba(249,115,22,0.38);
-    }
-    .btn-coral:active { transform: translateY(0); }
-
-    .btn-arrow-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform var(--dur-fast);
-    }
-    .btn:hover .btn-arrow-icon { transform: translateX(3px); }
-
-    /* WA Icon SVG inline */
-    .wa-icon {
-      width: 18px;
-      height: 18px;
-      fill: #fff;
-      flex-shrink: 0;
-    }
-
-    /* ---- BADGES -------------------------------------------------- */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 11px;
-      border-radius: 20px;
-    }
-    .badge-gold {
-      background: var(--gold-dim);
-      color: var(--gold);
-      border: 0.5px solid var(--gold-border);
-    }
-    .badge-teal {
-      background: var(--teal-dim);
-      color: var(--teal-light);
-      border: 0.5px solid rgba(20,184,166,0.22);
-    }
-    .badge-muted {
-      background: rgba(255,255,255,0.05);
-      color: var(--ink-muted);
-      border: 0.5px solid rgba(255,255,255,0.09);
-    }
-
-    /* ---- MICRO-COPY --------------------------------------------- */
-    .micro-copy {
-      font-family: var(--font-reading);
-      font-size: var(--t-xs);
-      color: var(--ink-muted);
-      font-style: italic;
-      line-height: 1.6;
-    }
-
-    /* ================================================================
-       NAVBAR
-    ================================================================ */
-    .navbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: var(--sp-4) var(--section-x);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: background var(--dur-mid), border-color var(--dur-mid);
-    }
-    /* [OPT-9] Enhanced glassmorphism navbar when scrolled */
-    .navbar.scrolled {
-      background: rgba(10, 15, 26, 0.88);
-      backdrop-filter: blur(20px) saturate(1.4);
-      -webkit-backdrop-filter: blur(20px) saturate(1.4);
-      border-bottom: 0.5px solid rgba(212, 175, 55, 0.18);
-      box-shadow: 0 1px 20px rgba(0,0,0,0.35);
-    }
-
-    /* [OPT-7] Active section nav indicator */
-    .navbar-section-label {
-      font-family: var(--font-ui);
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--teal-light);
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity var(--dur-mid) var(--ease), transform var(--dur-mid) var(--ease);
-      white-space: nowrap;
-    }
-    .navbar-section-label.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .navbar-logo {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--gold-light);
-      letter-spacing: 0.01em;
-      line-height: 1.2;
-    }
-    .navbar-logo span {
-      display: block;
-      font-family: var(--font-ui);
-      font-size: 0.62rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-      margin-top: 1px;
-    }
-
-    /* ================================================================
-       HERO SECTION
-    ================================================================ */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 100px var(--section-x) var(--section-y);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Subtle atmospheric glow — tidak berlebihan */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -180px; right: -120px;
-      width: 560px; height: 560px;
-      background: radial-gradient(circle, rgba(13,148,136,0.055) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: 20%;
-      width: 420px; height: 420px;
-      background: radial-gradient(circle, rgba(212,175,55,0.04) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: var(--sp-16);
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-content {}
-
-    .hero-headline {
-      font-family: var(--font-display);
-      font-size: var(--t-h1);
-      font-weight: 600;
-      color: var(--gold-light);
-      line-height: 1.1;
-      letter-spacing: -0.025em;
-      margin-bottom: var(--sp-4);
-    }
-    .hero-headline em {
-      font-style: italic;
-      font-weight: 400;
-      color: var(--gold);
-    }
-
-    .hero-subhead {
-      font-family: var(--font-display);
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--ink-muted);
-      margin-bottom: var(--sp-6);
-    }
-
-    .hero-body {
-      font-family: var(--font-reading);
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.62);
-      line-height: 1.82;
-      max-width: 520px;
-      margin-bottom: var(--sp-8);
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-4);
-      flex-wrap: wrap;
-      margin-bottom: var(--sp-5);
-    }
-
-    /* Small portrait card for djnordhawk */
-    .strategist-card {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-3);
-      margin-top: var(--sp-6);
-    }
-    .strategist-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold-border);
-      overflow: hidden;
-      flex-shrink: 0;
-      background: var(--ink-surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .strategist-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .strategist-avatar-initials {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--gold);
-    }
-    .strategist-info {
-      line-height: 1.3;
-    }
-    .strategist-name {
-      font-family: var(--font-display);
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--gold-light);
-    }
-    .strategist-title {
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
-    /* Bazi chart graphic (right side) */
-    .hero-visual {
-      position: relative;
-    }
-
-    .bazi-chart {
-      width: 100%;
-      aspect-ratio: 1;
-      max-width: 380px;
-      margin-left: auto;
-    }
-
-    /* ---- BAZI CHART ANIMATIONS ----------------------------------- */
-
-    /* Outer octagon: slow clockwise rotation */
-    .bazi-ring-outer {
-      transform-origin: 190px 190px;
-      animation: rotateSlowCW 60s linear infinite;
-    }
-
-    /* Inner octagon: counter-clockwise, slightly faster */
-    .bazi-ring-inner {
-      transform-origin: 190px 190px;
-      animation: rotateSlowCCW 40s linear infinite;
-    }
-
-    /* Cross lines: very slow pulse opacity */
-    .bazi-cross {
-      animation: breatheOpacity 8s ease-in-out infinite;
-    }
-
-    /* Pillars: gentle float up-down + subtle scale breath, each offset */
-    .bazi-pillar-1 {
-      animation:
-        floatY  6s ease-in-out 0s    infinite,
-        scaleBreath 5s ease-in-out 0s    infinite;
-      transform-origin: 80px 174px;
-    }
-    .bazi-pillar-2 {
-      animation:
-        floatY  6s ease-in-out 1.2s  infinite,
-        scaleBreath 5s ease-in-out 0.8s  infinite;
-      transform-origin: 150px 174px;
-    }
-    .bazi-pillar-3 {
-      animation:
-        floatY  6s ease-in-out 2.4s  infinite,
-        scaleBreathDay 4.5s ease-in-out 0.3s  infinite;
-      transform-origin: 223px 169px;
-    }
-    .bazi-pillar-4 {
-      animation:
-        floatY  6s ease-in-out 3.6s  infinite,
-        scaleBreath 5s ease-in-out 1.6s  infinite;
-      transform-origin: 294px 174px;
-    }
-
-    /* Branch row: subtle float slightly different phase */
-    .bazi-branch-row {
-      animation: floatY 7s ease-in-out 0.6s infinite;
-    }
-
-    /* Center dot: breathing pulse */
-    .bazi-center-dot { animation: pulseDot 3s ease-in-out infinite; }
-    .bazi-center-ring { animation: pulseRingExpand 3s ease-in-out infinite; }
-
-    /* Ambient glow: breathing */
-    .bazi-glow { animation: breatheOpacity 5s ease-in-out infinite; }
-
-    /* Orbiting particle dots (4 particles) */
-    .bazi-orbit-group {
-      transform-origin: 190px 190px;
-      animation: rotateSlowCW 18s linear infinite;
-    }
-    .bazi-orbit-group-2 {
-      transform-origin: 190px 190px;
-      animation: rotateSlowCCW 26s linear infinite;
-    }
-
-    /* Decorative arc: draw-in animation */
-    .bazi-arc { animation: dashDraw 4s ease-out forwards, breatheOpacity 6s 4s ease-in-out infinite; }
-
-    /* Shimmer on day pillar (self element — most important) */
-    .bazi-day-pillar { animation: shimmerGold 4s ease-in-out infinite; }
-
-    /* ---- KEYFRAMES ----------------------------------------------- */
-    @keyframes rotateSlowCW {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-    @keyframes rotateSlowCCW {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(-360deg); }
-    }
-    @keyframes floatY {
-      0%, 100% { transform: translateY(0); }
-      50%       { transform: translateY(-5px); }
-    }
-    @keyframes breatheOpacity {
-      0%, 100% { opacity: 0.6; }
-      50%       { opacity: 1; }
-    }
-    @keyframes pulseDot {
-      0%, 100% { r: 4; opacity: 0.55; }
-      50%       { r: 5.5; opacity: 0.9; }
-    }
-    @keyframes pulseRingExpand {
-      0%, 100% { r: 8;  opacity: 0.22; }
-      50%       { r: 13; opacity: 0.06; }
-    }
-    @keyframes shimmerGold {
-      0%, 100% { fill: rgba(212,175,55,0.14); }
-      50%       { fill: rgba(212,175,55,0.24); }
-    }
-    @keyframes dashDraw {
-      from { stroke-dashoffset: 300; }
-      to   { stroke-dashoffset: 0; }
-    }
-    /* Scale: regular pillars breathe very subtly */
-    @keyframes scaleBreath {
-      0%, 100% { transform: scale(1); }
-      50%       { transform: scale(1.04); }
-    }
-    /* Scale: Day pillar (自) breathes slightly larger — it is the self element */
-    @keyframes scaleBreathDay {
-      0%, 100% { transform: scale(1); }
-      50%       { transform: scale(1.07); }
-    }
-
-    /* Accessibility: respect reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .bazi-ring-outer,
-      .bazi-ring-inner,
-      .bazi-cross,
-      .bazi-pillar-1, .bazi-pillar-2, .bazi-pillar-3, .bazi-pillar-4,
-      .bazi-branch-row,
-      .bazi-center-dot, .bazi-center-ring,
-      .bazi-glow,
-      .bazi-orbit-group, .bazi-orbit-group-2,
-      .bazi-arc,
-      .bazi-day-pillar {
-        animation: none !important;
-        transform: none !important;
-      }
-    }
-
-    /* ================================================================
-       SECTION — PROBLEM / EMPATHY
-    ================================================================ */
-    .section-problem {
-      padding: var(--section-y) var(--section-x);
-      background: var(--ink-mid);
-      position: relative;
-    }
-
-    .section-problem::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 0.5px;
-      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
-    }
-    .section-problem::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 0.5px;
-      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
-    }
-
-    .problem-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 5fr 7fr;
-      gap: clamp(2rem, 5vw, 5rem);
-      align-items: start;
-    }
-
-    .problem-header {
-      position: sticky;
-      top: 100px;
-    }
-
-    .problem-title {
-      font-family: var(--font-display);
-      font-size: var(--t-h2);
-      font-weight: 500;
-      color: var(--gold-light);
-      line-height: 1.2;
-      margin-bottom: var(--sp-6);
-    }
-
-    .bridge-text {
-      font-family: var(--font-reading);
-      font-style: italic;
-      font-size: var(--t-sm);
-      color: var(--ink-muted);
-      line-height: 1.75;
-      border-left: 2px solid var(--gold-border);
-      padding-left: var(--sp-4);
-      margin-top: var(--sp-8);
-    }
-
-    .pain-cards {
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-4);
-    }
-
-    .pain-card {
-      background: rgba(255,255,255,0.024);
-      border: 0.5px solid rgba(255,255,255,0.06);
-      border-left: 2px solid var(--teal);
-      border-radius: 0 var(--r-md) var(--r-md) 0;
-      padding: var(--sp-5) var(--sp-6);
-      transition: border-color var(--dur-mid) var(--ease), background var(--dur-mid);
-    }
-    .pain-card:hover {
-      background: rgba(255,255,255,0.04);
-      border-left-color: var(--gold);
-    }
-
-    .pain-num {
-      font-family: var(--font-ui);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--teal-light);
-      margin-bottom: var(--sp-2);
-      opacity: 0.8;
-    }
-
-    .pain-text {
-      font-family: var(--font-reading);
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.82);
-      line-height: 1.72;
-    }
-
-    /* ================================================================
-       SECTION — HOW I HELP
-    ================================================================ */
-    .section-how {
-      padding: var(--section-y) var(--section-x);
-    }
-
-    .how-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .how-title {
-      font-family: var(--font-display);
-      font-size: var(--t-h2);
-      font-weight: 500;
-      color: var(--gold-light);
-      line-height: 1.15;
-      max-width: 560px;
-      margin-bottom: var(--sp-12);
-    }
-    .how-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    /* Diferensiasi Pertama Block */
-    .diff-first {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(2rem, 5vw, 5rem);
-      align-items: start;
-      margin-bottom: var(--sp-16);
-    }
-
-    .diff-heading {
-      font-family: var(--font-display);
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 600;
-      color: var(--gold-light);
-      line-height: 1.2;
-      margin-bottom: var(--sp-4);
-    }
-
-    .diff-body {
-      font-family: var(--font-reading);
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.68);
-      line-height: 1.82;
-    }
-
-    /* Penjelasan Bazi */
-    .bazi-explanation {
-      max-width: 620px;
-      margin-bottom: var(--sp-16);
-      padding: var(--sp-8);
-      background: var(--ink-surface);
-      border: 0.5px solid var(--ink-border);
-      border-radius: var(--r-lg);
-    }
-
-    .bazi-explanation p {
-      font-family: var(--font-reading);
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.72);
-      line-height: 1.85;
-    }
-
-    /* Pendekatan Kami — Earth tone section */
-    .pendekatan-section {
-      background: var(--cream-warm);
-      border-radius: var(--r-lg);
-      padding: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: var(--sp-16);
-      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.15), inset 0 0 0 1.5px rgba(212, 175, 55, 0.15);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-    }
-
-    .pendekatan-section .eyebrow {
-      color: #5C6B37;
-    }
-    .pendekatan-section .eyebrow::before {
-      background: #5C6B37;
-    }
-
-    .pendekatan-title {
-      font-family: var(--font-display);
-      font-size: var(--t-h3);
-      font-weight: 500;
-      color: #1A1A1A;
-      margin-bottom: var(--sp-8);
-    }
-
-    .pendekatan-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-6);
-    }
-
-    .pendekatan-item {}
-
-    .pendekatan-label {
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #7B6015;
-      margin-bottom: var(--sp-3);
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-    }
-    .pendekatan-label svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    .pendekatan-text {
-      font-family: var(--font-reading);
-      font-size: 0.9rem;
-      color: #3A3A3A;
-      line-height: 1.72;
-    }
-
-    /* Diferensiasi Lanjutan */
-    .diff-extra {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-6);
-    }
-
-    .diff-extra-card {
-      padding: var(--sp-6) var(--sp-8);
-      background: var(--ink-surface);
-      border: 0.5px solid var(--ink-border);
-      border-radius: var(--r-lg);
-    }
-
-    .diff-extra-heading {
-      font-family: var(--font-display);
-      font-size: var(--t-h4);
-      font-weight: 500;
-      color: var(--gold-light);
-      margin-bottom: var(--sp-3);
-    }
-
-    .diff-extra-body {
-      font-family: var(--font-reading);
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.62);
-      line-height: 1.78;
-    }
-
-    /* ================================================================
-       SECTION — OFFERS
-    ================================================================ */
-    .section-offers {
-      padding: var(--section-y) var(--section-x);
-      background: var(--ink-mid);
-      position: relative;
-    }
-    .section-offers::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 0.5px;
-      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
-    }
-
-    .offers-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .offers-header {
-      margin-bottom: var(--sp-12);
-    }
-
-    .offers-title {
-      font-family: var(--font-display);
-      font-size: var(--t-h2);
-      font-weight: 500;
-      color: var(--gold-light);
-      margin-bottom: var(--sp-3);
-    }
-
-    .offers-subtitle {
-      font-family: var(--font-reading);
-      font-style: italic;
-      font-size: var(--t-sm);
-      color: var(--ink-muted);
-    }
-
-    /* Offers grid — asymmetric on desktop */
-    .offers-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr 1fr;
-      gap: var(--sp-5);
-      align-items: start;
-      margin-bottom: var(--sp-10);
-    }
-
-    /* BASE CARD */
-    .offer-card {
-      background: var(--ink-surface);
-      border: 0.5px solid var(--ink-border);
-      border-radius: var(--r-lg);
-      padding: var(--sp-8);
-      position: relative;
-      transition: border-color var(--dur-mid) var(--ease), transform var(--dur-mid);
-    }
-    .offer-card:hover {
-      border-color: var(--gold-border);
-      transform: translateY(-2px);
-    }
-
-    /* HERO CARD — Wealth Path Bazi Session */
-    .offer-card-hero {
-      border: 1.2px solid var(--gold);
-      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25), 0 12px 48px rgba(0, 0, 0, 0.55);
-    }
-    .offer-card-hero:hover {
-      border-color: var(--gold-light);
-      transform: translateY(-3px);
-      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.45), 0 16px 56px rgba(0, 0, 0, 0.7);
-    }
-
-    .offer-card-badge {
-      position: absolute;
-      top: -13px;
-      left: var(--sp-6);
-      z-index: 2;
-    }
-    .offer-card-badge .badge {
-      background: var(--ink-surface) !important;
-      border: 1px solid currentColor;
-    }
-
-    /* COMING SOON CARD */
-    .offer-card-coming {
-      opacity: 0.75;
-      border: 0.5px dashed rgba(212,175,55,0.22);
-      cursor: default;
-    }
-    .offer-card-coming::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: var(--r-lg);
-      background: repeating-linear-gradient(
-        -42deg,
-        rgba(255,255,255,0.012) 0px,
-        rgba(255,255,255,0.012) 1px,
-        transparent 1px,
-        transparent 14px
-      );
-      pointer-events: none;
-    }
-    .offer-card-coming:hover {
-      transform: none;
-      border-color: rgba(212,175,55,0.22);
-    }
-
-    .offer-card-name {
-      font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 500;
-      color: var(--gold-light);
-      line-height: 1.25;
-      margin-bottom: var(--sp-4);
-      margin-top: var(--sp-2);
-    }
-
-    .offer-card-desc {
-      font-family: var(--font-reading);
-      font-size: 0.88rem;
-      color: rgba(245, 232, 199, 0.65);
-      line-height: 1.78;
-      margin-bottom: var(--sp-5);
-    }
-
-    .offer-card-meta {
-      border-top: 0.5px solid rgba(255,255,255,0.06);
-      padding-top: var(--sp-4);
-      margin-bottom: var(--sp-5);
-    }
-
-    .offer-meta-item {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-2);
-      font-family: var(--font-ui);
-      font-size: 0.76rem;
-      font-weight: 400;
-      color: var(--ink-muted);
-      margin-bottom: var(--sp-2);
-    }
-    .offer-meta-item svg {
-      width: 13px;
-      height: 13px;
-      opacity: 0.6;
-      flex-shrink: 0;
-    }
-
-    /* Waitlist Form (Fortress card) */
-    .waitlist-form {
-      margin-top: var(--sp-5);
-    }
-    .waitlist-form label {
-      display: block;
-      font-family: var(--font-ui);
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: rgba(245, 232, 199, 0.55);
-      margin-bottom: var(--sp-2);
-      text-transform: uppercase;
-    }
-    .waitlist-form input {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 0.5px solid rgba(255,255,255,0.10);
-      border-radius: var(--r-sm);
-      padding: 10px 14px;
-      font-family: var(--font-ui);
-      font-size: 0.85rem;
-      color: var(--gold-light);
-      outline: none;
-      transition: border-color var(--dur-fast);
-      margin-bottom: var(--sp-3);
-    }
-    .waitlist-form input::placeholder { color: rgba(245,232,199,0.28); }
-    .waitlist-form input:focus { border-color: var(--teal); }
-    .waitlist-submit {
-      width: 100%;
-      background: transparent;
-      border: 0.5px solid var(--gold-border);
-      color: var(--gold-light);
-      padding: 10px 16px;
-      border-radius: var(--r-sm);
-      font-family: var(--font-ui);
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      transition: background var(--dur-fast), border-color var(--dur-fast);
-    }
-    .waitlist-submit:hover {
-      background: var(--gold-dim);
-      border-color: var(--gold);
-    }
-    .waitlist-success {
-      display: none;
-      font-family: var(--font-reading);
-      font-style: italic;
-      font-size: 0.82rem;
-      color: var(--teal-light);
-      margin-top: var(--sp-3);
-      line-height: 1.6;
-    }
-
-    /* Helper text below offers */
-    .offers-helper {
-      text-align: center;
-      padding: var(--sp-6);
-      border-top: 0.5px solid rgba(255,255,255,0.05);
-    }
-    .offers-helper p {
-      font-family: var(--font-reading);
-      font-style: italic;
-      font-size: 0.88rem;
-      color: var(--ink-muted);
-      margin-bottom: var(--sp-4);
-    }
-
-    /* ================================================================
-       SECTION — DELIVERABLES (WHAT YOU WILL GET)
-    ================================================================ */
-    .section-deliverables {
-      padding: var(--section-y) var(--section-x);
-    }
-
-    .deliverables-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .deliverables-title {
-      font-family: var(--font-display);
-      font-size: var(--t-h2);
-      font-weight: 500;
-      color: var(--gold-light);
-      margin-bottom: var(--sp-3);
-    }
-
-    .deliverables-subtitle {
-      font-family: var(--font-reading);
-      font-style: italic;
-      font-size: var(--t-sm);
-      color: var(--ink-muted);
-      margin-bottom: var(--sp-12);
-    }
-
-    .deliverables-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-6);
-      margin-bottom: var(--sp-10);
-    }
-
-    .deliverable-item {
-      padding: var(--sp-6);
-      border-top: 0.5px solid rgba(255,255,255,0.06);
-    }
-
-    .deliverable-icon-wrap {
-      width: 42px;
-      height: 42px;
-      background: var(--teal-dim);
-      border: 0.5px solid rgba(20,184,166,0.18);
-      border-radius: var(--r-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--sp-4);
-    }
-    .deliverable-icon-wrap svg {
-      width: 20px;
-      height: 20px;
-      stroke: var(--teal-light);
-      fill: none;
-    }
-
-    .deliverable-name {
-      font-family: var(--font-display);
-      font-size: var(--t-h4);
-      font-weight: 500;
-      color: var(--gold-light);
-      margin-bottom: var(--sp-2);
-    }
-
-    .deliverable-desc {
-      font-family: var(--font-reading);
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.6);
-      line-height: 1.78;
-    }
-
-    .privacy-note {
-      display: flex;
-      gap: var(--sp-4);
-      align-items: flex-start;
-      padding: var(--sp-5) var(--sp-6);
-      background: var(--ink-surface);
-      border: 0.5px solid var(--ink-border);
-      border-radius: var(--r-md);
-    }
-    .privacy-note svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      stroke: var(--gold);
-      fill: none;
-      margin-top: 3px;
-    }
-    .privacy-note p {
-      font-family: var(--font-reading);
-      font-style: italic;
-      font-size: 0.88rem;
-      color: rgba(245, 232, 199, 0.58);
-      line-height: 1.72;
-    }
-
-    /* ================================================================
-       SECTION — FINAL CTA
-    ================================================================ */
-    .section-cta {
-      padding: var(--section-y) var(--section-x);
-      background: var(--ink-mid);
-      position: relative;
-    }
-    .section-cta::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 0.5px;
-      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
-    }
-
-    .cta-inner {
-      max-width: 640px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .cta-title {
-      font-family: var(--font-display);
-      font-size: var(--t-h2);
-      font-weight: 500;
-      color: var(--gold-light);
-      line-height: 1.2;
-      margin-bottom: var(--sp-5);
-    }
-
-    .cta-body {
-      font-family: var(--font-reading);
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.65);
-      line-height: 1.82;
-      margin-bottom: var(--sp-8);
-    }
-
-    .cta-actions {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: var(--sp-4);
-    }
-
-    /* ================================================================
-       FOOTER
-    ================================================================ */
-    .footer {
-      padding: var(--sp-12) var(--section-x);
-      border-top: 0.5px solid var(--ink-border);
-    }
-
-    .footer-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--sp-4);
-    }
-
-    .footer-brand {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--gold-light);
-      margin-bottom: var(--sp-1);
-    }
-
-    .footer-tagline {
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-muted);
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-5);
-    }
-
-    .footer-link {
-      font-family: var(--font-ui);
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--ink-muted);
-      transition: color var(--dur-fast);
-    }
-    .footer-link:hover { color: var(--gold-light); }
-
-    .footer-copy {
-      width: 100%;
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      color: rgba(245,232,199,0.25);
-      margin-top: var(--sp-6);
-      padding-top: var(--sp-5);
-      border-top: 0.5px solid rgba(255,255,255,0.04);
-      text-align: center;
-      letter-spacing: 0.04em;
-    }
-
-    /* ================================================================
-       STICKY WHATSAPP BUTTON
-    ================================================================ */
-    .sticky-wa {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 200;
-      opacity: 0;
-      transform: translateY(12px);
-      pointer-events: none;
-      transition:
-        opacity var(--dur-slow) var(--ease),
-        transform var(--dur-slow) var(--ease-back);
-    }
-    .sticky-wa.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: all;
-    }
-
-    .sticky-wa-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: var(--wa-green);
-      box-shadow: 0 4px 24px rgba(37,211,102,0.35), 0 2px 8px rgba(0,0,0,0.4);
-      cursor: pointer;
-      transition: background var(--dur-fast), transform var(--dur-fast), box-shadow var(--dur-mid);
-      border: none;
-      text-decoration: none;
-    }
-    .sticky-wa-btn:hover {
-      background: var(--wa-hover);
-      transform: scale(1.07);
-      box-shadow: 0 6px 30px rgba(37,211,102,0.45), 0 2px 10px rgba(0,0,0,0.4);
-    }
-    .sticky-wa-btn svg {
-      width: 26px;
-      height: 26px;
-      fill: #fff;
-    }
-
-    /* Pulse ring */
-    .sticky-wa-pulse {
-      position: absolute;
-      inset: -5px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(37,211,102,0.4);
-      animation: pulse-ring 2.4s ease-out infinite;
-    }
-
-    @keyframes pulse-ring {
-      0%   { transform: scale(1); opacity: 0.6; }
-      70%  { transform: scale(1.35); opacity: 0; }
-      100% { transform: scale(1.35); opacity: 0; }
-    }
-
-    /* ================================================================
-       SCROLL REVEAL ANIMATIONS
-    ================================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition:
-        opacity var(--dur-slow) var(--ease),
-        transform var(--dur-slow) var(--ease);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Stagger delays for cards */
-    .reveal-d1 { transition-delay: 0ms; }
-    .reveal-d2 { transition-delay: 80ms; }
-    .reveal-d3 { transition-delay: 160ms; }
-    .reveal-d4 { transition-delay: 240ms; }
-
-    /* ================================================================
-       ACCESSIBILITY — Reduced Motion
-    ================================================================ */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-      .sticky-wa-pulse { animation: none; }
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    /* ================================================================
-       RESPONSIVE — MOBILE FIRST
-    ================================================================ */
-    @media (max-width: 1024px) {
-      .offers-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .offer-card-coming {
-        grid-column: 1 / -1;
-      }
-      .diff-first {
-        grid-template-columns: 1fr;
-      }
-      .pendekatan-grid {
-        grid-template-columns: 1fr;
-        gap: var(--sp-5);
-      }
-      .diff-extra {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: var(--sp-12);
-      }
-      .hero-visual {
-        display: none;
-      }
-      .problem-inner {
-        grid-template-columns: 1fr;
-      }
-      .problem-header {
-        position: static;
-      }
-      .offers-grid {
-        grid-template-columns: 1fr;
-      }
-      .deliverables-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-actions {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .sticky-wa {
-        bottom: 20px;
-        right: 18px;
-      }
-    }
-
-    /* [OPT-3] Touch target minimum 44×44px on mobile */
-    @media (max-width: 768px) {
-      .footer-link {
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-      }
-      .btn {
-        min-height: 44px;
-      }
-      .badge {
-        min-height: 32px;
-        padding: 6px 12px;
-      }
-    }
-
-    /* ================================================================
-       SECTION — BEFORE/AFTER TESTIMONIALS
-    ================================================================ */
-    .section-quotes {
-      padding: var(--section-y) var(--section-x);
-      background: var(--ink-deep);
-      position: relative;
-    }
-    .section-quotes::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 0.5px;
-      background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
-    }
-
-    .quotes-inner {
-      max-width: var(--max-w);
-      margin: 0 auto;
-    }
-
-    .quotes-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--sp-6);
-      margin-top: var(--sp-10);
-    }
-
-    .quote-card {
-      padding: var(--sp-6) var(--sp-8);
-      border: 0.5px solid var(--ink-border);
-      border-radius: var(--r-lg);
-      background: var(--ink-surface);
-      position: relative;
-      transition: border-color var(--dur-mid) var(--ease);
-    }
-    .quote-card:hover {
-      border-color: var(--gold-border);
-    }
-
-    .quote-mark {
-      font-family: var(--font-display);
-      font-size: 4rem;
-      line-height: 0.6;
-      color: var(--gold);
-      opacity: 0.18;
-      margin-bottom: var(--sp-4);
-      display: block;
-      user-select: none;
-    }
-
-    .quote-text {
-      font-family: var(--font-reading);
-      font-style: italic;
-      font-size: var(--t-sm);
-      color: rgba(245, 232, 199, 0.75);
-      line-height: 1.82;
-      margin-bottom: var(--sp-5);
-    }
-
-    .quote-meta {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-3);
-    }
-
-    .quote-dot {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--ink-raised);
-      border: 0.5px solid var(--gold-border);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-size: 0.7rem;
-      color: var(--gold);
-    }
-
-    .quote-desc {
-      font-family: var(--font-ui);
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.07em;
-      color: var(--ink-muted);
-      text-transform: uppercase;
-      line-height: 1.4;
-    }
-
-    /* [OPT-8] Skeleton loading animation for waitlist */
-    .waitlist-skeleton {
-      display: none;
-      flex-direction: column;
-      gap: var(--sp-3);
-      margin-top: var(--sp-5);
-    }
-    .waitlist-skeleton.show { display: flex; }
-    .skeleton-bar {
-      height: 14px;
-      border-radius: var(--r-sm);
-      background: linear-gradient(
-        90deg,
-        rgba(212,175,55,0.06) 0%,
-        rgba(212,175,55,0.14) 40%,
-        rgba(212,175,55,0.06) 100%
-      );
-      background-size: 200% 100%;
-      animation: skeletonShimmer 1.4s ease-in-out infinite;
-    }
-    .skeleton-bar:nth-child(2) { width: 70%; animation-delay: 0.15s; }
-    .skeleton-bar:nth-child(3) { width: 45%; animation-delay: 0.3s; }
-
-    @keyframes skeletonShimmer {
-      0%   { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    @media (max-width: 768px) {
-      .quotes-grid {
-        grid-template-columns: 1fr;
-      }
+    /* ── PAGE-SPECIFIC: Index ── */
+
+    /* About section background image */
+    #about {
+      position: relative; overflow: hidden;
+      padding: var(--sp-7) 2.5rem;
+    }
+    .about-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1536163713675-42cf53cbd4f5?w=1600&auto=format&q=75') center / cover no-repeat;
+      filter: grayscale(30%) brightness(0.35);
+    }
+    .about-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(10,30,28,.96) 0%, rgba(10,30,28,.80) 55%, rgba(10,30,28,.60) 100%);
+    }
+    .about-eyebrow { color: var(--text-dk-eyebrow); font-size: var(--font-micro); letter-spacing: .2em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .about-h2     { font-family: var(--ff-display); font-size: clamp(2rem,4vw,3rem); color: #fff; line-height: 1.15; margin-bottom: 1.5rem; font-weight: 400; }
+    .about-h2 em  { color: var(--gold-warm); font-style: italic; }
+
+    /* Approach section */
+    #approach {
+      position: relative; overflow: hidden;
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal);
+    }
+    .approach-bg-img {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=1400&auto=format&q=75') center / cover no-repeat;
+      opacity: .05;
+    }
+    .approach-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+    .approach-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .approach-do, .approach-dont { padding: 2rem; border: 1px solid var(--border-dk); }
+    .approach-do-label   { font-size: var(--font-micro); letter-spacing: .15em; text-transform: uppercase; color: var(--emerald-light); margin-bottom: 1rem; }
+    .approach-dont-label { font-size: var(--font-micro); letter-spacing: .15em; text-transform: uppercase; color: var(--text-dk-meta); margin-bottom: 1rem; }
+    .approach-do p, .approach-dont p { color: var(--text-dk-secondary); font-size: var(--font-prose); line-height: var(--line-prose); }
+
+    /* Compact layer rows for index (different from pendekatan full rows) */
+    .layers { display: flex; flex-direction: column; gap: 1px; margin-bottom: 2rem; }
+    .layer {
+      display: grid; grid-template-columns: 80px 1fr;
+      border: 1px solid var(--border-dk);
+      transition: border-color 0.25s;
+    }
+    .layer:hover { border-color: var(--border-gold); }
+    .layer-num {
+      background: rgba(184,134,11,.04); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; padding: 1.2rem .5rem;
+      border-right: 1px solid var(--border-dk);
+    }
+    .layer-num-zh { font-family: var(--ff-display); font-size: 1.4rem; color: var(--gold-warm); opacity: .5; }
+    .layer-num-en { font-size: .60rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dk-meta); margin-top: .3rem; }
+    .layer-body   { padding: 1.2rem 1.5rem; }
+    .layer-body .layer-title { font-size: clamp(.82rem,.75vw + .3rem,.92rem); font-weight: 500; color: var(--text-dk-primary); margin-bottom: .3rem; }
+    .layer-body .layer-desc  { font-size: clamp(.82rem,.75vw + .3rem,.9rem); color: var(--text-dk-secondary); line-height: 1.65; }
+    .layer.star  { border-color: var(--border-gold); }
+    .layer.star .layer-num { background: rgba(184,134,11,.08); }
+    .layer.star .layer-num-zh { opacity: 1; }
+    .layer-star-badge { font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-warm); margin-bottom: .3rem; }
+
+    /* Services (light bg) */
+    #services { padding: var(--sp-7) 2.5rem; background: var(--cream); position: relative; overflow: hidden; }
+    .services-bg-char {
+      position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+      font-family: var(--ff-display); font-size: 32rem; color: rgba(12,60,45,.04);
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .services-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+    .services-header { margin-bottom: 3rem; }
+    /* Override for light-zone services */
+    #services .section-eyebrow { color: var(--emerald); }
+    #services .section-h2 { color: var(--text-lt-primary); }
+    #services .section-h2 em { color: var(--emerald); }
+    #services .service-card { background: #fff; border-color: #e0dcd4; }
+    #services .service-h3 { color: var(--text-lt-primary); }
+    #services .service-body { color: var(--text-lt-secondary); }
+
+    /* Process (dark bg) */
+    #process { padding: var(--sp-7) 2.5rem; background: var(--charcoal); }
+    .process-step { border-top: 1px solid var(--border-dk); padding-top: 1.5rem; }
+
+    /* Testimonials (light bg) */
+    #testimonials { padding: var(--sp-7) 2.5rem; background: var(--cream); position: relative; overflow: hidden; }
+    .testi-bg-char {
+      position: absolute; left: -40px; top: 50%; transform: translateY(-50%);
+      font-family: var(--ff-display); font-size: 32rem; color: rgba(12,60,45,.03);
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    #testimonials .section-eyebrow { color: var(--emerald); }
+    #testimonials .section-h2 { color: var(--text-lt-primary); }
+    #testimonials .section-h2 em { color: var(--emerald); }
+    #testimonials .testi-card { background: #fff; border-color: #e0dbd2; }
+    #testimonials .testi-body { font-style: italic; }
+
+    /* Insights (dark bg) */
+    #insights { padding: var(--sp-7) 2.5rem; background: var(--charcoal); }
+
+    /* CTA */
+    #cta { padding: var(--sp-8) 2.5rem; text-align: center; position: relative; overflow: hidden; background: var(--charcoal-d); }
+    #cta .cta-bg { background-image: url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1600&auto=format&q=80'); }
+
+    @media (max-width: 900px) {
+      .approach-cols { grid-template-columns: 1fr; }
+      #about { padding: 70px 1.5rem; }
+      #approach, #process, #insights { padding: 70px 1.5rem; }
+      #services, #testimonials { padding: 70px 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ================================================================
-       NAVBAR
-  ================================================================ -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar-logo">
-      Bazi Wealth Path
-      <span>by djnordhawk</span>
-    </div>
-    <!-- [OPT-7] Active section indicator -->
-    <span class="navbar-section-label" id="navbar-section-label" aria-live="polite"></span>
-    <a
-      href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F"
-      target="_blank"
-      rel="noopener"
-      class="btn btn-gold-outline"
-      id="nav-cta-btn"
-    >
-      Mulai Konsultasi
-    </a>
-  </nav>
+<!-- Hidden WA SVG sprite -->
+<svg style="display:none">
+  <symbol id="wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+</svg>
 
-  <!-- ================================================================
-       HERO SECTION
-  ================================================================ -->
-  <section class="hero" id="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="eyebrow">Bazi Wealth Path</div>
-
-        <h1 class="hero-headline">
-          Bisnis Anda tidak stagnan<br>karena <em>kurang kerja keras.</em>
-        </h1>
-
-        <p class="hero-subhead">Mungkin ada variabel yang belum pernah Anda hitung.</p>
-
-        <p class="hero-body">
-          Bazi adalah kerangka analisis berbasis pola yang dikembangkan selama berabad-abad. Cara kerjanya mirip pemanfaatan data historis dalam perencanaan bisnis strategis — bukan untuk meramal masa depan, melainkan untuk memperjelas kecenderungan pengambilan keputusan, area potensi wealth yang belum teroptimalkan, dan periode yang lebih kondusif untuk langkah tertentu.
-        </p>
-
-        <div class="hero-actions">
-          <a
-            href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-wa"
-            id="hero-cta-btn"
-          >
-            <!-- WA Icon SVG -->
-            <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Mulai Konsultasi via WhatsApp
-            <span class="btn-arrow-icon">→</span>
-          </a>
-          <a href="#how-i-help" class="btn btn-gold-outline">Pelajari Pendekatan Kami</a>
-        </div>
-
-        <p class="micro-copy">Tidak ada komitmen di awal. Cukup mulai dari percakapan.</p>
-
-        <!-- Small portrait: djnordhawk -->
-        <div class="strategist-card">
-          <div class="strategist-avatar">
-            <!-- Replace src with actual photo if available -->
-            <span class="strategist-avatar-initials">Dj</span>
-          </div>
-          <div class="strategist-info">
-            <div class="strategist-name">djnordhawk</div>
-            <div class="strategist-title">Founder & Bazi Strategist</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: Abstract Bazi Chart Graphic — ANIMATED -->
-      <div class="hero-visual" aria-hidden="true">
-        <svg class="bazi-chart" viewBox="0 0 380 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="38" height="38" patternUnits="userSpaceOnUse">
-              <path d="M 38 0 L 0 0 0 38" fill="none" stroke="rgba(212,175,55,0.055)" stroke-width="0.5"/>
-            </pattern>
-            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(13,148,136,0.14)"/>
-              <stop offset="100%" stop-color="transparent"/>
-            </radialGradient>
-            <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="rgba(212,175,55,0.10)"/>
-              <stop offset="100%" stop-color="transparent"/>
-            </radialGradient>
-            <filter id="softGlow">
-              <feGaussianBlur stdDeviation="2.5" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-
-          <!-- Grid background -->
-          <rect width="380" height="380" fill="url(#grid)"/>
-
-          <!-- Ambient glow — breathing -->
-          <circle class="bazi-glow" cx="190" cy="190" r="190" fill="url(#glow)"/>
-          <circle cx="190" cy="190" r="130" fill="url(#glowGold)" opacity="0.5"/>
-
-          <!-- Outer octagon ring — slow rotate CW -->
-          <polygon
-            class="bazi-ring-outer"
-            points="190,28 314,78 362,202 312,326 188,372 64,322 18,198 68,74"
-            fill="none"
-            stroke="rgba(212,175,55,0.16)"
-            stroke-width="0.8"
-            stroke-dasharray="6 4"
-          />
-
-          <!-- Inner octagon — rotate CCW -->
-          <polygon
-            class="bazi-ring-inner"
-            points="190,75 274,112 305,196 272,280 188,317 104,280 73,196 106,112"
-            fill="none"
-            stroke="rgba(212,175,55,0.24)"
-            stroke-width="0.8"
-          />
-
-          <!-- Cross lines — breathe -->
-          <g class="bazi-cross">
-            <line x1="190" y1="28" x2="190" y2="372" stroke="rgba(212,175,55,0.07)" stroke-width="0.6"/>
-            <line x1="18" y1="198" x2="362" y2="198" stroke="rgba(212,175,55,0.07)" stroke-width="0.6"/>
-            <line x1="68" y1="74" x2="312" y2="322" stroke="rgba(212,175,55,0.05)" stroke-width="0.6"/>
-            <line x1="314" y1="74" x2="66" y2="322" stroke="rgba(212,175,55,0.05)" stroke-width="0.6"/>
-          </g>
-
-          <!-- ── Orbiting particles (outer orbit) ──────────────────── -->
-          <g class="bazi-orbit-group">
-            <!-- 4 equidistant dots at r=155 from center (190,190) -->
-            <circle cx="190" cy="35"  r="2.5" fill="rgba(212,175,55,0.5)" filter="url(#softGlow)"/>
-            <circle cx="345" cy="190" r="2"   fill="rgba(13,148,136,0.55)" filter="url(#softGlow)"/>
-            <circle cx="190" cy="345" r="2.5" fill="rgba(212,175,55,0.35)"/>
-            <circle cx="35"  cy="190" r="2"   fill="rgba(13,148,136,0.40)"/>
-          </g>
-
-          <!-- ── Inner orbit particles (CCW) ────────────────────────── -->
-          <g class="bazi-orbit-group-2">
-            <!-- at r=95, 45° offset -->
-            <circle cx="257" cy="123" r="2" fill="rgba(249,115,22,0.40)" filter="url(#softGlow)"/>
-            <circle cx="257" cy="257" r="1.5" fill="rgba(212,175,55,0.30)"/>
-            <circle cx="123" cy="257" r="2" fill="rgba(13,148,136,0.40)" filter="url(#softGlow)"/>
-            <circle cx="123" cy="123" r="1.5" fill="rgba(212,175,55,0.30)"/>
-          </g>
-
-          <!-- ── Four Pillars (Ba Zi) — ANIMATED FLOAT ──────────────── -->
-
-          <!-- Pillar 1 — 年 Year (Teal) -->
-          <g class="bazi-pillar-1">
-            <rect x="54" y="138" width="52" height="72" rx="5" fill="rgba(13,148,136,0.10)" stroke="rgba(13,148,136,0.32)" stroke-width="0.8"/>
-            <text x="80" y="163" text-anchor="middle" fill="rgba(20,184,166,0.85)" font-family="serif" font-size="15" font-weight="500">年</text>
-            <text x="80" y="196" text-anchor="middle" fill="rgba(245,232,199,0.38)" font-family="serif" font-size="11">壬</text>
-          </g>
-
-          <!-- Pillar 2 — 月 Month (Gold) -->
-          <g class="bazi-pillar-2">
-            <rect x="124" y="138" width="52" height="72" rx="5" fill="rgba(212,175,55,0.08)" stroke="rgba(212,175,55,0.28)" stroke-width="0.8"/>
-            <text x="150" y="163" text-anchor="middle" fill="rgba(212,175,55,0.88)" font-family="serif" font-size="15" font-weight="500">月</text>
-            <text x="150" y="196" text-anchor="middle" fill="rgba(245,232,199,0.38)" font-family="serif" font-size="11">甲</text>
-          </g>
-
-          <!-- Pillar 3 — 日 Day (Self — brightest, SHIMMER) -->
-          <g class="bazi-pillar-3">
-            <rect class="bazi-day-pillar" x="194" y="128" width="58" height="82" rx="5" stroke="rgba(212,175,55,0.55)" stroke-width="1.2" filter="url(#softGlow)"/>
-            <text x="223" y="158" text-anchor="middle" fill="rgba(212,175,55,1)" font-family="serif" font-size="17" font-weight="600">日</text>
-            <text x="223" y="196" text-anchor="middle" fill="rgba(245,232,199,0.60)" font-family="serif" font-size="12">戊</text>
-          </g>
-
-          <!-- Pillar 4 — 时 Hour (Coral) -->
-          <g class="bazi-pillar-4">
-            <rect x="268" y="138" width="52" height="72" rx="5" fill="rgba(249,115,22,0.08)" stroke="rgba(249,115,22,0.26)" stroke-width="0.8"/>
-            <text x="294" y="163" text-anchor="middle" fill="rgba(249,115,22,0.85)" font-family="serif" font-size="15" font-weight="500">时</text>
-            <text x="294" y="196" text-anchor="middle" fill="rgba(245,232,199,0.38)" font-family="serif" font-size="11">丙</text>
-          </g>
-
-          <!-- ── Earthly Branches row — floats as group ──────────────── -->
-          <g class="bazi-branch-row">
-            <rect x="54"  y="222" width="52" height="44" rx="4" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
-            <text x="80"  y="250" text-anchor="middle" fill="rgba(245,232,199,0.38)" font-family="serif" font-size="13">子</text>
-
-            <rect x="124" y="222" width="52" height="44" rx="4" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
-            <text x="150" y="250" text-anchor="middle" fill="rgba(245,232,199,0.38)" font-family="serif" font-size="13">寅</text>
-
-            <rect x="194" y="222" width="58" height="44" rx="4" fill="rgba(255,255,255,0.035)" stroke="rgba(212,175,55,0.16)" stroke-width="0.5"/>
-            <text x="223" y="250" text-anchor="middle" fill="rgba(245,232,199,0.50)" font-family="serif" font-size="13">午</text>
-
-            <rect x="268" y="222" width="52" height="44" rx="4" fill="rgba(255,255,255,0.025)" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
-            <text x="294" y="250" text-anchor="middle" fill="rgba(245,232,199,0.38)" font-family="serif" font-size="13">戌</text>
-          </g>
-
-          <!-- ── Decorative arc — drawn in on load ──────────────────── -->
-          <path
-            class="bazi-arc"
-            d="M 96 316 Q 190 358 284 316"
-            fill="none"
-            stroke="rgba(212,175,55,0.14)"
-            stroke-width="1"
-            stroke-dasharray="180"
-            stroke-dashoffset="180"
-            stroke-linecap="round"
-          />
-
-          <!-- ── Center dot — pulse ─────────────────────────────────── -->
-          <circle class="bazi-center-ring" cx="190" cy="190" r="8" fill="none" stroke="rgba(212,175,55,0.22)" stroke-width="0.8"/>
-          <circle class="bazi-center-dot" cx="190" cy="190" r="4" fill="rgba(212,175,55,0.42)"/>
-
-          <!-- Chart label -->
-          <text x="190" y="348" text-anchor="middle" fill="rgba(212,175,55,0.20)" font-family="Jost,sans-serif" font-size="7.5" letter-spacing="5">BAZI CHART</text>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       SECTION 2.5 — ANONYMOUS EDITORIAL QUOTES [OPT-5]
-  ================================================================ -->
-  <section class="section-quotes" id="quotes">
-    <div class="quotes-inner">
-      <div class="eyebrow">Kata Mereka</div>
-      <h2 style="font-family: var(--font-display); font-size: var(--t-h2); font-weight: 500; color: var(--gold-light); line-height: 1.2; max-width: 520px;">
-        Apa yang biasanya berubah setelah satu sesi.
-      </h2>
-
-      <div class="quotes-grid">
-        <!-- Quote 1 -->
-        <div class="quote-card reveal reveal-d1">
-          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="quote-text">Setelah sesi, saya akhirnya paham kenapa saya selalu ragu di momen yang justru paling krusial. Saya kira itu ketakutan biasa — ternyata ada pola yang lebih dalam dari itu.</p>
-          <div class="quote-meta">
-            <div class="quote-dot" aria-hidden="true">E</div>
-            <div class="quote-desc">Entrepreneur, Jakarta<br>Wealth Path Bazi Session</div>
-          </div>
-        </div>
-
-        <!-- Quote 2 -->
-        <div class="quote-card reveal reveal-d2">
-          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="quote-text">Saya datang dengan skeptis tinggi. Yang membuat saya tetap ikut adalah karena dari awal sudah dibilang ini bukan ramalan. Dan memang, tidak ada satu pun klaim yang tidak bisa saya evaluasi sendiri.</p>
-          <div class="quote-meta">
-            <div class="quote-dot" aria-hidden="true">R</div>
-            <div class="quote-desc">Professional, Surabaya<br>Clarity & Direction Consultation</div>
-          </div>
-        </div>
-
-        <!-- Quote 3 -->
-        <div class="quote-card reveal reveal-d3">
-          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-          <p class="quote-text">Yang saya hargai adalah djnordhawk tidak buru-buru memberikan jawaban. Dia menghubungkan analisis dengan situasi nyata bisnis saya — bukan template generik. Ringkasan tertulisnya masih saya pakai sampai sekarang.</p>
-          <div class="quote-meta">
-            <div class="quote-dot" aria-hidden="true">A</div>
-            <div class="quote-desc">Business Owner, Bali<br>Wealth Path Bazi Session</div>
-          </div>
-        </div>
-      </div>
-
-      <p style="font-family: var(--font-reading); font-style: italic; font-size: var(--t-xs); color: var(--ink-muted); margin-top: var(--sp-8); opacity: 0.7; text-align: center;">Nama, kota, dan detail disamarkan sepenuhnya atas permintaan klien.</p>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       SECTION 2 — PROBLEM / EMPATHY
-  ================================================================ -->
-  <section class="section-problem" id="problem">
-    <div class="problem-inner">
-      <div class="problem-header">
-        <div class="eyebrow">Kenali Situasinya</div>
-        <h2 class="problem-title">Ini yang biasanya dirasakan orang sebelum mereka datang ke sini.</h2>
-        <div class="divider-gold"></div>
-        <p class="bridge-text">
-          Anda akan pulang dengan gambaran yang lebih jelas dari sebelumnya — cukup untuk mengambil langkah berikutnya dengan lebih tenang dan terarah.
-        </p>
-      </div>
-
-      <div class="pain-cards">
-        <div class="pain-card reveal reveal-d1">
-          <div class="pain-num">Situasi 01</div>
-          <p class="pain-text">Anda sudah kerja lebih keras dari orang lain di bidang yang sama. Hasilnya? Masih di sini juga.</p>
-        </div>
-
-        <div class="pain-card reveal reveal-d2">
-          <div class="pain-num">Situasi 02</div>
-          <p class="pain-text">Ada peluang di depan mata, tapi setiap kali mau melangkah, ada yang menahan — entah itu ketakutan yang sulit dijelaskan, atau feeling bahwa ini bukan waktunya.</p>
-        </div>
-
-        <div class="pain-card reveal reveal-d3">
-          <div class="pain-num">Situasi 03</div>
-          <p class="pain-text">Anda sudah baca buku bisnis yang benar. Sudah hire orang yang tepat. Sudah jalankan sistemnya. Tapi ada gap antara effort dan hasil yang tidak bisa dijawab oleh framework manapun.</p>
-        </div>
-
-        <div class="pain-card reveal reveal-d4">
-          <div class="pain-num">Situasi 04</div>
-          <p class="pain-text">Keputusan besar sedang menunggu — ekspansi, pivot, partnership baru, atau berhenti dari sesuatu yang sudah lama dijalankan. Dan Anda butuh perspektif yang tidak punya agenda tertentu.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       SECTION 3 — HOW I HELP
-  ================================================================ -->
-  <section class="section-how" id="how-i-help">
-    <div class="how-inner">
-      <div class="eyebrow">Kerangka Kerja</div>
-      <h2 class="how-title">Ini bukan tentang nasib.<br>Ini tentang <em>pola.</em></h2>
-
-      <!-- Diferensiasi Pertama -->
-      <div class="diff-first reveal">
-        <div>
-          <h3 class="diff-heading">Tidak ada<br>ramalan di sini.</h3>
-        </div>
-        <div>
-          <p class="diff-body">
-            Saya tidak akan bilang "bulan depan bisnis Anda akan tumbuh". Yang saya lakukan adalah membaca pola karakteristik yang teramati dari data kelahiran, lalu menghubungkannya dengan situasi nyata yang Anda bawa. Output-nya adalah rekomendasi yang bisa Anda evaluasi sendiri.
-          </p>
-        </div>
-      </div>
-
-      <!-- Penjelasan Bazi -->
-      <div class="bazi-explanation reveal">
-        <div class="eyebrow">Apa itu Bazi</div>
-        <p>
-          Bazi adalah sistem yang membaca interaksi pola karakteristik berdasarkan data kelahiran. Bukan untuk menetapkan nasib, melainkan untuk mengidentifikasi bagaimana seseorang secara natural cenderung membuat keputusan, di mana titik buta yang sering muncul, dan kapan kondisi lebih kondusif untuk langkah tertentu.
-        </p>
-      </div>
-
-      <!-- Pendekatan Kami — Earth/Cream section -->
-      <div class="pendekatan-section reveal" id="pendekatan">
-        <div class="eyebrow">Klarifikasi Penting</div>
-        <h3 class="pendekatan-title">Pendekatan Kami</h3>
-        <div class="pendekatan-grid">
-          <div class="pendekatan-item">
-            <div class="pendekatan-label">
-              <svg viewBox="0 0 14 14" fill="none" stroke="#5C6B37" stroke-width="1.5">
-                <polyline points="2,7 5.5,10.5 12,3.5"/>
-              </svg>
-              Apa yang dilakukan
-            </div>
-            <p class="pendekatan-text">Membaca pola pengambilan keputusan, mengidentifikasi area potensi yang belum teroptimalkan, dan mendiskusikan periode yang lebih kondusif — dikaitkan dengan situasi bisnis atau karir yang konkret.</p>
-          </div>
-          <div class="pendekatan-item">
-            <div class="pendekatan-label">
-              <svg viewBox="0 0 14 14" fill="none" stroke="#7B6015" stroke-width="1.5">
-                <line x1="3" y1="3" x2="11" y2="11"/>
-                <line x1="11" y1="3" x2="3" y2="11"/>
-              </svg>
-              Apa yang tidak dilakukan
-            </div>
-            <p class="pendekatan-text">Tidak ada prediksi spesifik, jaminan hasil, atau asumsi bahwa masa depan sudah tertulis.</p>
-          </div>
-          <div class="pendekatan-item">
-            <div class="pendekatan-label">
-              <svg viewBox="0 0 14 14" fill="none" stroke="#5C6B37" stroke-width="1.5">
-                <circle cx="7" cy="7" r="5.5"/>
-                <line x1="7" y1="4" x2="7" y2="7.5"/>
-                <circle cx="7" cy="9.5" r="0.5" fill="#5C6B37"/>
-              </svg>
-              Kompatibilitas Keyakinan
-            </div>
-            <p class="pendekatan-text">Kerangka ini bersifat netral. Banyak klien dari berbagai latar belakang agama dan pendekatan bisnis modern menggunakannya sebagai satu perspektif tambahan.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Diferensiasi Lanjutan -->
-      <div class="diff-extra">
-        <div class="diff-extra-card reveal reveal-d1">
-          <div class="eyebrow">Diferensiasi</div>
-          <h4 class="diff-extra-heading">Konteks bisnis dulu.</h4>
-          <p class="diff-extra-body">Mayoritas konsultasi Bazi di Indonesia masih berorientasi pada hubungan dan arah hidup umum. Saya memilih spesialisasi di wealth dan bisnis — karena di situlah pertanyaan yang paling konkret bisa dijawab, dan di situlah analisis ini paling langsung bisa diuji kebermanfaatannya.</p>
-        </div>
-        <div class="diff-extra-card reveal reveal-d2">
-          <div class="eyebrow">Output</div>
-          <h4 class="diff-extra-heading">Rekomendasi yang bisa dieksekusi.</h4>
-          <p class="diff-extra-body">Output dari sesi bukan wawasan yang abstrak. Ada ringkasan tertulis berisi rekomendasi yang bisa langsung Anda bawa ke meja kerja — evaluasi, modifikasi, atau abaikan jika tidak relevan. Keputusan tetap ada di tangan Anda.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       SECTION 4 — OFFERS
-  ================================================================ -->
-  <section class="section-offers" id="offers">
-    <div class="offers-inner">
-      <div class="offers-header">
-        <div class="eyebrow">Layanan</div>
-        <h2 class="offers-title">Ada dua cara saya bisa<br>membantu Anda saat ini.</h2>
-        <p class="offers-subtitle">Pilih yang paling sesuai dengan apa yang sedang Anda hadapi sekarang.</p>
-      </div>
-
-      <div class="offers-grid">
-        <!-- CARD 1: Clarity & Direction (Entry Offer) -->
-        <div class="offer-card reveal reveal-d1" id="offer-clarity">
-          <div class="offer-card-badge">
-            <span class="badge badge-teal">Mulai dari sini</span>
-          </div>
-          <h3 class="offer-card-name">Clarity &amp; Direction Consultation</h3>
-          <p class="offer-card-desc">
-            Untuk Anda yang sedang menghadapi keputusan penting — baik di bisnis maupun kehidupan pribadi — dan butuh perspektif yang lebih jelas sebelum mengambil langkah.
-          </p>
-          <div class="offer-card-meta">
-            <div class="offer-meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-              60 menit via Zoom
-            </div>
-            <div class="offer-meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-              </svg>
-              1-on-1, privat, direkam
-            </div>
-          </div>
-          <a
-            href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Clarity+%26+Direction+Consultation.+Boleh+saya+tanya+lebih+lanjut%3F"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-wa"
-            id="offer-clarity-cta"
-          >
-            <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Tanya soal sesi ini via WA
-          </a>
-        </div>
-
-        <!-- CARD 2: Wealth Path Bazi Session (HERO) -->
-        <div class="offer-card offer-card-hero reveal reveal-d2" id="offer-hero">
-          <div class="offer-card-badge">
-            <span class="badge badge-gold">
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-              Layanan Utama
-            </span>
-          </div>
-          <h3 class="offer-card-name">Wealth Path Bazi Session</h3>
-          <p class="offer-card-desc">
-            Untuk entrepreneur dan professional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
-            <br><br>
-            Dalam sesi ini kita akan memetakan pola pengambilan keputusan, mengidentifikasi area potensi wealth yang belum teroptimalkan, melihat titik buta yang sering tidak terlihat dari dalam, dan mendiskusikan timing — kapan kondisi lebih mendukung ekspansi, kapan lebih baik konsolidasi terlebih dahulu.
-            <br><br>
-            Setiap sesi disesuaikan dengan situasi nyata yang Anda bawa, dan Anda akan mendapat ringkasan rekomendasi tertulis yang bisa langsung digunakan.
-          </p>
-          <div class="offer-card-meta">
-            <div class="offer-meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-              90 menit via Zoom
-            </div>
-            <div class="offer-meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-              </svg>
-              1-on-1, privat, direkam
-            </div>
-            <div class="offer-meta-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-              </svg>
-              + Ringkasan rekomendasi tertulis
-            </div>
-          </div>
-          <a
-            href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Wealth+Path+Bazi+Session.+Boleh+saya+tanya+lebih+lanjut%3F"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-wa"
-            id="offer-hero-cta"
-          >
-            <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            Mulai Sesi via WhatsApp
-          </a>
-        </div>
-
-        <!-- CARD 3: Fortress Wealth Path (Coming Soon) -->
-        <div class="offer-card offer-card-coming reveal reveal-d3" id="offer-fortress">
-          <div class="offer-card-badge">
-            <span class="badge badge-muted">
-              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
-              Segera Hadir
-            </span>
-          </div>
-          <h3 class="offer-card-name">Fortress Wealth Path</h3>
-          <p class="offer-card-desc">
-            Integrasi penuh antara analisis Bazi dan konsultasi Fengshui untuk bisnis — dua kerangka yang selama ini jarang dijalankan bersamaan secara terstruktur. Dirancang untuk business owner yang ingin mengoptimalkan bukan hanya pola keputusan strategis, tapi juga kondisi lingkungan operasional tempat bisnis berjalan.
-          </p>
-          <p style="font-family: var(--font-reading); font-style: italic; font-size: 0.82rem; color: rgba(245,232,199,0.38); margin-bottom: var(--sp-4); line-height: 1.65;">
-            Saat ini dalam tahap finalisasi. Daftarkan minat Anda untuk mendapat informasi pertama.
-          </p>
-
-          <!-- Waitlist Form -->
-          <form class="waitlist-form" id="fortress-form" novalidate>
-            <input type="text" name="name" placeholder="Nama Anda" aria-label="Nama" autocomplete="name">
-            <input type="tel" name="phone" placeholder="Nomor WhatsApp" aria-label="Nomor WhatsApp" autocomplete="tel">
-            <!-- Honeypot -->
-            <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
-            <button type="submit" class="waitlist-submit" id="fortress-submit-btn">Daftarkan Saya</button>
-          </form>
-
-          <!-- [OPT-8] Skeleton loading state (shown briefly before success) -->
-          <div class="waitlist-skeleton" id="fortress-skeleton" aria-hidden="true">
-            <div class="skeleton-bar" style="width:90%"></div>
-            <div class="skeleton-bar"></div>
-            <div class="skeleton-bar"></div>
-          </div>
-          <p class="waitlist-success" id="fortress-success">
-            Terima kasih. Kami akan hubungi Anda saat Fortress Wealth Path siap diluncurkan.
-          </p>
-        </div>
-      </div>
-
-      <!-- Helper text -->
-      <div class="offers-helper">
-        <p>Tidak yakin harus mulai dari mana? Tidak masalah — WhatsApp kami dulu dan ceritakan situasinya. Kami yang akan bantu Anda memilih.</p>
-        <a
-          href="https://wa.me/6282117175544?text=Halo%2C+saya+belum+tahu+harus+mulai+dari+mana.+Boleh+saya+ceritakan+situasi+saya%3F"
-          target="_blank"
-          rel="noopener"
-          class="btn btn-gold-outline"
-          id="offers-helper-cta"
-        >
-          <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Chat Dulu via WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       SECTION 5 — WHAT YOU WILL GET
-  ================================================================ -->
-  <section class="section-deliverables" id="deliverables">
-    <div class="deliverables-inner">
-      <div class="eyebrow">Yang Anda Dapatkan</div>
-      <h2 class="deliverables-title">Yang Anda dapatkan dari setiap sesi.</h2>
-      <p class="deliverables-subtitle">Berlaku untuk Wealth Path Bazi Session</p>
-
-      <div class="deliverables-grid">
-        <div class="deliverable-item reveal reveal-d1">
-          <div class="deliverable-icon-wrap">
-            <svg viewBox="0 0 24 24" stroke-width="1.6">
-              <rect x="2" y="3" width="20" height="14" rx="2"/>
-              <path d="M8 21h8M12 17v4"/>
-            </svg>
-          </div>
-          <h4 class="deliverable-name">Sesi 90 Menit via Zoom</h4>
-          <p class="deliverable-desc">Dilakukan 1-on-1. Tidak ada template atau script yang sama untuk setiap klien — sesi ini berjalan mengikuti situasi nyata yang Anda bawa.</p>
-        </div>
-
-        <div class="deliverable-item reveal reveal-d2">
-          <div class="deliverable-icon-wrap">
-            <svg viewBox="0 0 24 24" stroke-width="1.6">
-              <polygon points="23 7 16 12 23 17 23 7"/>
-              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-            </svg>
-          </div>
-          <h4 class="deliverable-name">Rekaman Lengkap Sesi</h4>
-          <p class="deliverable-desc">Anda tidak perlu mencatat semuanya saat sesi berlangsung. Rekaman dikirim dalam 24 jam setelah sesi selesai, untuk bisa Anda putar ulang kapan pun dibutuhkan.</p>
-        </div>
-
-        <div class="deliverable-item reveal reveal-d3">
-          <div class="deliverable-icon-wrap">
-            <svg viewBox="0 0 24 24" stroke-width="1.6">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-          <h4 class="deliverable-name">Ringkasan Rekomendasi Tertulis</h4>
-          <p class="deliverable-desc">Bukan catatan sesi yang panjang. Ini ringkasan yang bisa langsung digunakan — berisi poin-poin utama dari analisis dan langkah konkret yang bisa Anda evaluasi dan jalankan.</p>
-        </div>
-      </div>
-
-      <!-- Privacy note -->
-      <div class="privacy-note reveal">
-        <svg viewBox="0 0 24 24" stroke-width="1.6">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <p>Semua yang dibicarakan dalam sesi bersifat privat. Saya tidak mempublikasikan atau berbagi informasi klien dalam bentuk apapun — baik sebagai testimoni maupun sebagai studi kasus, bahkan tanpa nama.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       SECTION 6 — FINAL CTA
-  ================================================================ -->
-  <section class="section-cta" id="final-cta">
-    <div class="cta-inner">
-      <div class="eyebrow" style="justify-content: center; margin-bottom: var(--sp-5);">Mulai Sekarang</div>
-      <h2 class="cta-title">Apakah sesi ini akan benar-benar berguna untuk situasi Anda?</h2>
-      <p class="cta-body">
-        Saya tidak bisa menjawab sebelum kita bicara. Tapi percakapan pertamanya gratis dan tanpa komitmen. Ceritakan situasi Anda secara singkat, dan saya akan jujur apakah sesi ini relevan atau tidak.
-      </p>
-      <div class="cta-actions">
-        <a
-          href="https://wa.me/6282117175544?text=Halo%2C+saya+ingin+tahu+lebih+lanjut+tentang+konsultasi+Bazi+Wealth+Path."
-          target="_blank"
-          rel="noopener"
-          class="btn btn-wa"
-          id="final-cta-btn"
-          style="padding: 16px 32px; font-size: 1rem;"
-        >
-          <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Mulai Percakapan via WhatsApp
-        </a>
-        <p class="micro-copy">Biasanya direspons dalam beberapa jam di hari kerja.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================================
-       FOOTER
-  ================================================================ -->
-  <footer class="footer" id="footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-brand">Bazi Wealth Path</div>
-        <div class="footer-tagline">Clarity. Strategy. Wealth.</div>
-      </div>
-
-      <div class="footer-links">
-        <a
-          href="https://wa.me/6282117175544"
-          target="_blank"
-          rel="noopener"
-          class="footer-link"
-          id="footer-wa-link"
-        >WhatsApp</a>
-        <a href="filosofi.html" class="footer-link">Filosofi</a>
-        <a href="pendekatan.html" class="footer-link">Pendekatan</a>
-        <a href="artikel.html" class="footer-link">Artikel</a>
-      </div>
-    </div>
-    <p class="footer-copy">© 2026 Bazi Wealth Path. All rights reserved.</p>
-  </footer>
-
-  <!-- ================================================================
-       STICKY WHATSAPP BUTTON
-  ================================================================ -->
-  <div class="sticky-wa" id="sticky-wa" aria-label="Chat via WhatsApp">
-    <div class="sticky-wa-pulse" aria-hidden="true"></div>
-    <a
-      href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F"
-      target="_blank"
-      rel="noopener"
-      class="sticky-wa-btn"
-      id="sticky-wa-btn"
-      aria-label="Chat via WhatsApp"
-    >
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
+<!-- ── NAV ── -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    Bazi Wealth Path
+    <small>by djnordhawk</small>
+  </a>
+  <div class="nav-links">
+    <a href="filosofi.html">Filosofi</a>
+    <a href="pendekatan.html">Pendekatan</a>
+    <a href="artikel.html">Artikel</a>
+    <a href="yang-anda-dapatkan.html">Layanan</a>
+    <a href="faq.html">FAQ</a>
+    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+konsultasi+Bazi+Wealth+Path." class="btn-nav">
+      <svg><use href="#wa"/></svg> <span class="btn-nav-text">Konsultasi</span>
     </a>
   </div>
+</nav>
 
-  <!-- ================================================================
-       JAVASCRIPT
-  ================================================================ -->
-  <script>
-    // ---- [OPT-1] Defer non-critical rendering ----
-    document.fonts.ready.then(() => {
-      document.body.style.textRendering = 'optimizeLegibility';
+<!-- ── HERO ── -->
+<section class="hero hero--full">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1600&auto=format&q=80')"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-grid">
+
+      <!-- Left: text -->
+      <div>
+        <p class="hero-eyebrow">Kerangka Analisis · Wealth &amp; Bisnis</p>
+        <h1 class="hero-h1">
+          Bukan ramalan.<br>
+          <em>Peta pola keputusan bisnis Anda.</em>
+        </h1>
+        <div class="hero-hr"></div>
+        <p class="hero-body">
+          Bazi Wealth Path adalah kerangka analisis berbasis pola untuk entrepreneur dan profesional
+          yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih —
+          bukan dengan tebakan, melainkan dengan rekomendasi yang bisa dieksekusi.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F" class="btn-wa">
+            <svg><use href="#wa"/></svg> Mulai Percakapan
+          </a>
+          <a href="pendekatan.html" class="btn-ghost">Pelajari Pendekatan</a>
+        </div>
+        <p style="font-size:.74rem;color:var(--text-dk-meta)">Tidak ada komitmen di percakapan awal.</p>
+      </div>
+
+      <!-- Right: BaZi visual -->
+      <div class="hero-visual">
+        <div class="hawk-char">北鷹</div>
+        <div class="bazi-card">
+          <div class="bazi-pillar">
+            <div class="bazi-stem">甲</div>
+            <div class="bazi-branch">子</div>
+            <div class="bazi-label">Hour</div>
+          </div>
+          <div class="bazi-pillar">
+            <div class="bazi-stem">庚</div>
+            <div class="bazi-branch">午</div>
+            <div class="bazi-label">Day</div>
+          </div>
+          <div class="bazi-pillar">
+            <div class="bazi-stem">丙</div>
+            <div class="bazi-branch">寅</div>
+            <div class="bazi-label">Month</div>
+          </div>
+          <div class="bazi-pillar">
+            <div class="bazi-stem">壬</div>
+            <div class="bazi-branch">戌</div>
+            <div class="bazi-label">Year</div>
+          </div>
+        </div>
+        <div class="quote-rotator">
+          <div class="quote-zh" id="quoteEl"></div>
+        </div>
+      </div>
+
+    </div><!-- /hero-grid -->
+  </div><!-- /hero-content -->
+</section>
+
+<!-- ── ABOUT / FOUNDER ── -->
+<section id="about">
+  <div class="about-bg"></div>
+  <div class="about-overlay"></div>
+  <div class="about-inner" style="position:relative;z-index:2;">
+
+    <div>
+      <p class="about-eyebrow">Founder · Kisah</p>
+      <h2 class="about-h2">Pemahaman saja tidak cukup. <em>Yang mengubah arah adalah langkah konkret.</em></h2>
+
+      <blockquote class="about-quote">
+        "Saya mempelajari Bazi melalui bimbingan langsung dari dua guru yang sangat saya hormati secara personal,
+        disusul oleh sertifikasi Vedic Astrology terstruktur. Dari penggabungan dua tradisi inilah,
+        saya menyadari bahwa nilai tertinggi bukanlah pada pembacaan nasib yang pasrah —
+        melainkan pada ketepatan merancang langkah penyeimbang."
+      </blockquote>
+
+      <p class="about-body">
+        Banyak orang datang dengan harapan bisa memahami peta pilar kehidupan mereka. Itu penting.
+        Tapi mengetahui bahwa ada badai di depan tidak secara otomatis menghentikan kerusakan yang ditimbulkannya.
+        <br><br>
+        Yang benar-benar mengubah arah hidup dan bisnis adalah ketika kita bisa merancang langkah konkret
+        untuk <strong>mengurangi dampak gejolak</strong> tersebut —
+        agar kekayaan yang telah Anda perjuangkan bisa bertahan dan keputusan penting bisa diambil dengan kepala dingin.
+      </p>
+
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Tahun Studi</div>
+        </div>
+        <div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">Tradisi Keilmuan</div>
+        </div>
+        <div>
+          <div class="stat-num">1</div>
+          <div class="stat-label">Fokus: Remedy</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1.5rem">
+      <div class="sgp-frame">
+        <img
+          src="https://images.unsplash.com/photo-1564289183831-094e1dbf3799?w=800&h=1000&fit=crop&auto=format&q=80"
+          alt="Chinatown Singapore — tempat studi Bazi"
+          loading="lazy"
+        />
+        <div class="sgp-caption">
+          <span class="sgp-caption-zh">新加坡 · 牛車水</span>
+          <span class="sgp-caption-en">Singapore · Chinatown — where the study began</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── APPROACH ── -->
+<section id="approach">
+  <div class="approach-bg-img"></div>
+  <div class="approach-inner">
+    <p class="section-eyebrow">Filosofi Inti · The Approach</p>
+    <h2 class="section-h2">Ini bukan tentang nasib. <em>Ini tentang pola.</em></h2>
+    <div class="section-hr"></div>
+
+    <p style="color:var(--text-dk-meta);font-size:.9rem;line-height:1.85;max-width:620px;margin-bottom:3rem;">
+      Bazi adalah sistem yang membaca interaksi pola karakteristik berdasarkan data kelahiran.
+      Bukan untuk menetapkan nasib — melainkan untuk mengidentifikasi bagaimana seseorang secara natural
+      cenderung membuat keputusan, di mana titik buta yang sering muncul, dan kapan kondisi lebih
+      kondusif untuk langkah tertentu.
+    </p>
+
+    <div class="approach-cols">
+      <div class="approach-do">
+        <p class="approach-do-label">Yang dilakukan</p>
+        <p>Membaca pola pengambilan keputusan, mengidentifikasi area potensi yang belum teroptimalkan,
+        dan mendiskusikan periode yang lebih kondusif — dikaitkan dengan situasi bisnis atau karir yang konkret.</p>
+      </div>
+      <div class="approach-dont">
+        <p class="approach-dont-label">Yang tidak dilakukan</p>
+        <p>Tidak ada prediksi spesifik, jaminan hasil, atau asumsi bahwa masa depan sudah tertulis.</p>
+      </div>
+    </div>
+
+    <div class="layers">
+      <div class="layer">
+        <div class="layer-num"><span class="layer-num-zh">命</span><span class="layer-num-en">01</span></div>
+        <div class="layer-body"><div class="layer-title">Analisa Karakter</div><div class="layer-desc">Kecenderungan psikologis natural</div></div>
+      </div>
+      <div class="layer">
+        <div class="layer-num"><span class="layer-num-zh">運</span><span class="layer-num-en">02</span></div>
+        <div class="layer-body"><div class="layer-title">Life Event</div><div class="layer-desc">Validasi pola keputusan masa lalu</div></div>
+      </div>
+      <div class="layer">
+        <div class="layer-num"><span class="layer-num-zh">時</span><span class="layer-num-en">03</span></div>
+        <div class="layer-body"><div class="layer-title">Timing of Event</div><div class="layer-desc">Periode stabil vs periode clash</div></div>
+      </div>
+      <div class="layer">
+        <div class="layer-num"><span class="layer-num-zh">斷</span><span class="layer-num-en">04</span></div>
+        <div class="layer-body"><div class="layer-title">Diagnosis</div><div class="layer-desc">Titik sumbatan keputusan bisnis Anda</div></div>
+      </div>
+      <div class="layer star">
+        <div class="layer-num"><span class="layer-num-zh">策</span><span class="layer-num-en">05</span></div>
+        <div class="layer-body">
+          <div class="layer-star-badge">⭐ Fokus Utama</div>
+          <div class="layer-title">Crafting Remedy</div>
+          <div class="layer-desc">Taktik mitigasi operasional &amp; perlindungan wealth konkret</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="pendekatan.html" class="approach-link">Baca Metodologi Lengkap →</a>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="services-bg-char">財</div>
+  <div class="services-inner">
+    <div class="services-header">
+      <p class="section-eyebrow">Layanan · Services</p>
+      <h2 class="section-h2">Ada dua cara saya bisa <em>membantu Anda saat ini.</em></h2>
+      <p style="color:var(--text-lt-meta);margin-top:.8rem;font-size:.88rem;">Pilih yang paling sesuai dengan apa yang sedang Anda hadapi sekarang.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-card-bg-zh">明</div>
+        <p class="service-tag">Mulai Dari Sini</p>
+        <h3 class="service-h3">Clarity &amp; Direction Consultation</h3>
+        <p class="service-body">Untuk Anda yang sedang menghadapi keputusan penting — baik di bisnis maupun kehidupan pribadi — dan butuh perspektif yang lebih jelas sebelum mengambil langkah.</p>
+        <div class="service-meta">
+          <span class="service-meta-item">60 menit via Zoom</span>
+          <span class="service-meta-item">1-on-1, privat, direkam</span>
+        </div>
+        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Clarity+%26+Direction+Consultation." class="btn-service">
+          <svg width="14" height="14"><use href="#wa"/></svg> Tanya via WhatsApp
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-bg-zh">財</div>
+        <p class="service-tag featured">Layanan Utama</p>
+        <h3 class="service-h3">Wealth Path Bazi Session</h3>
+        <p class="service-body">Untuk entrepreneur dan professional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih. Kita akan memetakan pola keputusan, mengidentifikasi area potensi wealth, dan mendiskusikan timing.</p>
+        <div class="service-meta">
+          <span class="service-meta-item">90 menit via Zoom</span>
+          <span class="service-meta-item">1-on-1, privat, direkam</span>
+          <span class="service-meta-item">+ Ringkasan rekomendasi tertulis</span>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Wealth+Path+Bazi+Session." class="btn-service primary">
+            <svg width="14" height="14"><use href="#wa"/></svg> Mulai Sesi
+          </a>
+          <a href="yang-anda-dapatkan.html" style="font-size:var(--font-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);border-bottom:1px solid rgba(12,60,45,.3);transition:border-color .2s;">Lihat detail lengkap →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-cta-bar">
+      <p>Belum yakin mana yang paling pas?
+        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+belum+tahu+harus+mulai+dari+mana.">Cerita dulu kondisinya via WhatsApp → saya yang bantu Anda memilih</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="container">
+    <p class="section-eyebrow">Cara Kerja · Process</p>
+    <h2 class="section-h2">Dari data kelahiran <em>menuju langkah nyata di meja kerja.</em></h2>
+
+    <div class="process-steps process-steps--index">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <div class="process-step-title">Percakapan Awal</div>
+        <div class="process-step-body">Ceritakan situasi nyata Anda via WhatsApp. Tidak ada formulir, tidak ada komitmen.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <div class="process-step-title">Pemetaan Pola</div>
+        <div class="process-step-body">Saya membaca chart kelahiran Anda dan menghubungkan pola dengan konteks bisnis yang Anda bawa.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <div class="process-step-title">Sesi Konsultasi</div>
+        <div class="process-step-body">90 menit 1-on-1 via Zoom. Tidak ada template — sesi mengikuti situasi nyata Anda.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <div class="process-step-title">Crafting Remedy</div>
+        <div class="process-step-body">Ringkasan tertulis berisi rekomendasi taktis yang langsung bisa Anda bawa ke meja kerja.</div>
+      </div>
+    </div>
+
+    <div class="process-badges">
+      <div class="process-badge">
+        <div class="process-badge-title">Rekaman Lengkap</div>
+        <div class="process-badge-body">Dikirim dalam 24 jam. Putar ulang kapanpun Anda butuhkan.</div>
+      </div>
+      <div class="process-badge">
+        <div class="process-badge-title">Ringkasan Tertulis</div>
+        <div class="process-badge-body">Bukan catatan panjang. Rekomendasi yang bisa langsung dieksekusi.</div>
+      </div>
+      <div class="process-badge">
+        <div class="process-badge-title">Kerahasiaan Penuh</div>
+        <div class="process-badge-body">Semua yang dibicarakan dalam sesi dijaga kerahasiaannya sepenuhnya.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="testi-bg-char">證</div>
+  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;">
+    <p class="section-eyebrow">Hasil Nyata · Testimonial</p>
+    <h2 class="section-h2">Apa yang biasanya berubah <em>setelah satu sesi.</em></h2>
+
+    <div class="testi-grid" style="margin-top:3rem;">
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-body">Setelah sesi, saya akhirnya paham kenapa saya selalu ragu di momen yang justru paling krusial. Saya kira itu ketakutan biasa — ternyata ada pola yang lebih dalam dari itu.</p>
+        <div class="testi-initial">E</div>
+        <div class="testi-role">Entrepreneur · Jakarta · Wealth Path Bazi Session</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-body">Saya datang dengan skeptis tinggi. Yang membuat saya tetap ikut adalah karena dari awal sudah dibilang ini bukan ramalan. Dan memang, tidak ada satu pun klaim yang tidak bisa saya evaluasi sendiri.</p>
+        <div class="testi-initial">R</div>
+        <div class="testi-role">Professional · Surabaya · Clarity &amp; Direction</div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-body">Yang saya hargai adalah djnordhawk tidak buru-buru memberikan jawaban. Dia menghubungkan analisis dengan situasi nyata bisnis saya — bukan template generik. Ringkasan tertulisnya masih saya pakai sampai sekarang.</p>
+        <div class="testi-initial">A</div>
+        <div class="testi-role">Business Owner · Bali · Wealth Path Bazi Session</div>
+      </div>
+    </div>
+    <p class="testi-disclaimer">Nama, kota, dan detail disamarkan sepenuhnya atas permintaan klien.</p>
+  </div>
+</section>
+
+<!-- ── INSIGHTS ── -->
+<section id="insights">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-eyebrow">Featured Insights · Artikel</p>
+    <h2 class="section-h2">Perspektif yang jarang <em>dibicarakan di tempat lain.</em></h2>
+
+    <div class="insights-grid" style="margin-top:3rem;">
+      <div class="insight-card">
+        <p class="insight-tag">Wealth Psychology</p>
+        <h4 class="insight-h4">Mengapa Orang Cerdas Pun Bisa Membuat Keputusan Keuangan yang Buruk</h4>
+        <p class="insight-desc">Titik buta bukan soal kecerdasan. Ini soal pola yang tidak terlihat dari dalam.</p>
+        <div class="insight-meta">Maret 2026 <span style="color:var(--emerald-light)">→</span></div>
+      </div>
+      <div class="insight-card">
+        <p class="insight-tag">Bazi &amp; Bisnis</p>
+        <h4 class="insight-h4">Apa itu Yongshen dan Mengapa Ini Lebih Penting dari Membaca Shio</h4>
+        <p class="insight-desc">Sebagian besar konten Bazi berhenti di permukaan. Ini tidak.</p>
+        <div class="insight-meta">Februari 2026 <span style="color:var(--emerald-light)">→</span></div>
+      </div>
+      <div class="insight-card">
+        <p class="insight-tag">Timing Strategy</p>
+        <h4 class="insight-h4">Kapan Sebenarnya Waktu yang Tepat untuk Ekspansi Bisnis?</h4>
+        <p class="insight-desc">Bukan soal memilih bulan keberuntungan. Ini soal membaca kondisi sebelum melangkah.</p>
+        <div class="insight-meta">Januari 2026 <span style="color:var(--emerald-light)">→</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;">
+      <a href="artikel.html" class="approach-link">Semua Artikel →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA FINAL ── -->
+<section id="cta" class="cta-section">
+  <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1600&auto=format&q=80');filter:brightness(.18) saturate(.5)"></div>
+  <div class="cta-overlay"></div>
+  <div class="cta-inner">
+    <span class="cta-zh">財</span>
+    <p class="cta-eyebrow">Mulai Percakapan</p>
+    <h2 class="cta-h2">Remedy yang berhasil bukan yang membuat hidup sempurna seketika — tapi yang membuat <em>gejolak risiko seminimal mungkin.</em></h2>
+    <div class="cta-hr"></div>
+    <p class="cta-body">Jika kerangka ini masuk akal untuk situasi bisnis Anda sekarang — tidak perlu memutuskan apa-apa dulu. Mari kita bicarakan situasinya langsung, santai.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F" class="btn-wa">
+        <svg><use href="#wa"/></svg> Mulai Percakapan
+      </a>
+      <a href="pendekatan.html" class="btn-ghost">Pelajari Pendekatan</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <!-- Kolom 1: Brand & Tagline -->
+    <div>
+      <div class="footer-brand">
+        Bazi Wealth Path <span class="footer-sub-brand">by djnordhawk</span>
+      </div>
+      <p class="footer-tagline">
+        Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
+      </p>
+      <p class="footer-tag">Guide, Not Guru.</p>
+    </div>
+    
+    <!-- Kolom 2: Navigasi Halaman Utama -->
+    <div>
+      <p class="footer-label">Halaman</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="filosofi.html">Filosofi</a></li>
+        <li><a href="pendekatan.html">Pendekatan</a></li>
+        <li><a href="artikel.html">Artikel</a></li>
+        <li><a href="yang-anda-dapatkan.html">Layanan</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <!-- Kolom 3: Layanan Sub-halaman -->
+    <div>
+      <p class="footer-label">Layanan</p>
+      <ul class="footer-links">
+        <li><a href="yang-anda-dapatkan.html#services">Clarity &amp; Direction</a></li>
+        <li><a href="yang-anda-dapatkan.html#timeline">Wealth Path Session</a></li>
+      </ul>
+    </div>
+    
+    <!-- Kolom 4: Kontak & Dukungan -->
+    <div>
+      <p class="footer-label">Kontak</p>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/6282117175544">WhatsApp</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Footer Bottom Info -->
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Bazi Wealth Path by djnordhawk. All Rights Reserved.</span>
+    <span class="footer-guide">Guide, Not Guru.</span>
+  </div>
+</footer>
+
+<script>
+  // Rotating BaZi quotes
+  const quotes = [
+    { zh: '命由天定，運由己造', id: 'Nasib ditentukan langit — perjalanan dibentuk dirimu' },
+    { zh: '知命者不怨天',       id: 'Yang memahami nasibnya tidak menyalahkan langit' },
+    { zh: '財不可露白',         id: 'Kekayaan tidak boleh diperlihatkan sembarangan' },
+    { zh: '時來天地皆同力',     id: 'Saat waktunya tiba, langit dan bumi ikut membantu' },
+    { zh: '謀事在人，成事在天', id: 'Manusia merencana — langit yang menentukan' },
+  ];
+
+  const quoteEl = document.getElementById('quoteEl');
+  let qi = 0;
+
+  function showQuote() {
+    quoteEl.classList.remove('visible');
+    setTimeout(() => {
+      quoteEl.innerHTML = `${quotes[qi].zh}<br><span style="font-size:.72rem;letter-spacing:.08em;color:var(--text-dk-meta);font-family:var(--ff-body);font-style:normal">${quotes[qi].id}</span>`;
+      quoteEl.classList.add('visible');
+      qi = (qi + 1) % quotes.length;
+    }, 800);
+  }
+
+  setTimeout(() => { showQuote(); setInterval(showQuote, 4500); }, 2400);
+
+  // Scroll reveal: layer rows on index
+  const layers = document.querySelectorAll('.layer');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.style.opacity = '1', i * 80);
+        obs.unobserve(e.target);
+      }
     });
-
-    // ---- Navbar scroll effect + glassmorphism ----
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }, { passive: true });
-
-    // ---- [OPT-7] Active section indicator in navbar ----
-    const sectionMap = [
-      { id: 'hero',          label: '' },
-      { id: 'quotes',        label: 'Kata Mereka' },
-      { id: 'problem',       label: 'Situasi Anda' },
-      { id: 'how-i-help',   label: 'Pendekatan Kami' },
-      { id: 'offers',        label: 'Layanan' },
-      { id: 'deliverables',  label: 'Yang Anda Dapat' },
-      { id: 'final-cta',     label: 'Mulai' },
-    ];
-    const navLabel = document.getElementById('navbar-section-label');
-
-    function updateActiveSection() {
-      const scrollMid = window.scrollY + 120;
-      let activeLabel = '';
-      for (const sec of sectionMap) {
-        const el = document.getElementById(sec.id);
-        if (el && el.offsetTop <= scrollMid) {
-          activeLabel = sec.label;
-        }
-      }
-      if (navLabel) {
-        if (activeLabel && window.scrollY > 80) {
-          navLabel.textContent = activeLabel;
-          navLabel.classList.add('visible');
-        } else {
-          navLabel.classList.remove('visible');
-          setTimeout(() => { navLabel.textContent = ''; }, 300);
-        }
-      }
-    }
-    window.addEventListener('scroll', updateActiveSection, { passive: true });
-
-    // ---- Sticky WA button: show after 40% scroll ----
-    const stickyWa = document.getElementById('sticky-wa');
-    const showWaAfter = 0.4;
-
-    function updateStickyWa() {
-      const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-      if (scrolled > showWaAfter) {
-        stickyWa.classList.add('visible');
-      } else {
-        stickyWa.classList.remove('visible');
-      }
-    }
-    window.addEventListener('scroll', updateStickyWa, { passive: true });
-
-    // ---- Scroll-reveal (IntersectionObserver) ----
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    reveals.forEach(el => revealObserver.observe(el));
-
-    // ---- [OPT-8] Waitlist Form with skeleton loading ----
-    const fortressForm     = document.getElementById('fortress-form');
-    const fortressSkeleton = document.getElementById('fortress-skeleton');
-    const fortressSuccess  = document.getElementById('fortress-success');
-
-    if (fortressForm) {
-      fortressForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Honeypot check
-        const hp = fortressForm.querySelector('input[name="_hp"]');
-        if (hp && hp.value !== '') return;
-
-        const name  = fortressForm.querySelector('input[name="name"]').value.trim();
-        const phone = fortressForm.querySelector('input[name="phone"]').value.trim();
-
-        if (!name || !phone) {
-          fortressForm.querySelector('input[name="name"]').focus();
-          return;
-        }
-
-        // Step 1: hide form, show skeleton shimmer
-        fortressForm.style.display = 'none';
-        if (fortressSkeleton) {
-          fortressSkeleton.classList.add('show');
-          fortressSkeleton.setAttribute('aria-hidden', 'false');
-        }
-
-        // Step 2: after 900ms, hide skeleton and show success
-        setTimeout(() => {
-          if (fortressSkeleton) {
-            fortressSkeleton.classList.remove('show');
-            fortressSkeleton.setAttribute('aria-hidden', 'true');
-          }
-          if (fortressSuccess) {
-            fortressSuccess.style.display = 'block';
-          }
-        }, 900);
-      });
-    }
-
-    // ---- Smooth anchor scrolling for internal links ----
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        const targetId = anchor.getAttribute('href').slice(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-          e.preventDefault();
-          const offset = 80;
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-    });
-  </script>
+  }, { threshold: 0.15 });
+  layers.forEach(l => { l.style.opacity = '0'; l.style.transition = 'opacity .5s ease'; obs.observe(l); });
+</script>
 
 </body>
 </html>
-

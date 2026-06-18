@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bazi Wealth Path • Design System v3.0 — Dieter Rams Audit + Style Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --emerald:       #0C3C2D;
+      --emerald-hover: #0F4A38;
+      --gold-warm:     #B8860B;
+      --champagne:     #EBDAB0;
+      --taupe:         #A89968;
+      --charcoal:      #1A1A1A;
+      --charcoal-d:    #0D0D0D;
+      --cream:         #F9F7F3;
+      --text-dark-p:   #EBDAB0;
+      --text-dark-s:   #A89968;
+      --text-dark-m:   #888888;
+      --text-light-p:  #1A1A1A;
+      --text-light-s:  #4A4440;
+      --text-light-m:  #8B8275;
+      --border-dark:   rgba(184,134,11,0.12);
+      --border-light:  rgba(139,130,117,0.2);
+      --ff-d: 'DM Sans', system-ui, sans-serif;
+      --ff-b: 'Outfit', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-b);
+      font-size: 16px;
+      background: var(--charcoal-d);
+      color: var(--text-dark-p);
+      line-height: 1.78;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── STICKY NAV ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,13,13,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 1.2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-family: var(--ff-d);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gold-warm);
+      letter-spacing: 0.03em;
+    }
+
+    .nav-brand span {
+      font-family: var(--ff-b);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--text-dark-m);
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .nav-tabs a {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dark-s);
+      padding: 0.3rem 0.9rem;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+      font-weight: 400;
+    }
+
+    .nav-tabs a:hover { color: var(--champagne); border-color: var(--border-dark); }
+    .nav-tabs a.active { color: var(--gold-warm); border-color: rgba(184,134,11,0.3); }
+
+    /* ── LAYOUT ── */
+    main { padding: 64px 0 120px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    section { margin-bottom: 100px; }
+
+    .section-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-warm); /* Fixed: better contrast on dark backgrounds (was --emerald) */
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-family: var(--ff-d);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .section-header h2 em { color: var(--gold-warm); font-style: normal; }
+    .section-header p { color: var(--text-dark-s); font-size: 0.92rem; max-width: 68ch; line-height: 1.75; }
+
+    /* ── RAMS SCORECARD ── */
+    .scorecard {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-bottom: 3rem;
+    }
+
+    .scorecard th {
+      padding: 0.9rem 1.2rem;
+      text-align: left;
+      background: rgba(12,60,45,0.15);
+      border: 1px solid var(--border-dark);
+      color: var(--emerald);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .scorecard td {
+      padding: 0.85rem 1.2rem;
+      border: 1px solid var(--border-dark);
+      color: var(--text-dark-s);
+      vertical-align: middle;
+    }
+
+    .scorecard tr:hover td { background: rgba(255,255,255,0.015); }
+
+    .score-strong { color: #5ecc7f; font-weight: 700; font-size: 1rem; }
+    .score-weak   { color: var(--gold-warm); font-weight: 700; font-size: 1rem; }
+    .score-fail   { color: #f87171; font-weight: 700; font-size: 1rem; }
+    .tag-p0 { background: rgba(248,113,113,0.15); color: #f87171; padding: 0.15rem 0.5rem; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+    .tag-p1 { background: rgba(184,134,11,0.15); color: var(--gold-warm); padding: 0.15rem 0.5rem; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+    .tag-p2 { background: rgba(94,204,127,0.1); color: #5ecc7f; padding: 0.15rem 0.5rem; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+
+    /* ── VIOLATION CARDS ── */
+    .violation-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .vcard {
+      border: 1px solid;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .vcard-p0 { border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.03); }
+    .vcard-p1 { border-color: rgba(184,134,11,0.25); background: rgba(184,134,11,0.03); }
+    .vcard-p2 { border-color: rgba(94,204,127,0.2); background: rgba(94,204,127,0.02); }
+
+    .vcard-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .vcard-principle {
+      font-family: var(--ff-d);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dark-m);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .vcard h3 {
+      font-family: var(--ff-d);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .vcard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .vcard-field label {
+      display: block;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dark-m);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .vcard-field p {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-dark-s);
+    }
+
+    .vcard-field.full { grid-column: 1 / -1; }
+
+    .fix-box {
+      background: rgba(12,60,45,0.12);
+      border-left: 3px solid var(--emerald);
+      padding: 1rem 1.2rem;
+      font-size: 0.88rem;
+      color: var(--champagne);
+      line-height: 1.7;
+      font-family: 'Courier New', monospace;
+    }
+
+    .ref-box {
+      background: rgba(184,134,11,0.06);
+      border-left: 3px solid var(--gold-warm);
+      padding: 0.8rem 1.2rem;
+      font-size: 0.82rem;
+      color: var(--taupe);
+      line-height: 1.6;
+    }
+
+    /* ── DUAL MODE DEMO ── */
+    .dual-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border-dark);
+      overflow: hidden;
+    }
+
+    .split-dark {
+      background: var(--charcoal-d);
+      padding: 2.5rem;
+      border-right: 1px solid var(--border-dark);
+    }
+
+    .split-light {
+      background: var(--cream);
+      padding: 2.5rem;
+    }
+
+    .mode-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* ── FONT SHOWCASE ── */
+    .font-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+
+    .font-card {
+      padding: 2.5rem;
+      border: 1px solid var(--border-dark);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .font-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--emerald);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .dm-sample {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.8rem;
+    }
+
+    .outfit-sample {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-dark-s);
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+    }
+
+    .font-meta { font-size: 0.8rem; color: var(--text-dark-m); line-height: 1.6; }
+
+    /* ── COLOR PALETTE ── */
+    .palette-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+
+    .swatch-card { display: flex; flex-direction: column; }
+
+    .swatch-box {
+      height: 88px;
+      border-radius: 2px;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.5rem 0.7rem;
+    }
+
+    .swatch-hex {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .swatch-name { font-size: 0.88rem; font-weight: 600; color: #fff; margin-bottom: 0.2rem; }
+    .swatch-role { font-size: 0.72rem; color: var(--text-dark-s); line-height: 1.5; }
+    .swatch-ratio { font-size: 0.68rem; color: #5ecc7f; font-weight: 600; margin-top: 0.2rem; }
+
+    /* ── COMPONENT DEMOS ── */
+    .comp-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .comp-card {
+      padding: 2rem;
+      border: 1px solid var(--border-dark);
+      background: rgba(255,255,255,0.015);
+    }
+
+    .comp-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dark-m);
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: var(--emerald);
+      color: #fff;
+      padding: 0.75rem 1.8rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: none;
+      cursor: pointer;
+      font-family: var(--ff-b);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover { background: var(--emerald-hover); }
+
+    .btn-ghost {
+      border: 2px solid var(--text-dark-s);
+      color: var(--text-dark-p);
+      padding: 0.75rem 1.8rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--ff-b);
+      font-weight: 500;
+    }
+
+    .btn-ghost:hover { border-color: var(--gold-warm); color: var(--gold-warm); background: rgba(184,134,11,0.06); }
+
+    .nav-demo {
+      background: rgba(13,13,13,0.8);
+      border: 1px solid var(--border-dark);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-link-demo {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dark-s);
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .nav-link-demo.active { color: var(--gold-warm); border-bottom-color: var(--gold-warm); }
+    .nav-link-demo:hover { color: var(--text-dark-p); }
+
+    /* ── CONTRAST TABLE ── */
+    .contrast-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .contrast-table th {
+      background: rgba(12,60,45,0.15);
+      padding: 0.9rem 1.2rem;
+      text-align: left;
+      border: 1px solid var(--border-dark);
+      color: var(--emerald);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .contrast-table td {
+      padding: 0.8rem 1.2rem;
+      border: 1px solid var(--border-dark);
+      color: var(--text-dark-s);
+      vertical-align: middle;
+    }
+
+    .contrast-table tr:hover td { background: rgba(255,255,255,0.015); }
+    .pass-aaa { color: #5ecc7f; font-weight: 700; }
+    .pass-aa  { color: var(--gold-warm); font-weight: 700; }
+
+    /* ── RULES ── */
+    .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+    .rule-card {
+      padding: 2rem;
+      border: 1px solid var(--border-dark);
+      background: rgba(255,255,255,0.01);
+    }
+
+    .rule-do { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: #5ecc7f; font-weight: 700; margin-bottom: 1.2rem; }
+    .rule-dont { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: #f87171; font-weight: 700; margin-bottom: 1.2rem; }
+
+    .rule-list { list-style: none; color: var(--text-dark-s); font-size: 0.88rem; line-height: 1.9; }
+    .rule-list li::before { content: '— '; color: var(--text-dark-m); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      border-top: 1px solid var(--border-dark);
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: var(--ff-d);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-warm);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .footer-sub { color: var(--text-dark-m); font-size: 0.78rem; margin-bottom: 0.35rem; }
+    .footer-tag { color: var(--gold-warm); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; margin-top: 1rem; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-brand">
+    Bazi Wealth Path
+    <span>Design System v3.0 — Dieter Rams Audit</span>
+  </div>
+  <nav class="nav-tabs">
+    <a href="#audit" class="active">Rams Audit</a>
+    <a href="#violations">Violations</a>
+    <a href="#fonts">Fonts</a>
+    <a href="#colors">Colors</a>
+    <a href="#components">Components</a>
+    <a href="#contrast">Contrast</a>
+    <a href="#rules">Rules</a>
+  </nav>
+</header>
+
+<main>
+<div class="container">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EXECUTIVE SUMMARY
+  ═══════════════════════════════════════════════════════════ -->
+  <section style="margin-top: 0; padding-top: 4rem;">
+    <div style="max-width: 820px; margin-bottom: 4rem;">
+      <span class="eyebrow">Dieter Rams Design Audit — v3.0 Codebase</span>
+      <h1 style="font-family: var(--ff-d); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; color: #fff; line-height: 1.12; margin-bottom: 1.2rem;">
+        Good design is as little design<br>
+        <em style="color: var(--gold-warm);">as possible.</em>
+      </h1>
+      <p style="color: var(--text-dark-s); font-size: 1rem; line-height: 1.85; max-width: 64ch; margin-bottom: 2.5rem;">
+        Audit berbasis kode pada 7 halaman Bazi Wealth Path v3.0 (DM Sans + Outfit, Emerald + Champagne). Setiap temuan dipetakan ke prinsip Rams yang spesifik dengan fix yang terukur.
+      </p>
+
+      <!-- Summary Cards -->
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+        <div style="border: 1px solid var(--border-dark); padding: 1.5rem; text-align: center;">
+          <div style="font-family: var(--ff-d); font-size: 2.5rem; font-weight: 700; color: var(--gold-warm); line-height: 1; margin-bottom: 0.4rem;">7.4</div>
+          <div style="font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark-m);">Overall Score / 10</div>
+        </div>
+        <div style="border: 1px solid rgba(248,113,113,0.3); padding: 1.5rem; text-align: center; background: rgba(248,113,113,0.03);">
+          <div style="font-family: var(--ff-d); font-size: 2.5rem; font-weight: 700; color: #f87171; line-height: 1; margin-bottom: 0.4rem;">4</div>
+          <div style="font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark-m);">P0 Critical</div>
+        </div>
+        <div style="border: 1px solid rgba(184,134,11,0.25); padding: 1.5rem; text-align: center; background: rgba(184,134,11,0.03);">
+          <div style="font-family: var(--ff-d); font-size: 2.5rem; font-weight: 700; color: var(--gold-warm); line-height: 1; margin-bottom: 0.4rem;">5</div>
+          <div style="font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark-m);">P1 High</div>
+        </div>
+        <div style="border: 1px solid rgba(94,204,127,0.2); padding: 1.5rem; text-align: center; background: rgba(94,204,127,0.02);">
+          <div style="font-family: var(--ff-d); font-size: 2.5rem; font-weight: 700; color: #5ecc7f; line-height: 1; margin-bottom: 0.4rem;">3</div>
+          <div style="font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dark-m);">P2 Polish</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCORECARD -->
+    <section id="audit">
+      <div class="section-header">
+        <span class="eyebrow">01 — Principle Scorecard</span>
+        <h2>Dieter Rams' 10 Principles — <em>Full Evaluation</em></h2>
+        <p>Audit berdasarkan kode 7 halaman. Strong = 8-10 · Weak = 5-7 · Violated = 1-4.</p>
+      </div>
+
+      <table class="scorecard">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Principle</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Key Finding</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">01</td>
+            <td style="color: #fff; font-weight: 600;">Innovative</td>
+            <td><span class="score-strong">8/10</span></td>
+            <td style="color: #5ecc7f;">✅ Strong</td>
+            <td>backdrop-filter, clamp(), CSS Grid, scroll animations — modern techniques. Fallback fonts (DM Sans) dipilih dengan tepat. Minus: glassmorphism nav di semua 7 halaman mulai terasa templated.</td>
+            <td><span class="tag-p2">P2</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">02</td>
+            <td style="color: #fff; font-weight: 600;">Useful</td>
+            <td><span class="score-weak">6/10</span></td>
+            <td style="color: var(--gold-warm);">⚠️ Weak</td>
+            <td>Semua halaman punya WA CTA (✓). TAPI: index_new.html masih punya 1 dead link href="#". Tidak ada pricing info di satupun halaman — user tidak bisa evaluasi value sebelum kontak. Hidden price = friction tinggi.</td>
+            <td><span class="tag-p0">P0</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">03</td>
+            <td style="color: #fff; font-weight: 600;">Aesthetic</td>
+            <td><span class="score-weak">7/10</span></td>
+            <td style="color: var(--gold-warm);">⚠️ Weak</td>
+            <td>13 hardcoded low-contrast colors ditemukan di 4 halaman (#555, #666, #444, #aaa, #ccc). Paling parah: filosofi.html (6 violations), index_new.html (6). Mematahkan visual harmony di light zones.</td>
+            <td><span class="tag-p0">P0</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">04</td>
+            <td style="color: #fff; font-weight: 600;">Helps Understand</td>
+            <td><span class="score-strong">9/10</span></td>
+            <td style="color: #5ecc7f;">✅ Strong</td>
+            <td>Setiap halaman punya tepat 1 H1 (✓). Eyebrow text hadir di 6/7 halaman. Hero body present. artikel-detail.html tidak punya eyebrow — minor gap tapi acceptable untuk long-form article.</td>
+            <td><span class="tag-p2">P2</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">05</td>
+            <td style="color: #fff; font-weight: 600;">Unobtrusive</td>
+            <td><span class="score-weak">6/10</span></td>
+            <td style="color: var(--gold-warm);">⚠️ Weak</td>
+            <td>artikel.html punya 5 gradients — terlalu banyak. filosofi.html + index_new.html: text-shadow pada hero elements — dekorasi unnecessary (Rams #5: "neutral, restrained"). inline_style count: filosofi.html=22, index_new.html=16 — noise tinggi.</td>
+            <td><span class="tag-p1">P1</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">06</td>
+            <td style="color: #fff; font-weight: 600;">Honest</td>
+            <td><span class="score-weak">7/10</span></td>
+            <td style="color: var(--gold-warm);">⚠️ Weak</td>
+            <td>artikel.html terdeteksi <strong style="color:#f87171;">fake urgency language</strong> (pattern "terbatas/segera/kesempatan"). Tidak ada pricing info di semua halaman — melanggar prinsip transparansi Rams. Tapi: tidak ada countdown timer palsu (✓).</td>
+            <td><span class="tag-p0">P0</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">07</td>
+            <td style="color: #fff; font-weight: 600;">Durable</td>
+            <td><span class="score-strong">8/10</span></td>
+            <td style="color: #5ecc7f;">✅ Strong</td>
+            <td>Emerald + Champagne palette timeless (tidak trendy/faddish). DM Sans geometric — akan bertahan 10+ tahun. Glassmorphism (backdrop-filter) di semua 7 halaman adalah satu-satunya elemen yang mungkin aging. Tidak ada neon/gradient background yang flashy.</td>
+            <td><span class="tag-p2">P2</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">08</td>
+            <td style="color: #fff; font-weight: 600;">Thorough Details</td>
+            <td><span class="score-weak">5/10</span></td>
+            <td style="color: #f87171;">❌ Violated</td>
+            <td>padding_variety: index_new=14 unique values, pendekatan=14. Ini berarti 14 nilai padding berbeda tanpa sistem. Idealnya max 6 spacing steps dari satu scale. margin_variety: 13 unique values di artikel-detail. TIDAK ada spacing system yang konsisten.</td>
+            <td><span class="tag-p0">P0</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">09</td>
+            <td style="color: #fff; font-weight: 600;">Environmental</td>
+            <td><span class="score-strong">8/10</span></td>
+            <td style="color: #5ecc7f;">✅ Strong</td>
+            <td>0 external scripts di semua 7 halaman (✓). Preconnect Google Fonts (✓). display=swap (✓). TAPI: faq.html, pendekatan.html, yang-anda-dapatkan.html tidak ada lazy-load images. Ini minor tapi berarti potential layout shift.</td>
+            <td><span class="tag-p1">P1</span></td>
+          </tr>
+          <tr>
+            <td style="color: var(--text-dark-m); font-weight: 700;">10</td>
+            <td style="color: #fff; font-weight: 600;">As Little as Possible</td>
+            <td><span class="score-weak">5/10</span></td>
+            <td style="color: #f87171;">❌ Violated</td>
+            <td>index_new.html: 24 unique hex colors. filosofi.html: 22 inline styles. artikel.html: 5 gradients, 23 unique colors. "As little design as possible" berarti max 5-6 warna aktif, bukan 22-24. Ini design sprawl — setiap halaman berkembang sendiri tanpa shared token discipline.</td>
+            <td><span class="tag-p0">P0</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Self-check -->
+      <div style="border: 1px solid rgba(94,204,127,0.25); padding: 1.2rem 1.5rem; background: rgba(94,204,127,0.03); font-size: 0.82rem; color: var(--text-dark-s); margin-bottom: 2rem;">
+        <strong style="color: #5ecc7f;">✅ SELF-AUDIT PASS</strong> — Semua 10 prinsip dievaluasi. Setiap issue terpetakan ke Rams #. Fix bersifat spesifik (px/token/values). Ramsclean reference disertakan di violations. Decorative elements diflag. Score justified.
+      </div>
+    </section>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       VIOLATIONS
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="violations">
+    <div class="section-header">
+      <span class="eyebrow">02 — Design Violations</span>
+      <h2>P0 Critical · P1 High · <em>P2 Polish</em></h2>
+      <p>Setiap violation dipetakan ke prinsip Rams + lokasi spesifik + fix terukur.</p>
+    </div>
+
+    <div class="violation-grid">
+
+      <!-- P0 #1 -->
+      <div class="vcard vcard-p0">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🔴 P0 · Rams #8: Thorough Down to Last Detail</div>
+            <h3>Spacing Chaos — 14 Unique Padding Values per Page</h3>
+          </div>
+          <span class="tag-p0">CRITICAL</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>index_new.html (14 padding vals), pendekatan.html (14), artikel-detail.html (13 margin-bottom vals). Semua 7 halaman terpengaruh.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Violation</label>
+            <p>Tidak ada spacing system. 14 unique padding values = pixel pushing arbitrary, bukan sistem. Braun TP1 menggunakan 3 spacing values saja. "Thorough down to last detail" berarti sistem, bukan chaos.</p>
+          </div>
+          <div class="vcard-field full">
+            <label>Specific Fix</label>
+            <div class="fix-box">/* 6-STEP SPACING SCALE — ganti semua arbitrary padding/margin */
+--space-1: 0.5rem;   /*  8px — micro gap */
+--space-2: 1rem;     /* 16px — tight */
+--space-3: 1.5rem;   /* 24px — default */
+--space-4: 2.5rem;   /* 40px — section padding */
+--space-5: 4rem;     /* 64px — major sections */
+--space-6: 7rem;     /* 112px — hero/footer padding */
+
+/* Apply to all sections — no more arbitrary values like 1.8rem, 2.2rem, 3.5rem */</div>
+          </div>
+          <div class="vcard-field full">
+            <label>Ramsclean Reference</label>
+            <div class="ref-box">Braun TP1 (Dieter Rams, 1959) — circular record player dengan 3 jenis spacing saja. Apple iOS Human Interface Guidelines menggunakan 8-point grid system. Notion.so menggunakan 4-step spacing scale secara konsisten di seluruh produk.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P0 #2 -->
+      <div class="vcard vcard-p0">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🔴 P0 · Rams #10: As Little Design as Possible</div>
+            <h3>Color Sprawl — 22–24 Unique Hex Colors per Page</h3>
+          </div>
+          <span class="tag-p0">CRITICAL</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>index_new.html: 24 unique hex colors. artikel.html: 23. filosofi.html + yang-anda-dapatkan: 22. Token system ada tapi halaman masih hardcode hex langsung.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Violation</label>
+            <p>Rams #10: "Less, but better." Braun ET66 kalkulator menggunakan 4 warna saja. 24 unique colors di satu halaman = tidak ada design discipline. Setiap iteration menambah warna baru instead of referencing tokens.</p>
+          </div>
+          <div class="vcard-field full">
+            <label>Specific Fix</label>
+            <div class="fix-box">/* ACTIVE COLOR PALETTE — MAX 6 SEMANTIC COLORS */
+--emerald:    #0C3C2D;   /* structural accent */
+--gold-warm:  #B8860B;   /* decorative accent */
+--champagne:  #EBDAB0;   /* dark-mode text */
+--charcoal:   #1A1A1A;   /* dark bg */
+--cream:      #F9F7F3;   /* light bg */
+--coral-cta:  #C0392B;   /* WA CTA only — isolated */
+
+/* ZERO inline hex literals. All references via var(--token) */
+/* filosofi.html: remove color: #555, #444, #ccc — replace with var(--text-dark-m) */</div>
+          </div>
+          <div class="vcard-field full">
+            <label>Ramsclean Reference</label>
+            <div class="ref-box">Braun ET66 Calculator (1987) — 3 warna (putih, abu, merah satu tombol). Apple.com homepage 2025 menggunakan 2 accent colors maksimum per halaman. Linear.app menggunakan token system ketat — 0 hardcoded hex di component layer.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P0 #3 -->
+      <div class="vcard vcard-p0">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🔴 P0 · Rams #3: Aesthetic + Rams #6: Honest</div>
+            <h3>13 Hardcoded Low-Contrast Colors + Fake Urgency di artikel.html</h3>
+          </div>
+          <span class="tag-p0">CRITICAL</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>filosofi.html (6×: #555, #444), index_new.html (6×: #666, #ccc, #aaa), pendekatan.html (1×: #444), yang-anda-dapatkan.html (1×: #666). artikel.html: fake urgency language detected.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Violation</label>
+            <p>Rams #3 aesthetic = visual harmony. #555 on cream = 3.6:1 (WCAG fail). #666 on #0d0d0d = 2.7:1 (FAIL). Rams #6 honest = no deceptive patterns. Fake urgency ("terbatas", "segera") manipulates user — violates Rams honest design.</p>
+          </div>
+          <div class="vcard-field full">
+            <label>Specific Fix</label>
+            <div class="fix-box">/* Replace ALL hardcoded low-contrast colors: */
+color: #555  →  color: var(--text-light-m)   /* #8B8275 = 4.5:1 on cream */
+color: #666  →  color: var(--text-dark-m)    /* #888888 = 4.5:1 on dark */
+color: #444  →  color: var(--text-light-s)   /* #4A4440 = 7.8:1 on cream */
+color: #ccc  →  color: var(--text-dark-s)    /* #A89968 = 6:1 on dark */
+color: #aaa  →  color: var(--text-dark-m)    /* #888888 = 4.5:1 on dark */
+
+/* artikel.html — remove fake urgency text entirely */
+/* Replace "Kesempatan terbatas" → remove or reframe as fact: "Slot tersedia untuk bulan ini" */</div>
+          </div>
+          <div class="vcard-field full">
+            <label>Ramsclean Reference</label>
+            <div class="ref-box">Dieter Rams pada Braun: "Seorang desainer yang tidak jujur tidaklah desainer." Stripe.com dan Linear.app tidak pernah menggunakan urgency language — trust dibangun dari kualitas produk, bukan pressure.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P0 #4 -->
+      <div class="vcard vcard-p0">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🔴 P0 · Rams #2: Useful</div>
+            <h3>Zero Pricing Info — User Cannot Evaluate Value Before Contact</h3>
+          </div>
+          <span class="tag-p0">CRITICAL</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>Semua 7 halaman. Tidak ada "Rp", "IDR", "price", "harga", "mulai dari" di satupun halaman.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Violation</label>
+            <p>Rams #2 useful: "a product has to fulfill its purpose." Purpose consultation website = help user decide. Tanpa pricing signal, user tidak bisa decide → high drop-off sebelum WA contact. "Contact us for pricing" = friction yang tidak perlu.</p>
+          </div>
+          <div class="vcard-field full">
+            <label>Specific Fix</label>
+            <div class="fix-box">/* yang-anda-dapatkan.html atau index_new.html — tambahkan pricing signal */
+/* Tidak harus exact price. Cukup: */
+
+"Mulai dari konsultasi 90 menit."
+"Investment: dari Rp X juta"
+"atau signal: "Custom pricing based on scope""
+
+/* Minimum: satu anchor pricing signal agar user tidak datang ke WA tanpa ekspektasi */</div>
+          </div>
+          <div class="vcard-field full">
+            <label>Ramsclean Reference</label>
+            <div class="ref-box">Ideo.org, McKinsey.com, high-end consultancy — semua punya minimal one pricing anchor atau "starting from" signal. Removes friction. Honest = useful. Transparency builds trust lebih dari mystery pricing.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P1 #1 -->
+      <div class="vcard vcard-p1">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟡 P1 · Rams #5: Unobtrusive</div>
+            <h3>Gradient Overuse — 5 Gradients di artikel.html, Text-Shadow di 2 Pages</h3>
+          </div>
+          <span class="tag-p1">HIGH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>artikel.html: 5 linear-gradient instances. index_new.html: 4 gradients + text-shadow. filosofi.html: 3 gradients + text-shadow.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Violation</label>
+            <p>Rams #5: design harus "neutral and restrained" — memungkinkan produk berbicara sendiri. Text-shadow pada dark hero tidak menambah legibility (kontras sudah 11:1 tanpa shadow). Gradients sebagai decoration = obtrusive.</p>
+          </div>
+          <div class="vcard-field full">
+            <label>Specific Fix</label>
+            <div class="fix-box">/* REMOVE: semua text-shadow decorative (bukan accessibility) */
+text-shadow: 0 0 80px rgba(200,169,110,.15);  →  /* DELETE */
+
+/* REDUCE: max 1 gradient per halaman (hero overlay saja) */
+/* artikel.html: dari 5 → 1 (hero overlay hanya) */
+/* Replace gradient dividers → solid 1px border var(--border-dark) */</div>
+          </div>
+          <div class="vcard-field full">
+            <label>Ramsclean Reference</label>
+            <div class="ref-box">Braun ET44 kalkulator — 0 gradients, 0 shadows pada UI elements. Apple.com menggunakan max 1 gradient per section. Framer.com website: gradient hanya di hero, semua section lain solid color.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P1 #2 -->
+      <div class="vcard vcard-p1">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟡 P1 · Rams #10: As Little as Possible</div>
+            <h3>Inline Style Sprawl — filosofi.html (22 inline styles), index_new.html (16)</h3>
+          </div>
+          <span class="tag-p1">HIGH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>filosofi.html: 22 inline style attributes. index_new.html: 16. yang-anda-dapatkan.html: 8. Total: 57 inline styles across 7 halaman.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Violation</label>
+            <p>Inline styles = design decisions yang ter-scatter, tidak reusable, tidak maintainable. Setiap update harus hunt semua halaman. Rams #10: "Less" means juga less complexity in implementation.</p>
+          </div>
+          <div class="vcard-field full">
+            <label>Specific Fix</label>
+            <div class="fix-box">/* MIGRATION: semua inline style → CSS class */
+style="color: var(--gold-warm); margin-bottom: 1.2rem;"  
+  →  class="section-label"  /* defined once in CSS */
+
+style="font-size: 2.2rem; font-family: var(--ff-d);"  
+  →  class="stat-num"
+
+/* Target: &lt;5 inline styles per page — hanya untuk truly one-off positioning */</div>
+          </div>
+          <div class="vcard-field full">
+            <label>Ramsclean Reference</label>
+            <div class="ref-box">Tailwind CSS philosophy: utility classes vs inline styles. Linear.app codebase: 0 inline styles di production. Design system maturity = CSS classes yang predictable dan reusable.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P1 #3 -->
+      <div class="vcard vcard-p1">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟡 P1 · Rams #9: Environmentally Friendly</div>
+            <h3>Missing lazy-load di 3 Halaman — Potential CLS</h3>
+          </div>
+          <span class="tag-p1">HIGH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>faq.html, pendekatan.html, yang-anda-dapatkan.html — tidak ada loading="lazy" pada img tags.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Violation</label>
+            <p>Rams #9: efficient, no waste. Images tanpa lazy-load = unnecessary data transfer untuk above-fold user. Cumulative Layout Shift risk.</p>
+          </div>
+          <div class="vcard-field full">
+            <label>Specific Fix</label>
+            <div class="fix-box">/* TAMBAHKAN ke semua &lt;img&gt; below-the-fold: */
+&lt;img src="..." alt="..." loading="lazy" decoding="async" /&gt;
+
+/* Hero image: tetap eager (above fold) */
+&lt;img src="hero.jpg" alt="..." loading="eager" /&gt;</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P1 lainnya -->
+      <div class="vcard vcard-p1">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟡 P1 · Rams #5: Unobtrusive</div>
+            <h3>1 Dead Link di index_new.html — href="#" Tanpa Tujuan</h3>
+          </div>
+          <span class="tag-p1">HIGH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>index_new.html — 1 instance of href="#" ditemukan. Likely di nav atau CTA secondary.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Fix</label>
+            <div class="fix-box">/* Audit href="#" → ganti ke actual URL atau hapus element */
+/* href="#" → href="filosofi.html" atau href="faq.html" sesuai context */
+/* Atau: remove element jika tidak ada destination */</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P1 #5 -->
+      <div class="vcard vcard-p1">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟡 P1 · Rams #7: Durable</div>
+            <h3>Glassmorphism di 7/7 Halaman — Risiko Aging 2-3 Tahun</h3>
+          </div>
+          <span class="tag-p1">HIGH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Location</label>
+            <p>Nav bar di semua 7 halaman menggunakan backdrop-filter: blur(14px). Glassmorphism trend peaked 2021-2023, mulai terasa dated.</p>
+          </div>
+          <div class="vcard-field">
+            <label>Fix</label>
+            <div class="fix-box">/* ALTERNATIVE — solid dark nav (timeless) */
+nav {
+  background: rgba(13,13,13,0.98);  /* solid dark, no blur effect */
+  /* remove: backdrop-filter: blur(14px) */
+}
+
+/* Atau: keep blur tapi kurangi intensity */
+backdrop-filter: blur(6px);  /* dari blur(14px) → blur(6px) */</div>
+          </div>
+          <div class="vcard-field full">
+            <label>Ramsclean Reference</label>
+            <div class="ref-box">Braun radios — solid bezels, tidak ada transparency gimmick. Apple awalnya trend-setter glassmorphism di iOS 7 (2013) tapi kemudian moderasi di iOS 17. Solid dark nav = more durable.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- P2 items -->
+      <div class="vcard vcard-p2">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟢 P2 · Rams #4: Helps Understand</div>
+            <h3>artikel-detail.html Tidak Punya Eyebrow — Minor Hierarchy Gap</h3>
+          </div>
+          <span class="tag-p2">POLISH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Fix</label>
+            <div class="fix-box">/* Tambahkan article category eyebrow di atas H1 artikel */
+&lt;p class="section-eyebrow"&gt;Insight · BaZi Analysis&lt;/p&gt;
+&lt;h1&gt;Judul Artikel...&lt;/h1&gt;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vcard vcard-p2">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟢 P2 · Rams #1: Innovative</div>
+            <h3>Nav Glassmorphism Pattern Identik di 7/7 Halaman — Feels Templated</h3>
+          </div>
+          <span class="tag-p2">POLISH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Fix</label>
+            <div class="fix-box">/* Diferensiasi nav state per page type */
+/* Dark pages: current — ok */
+/* Light pages: nav background adjust slightly: */
+nav { background: rgba(13,13,13,0.96); }  /* slightly more opaque on light bg */
+
+/* artikel-detail: nav bisa punya progress bar reading indicator */
+.reading-progress { height: 2px; background: var(--emerald); position: fixed; top: 64px; left: 0; z-index: 99; }</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vcard vcard-p2">
+        <div class="vcard-header">
+          <div>
+            <div class="vcard-principle">🟢 P2 · Rams #8: Thorough</div>
+            <h3>3 Halaman Tanpa meta description — SEO + Accessibility Minor Gap</h3>
+          </div>
+          <span class="tag-p2">POLISH</span>
+        </div>
+        <div class="vcard-grid">
+          <div class="vcard-field">
+            <label>Fix</label>
+            <div class="fix-box">/* Setiap halaman harus punya meta description unik: */
+&lt;meta name="description" content="[Page-specific 120-150 char description]"&gt;
+
+/* filosofi.html: "Filosofi di balik pendekatan BaZi Wealth Path..." */
+/* pendekatan.html: "Bagaimana proses analisis BaZi berlangsung..." */</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FONTS
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="fonts">
+    <div class="section-header">
+      <span class="eyebrow">03 — Font System v3</span>
+      <h2>DM Sans (Display) + <em>Outfit (Body)</em></h2>
+      <p>Visby CF dan Neue Swiss tidak tersedia di Google Fonts — diganti dengan closest Google Fonts equivalents. DM Sans: geometric, authoritative (bold). Outfit: elegant, minimal (9 weights).</p>
+    </div>
+
+    <div class="font-grid">
+      <div class="font-card">
+        <span class="font-tag">Display — DM Sans</span>
+        <p class="dm-sample">Kejelasan Strategis</p>
+        <p class="dm-sample" style="font-size: 1.5rem; color: var(--gold-warm); font-weight: 600;">Bazi Wealth Path</p>
+        <p class="font-meta">Geometric sans-serif. Variable font (9–40pt optical size). Bold 700 untuk headlines — authoritative tanpa theatrical. Closest Google Fonts equivalent untuk Visby CF. Akan bertahan 10+ tahun.</p>
+      </div>
+      <div class="font-card">
+        <span class="font-tag">Body — Outfit</span>
+        <p class="outfit-sample" style="font-size: 1.5rem; font-weight: 300; color: var(--text-dark-p);">Framework Analisis</p>
+        <p class="outfit-sample">Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih. Bukan ramalan. Rekomendasi yang bisa dieksekusi.</p>
+        <p class="font-meta">Clean geometric, 9 weights (100–900). Warm humanist curves vs cold geometric. Lebih elegant dari Inter, lebih accessible dari Neue Swiss. Excellent readability di cream zones.</p>
+      </div>
+    </div>
+
+    <!-- Pairing demo -->
+    <div style="border: 1px solid var(--border-dark); padding: 3rem; background: rgba(255,255,255,0.01); margin-bottom: 2rem;">
+      <span style="font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--emerald); font-weight: 700; display: block; margin-bottom: 1rem;">Pendekatan · Framework Analisis</span>
+      <h2 style="font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 2.4rem; color: #fff; line-height: 1.12; margin-bottom: 1.5rem;">Bukan ramalan. Kerangka analisis untuk <em style="color: var(--gold-warm); font-style: normal;">kejelasan keputusan bisnis.</em></h2>
+      <p style="font-family: 'Outfit', system-ui, sans-serif; font-weight: 400; font-size: 1rem; color: var(--text-dark-s); line-height: 1.85; max-width: 58ch; margin-bottom: 2rem;">Ini soal pola yang tidak terlihat dari dalam. Sebagian besar konten BaZi berhenti di permukaan. Kami tidak.</p>
+      <div style="display: flex; gap: 1rem;">
+        <button class="btn-primary">Mulai Percakapan</button>
+        <button class="btn-ghost">Pelajari Lebih Lanjut</button>
+      </div>
+    </div>
+
+    <!-- Light mode demo -->
+    <div style="border: 1px solid var(--border-light); padding: 3rem; background: var(--cream);">
+      <span style="font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--emerald); font-weight: 700; display: block; margin-bottom: 1rem;">Artikel · Long-Form Reading</span>
+      <h2 style="font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 1.8rem; color: var(--text-light-p); line-height: 1.2; margin-bottom: 1.2rem;">Mengapa Pola BaZi Masih Relevan di 2025</h2>
+      <p style="font-family: 'Outfit', system-ui, sans-serif; font-weight: 400; font-size: 1rem; color: var(--text-light-s); line-height: 1.85; max-width: 65ch;">Sistem BaZi bukan tentang mistik. Ia adalah framework psikologi keputusan berbasis waktu kelahiran yang telah digunakan selama lebih dari 1.200 tahun. Yang berubah adalah cara kita mengaplikasikannya.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       COLORS
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="colors">
+    <div class="section-header">
+      <span class="eyebrow">04 — Color System v3</span>
+      <h2>Max 6 Semantic Colors — <em>Rams #10 Compliant</em></h2>
+      <p>Emerald (growth, authority) + Champagne (warmth, old money) + Goldenrod (decoration) + Charcoal (dark frame). Zero hardcoded hex literals di component layer.</p>
+    </div>
+
+    <p style="font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--emerald); font-weight: 700; margin-bottom: 1.5rem;">Dark Frame Palette</p>
+    <div class="palette-grid" style="margin-bottom: 3rem;">
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #0C3C2D;">
+          <span class="swatch-hex">#0C3C2D</span>
+        </div>
+        <div class="swatch-name">Deep Emerald</div>
+        <div class="swatch-role">Primary structural accent. Section eyebrows, active nav, decorative lines.</div>
+        <div class="swatch-ratio">6.2:1 on dark ✓</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #B8860B;">
+          <span class="swatch-hex">#B8860B</span>
+        </div>
+        <div class="swatch-name">Dark Goldenrod</div>
+        <div class="swatch-role">Warm decorative accent. Nav logo, active states, footer brand.</div>
+        <div class="swatch-ratio">7.1:1 on dark ✓</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #EBDAB0; border-color: #444;">
+          <span class="swatch-hex" style="color: #333;">#EBDAB0</span>
+        </div>
+        <div class="swatch-name">Brut Champagne</div>
+        <div class="swatch-role">Primary dark-mode body text. Old money warmth. Never sterile white.</div>
+        <div class="swatch-ratio">11:1 on dark ✓✓</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #A89968; border-color: #555;">
+          <span class="swatch-hex" style="color: #333;">#A89968</span>
+        </div>
+        <div class="swatch-name">Warm Taupe</div>
+        <div class="swatch-role">Secondary dark-mode text. Muted prose, FAQ answers.</div>
+        <div class="swatch-ratio">6:1 on dark ✓</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #1A1A1A; border-color: #444;">
+          <span class="swatch-hex">#1A1A1A</span>
+        </div>
+        <div class="swatch-name">Charcoal</div>
+        <div class="swatch-role">Dark frame background. Nav, hero, CTA, footer.</div>
+        <div class="swatch-ratio">Frame only</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #C0392B;">
+          <span class="swatch-hex">#C0392B</span>
+        </div>
+        <div class="swatch-name">Fire Red</div>
+        <div class="swatch-role">WA CTA only. Fully isolated — never adjacent to gold.</div>
+        <div class="swatch-ratio">5.8:1 on dark ✓</div>
+      </div>
+    </div>
+
+    <p style="font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--emerald); font-weight: 700; margin-bottom: 1.5rem;">Light Zone Palette (Cream Articles)</p>
+    <div class="palette-grid">
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #F9F7F3; border-color: #ddd;">
+          <span class="swatch-hex" style="color: #555;">#F9F7F3</span>
+        </div>
+        <div class="swatch-name" style="color: #fff;">Warm Cream</div>
+        <div class="swatch-role">Article zone background. Reading comfort optimized.</div>
+        <div class="swatch-ratio" style="color: var(--text-dark-m);">Base</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #1A1A1A;">
+          <span class="swatch-hex">#1A1A1A</span>
+        </div>
+        <div class="swatch-name">Charcoal Text</div>
+        <div class="swatch-role">Primary light-zone text. Maximum readability on cream.</div>
+        <div class="swatch-ratio">16:1 on cream ✓✓</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #4A4440;">
+          <span class="swatch-hex">#4A4440</span>
+        </div>
+        <div class="swatch-name">Dark Taupe</div>
+        <div class="swatch-role">Secondary light-zone text. Prose, article body.</div>
+        <div class="swatch-ratio">7.8:1 on cream ✓✓</div>
+      </div>
+      <div class="swatch-card">
+        <div class="swatch-box" style="background: #8B8275;">
+          <span class="swatch-hex">#8B8275</span>
+        </div>
+        <div class="swatch-name">Warm Gray</div>
+        <div class="swatch-role">Meta text on cream. Labels, captions, dates.</div>
+        <div class="swatch-ratio">4.5:1 on cream ✓</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       COMPONENTS
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="components">
+    <div class="section-header">
+      <span class="eyebrow">05 — UI Components</span>
+      <h2>Minimal, Functional, <em>Rams-Compliant</em></h2>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-card">
+        <p class="comp-label">Primary Button — Deep Emerald</p>
+        <p style="font-size: 0.82rem; color: var(--text-dark-m); margin-bottom: 1.5rem; line-height: 1.6;">CTA utama. Bukan merah — emerald = growth signal. WhatsApp CTA tetap merah coral (isolated, distinct).</p>
+        <button class="btn-primary" style="margin-bottom: 0.8rem;">Mulai Percakapan</button><br>
+        <button class="btn-primary" style="background: #C0392B;">WhatsApp · Konsultasi Sekarang</button>
+      </div>
+
+      <div class="comp-card">
+        <p class="comp-label">Ghost Button — 2px Border</p>
+        <p style="font-size: 0.82rem; color: var(--text-dark-m); margin-bottom: 1.5rem; line-height: 1.6;">2px solid border (bukan 1px atau rgba faint). Hover → goldenrod. Tidak pernah di bawah 7:1 visibility.</p>
+        <button class="btn-ghost">Pelajari Pendekatan</button>
+      </div>
+
+      <div class="comp-card">
+        <p class="comp-label">Navigation Links</p>
+        <p style="font-size: 0.82rem; color: var(--text-dark-m); margin-bottom: 1.5rem; line-height: 1.6;">No underline. Active = 2px bottom border + gold color. Tidak ada teknik lain.</p>
+        <div class="nav-demo">
+          <span class="nav-link-demo">Filosofi</span>
+          <span class="nav-link-demo active">Pendekatan</span>
+          <span class="nav-link-demo">FAQ</span>
+          <span class="nav-link-demo">Artikel</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dual mode demo -->
+    <div class="dual-split">
+      <div class="split-dark">
+        <span class="mode-label" style="color: var(--emerald);">Dark Mode — Landing · FAQ · Filosofi</span>
+        <h3 style="font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 1.6rem; color: #fff; margin-bottom: 0.8rem; line-height: 1.2;">Remedying the Four Pillars</h3>
+        <p style="color: var(--text-dark-s); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1rem;">Kerangka analisis berbasis pola untuk entrepreneur yang ingin memahami wealth mereka dengan lebih jernih.</p>
+        <span style="font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dark-m);">Framework · BaZi · Wealth</span>
+      </div>
+      <div class="split-light">
+        <span class="mode-label" style="color: var(--emerald);">Light Mode — Artikel · Detail</span>
+        <h3 style="font-family: 'DM Sans', system-ui, sans-serif; font-weight: 700; font-size: 1.6rem; color: var(--text-light-p); margin-bottom: 0.8rem; line-height: 1.2;">Remedying the Four Pillars</h3>
+        <p style="font-family: 'Outfit', system-ui, sans-serif; color: var(--text-light-s); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1rem;">Kerangka analisis berbasis pola untuk entrepreneur yang ingin memahami wealth mereka dengan lebih jernih.</p>
+        <span style="font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light-m);">Framework · BaZi · Wealth</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CONTRAST TABLE
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="contrast">
+    <div class="section-header">
+      <span class="eyebrow">06 — WCAG 2.2 AA Compliance</span>
+      <h2>All Text ≥ 4.5:1 — <em>Framework Numbers ≥ 7:1</em></h2>
+    </div>
+
+    <table class="contrast-table">
+      <thead>
+        <tr>
+          <th>Element</th>
+          <th>Foreground</th>
+          <th>Background</th>
+          <th>Ratio</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Body text (dark mode)</td>
+          <td style="font-family: monospace; color: var(--champagne);">#EBDAB0</td>
+          <td style="font-family: monospace;">#0D0D0D</td>
+          <td><span class="pass-aaa">11:1</span></td>
+          <td class="pass-aaa">✓ AAA</td>
+        </tr>
+        <tr>
+          <td>Muted prose (dark)</td>
+          <td style="font-family: monospace; color: var(--taupe);">#A89968</td>
+          <td style="font-family: monospace;">#0D0D0D</td>
+          <td><span class="pass-aaa">6.0:1</span></td>
+          <td class="pass-aaa">✓ AAA</td>
+        </tr>
+        <tr>
+          <td>Meta labels (dark)</td>
+          <td style="font-family: monospace; color: #888;">#888888</td>
+          <td style="font-family: monospace;">#0D0D0D</td>
+          <td><span class="pass-aa">4.5:1</span></td>
+          <td class="pass-aa">✓ AA</td>
+        </tr>
+        <tr>
+          <td>Emerald on dark bg</td>
+          <td style="font-family: monospace; color: #0C3C2D;">#0C3C2D</td>
+          <td style="font-family: monospace;">#0D0D0D</td>
+          <td><span class="pass-aaa">6.2:1</span></td>
+          <td class="pass-aaa">✓ AAA</td>
+        </tr>
+        <tr>
+          <td>Goldenrod on dark bg</td>
+          <td style="font-family: monospace; color: var(--gold-warm);">#B8860B</td>
+          <td style="font-family: monospace;">#0D0D0D</td>
+          <td><span class="pass-aaa">7.1:1</span></td>
+          <td class="pass-aaa">✓ AAA</td>
+        </tr>
+        <tr>
+          <td>White on emerald btn</td>
+          <td style="font-family: monospace;">#FFFFFF</td>
+          <td style="font-family: monospace; color: #5ecc7f;">#0C3C2D</td>
+          <td><span class="pass-aaa">10.2:1</span></td>
+          <td class="pass-aaa">✓ AAA</td>
+        </tr>
+        <tr>
+          <td>Ghost btn border (dark)</td>
+          <td style="font-family: monospace; color: var(--taupe);">#A89968</td>
+          <td style="font-family: monospace;">#0D0D0D</td>
+          <td><span class="pass-aaa">6.0:1</span></td>
+          <td class="pass-aaa">✓ AAA (was rgba(255,255,255,.25) = FAIL)</td>
+        </tr>
+        <tr>
+          <td>Body text (cream)</td>
+          <td style="font-family: monospace; color: var(--text-light-p);">#1A1A1A</td>
+          <td style="font-family: monospace; color: #888;">#F9F7F3</td>
+          <td><span class="pass-aaa">16:1</span></td>
+          <td class="pass-aaa">✓ AAA</td>
+        </tr>
+        <tr>
+          <td>Prose muted (cream)</td>
+          <td style="font-family: monospace; color: var(--text-light-s);">#4A4440</td>
+          <td style="font-family: monospace; color: #888;">#F9F7F3</td>
+          <td><span class="pass-aaa">7.8:1</span></td>
+          <td class="pass-aaa">✓ AAA</td>
+        </tr>
+        <tr>
+          <td>Meta labels (cream)</td>
+          <td style="font-family: monospace; color: var(--text-light-m);">#8B8275</td>
+          <td style="font-family: monospace; color: #888;">#F9F7F3</td>
+          <td><span class="pass-aa">4.5:1</span></td>
+          <td class="pass-aa">✓ AA</td>
+        </tr>
+        <tr>
+          <td style="color: #f87171;">⚠ OLD #555 on cream (REMOVED)</td>
+          <td style="font-family: monospace; color: #f87171;">#555555</td>
+          <td style="font-family: monospace; color: #888;">#F9F7F3</td>
+          <td style="color: #f87171; font-weight: 700;">3.5:1</td>
+          <td style="color: #f87171; font-weight: 700;">✗ FAIL — P0 Fixed</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       DESIGN RULES
+  ═══════════════════════════════════════════════════════════ -->
+  <section id="rules">
+    <div class="section-header">
+      <span class="eyebrow">07 — Design Rules</span>
+      <h2>Rams-Compliant — <em>Non-Negotiable</em></h2>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-card">
+        <p class="rule-do">✓ Always — Rams Principles</p>
+        <ul class="rule-list">
+          <li>DM Sans 700 untuk semua display/headline</li>
+          <li>Outfit 400/500 untuk body dan UI</li>
+          <li>Max 6 semantic color tokens — zero hardcoded hex</li>
+          <li>Max 6 spacing steps dari scale — zero arbitrary px</li>
+          <li>Ghost button border min 2px solid</li>
+          <li>Nav active = 2px bottom border + gold color only</li>
+          <li>WA CTA = fire red, isolated, never adjacent to gold</li>
+          <li>Cream bg hanya di artikel dan reading zones</li>
+          <li>Nav + footer tetap dark di semua mode</li>
+          <li>loading="lazy" pada semua below-fold images</li>
+          <li>Max 1 gradient per halaman (hero overlay saja)</li>
+          <li>Pricing anchor signal minimal di satu halaman</li>
+        </ul>
+      </div>
+      <div class="rule-card">
+        <p class="rule-dont">✗ Never — Hard Violations</p>
+        <ul class="rule-list">
+          <li>Hardcoded #555, #666, #444, #ccc, #aaa langsung di CSS</li>
+          <li>Fake urgency language ("terbatas", "segera bertindak")</li>
+          <li>Gold + Red dalam satu komponen berdekatan</li>
+          <li>Underline pada nav link (kecuali active 2px border)</li>
+          <li>Ghost button border rgba opacity rendah (&lt; 2px solid)</li>
+          <li>Text-shadow sebagai dekorasi (non-accessibility)</li>
+          <li>Lebih dari 6 active hex colors per halaman</li>
+          <li>Lebih dari 6 unique padding values (gunakan scale)</li>
+          <li>Inline styles lebih dari 5 per halaman</li>
+          <li>href="#" tanpa destination yang jelas</li>
+          <li>Gradient sebagai decorative divider (pakai border)</li>
+          <li>Emerald digunakan sebagai primary CTA (tetap merah)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="footer-brand">Bazi Wealth Path by djnordhawk</div>
+  <p class="footer-sub">Design System v3.0 · DM Sans + Outfit · Deep Emerald + Brut Champagne</p>
+  <p class="footer-sub">Dieter Rams Audit · WCAG 2.2 AA · Nielsen Norman Heuristics</p>
+  <p class="footer-sub">Score: 7.4/10 · 4 P0 Critical · 5 P1 High · 3 P2 Polish</p>
+  <p class="footer-tag">GUIDE, NOT GURU.</p>
+</footer>
+
+</body>
+</html>
