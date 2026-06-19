@@ -1,18 +1,18 @@
 /* ══════════════════════════════════════════════════════════════════════════════
-   BAZI WEALTH PATH — DESIGN SYSTEM v3.1 (Style Guide Compliant)
+   BAZI WEALTH PATH — DESIGN SYSTEM v3.2 (Fraunces Upgrade)
    "Premium Usability meets Authentic Luxury"
 
-   Fonts   : DM Sans (display) · Outfit (body)
+   Fonts   : Fraunces (display, optical sizing) · Outfit (body)
    Palette : Deep Emerald #0C3C2D · Brut Champagne #EBDAB0
              Dark Goldenrod #B8860B · Charcoal #1A1A1A
    WCAG    : 2.2 AA — all body text ≥ 6:1
-   Following: style-guide-v3.html (Dieter Rams Audit)
+   Following: style-guide-v3.html (Dieter Rams Audit), font pairing audit
    ══════════════════════════════════════════════════════════════════════════════ */
 
 /* ─── GOOGLE FONTS (Style Guide Compliant) ───────────────────────────────────
-   DM Sans (Display) + Outfit (Body) — as specified in style-guide-v3.html     */
+   Fraunces (Display, optical sizing) + Outfit (Body) — soft serif, modern   */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 
 /* ══════════════════════════════════════════════════════════════════════════════
@@ -77,7 +77,7 @@
   --badge-red-bg:          rgba(224, 112, 85, 0.06);
 
   /* Fonts — Style Guide Compliant */
-  --ff-display: 'DM Sans', -apple-system, system-ui, sans-serif;
+  --ff-display: 'Fraunces', Georgia, serif;
   --ff-body:    'Outfit', -apple-system, system-ui, sans-serif;
 
   /* Type scale */
