@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Offering Blueprint v1 — Life Path × DJ Nordhawk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── TOKENS ─────────────────────────────────────────── */
+  :root {
+    --bg:         #0D0D0F;
+    --bg-2:       #141417;
+    --bg-3:       #1A1A20;
+    --gold:       #C9A84C;
+    --gold-dim:   #7A6230;
+    --gold-pale:  #2A2218;
+    --cream:      #F0EAD6;
+    --cream-dim:  #9A9080;
+    --white:      #FFFFFF;
+    --border:     rgba(201,168,76,0.18);
+    --border-dim: rgba(255,255,255,0.06);
+    --red:        #E05252;
+    --green:      #52C97A;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+    --font-mono:    'JetBrains Mono', monospace;
+
+    --nav-w: 220px;
+    --content-max: 780px;
+  }
+
+  /* ── RESET ──────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── TICKER ─────────────────────────────────────────── */
+  .ticker {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--gold);
+    overflow: hidden;
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+  .ticker-track {
+    display: flex;
+    gap: 0;
+    animation: ticker 28s linear infinite;
+    white-space: nowrap;
+  }
+  .ticker-item {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--bg);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0 32px;
+  }
+  .ticker-item::after {
+    content: '·';
+    margin-left: 32px;
+    opacity: 0.4;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ── SIDE NAV ───────────────────────────────────────── */
+  .sidenav {
+    position: fixed;
+    top: 32px;
+    left: 0;
+    width: var(--nav-w);
+    height: calc(100vh - 32px);
+    padding: 40px 0 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    z-index: 50;
+    border-right: 1px solid var(--border-dim);
+  }
+  .sidenav-brand {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    opacity: 0.8;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    text-decoration: none;
+    color: var(--cream-dim);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-item::before {
+    content: '';
+    width: 18px;
+    height: 1px;
+    background: var(--cream-dim);
+    flex-shrink: 0;
+    transition: background 0.2s, width 0.2s;
+  }
+  .nav-item:hover,
+  .nav-item.active {
+    color: var(--gold);
+  }
+  .nav-item:hover::before,
+  .nav-item.active::before {
+    background: var(--gold);
+    width: 28px;
+  }
+  .nav-item.active {
+    font-weight: 500;
+  }
+
+  /* ── MAIN LAYOUT ────────────────────────────────────── */
+  .main {
+    margin-left: var(--nav-w);
+    padding-top: 32px;
+  }
+
+  /* ── HERO ───────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 80px 80px 80px;
+    border-bottom: 1px solid var(--border-dim);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-text {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    font-family: var(--font-display);
+    font-size: 180px;
+    font-weight: 900;
+    color: rgba(201,168,76,0.04);
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 700;
+    line-height: 1.0;
+    color: var(--white);
+    max-width: 700px;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .hero-title em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .hero-version {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--gold);
+    margin-bottom: 40px;
+    letter-spacing: 0.08em;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-meta-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--cream-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .hero-meta-value {
+    font-size: 14px;
+    color: var(--cream);
+    font-weight: 500;
+  }
+  .hero-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 40px 0;
+    max-width: var(--content-max);
+  }
+  .hero-desc {
+    font-size: 15px;
+    color: var(--cream-dim);
+    max-width: 540px;
+    line-height: 1.8;
+  }
+
+  /* ── SECTIONS ───────────────────────────────────────── */
+  .section {
+    padding: 80px 80px;
+    border-bottom: 1px solid var(--border-dim);
+    max-width: calc(var(--nav-w) + var(--content-max) + 160px);
+  }
+  .section-number {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--gold-dim);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-number::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 40px;
+    background: var(--gold-dim);
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 40px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── PROSE ──────────────────────────────────────────── */
+  .prose {
+    max-width: var(--content-max);
+    color: var(--cream-dim);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .prose p { margin-bottom: 20px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { color: var(--cream); font-weight: 600; }
+
+  /* ── CALLOUT ────────────────────────────────────────── */
+  .callout {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    padding: 24px 28px;
+    margin: 32px 0;
+    max-width: var(--content-max);
+  }
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 10px;
+  }
+  .callout p {
+    color: var(--cream);
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* ── BULLETS ────────────────────────────────────────── */
+  .bullet-list {
+    list-style: none;
+    max-width: var(--content-max);
+    margin: 20px 0;
+  }
+  .bullet-list li {
+    display: flex;
+    gap: 14px;
+    padding: 8px 0;
+    color: var(--cream-dim);
+    font-size: 15px;
+    line-height: 1.7;
+    border-bottom: 1px solid var(--border-dim);
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .bullet-list li strong { color: var(--cream); }
+  .bullet-list.red li::before { color: var(--red); content: '✕'; }
+  .bullet-list.check li::before { color: var(--green); content: '✓'; }
+
+  /* ── NUMBERED LIST ──────────────────────────────────── */
+  .numbered-list {
+    list-style: none;
+    max-width: var(--content-max);
+    margin: 20px 0;
+    counter-reset: item;
+  }
+  .numbered-list li {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    color: var(--cream-dim);
+    font-size: 15px;
+    line-height: 1.75;
+    border-bottom: 1px solid var(--border-dim);
+    counter-increment: item;
+  }
+  .numbered-list li:last-child { border-bottom: none; }
+  .numbered-list li::before {
+    content: counter(item, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--gold);
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+
+  /* ── SUBHEADING ─────────────────────────────────────── */
+  .sub-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    margin: 40px 0 16px;
+    letter-spacing: -0.01em;
+  }
+  .sub-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 32px 0 8px;
+  }
+
+  /* ── TABLE ──────────────────────────────────────────── */
+  .table-wrap {
+    max-width: var(--content-max);
+    overflow-x: auto;
+    margin: 28px 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    background: var(--bg-3);
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  tbody td {
+    padding: 12px 16px;
+    color: var(--cream-dim);
+    border-bottom: 1px solid var(--border-dim);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  tbody td.highlight {
+    color: var(--cream);
+    font-weight: 500;
+  }
+  tbody td.gold {
+    color: var(--gold);
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  /* ── SEGMENT CARDS ──────────────────────────────────── */
+  .segment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: var(--content-max);
+    margin: 32px 0;
+  }
+  .segment-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border-dim);
+    border-radius: 4px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .segment-card:hover { border-color: var(--border); }
+  .segment-card-letter {
+    font-family: var(--font-display);
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .segment-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .segment-card-role {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+  .segment-card p {
+    font-size: 13px;
+    color: var(--cream-dim);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+  .segment-card p:last-child { margin-bottom: 0; }
+  .segment-card strong { color: var(--cream); font-size: 12px; }
+
+  /* ── LAYER CARDS ─────────────────────────────────────── */
+  .layer-stack {
+    max-width: var(--content-max);
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .layer-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border-dim);
+    padding: 28px 32px;
+    position: relative;
+  }
+  .layer-card:first-child { border-radius: 4px 4px 0 0; }
+  .layer-card:last-child { border-radius: 0 0 4px 4px; border-top: none; }
+  .layer-card:not(:first-child):not(:last-child) { border-top: none; }
+  .layer-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--bg);
+    background: var(--gold);
+    padding: 3px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: inline-block;
+    margin-bottom: 14px;
+  }
+  .layer-badge.dim {
+    background: var(--bg-3);
+    color: var(--cream-dim);
+    border: 1px solid var(--border-dim);
+  }
+  .layer-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .layer-card .bullet-list { margin: 8px 0 0; }
+
+  /* ── OBJECTION CARDS ────────────────────────────────── */
+  .objection-list {
+    max-width: var(--content-max);
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .objection-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border-dim);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .objection-header {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    gap: 20px;
+  }
+  .objection-header:hover { background: var(--bg-3); }
+  .objection-q {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    flex: 1;
+  }
+  .objection-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--red);
+    background: rgba(224,82,82,0.12);
+    padding: 3px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+  .objection-chevron {
+    color: var(--gold);
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .objection-body {
+    display: none;
+    padding: 0 24px 20px;
+    border-top: 1px solid var(--border-dim);
+  }
+  .objection-body.open { display: block; }
+  .objection-note {
+    font-size: 12px;
+    color: var(--cream-dim);
+    font-style: italic;
+    margin-bottom: 12px;
+    padding-top: 16px;
+  }
+  .objection-answer {
+    font-size: 14px;
+    color: var(--cream);
+    line-height: 1.75;
+    background: var(--bg-3);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+    font-style: italic;
+  }
+
+  /* ── FINAL STATEMENT ────────────────────────────────── */
+  .final-block {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px;
+    max-width: var(--content-max);
+    margin: 32px 0;
+  }
+  .final-block-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 16px;
+  }
+  .final-block p {
+    font-size: 15px;
+    color: var(--cream);
+    line-height: 1.8;
+  }
+  .one-liner {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.3;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    max-width: var(--content-max);
+    margin: 48px 0;
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .one-liner em { color: var(--gold); font-style: normal; }
+
+  /* ── SCOPE TABLE ────────────────────────────────────── */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: var(--content-max);
+    margin: 32px 0;
+  }
+  .scope-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border-dim);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .scope-number {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .scope-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .scope-desc {
+    font-size: 12px;
+    color: var(--cream-dim);
+    line-height: 1.6;
+  }
+  .scope-layer {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 12px;
+  }
+
+  /* ── FOOTER ─────────────────────────────────────────── */
+  .footer {
+    padding: 60px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-brand {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--cream-dim);
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ── UTILITY ────────────────────────────────────────── */
+  .mt-sm { margin-top: 16px; }
+  .mt-md { margin-top: 32px; }
+  .mt-lg { margin-top: 48px; }
+  .text-gold { color: var(--gold); }
+  .text-white { color: var(--white); }
+  .text-mono {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: var(--content-max);
+    margin: 24px 0;
+  }
+  .gap-box {
+    background: var(--bg-2);
+    border: 1px solid var(--border-dim);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .gap-box-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+  .gap-box p {
+    font-size: 13px;
+    color: var(--cream-dim);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ─────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .sidenav { display: none; }
+    .main { margin-left: 0; }
+    .hero, .section, .footer { padding: 48px 24px; }
+    .segment-grid, .two-col, .scope-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 40px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── TICKER ──────────────────────────────────────────── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">BaZi × Vedic × Javanese Esoteric</span>
+    <span class="ticker-item">Life Path — DJ Nordhawk 北鷹</span>
+    <span class="ticker-item">Product Offering Blueprint v1</span>
+    <span class="ticker-item">Wealth Path · Love Path · Spiritual Path</span>
+    <span class="ticker-item">777K · 90 Menit · Dual Remedy Plan</span>
+    <span class="ticker-item">Confidential — Internal Use Only</span>
+    <span class="ticker-item">BaZi × Vedic × Javanese Esoteric</span>
+    <span class="ticker-item">Life Path — DJ Nordhawk 北鷹</span>
+    <span class="ticker-item">Product Offering Blueprint v1</span>
+    <span class="ticker-item">Wealth Path · Love Path · Spiritual Path</span>
+    <span class="ticker-item">777K · 90 Menit · Dual Remedy Plan</span>
+    <span class="ticker-item">Confidential — Internal Use Only</span>
+  </div>
+</div>
+
+<!-- ── SIDE NAV ─────────────────────────────────────────── -->
+<nav class="sidenav" aria-label="Document navigation">
+  <div class="sidenav-brand">北鷹 Life Path</div>
+  <a href="#s1"  class="nav-item" data-section="s1">Executive Diagnosis</a>
+  <a href="#s2"  class="nav-item" data-section="s2">Apa yang Dibeli</a>
+  <a href="#s3"  class="nav-item" data-section="s3">Yang Lemah</a>
+  <a href="#s4"  class="nav-item" data-section="s4">Target Customer</a>
+  <a href="#s5"  class="nav-item" data-section="s5">Core Problem</a>
+  <a href="#s6"  class="nav-item" data-section="s6">Promise & Outcome</a>
+  <a href="#s7"  class="nav-item" data-section="s7">Mekanisme</a>
+  <a href="#s8"  class="nav-item" data-section="s8">Struktur Offer</a>
+  <a href="#s9"  class="nav-item" data-section="s9">Objeksi & Jawaban</a>
+  <a href="#s10" class="nav-item" data-section="s10">Final Statement</a>
+  <a href="#s11" class="nav-item" data-section="s11">Tiered Disclosure</a>
+  <a href="#s12" class="nav-item" data-section="s12">Priority Actions</a>
+</nav>
+
+<!-- ── MAIN ────────────────────────────────────────────── -->
+<div class="main">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg-text" aria-hidden="true">Blueprint</div>
+    <div class="hero-eyebrow">Confidential · Internal Document</div>
+    <h1 class="hero-title">Product<br>Offering<br><em>Blueprint</em></h1>
+    <div class="hero-version">Version 1.0 · Juni 2026</div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Praktisi</span>
+        <span class="hero-meta-value">DJ Nordhawk · 北鷹</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Brand</span>
+        <span class="hero-meta-value">Life Path</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Sistem</span>
+        <span class="hero-meta-value">BaZi × Vedic × Javanese Esoteric</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Data Sumber</span>
+        <span class="hero-meta-value">Proof Dossier · Threads 30 posts · 251 comments</span>
+      </div>
+    </div>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">Dokumen ini adalah fondasi komersial Life Path. Semua deliverable berikutnya — website, socmed, sales playbook, SOP — mengacu ke sini. Dibuat berdasarkan audit tiga dokumen dan data Threads aktual.</p>
+  </header>
+
+  <!-- S1 EXECUTIVE DIAGNOSIS -->
+  <section class="section" id="s1">
+    <div class="section-number">01 · Executive Diagnosis</div>
+    <h2 class="section-title">Masalahnya bukan produk.<br>Masalahnya adalah visibilitas.</h2>
+    <div class="prose">
+      <p>Produknya nyata. Mekanismenya valid. Hasilnya bisa dibuktikan. Masalahnya adalah gap antara nilai yang dideliver dalam sesi dengan nilai yang terlihat sebelum orang membayar.</p>
+    </div>
+
+    <div class="two-col mt-md">
+      <div class="gap-box">
+        <div class="gap-box-title">Gap #1 — Invisible Value</div>
+        <p>Nilai ada di dalam sesi. Di luar sesi, tidak ada yang bisa dilihat kecuali konten edukasi gratis dan spiritual experience pribadi. Orang membandingkan 777K dengan 399K menggunakan informasi yang tersedia di surface — dan kalah di sana.</p>
+      </div>
+      <div class="gap-box">
+        <div class="gap-box-title">Gap #2 — No Outcome Proof</div>
+        <p>Dari 30 posts dan 251 comments di Threads: nol cerita klien dengan outcome terukur dari layanan BaZi/Vedic. Dua orang bertanya harga langsung di komentar — buying intent jelas — tapi tidak ada satu pun bukti yang bisa meyakinkan mereka.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Gap #3 — Paling Kritis</div>
+      <p>Tidak ada satu post pun di Threads yang berargumen eksplisit kenapa layanan ini berbeda dari BaZi reader 399K. Core differentiator — remedy dual-system vs. diagnosis + tunggu timing — hampir tidak ada di public-facing content. <strong>Kompetitor differentiation score dari audit: 0/10.</strong></p>
+    </div>
+
+    <div class="sub-label">Angka yang bicara</div>
+    <ul class="bullet-list">
+      <li>8–15 klien per bulan @ 777K = <strong>Rp 6,2jt – 11,6jt/bulan</strong></li>
+      <li>Ini bukan angka yang buruk. Ini angka yang dicapai <strong>tanpa offering yang jelas.</strong></li>
+      <li>Dengan offering yang tajam, angka ini bisa naik 2–3x tanpa nambah satu post pun.</li>
+      <li>Bottleneck bukan traffic. Bottleneck adalah konversi — kalah di harga karena <strong>value frame tidak ada.</strong></li>
+    </ul>
+  </section>
+
+  <!-- S2 WHAT THE MARKET IS BUYING -->
+  <section class="section" id="s2">
+    <div class="section-number">02 · Apa yang Sebenarnya Dibeli Pasar</div>
+    <h2 class="section-title">Bukan BaZi.<br>Bukan Vedic.<br>Bukan sistem.</h2>
+
+    <div class="callout">
+      <div class="callout-label">Mereka membeli satu hal</div>
+      <p>Kepastian bahwa mereka tidak salah jalan — dan kalau memang salah jalan, ada yang bisa dilakukan <em>sekarang.</em></p>
+    </div>
+
+    <div class="sub-label mt-md">Empat segmen berdasarkan data Threads + Proof Dossier</div>
+    <div class="segment-grid">
+      <div class="segment-card">
+        <div class="segment-card-letter">A</div>
+        <div class="segment-card-role">Si Premonition Holder</div>
+        <div class="segment-card-title">Ada yang terasa tidak beres</div>
+        <p>Perempuan 28–40, berpendidikan, karir oke. Tidak bisa namain masalahnya. Bukan krisis — tapi bukan aman juga.</p>
+        <p><strong>Buying trigger:</strong> Satu kejadian kecil yang memicu "ada pola yang salah di hidupku."</p>
+        <p><strong>Evidence:</strong> Post DZtNZ4JE3hu — engagement tertinggi kedua di dataset.</p>
+      </div>
+      <div class="segment-card">
+        <div class="segment-card-letter">B</div>
+        <div class="segment-card-role">Si Second-Opinion Seeker</div>
+        <div class="segment-card-title">Sudah baca di tempat lain, tidak puas</div>
+        <p>Pernah ke BaZi reader lain. Dapat diagnosis. Dapat "tunggu timing." Tidak puas karena tidak tahu mau ngapain.</p>
+        <p><strong>Buying trigger:</strong> Konten teknikal yang levelnya jauh di atas reader sebelumnya.</p>
+        <p><strong>Evidence:</strong> @alishalam5217 minta kelas advance. @gacantiswastika: "37 tahun baru paham clash diri sendiri."</p>
+      </div>
+      <div class="segment-card">
+        <div class="segment-card-letter">C</div>
+        <div class="segment-card-role">Si Wealth-Anxiety Holder</div>
+        <div class="segment-card-title">Penghasilan oke, tapi ada ketakutan</div>
+        <p>Ketakutan diam-diam bahwa wealth tidak akan bertahan atau ada yang akan mengambilnya. Bukan kemiskinan — tapi ketakutan tentang kontrol.</p>
+        <p><strong>Buying trigger:</strong> Konten Wealth Flow + kenapa ada yang "macet" meski effort tinggi.</p>
+        <p><strong>Evidence:</strong> Post DYTn7oSFG_a — 15 komentar teknikal berkualitas.</p>
+      </div>
+      <div class="segment-card">
+        <div class="segment-card-letter">D</div>
+        <div class="segment-card-role">Si Spiritual Seeker</div>
+        <div class="segment-card-title">Krisis makna, bukan krisis finansial</div>
+        <p>Sudah cukup "sukses" di permukaan tapi merasa hidupnya tidak punya akar. Ada rasa bahwa ada "sesuatu" dari lini leluhur yang belum selesai.</p>
+        <p><strong>Buying trigger:</strong> Konten karma, Saturn, Rahu/Ketu, Fu Yin/Fan Yin.</p>
+        <p><strong>Sistem:</strong> Vedic (Saturn/Rahu/Ketu) + BaZi (DE, Fu Yin, Fan Yin) + Javanese Esoteric (conditional).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 WEAK / UNCLEAR / REDUNDANT -->
+  <section class="section" id="s3">
+    <div class="section-number">03 · Yang Lemah, Tidak Jelas, dan Redundant</div>
+    <h2 class="section-title">Tidak ada diplomasi di sini.</h2>
+
+    <div class="sub-title">LEMAH — Harus Diperbaiki Segera</div>
+    <ul class="bullet-list red">
+      <li>Tidak ada outcome story yang bisa dilihat publik. Dua buyer sudah bertanya harga. Feed tidak memberi mereka alasan untuk melanjutkan.</li>
+      <li>CTA di semua post adalah "kalau terasa nyambung, silakan lanjutkan." Ini bukan CTA. Ini undangan untuk orang yang sudah siap. Orang yang ragu tidak bergerak dari kalimat ini.</li>
+      <li>Harga 777K tidak pernah diframe dalam konteks value. Orang yang tidak tahu isi sesi selalu membandingkannya dengan angka kompetitor, bukan dengan outcome.</li>
+      <li>Tidak ada penjelasan tentang apa yang terjadi dalam 90 menit sesi. Deliverable tidak dikomunikasikan di mana pun.</li>
+    </ul>
+
+    <div class="sub-title">TIDAK JELAS — Harus Diklarifikasi</div>
+    <ul class="bullet-list">
+      <li>Hubungan BaZi + Vedic + Javanese Esoteric tidak pernah dijelaskan sebagai satu sistem terpadu. Ketiganya muncul terpisah di konten berbeda.</li>
+      <li>Sistem tiga pintu masuk (Wealth / Love / Spiritual) harus dikomunikasikan sebagai satu sesi fleksibel — bukan tiga produk berbeda.</li>
+      <li>Peran tim (asisten) vs founder tidak jelas di publik. Ini menciptakan trust leak yang tidak terlihat tapi nyata.</li>
+    </ul>
+
+    <div class="sub-title">REDUNDANT — Harus Dikurangi</div>
+    <ul class="bullet-list red">
+      <li>Konten DIY "cek chart sendiri" membangun engagement tapi juga membangun kemandirian. Post DYkZIwOGFbt (18 komentar tertinggi) membuat orang menganalisis chart sendiri gratis — substitusi langsung untuk produk berbayar.</li>
+      <li>Konten Prana webinar tidak berkaitan dengan Life Path. Membingungkan positioning.</li>
+      <li>Konten "dua alam" dan entitas gelap bukan bagian dari metodologi resmi. Risiko reputasi jika diambil out-of-context oleh skeptik Indonesia.</li>
+    </ul>
+  </section>
+
+  <!-- S4 TARGET CUSTOMER -->
+  <section class="section" id="s4">
+    <div class="section-number">04 · Target Customer yang Diperhalus</div>
+    <h2 class="section-title">Satu orang.<br>Spesifik.</h2>
+
+    <div class="callout">
+      <div class="callout-label">Primary Target</div>
+      <p>Perempuan 28–38 tahun. Berpendidikan S1 ke atas. Tinggal di kota besar Indonesia. Karir atau bisnis yang stabil — tapi ada satu area kehidupan (wealth atau relationship) yang terasa macet meski effort sudah tinggi. Pernah membaca tentang astrologi atau BaZi tapi belum pernah mendapat jawaban yang memuaskan. Muslim atau spiritual non-dogmatis. Bukan skeptik total — tapi butuh framework yang bisa dijelaskan secara rasional.</p>
+    </div>
+
+    <div class="sub-label mt-md">Konfirmasi dari data</div>
+    <ul class="bullet-list check">
+      <li>Post dengan engagement tertinggi menyentuh masalah perempuan + pendidikan tinggi + dinamika jodoh</li>
+      <li>Dua pertanyaan harga langsung berasal dari akun yang profilnya sesuai deskripsi ini</li>
+      <li>8–15 klien/bulan sudah tercapai tanpa targeting eksplisit — dengan targeting tajam, angka ini naik</li>
+      <li>Segmen ini mampu membayar 777K tanpa pinjol — keputusan yang dipertimbangkan, bukan impulsif</li>
+    </ul>
+
+    <div class="sub-label mt-md">Secondary Target</div>
+    <ul class="bullet-list">
+      <li>Laki-laki 30–45, entrepreneur, anxiety tentang wealth stability</li>
+      <li>Second-opinion seeker yang sudah ke BaZi reader lain dan tidak puas</li>
+      <li>Pasangan yang mau menikah dan ingin cek kompatibilitas chart</li>
+    </ul>
+
+    <div class="sub-label mt-md">Bukan target</div>
+    <ul class="bullet-list red">
+      <li>Pengguna Tong Shu harian yang cari tanggal baik — mereka mau prediksi, bukan pathway</li>
+      <li>Orang yang percaya nasib 100% tidak bisa diubah — tidak akan menghargai remedy</li>
+      <li>Price-sensitive buyer yang bandingkan harga saja — 777K selalu kalah tanpa value frame</li>
+    </ul>
+  </section>
+
+  <!-- S5 CORE PROBLEM -->
+  <section class="section" id="s5">
+    <div class="section-number">05 · Core Problem yang Diperhalus</div>
+    <h2 class="section-title">Mulai dari masalah<br>yang dirasakan customer.</h2>
+
+    <div class="prose">
+      <p>Jangan mulai dari "BaZi reader lain tidak kasih remedy." Itu masalah supplier, bukan masalah customer.</p>
+    </div>
+
+    <div class="callout mt-md">
+      <div class="callout-label">Problem Statement — Versi Customer</div>
+      <p>"Aku sudah cukup berusaha. Di karir oke, di pendidikan oke. Tapi ada satu area — entah wealth atau relationship — yang tidak bergerak sesuai effort yang aku masukkan. Aku tidak tahu apakah ini kebetulan, kesalahanku, atau memang ada sesuatu struktural yang menghalangi. Dan aku tidak tahu harus mulai dari mana untuk mengubahnya."</p>
+    </div>
+
+    <div class="sub-title mt-md">Tiga Lapisan Masalah</div>
+
+    <div class="sub-label">Lapisan 1 — Masalah yang Terlihat</div>
+    <ul class="bullet-list">
+      <li>Wealth tidak tumbuh sesuai effort</li>
+      <li>Jodoh tidak datang meski "sudah siap"</li>
+      <li>Pola yang sama terus berulang dalam relasi atau finansial</li>
+    </ul>
+
+    <div class="sub-label">Lapisan 2 — Dirasakan tapi Tidak Dinamai</div>
+    <ul class="bullet-list">
+      <li>Ada energi atau struktur yang menghalangi — tapi tidak tahu apa namanya</li>
+      <li>Takut mengambil keputusan besar karena tidak tahu apakah waktunya tepat</li>
+      <li>Tidak punya figur yang bisa membaca situasi secara keseluruhan</li>
+    </ul>
+
+    <div class="sub-label">Lapisan 3 — Ketakutan Terdalam (Buying Trigger Sesungguhnya)</div>
+    <ul class="bullet-list">
+      <li>Takut pola ini tidak bisa diubah</li>
+      <li>Takut sudah terlambat — bahwa window of opportunity sudah terlewat</li>
+      <li>Takut salah pilih orang (reader, partner, bisnis) lagi</li>
+    </ul>
+  </section>
+
+  <!-- S6 PROMISE / OUTCOME -->
+  <section class="section" id="s6">
+    <div class="section-number">06 · Promise & Outcome</div>
+    <h2 class="section-title">Satu kalimat.<br>Tidak boleh kabur.</h2>
+
+    <div class="callout">
+      <div class="callout-label">The Core Promise</div>
+      <p>Dalam satu sesi 90 menit, kamu akan tahu persis apa yang menghalangi wealth atau relationship-mu — bukan dari feeling, tapi dari analisis chart yang presisi — dan keluar dengan plan yang bisa dijalankan, <strong>bukan daftar hal yang harus ditunggu.</strong></p>
+    </div>
+
+    <div class="sub-title mt-md">Tiga Outcome Konkret</div>
+
+    <div class="sub-label">Outcome #1 — Diagnosis Terstruktur</div>
+    <ul class="bullet-list">
+      <li>Tahu persis elemen mana yang dominan, mana yang lemah, mana yang sedang dalam tekanan</li>
+      <li>Tahu apakah masalah ada di level struktur chart atau di level timing</li>
+      <li>Tahu apakah ini pola yang bisa diintervensi atau perlu strategi jangka panjang</li>
+    </ul>
+
+    <div class="sub-label">Outcome #2 — Actionable Remedy Plan</div>
+    <ul class="bullet-list">
+      <li>BaZi-derived: perubahan perilaku, timing keputusan, arah energi yang harus dikuatkan</li>
+      <li>Vedic-derived: intervensi energetik sesuai kondisi planet dan karma cycle</li>
+      <li>Javanese Esoteric (conditional): hanya jika analisis mengindikasikan kebutuhan lapisan ini</li>
+      <li>Bukan "tunggu bulan depan." Bukan "ganti nama." Ini protokol intervensi yang spesifik untuk chart kamu.</li>
+    </ul>
+
+    <div class="sub-label">Outcome #3 — Dokumentasi yang Bisa Dipegang</div>
+    <ul class="bullet-list check">
+      <li>PDF analysis dengan temuan utama dan remedy instructions</li>
+      <li>Full recording 90 menit — bisa diputar ulang kapan pun</li>
+      <li>Referensi yang bisa dibawa ke keputusan berikutnya</li>
+    </ul>
+  </section>
+
+  <!-- S7 MECHANISM -->
+  <section class="section" id="s7">
+    <div class="section-number">07 · Mekanisme — Kenapa Ini Bekerja</div>
+    <h2 class="section-title">Tanpa mekanisme,<br>ini hanya klaim.</h2>
+
+    <div class="callout">
+      <div class="callout-label">Full Spectrum Analysis</div>
+      <p>BaZi membaca struktur dan timing. Vedic Astrology membaca karma cycle dan planet aktif — lapisan yang BaZi tidak cover. Ketika keduanya diintegrasikan, diagnosis lebih presisi dan remedy lebih targeted. Javanese Esoteric ditambahkan hanya ketika dua sistem pertama mengindikasikan kebutuhan lapisan yang tidak bisa diaddress hanya dengan timing dan energi. Ini bukan default — ini keputusan klinis.</p>
+    </div>
+
+    <div class="sub-label mt-md">Komparasi langsung vs kompetitor</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Aspek</th>
+            <th>BaZi Reader 399K</th>
+            <th>Life Path @ 777K</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Output</td>
+            <td>Diagnosis + tunggu timing</td>
+            <td class="highlight">Diagnosis + Dual Remedy Plan</td>
+          </tr>
+          <tr>
+            <td>Sistem</td>
+            <td>BaZi saja</td>
+            <td class="highlight">BaZi + Vedic + Javanese Esoteric</td>
+          </tr>
+          <tr>
+            <td>Remedy</td>
+            <td>Tong Shu / Tai Sui / ganti nama</td>
+            <td class="highlight">Behavioral + Energetic + Esoteric (jika diperlukan)</td>
+          </tr>
+          <tr>
+            <td>Format</td>
+            <td>Voice note / laporan tertulis</td>
+            <td class="highlight">Live 90 menit + PDF + Full recording</td>
+          </tr>
+          <tr>
+            <td>Referensi</td>
+            <td>Populer / generik</td>
+            <td class="highlight">San Ming Tong Hui + teks klasik</td>
+          </tr>
+          <tr>
+            <td>Posisi</td>
+            <td>Passive compliance dengan nasib</td>
+            <td class="highlight">Active intervention dalam nasib</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- S8 OFFER STRUCTURE -->
+  <section class="section" id="s8">
+    <div class="section-number">08 · Struktur Offer</div>
+    <h2 class="section-title">Satu sesi.<br>Tiga pintu masuk.<br>Satu sistem.</h2>
+
+    <div class="callout">
+      <div class="callout-label">Entry Point — Tiga Pintu, Satu Sistem</div>
+      <p>Klien memilih dari mana mereka masuk — <strong>Wealth Path</strong> (finansial/karir/rezeki), <strong>Love Path</strong> (relationship/jodoh/pernikahan), atau <strong>Spiritual Path</strong> (karma leluhur/misi hidup/orientasi spiritual). Setelah masuk, sistemnya sama: full spectrum analysis BaZi + Vedic + Javanese Esoteric. Yang berbeda hanya fokus 80% pertama sesi — ditentukan oleh klien, bukan oleh paket.</p>
+    </div>
+
+    <div class="sub-label mt-md">Yang didapatkan dalam satu sesi (777K)</div>
+    <ul class="bullet-list check">
+      <li>Sesi live 90 menit via Google Meet — tanya jawab langsung, bukan one-way reading</li>
+      <li>Full analysis BaZi: struktur chart, luck pillar aktif, dynamic interaction (Clash, Harm, Punishment, Destruction)</li>
+      <li>Vedic layer: planet dominan, karma cycle, energetic timing</li>
+      <li>Javanese Esoteric: hanya jika analisis mengindikasikan kebutuhan</li>
+      <li>Dual Remedy Plan: BaZi-derived behavioral/timing + Vedic energetic protocol</li>
+      <li>PDF dokumentasi: temuan utama + remedy instructions</li>
+      <li>Full recording sesi — bisa diputar ulang</li>
+    </ul>
+
+    <div class="sub-title mt-md">Pricing Logic</div>
+    <div class="prose">
+      <p>777K adalah premium positioning — 56–95% lebih mahal dari kompetitor 399–499K. Justifikasi premium ini harus dikomunikasikan secara eksplisit. Saat ini tidak terkomunikasikan — itulah kenapa harga terasa mahal, bukan karena harganya salah.</p>
+    </div>
+
+    <div class="callout mt-md">
+      <div class="callout-label">Positioning Statement untuk Pricing</div>
+      <p>"777K bukan untuk bacaan. 777K untuk plan. Kalau kamu mau tahu apa yang menghalangimu dan apa yang harus dilakukan — ini harganya. Kalau kamu mau tahu kapan timing bagus dan disuruh tunggu — ada banyak pilihan yang lebih murah di luar sana."</p>
+    </div>
+  </section>
+
+  <!-- S9 OBJECTIONS -->
+  <section class="section" id="s9">
+    <div class="section-number">09 · Objeksi & Jawaban</div>
+    <h2 class="section-title">Lima objeksi nyata.<br>Bukan asumsi.</h2>
+
+    <div class="objection-list">
+      <div class="objection-card">
+        <div class="objection-header" onclick="toggleObj(this)">
+          <div class="objection-q">"Mahal. Yang lain 399K."</div>
+          <div class="objection-tag">#1 Killer</div>
+          <div class="objection-chevron">+</div>
+        </div>
+        <div class="objection-body">
+          <div class="objection-note">Ini bukan objeksi harga — ini objeksi value yang belum terframe.</div>
+          <div class="objection-answer">"Yang 399K memberikan diagnosis dan suruh kamu tunggu timing yang bagus. Yang aku berikan adalah diagnosis + plan + dua sistem remedy yang bisa langsung dijalankan. Kalau kamu datang untuk tahu 'kapan baiknya' — aku bukan pilihan yang tepat dan aku yang pertama bilang. Tapi kalau kamu datang untuk tahu 'apa yang harus dilakukan sekarang' — ini yang 777K itu beli."</div>
+        </div>
+      </div>
+
+      <div class="objection-card">
+        <div class="objection-header" onclick="toggleObj(this)">
+          <div class="objection-q">"Apakah ini syirik / haram?"</div>
+          <div class="objection-tag">Iman</div>
+          <div class="objection-chevron">+</div>
+        </div>
+        <div class="objection-body">
+          <div class="objection-note">Jangan defend dengan teologi. Defend dengan epistemologi.</div>
+          <div class="objection-answer">"BaZi adalah sistem kalkulasi berbasis waktu lahir — seperti statistik. Vedic Astrology adalah sistem energetik — seperti cuaca. Saya tidak meramal takdir. Saya membaca pola dan memberikan tools untuk menavigasi. Takdir tetap di tangan Tuhan — saya hanya bantu kamu membaca peta yang sudah ada."</div>
+        </div>
+      </div>
+
+      <div class="objection-card">
+        <div class="objection-header" onclick="toggleObj(this)">
+          <div class="objection-q">"Bagaimana saya tahu ini berhasil?"</div>
+          <div class="objection-tag">Proof</div>
+          <div class="objection-chevron">+</div>
+        </div>
+        <div class="objection-body">
+          <div class="objection-note">Jawabannya adalah outcome story — yang saat ini hampir tidak ada di public-facing content.</div>
+          <div class="objection-answer">"Saya punya case di mana jadwal shift PNS berubah dalam satu bulan setelah Saturn fasting remedy. Saya punya case di mana saya lakukan 8 falsifikasi untuk lock birth hour yang tidak diketahui — semuanya confirmed. Saya tidak menjanjikan hasil yang sama untuk semua orang. Tapi saya menjanjikan analisis yang paling presisi yang bisa kamu dapatkan dari metodologi tiga sistem ini."</div>
+        </div>
+      </div>
+
+      <div class="objection-card">
+        <div class="objection-header" onclick="toggleObj(this)">
+          <div class="objection-q">"Saya bisa cek sendiri di aplikasi / YouTube."</div>
+          <div class="objection-tag">Substitusi</div>
+          <div class="objection-chevron">+</div>
+        </div>
+        <div class="objection-body">
+          <div class="objection-note">Diperkuat oleh konten DIY di feed Threads.</div>
+          <div class="objection-answer">"Aplikasi memberikan chart. Saya membaca interaksi antar elemen di chart itu — Clash, Harm, Punishment, Destruction — dan menghubungkannya dengan Vedic timing dan kondisi energetik saat ini. Perbedaannya seperti punya MRI vs punya dokter yang bisa baca MRI-nya dan kasih tindakan."</div>
+        </div>
+      </div>
+
+      <div class="objection-card">
+        <div class="objection-header" onclick="toggleObj(this)">
+          <div class="objection-q">"Saya tidak yakin masalah saya perlu ini."</div>
+          <div class="objection-tag">Keraguan</div>
+          <div class="objection-chevron">+</div>
+        </div>
+        <div class="objection-body">
+          <div class="objection-note">Ini bukan objeksi — ini seseorang yang belum tahu apakah mereka target yang tepat.</div>
+          <div class="objection-answer">"Kalau kamu merasa ada pola yang berulang — di wealth atau di relationship — yang tidak berubah meski effort sudah tinggi, itu adalah sinyal. Bukan berarti ini solusinya. Tapi itu sinyal bahwa ada sesuatu yang struktural, bukan hanya situasional. Sample report di link bio bisa membantu kamu lihat apakah framework ini relevan untuk kondisimu."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S10 FINAL STATEMENT -->
+  <section class="section" id="s10">
+    <div class="section-number">10 · Final Product Offering Statement</div>
+    <h2 class="section-title">Empat blok.<br>Satu kalimat.</h2>
+
+    <div class="final-block">
+      <div class="final-block-label">Untuk Siapa</div>
+      <p>Untuk siapapun yang sudah cukup berusaha — di karir, di bisnis, di relasi, atau di perjalanan spiritual — tapi ada satu area kehidupan yang tidak bergerak. Bukan karena malas. Bukan karena kurang berusaha. Tapi karena ada sesuatu yang struktural — di chart, di karma, atau di lini leluhur — yang belum pernah dibaca dengan benar.</p>
+    </div>
+
+    <div class="final-block">
+      <div class="final-block-label">Apa yang Ditawarkan</div>
+      <p>Satu sesi 90 menit. Tiga sistem analisis diintegrasikan: BaZi untuk struktur dan timing, Vedic Astrology untuk karma cycle dan energi planet, Javanese Esoteric jika analisis membutuhkannya. Klien masuk dari salah satu dari tiga pintu — Wealth Path, Love Path, atau Spiritual Path — dan menentukan fokus 80% pertama sesi. Hasilnya bukan daftar hal yang harus ditunggu. Hasilnya adalah dual remedy plan yang bisa dijalankan mulai minggu depan. Ditambah PDF dokumentasi dan full recording sesi.</p>
+    </div>
+
+    <div class="final-block">
+      <div class="final-block-label">Kenapa Berbeda</div>
+      <p>BaZi reader lain memberikan diagnosis dan menyuruh menunggu timing yang baik. Di sini, diagnosis adalah titik awal — bukan titik akhir. Setelah tahu apa yang menghalangi, ada protokol intervensi konkret. Ini bukan passive reading. Ini adalah full spectrum analysis dengan tindakan.</p>
+    </div>
+
+    <div class="final-block">
+      <div class="final-block-label">Harga & Entry Point</div>
+      <p>Rp 777.000. Tiga pintu masuk: Wealth Path untuk concern finansial, karir, dan rezeki — Love Path untuk concern relationship, jodoh, dan pernikahan — atau Spiritual Path untuk membaca karma leluhur, jejak spiritual, dan misi hidup. Setelah masuk, sistemnya sama. Klien yang menentukan fokus 80% pertama sesinya.</p>
+    </div>
+
+    <div class="one-liner">
+      "Dalam 90 menit, kamu akan tahu persis apa yang menghalangi wealth, relationship, atau perjalanan spiritualmu — dari tiga sistem analisis yang diintegrasikan — dan keluar dengan <em>plan yang bisa dijalankan</em>, bukan ditunggu."
+    </div>
+  </section>
+
+  <!-- S11 TIERED DISCLOSURE -->
+  <section class="section" id="s11">
+    <div class="section-number">11 · Tiered Disclosure</div>
+    <h2 class="section-title">Apa yang ditampilkan<br>di mana.</h2>
+
+    <div class="prose">
+      <p>Life Path memiliki kemampuan yang tidak semua perlu dikomunikasikan ke publik. Ini bukan menyembunyikan value — ini strategi disclosure yang melindungi proprietary method sekaligus memaksimalkan konversi di setiap tahap.</p>
+    </div>
+
+    <div class="layer-stack mt-md">
+      <div class="layer-card">
+        <div class="layer-badge">Layer 1 — Public</div>
+        <div class="layer-title">Website & Socmed</div>
+        <div class="sub-label" style="margin-top:12px;">Yang ditampilkan</div>
+        <ul class="bullet-list check">
+          <li>Dua entry point: Wealth Path dan Love Path</li>
+          <li>Tiga sistem: BaZi + Vedic + Javanese Esoteric (conditional)</li>
+          <li>Deliverable: 90 menit live + Dual Remedy Plan + PDF + Recording</li>
+          <li>Differentiator utama: diagnosis + plan, bukan diagnosis + tunggu</li>
+        </ul>
+        <div class="sub-label" style="margin-top:16px;">Yang tidak ditampilkan</div>
+        <ul class="bullet-list red">
+          <li>Family wealth dynamics (analisis rezeki seluruh keluarga)</li>
+          <li>Multi-chart compatibility reading</li>
+          <li>Spiritual layer sebagai temuan organik dalam sesi</li>
+          <li>Teknik spesifik: Kong Wang, DE di year pillar, Fu Yin/Fan Yin dalam konteks karma keluarga</li>
+        </ul>
+      </div>
+
+      <div class="layer-card">
+        <div class="layer-badge">Layer 2 — Sales Conversation</div>
+        <div class="layer-title">Tim / DM — Setelah Prospek Engage</div>
+        <div class="callout" style="margin-top:16px;">
+          <div class="callout-label">Script — Family Wealth Dynamics</div>
+          <p>"Satu hal yang jarang diketahui orang: dalam satu sesi yang sama, kita juga bisa lihat dinamika rezeki seluruh keluarga — bukan hanya chartmu sendiri. Ada anak yang secara energetik membawa rezeki, ada yang membawa pola berbeda. Kebanyakan BaZi reader hanya baca satu chart. Di sini kita bisa lihat gambaran yang lebih penuh. Kalau ini relevan untuk situasimu, bisa kita bahas dalam sesi."</p>
+        </div>
+        <div class="callout">
+          <div class="callout-label">Script — Multi-Chart Compatibility</div>
+          <p>"Kalau kamu sedang mempertimbangkan beberapa pilihan — entah itu pasangan, partner bisnis, atau situasi lain — kamu bisa bawa birth chart mereka dalam sesi. Kita bisa lihat kompatibilitas dari sudut pandang chart. Ini bagian dari sesi yang sama, tidak ada biaya tambahan."</p>
+        </div>
+        <div class="sub-label" style="margin-top:16px;">Aturan untuk tim</div>
+        <ul class="bullet-list">
+          <li>Jangan sebut ini di awal percakapan. Sebut setelah prospek menunjukkan engagement yang genuine.</li>
+          <li>Jangan framing ini sebagai "fitur tambahan." Framing sebagai kemampuan yang memang ada tapi tidak semua orang tahu.</li>
+          <li>Jangan detail tekniknya. Cukup outcome yang bisa mereka bayangkan.</li>
+        </ul>
+      </div>
+
+      <div class="layer-card">
+        <div class="layer-badge dim">Layer 3 — Dalam Sesi</div>
+        <div class="layer-title">Delivery Organik</div>
+        <ul class="bullet-list" style="margin-top:12px;">
+          <li><strong>Spiritual layer</strong> muncul sebagai temuan — bukan agenda. Ketika analisis menemukan sinyal karma (Kong Wang, DE di year pillar, Fu Yin/Fan Yin berat), ini diangkat secara natural.</li>
+          <li><strong>Family dynamics</strong> dibaca ketika klien bertanya tentang anak atau keluarga — analisis mencakup seluruh konstelasi keluarga, bukan hanya satu individu.</li>
+          <li><strong>Multi-chart compatibility</strong> diselesaikan dalam 5 menit dengan output jelas: cocok / tidak cocok, dengan alasan singkat berbasis chart.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub-title mt-md">Scope Deliverable Berikutnya</div>
+    <div class="scope-grid">
+      <div class="scope-card">
+        <div class="scope-number">01</div>
+        <div class="scope-title">Website Copy</div>
+        <div class="scope-desc">Menampilkan offer, diferensiator, dan CTA berbasis Layer 1 disclosure. Berbasis blueprint ini.</div>
+        <div class="scope-layer">Layer 1</div>
+      </div>
+      <div class="scope-card">
+        <div class="scope-number">02</div>
+        <div class="scope-title">Materi Promosi Socmed</div>
+        <div class="scope-desc">Outcome stories, differentiator posts, session walkthrough — berbasis audit Threads.</div>
+        <div class="scope-layer">Layer 1</div>
+      </div>
+      <div class="scope-card">
+        <div class="scope-number">03</div>
+        <div class="scope-title">Sales Playbook</div>
+        <div class="scope-desc">Script tim untuk DM, objection handling, kapan membuka Layer 2 disclosure.</div>
+        <div class="scope-layer">Layer 1 + 2</div>
+      </div>
+      <div class="scope-card">
+        <div class="scope-number">04</div>
+        <div class="scope-title">Internal SOP & Reporting</div>
+        <div class="scope-desc">Standar delivery sesi, format PDF report, recording protocol, feedback loop.</div>
+        <div class="scope-layer">Layer 3</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S12 PRIORITY ACTIONS -->
+  <section class="section" id="s12">
+    <div class="section-number">12 · Priority Action List</div>
+    <h2 class="section-title">Tiga hal yang paling mahal<br>kalau tidak dilakukan minggu ini.</h2>
+
+    <ol class="numbered-list">
+      <li>
+        <div>
+          <strong style="color:var(--white);">Tulis dan publish satu outcome story di Threads.</strong>
+          <br>Format: masalah klien → temuan di chart → remedy yang diberikan → apa yang berubah. Tanpa nama. Dengan detail yang cukup untuk membuat pembaca berkata "ini seperti saya." Ini adalah satu tindakan dengan ROI tertinggi dari seluruh audit ini.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong style="color:var(--white);">Buat satu post eksplisit: "Kenapa saya berbeda dari BaZi reader lain."</strong>
+          <br>Satu post. Langsung. Tanpa diplomasi. Argumen utama: diagnosis vs. plan. Ini satu-satunya argumen kompetitif yang saat ini hampir tidak ada di feed. Kompetitor differentiation score saat ini: 0/10.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong style="color:var(--white);">Buat satu post tentang apa yang terjadi dalam 90 menit sesi.</strong>
+          <br>Deliverable per deliverable. Orang yang bertanya harga di komentar tidak tahu apa yang mereka beli. Post ini menjawab itu sebelum mereka harus tanya.
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">Life Path <span>北鷹</span></div>
+    <div class="footer-meta">
+      Product Offering Blueprint v1 · DJ Nordhawk<br>
+      BaZi × Vedic × Javanese Esoteric · Juni 2026<br>
+      Confidential — Internal Use Only
+    </div>
+  </footer>
+
+</div><!-- /main -->
+
+<script>
+  // ── Objection accordion ─────────────────────────────────
+  function toggleObj(header) {
+    const body = header.nextElementSibling;
+    const chevron = header.querySelector('.objection-chevron');
+    const isOpen = body.classList.contains('open');
+    // close all
+    document.querySelectorAll('.objection-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.objection-chevron').forEach(c => { c.textContent = '+'; c.style.transform = ''; });
+    // open clicked
+    if (!isOpen) {
+      body.classList.add('open');
+      chevron.textContent = '−';
+    }
+  }
+
+  // ── Active nav on scroll ────────────────────────────────
+  const sections = document.querySelectorAll('section[id], header');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id || 'hero';
+        navItems.forEach(item => {
+          item.classList.toggle('active', item.getAttribute('data-section') === id);
+        });
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-32px 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
