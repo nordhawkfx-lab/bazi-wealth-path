@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bazi Wealth Path — Habibi</title>
+  <meta name="description" content="Laporan Bazi Natal interaktif Habibi - format buku online 4 halaman." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:slnt,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <style>
+    
+    :root {
+      --color-parchment-canvas: #f2f0eb;
+      --color-ink: #292827;
+      --color-bone: #ffffff;
+      --color-fog: #e3e3e2;
+      --color-driftwood: #dcd7d3;
+      --color-graphite: #666666;
+      --color-aubergine: #421d24;
+      --color-aubergine-deep: #4e242c;
+      --color-iris: #714cb6;
+      --color-indigo-glow: #353088;
+      --color-lavender-chip: #d4c7ff;
+      --color-gold: #c5a880;
+      
+      --font-super-sans-vf: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-weight-body: 460;
+      --font-weight-medium: 500;
+      --font-weight-heading: 540;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      
+      --radius-lg: 8px;
+      --radius-xl: 12px;
+      --radius-2xl: 16px;
+      --radius-3xl: 24px;
+      --radius-full: 999px;
+      
+      /* Bazi Elements (Light contrasts) */
+      --el-wood: #059669;
+      --el-wood-glow: rgba(5, 150, 105, 0.12);
+      --el-fire: #dc2626;
+      --el-fire-glow: rgba(220, 38, 38, 0.12);
+      --el-earth: #b45309;
+      --el-earth-glow: rgba(180, 83, 9, 0.12);
+      --el-metal: #4b5563;
+      --el-metal-glow: rgba(75, 85, 99, 0.12);
+      --el-water: #1d4ed8;
+      --el-water-glow: rgba(29, 78, 216, 0.12);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--color-parchment-canvas);
+      color: var(--color-ink);
+      font-family: var(--font-super-sans-vf);
+      font-weight: var(--font-weight-body);
+      line-height: 1.5;
+    }
+
+    /* ── BOOK CONTAINER & SLIDER ── */
+    #book-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #book-slider {
+      display: flex;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .book-page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .page-left {
+      width: 50%;
+      height: 100%;
+      overflow-y: auto;
+      background: var(--color-bone);
+      padding: 60px 80px 80px 80px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .page-right {
+      width: 50%;
+      height: 100%;
+      background: var(--color-parchment-canvas);
+      border-left: 1px solid var(--color-driftwood);
+      padding: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .page-left { padding: 40px 50px; }
+      .page-right { padding: 40px; }
+    }
+
+    @media (max-width: 900px) {
+      .book-page {
+        flex-direction: column;
+        overflow: hidden;
+        height: 100%;
+      }
+      .page-left {
+        width: 100%;
+        height: 100%;
+        padding: 60px 24px 80px 24px;
+        overflow-y: auto;
+      }
+      .page-right {
+        display: none; /* Hide visual pane on mobile for ultimate readability and swipe flow */
+      }
+      #book-container {
+        height: 100%;
+      }
+    }
+
+    /* ── NAVIGATION & PROGRESS ── */
+    .book-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--color-iris);
+      z-index: 1000;
+      transition: width 0.3s ease;
+    }
+
+    .book-nav-header {
+      position: fixed;
+      top: 16px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 900;
+      pointer-events: none;
+    }
+
+    .nav-breadcrumb {
+      font-size: 11px;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-graphite);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(242, 240, 235, 0.8);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--color-fog);
+      pointer-events: auto;
+    }
+
+    .nav-controls {
+      display: none; /* Container no longer needed for separate absolute buttons */
+    }
+
+    .nav-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--color-bone);
+      border: 2px solid var(--color-gold);
+      color: var(--color-ink);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(197, 168, 128, 0.2);
+      font-weight: bold;
+      font-size: 20px;
+      user-select: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 950;
+    }
+
+    #prev-btn {
+      left: 24px;
+    }
+
+    #next-btn {
+      right: 24px;
+    }
+
+    .nav-btn:hover {
+      background: var(--color-gold);
+      color: var(--color-bone);
+      box-shadow: 0 8px 24px rgba(197, 168, 128, 0.4);
+      transform: translateY(-50%) scale(1.08);
+    }
+    
+    .nav-btn.disabled {
+      opacity: 0.15;
+      pointer-events: none;
+      border-color: var(--color-driftwood);
+    }
+
+    @media (max-width: 900px) {
+      .nav-btn {
+        display: none; /* Hide on mobile screens to prioritize swipe gestures */
+      }
+    }
+
+    /* Swipe indicator */
+    .swipe-indicator {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--color-graphite);
+      background: rgba(255,255,255,0.8);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-fog);
+      z-index: 800;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 900px) {
+      .swipe-indicator { display: block; }
+    }
+
+    /* ── TYPOGRAPHY & DESIGN ELEMENTS ── */
+    h1.book-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--color-ink);
+      line-height: 1.15;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .page-tag {
+      font-size: 11px;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-iris);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .book-divider {
+      height: 1px;
+      background: var(--color-fog);
+      margin: 24px 0;
+      width: 100%;
+    }
+
+    p.book-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-graphite);
+      margin-bottom: 20px;
+    }
+
+    .metric-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: var(--font-weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .badge-primary { background: rgba(113, 76, 182, 0.08); color: var(--color-iris); border: 1px solid rgba(113, 76, 182, 0.2); }
+    .badge-success { background: rgba(5, 150, 105, 0.08); color: var(--el-wood); border: 1px solid rgba(5, 150, 105, 0.2); }
+    .badge-danger { background: rgba(220, 38, 38, 0.08); color: var(--el-fire); border: 1px solid rgba(220, 38, 38, 0.2); }
+    .badge-warning { background: rgba(180, 83, 9, 0.08); color: var(--el-earth); border: 1px solid rgba(180, 83, 9, 0.2); }
+
+    /* ── ZEN BRUSH ILLUSTRATION PARCHMENT PLACEHOLDER ── */
+    .zen-illustration-card {
+      width: 100%;
+      height: 100%;
+      background-color: #faf8f5;
+      border: 2px solid var(--color-driftwood);
+      border-radius: var(--radius-2xl);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+      position: relative;
+    }
+
+    .zen-brush-logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 140px;
+      position: relative;
+    }
+
+    .zen-stroke-svg {
+      width: 120px;
+      height: 120px;
+      stroke: var(--color-ink);
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      fill: none;
+      opacity: 0.85;
+    }
+
+    .prompt-box-area {
+      background: var(--color-bone);
+      border: 1px solid var(--color-fog);
+      border-radius: var(--radius-xl);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .prompt-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--color-fog);
+      padding-bottom: 10px;
+    }
+
+    .prompt-label {
+      font-size: 11px;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+    }
+
+    .copy-btn {
+      background: var(--color-parchment-canvas);
+      border: 1px solid var(--color-driftwood);
+      color: var(--color-ink);
+      padding: 4px 10px;
+      border-radius: var(--radius-lg);
+      font-size: 11px;
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: var(--color-driftwood);
+    }
+
+    .prompt-text-val {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--color-graphite);
+      font-style: italic;
+      word-break: break-word;
+    }
+
+    /* ── BAZI CHART TEMPLE ── */
+    .temple-visual-container {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .temple-pillar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--color-bone);
+      border: 1px solid var(--color-fog);
+      border-radius: var(--radius-xl);
+      padding: 14px 6px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+      position: relative;
+    }
+
+    .temple-pillar.is-active-dm {
+      border: 2px solid var(--color-iris);
+      box-shadow: 0 8px 20px rgba(113, 76, 182, 0.06);
+    }
+
+    .temple-pillar-header {
+      font-size: 9px;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-graphite);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-bottom: 1px solid var(--color-fog);
+      padding-bottom: 6px;
+    }
+
+    .temple-pillar.is-active-dm .temple-pillar-header {
+      color: var(--color-iris);
+    }
+
+    .temple-char-card {
+      background: var(--color-parchment-canvas);
+      border: 1px solid var(--color-fog);
+      border-radius: var(--radius-lg);
+      padding: 10px 2px;
+    }
+
+    .temple-char {
+      font-family: 'Kaiti', 'STKaiti', serif;
+      font-size: 34px;
+      font-weight: bold;
+      display: block;
+      line-height: 1.1;
+    }
+
+    .temple-pinyin {
+      font-size: 11px;
+      font-weight: var(--font-weight-semibold);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .temple-hidden-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: rgba(242, 240, 235, 0.4);
+      border: 1px dashed var(--color-driftwood);
+      border-radius: var(--radius-lg);
+      padding: 6px 2px;
+    }
+
+    .temple-hidden-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--color-bone);
+      border: 1px solid var(--color-fog);
+      border-radius: 6px;
+      padding: 2px 1px;
+    }
+
+    .temple-hidden-char {
+      font-family: 'Kaiti', 'STKaiti', serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .temple-hidden-tg {
+      font-size: 8px;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="book-progress-bar"></div>
+
+  <div class="book-nav-header">
+    <div class="nav-breadcrumb">
+      <span id="page-num-text">Halaman 1 dari 4</span> &bull; <span id="section-name-text">Cover</span>
+    </div>
+  </div>
+
+  <div id="book-container">
+    <div id="book-slider">
+      
+      <!-- Halaman 1: Cover Summary -->
+      <div class="book-page" data-title="Cover">
+        <div class="page-left" style="justify-content: center;">
+          <!-- Giant Chinese characters and translations at top -->
+          <div style="margin-bottom: 24px;">
+            <div style="font-size: 80px; font-weight: bold; line-height: 1; font-family: 'Kaiti', 'STKaiti', serif; letter-spacing: 0.05em;">
+              <span style="color: var(--el-metal);">辛</span><span style="color: var(--el-metal);">酉</span>
+            </div>
+            <div style="font-size: 14px; font-weight: bold; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px;">
+              Logam Yin Ayam (Yin Metal Rooster Daymaster)
+            </div>
+          </div>
+
+          <span class="page-tag">Laporan Bazi Natal</span>
+          <h1 class="book-title" style="font-size: 40px; margin-bottom: 16px;">Jalan Kemakmuran<br/>Bazi Habibi</h1>
+          <p class="book-desc" style="font-size: 15px; margin-bottom: 24px;">
+            Sebuah panduan taktis kemakmuran personal berdasarkan kalkulasi otentik Bazi natal untuk menemukan keselarasan karir dan kompas finansial Anda.
+          </p>
+          <div style="border-top: 1px solid var(--color-driftwood); padding-top: 20px; display: flex; gap: 32px;">
+            <div>
+              <div style="font-size: 10px; color: var(--color-graphite); text-transform: uppercase; letter-spacing: 0.05em;">Kekuatan</div>
+              <div style="font-size: 16px; font-weight: bold; margin-top: 2px; color: var(--el-fire);">Weak (Lemah)</div>
+            </div>
+          </div>
+        </div>
+        <div class="page-right">
+          <div class="zen-illustration-card">
+            <div class="zen-brush-logo-area">
+              <svg class="zen-stroke-svg" viewBox="0 0 100 100">
+                <path d="M 50,95 L 50,30 M 46,30 L 54,30 M 50,30 L 50,15 L 48,15 L 52,15" stroke-width="4"/>
+                <path d="M 10,95 Q 50,80 90,95" stroke-width="3" />
+                <circle cx="50" cy="12" r="2" fill="var(--color-ink)"/>
+              </svg>
+            </div>
+            <div class="prompt-box-area">
+              <div class="prompt-header-row">
+                <span class="prompt-label">Leonardo AI Prompt (Cover)</span>
+                <button class="copy-btn" onclick="copyPrompt(this, 'p1-text')">Salin Prompt</button>
+              </div>
+              <div class="prompt-text-val" id="p1-text">A zen brush style watercolor painting of a solitary figure sitting in a traditional cafe, looking out a large glass window at the rain-soaked streets of Jakarta and the silhouette of Monas monument in the distance, minimalist, warm ink wash, calligraphy-like strokes, soft beige parchment background.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Halaman 2: Four Pillars Natal Chart -->
+      <div class="book-page" data-title="Empat Pilar Kelahiran">
+        <div class="page-left" style="justify-content: center;">
+          <span class="page-tag">Halaman 2</span>
+          <h1 class="book-title">Empat Pilar Kelahiran</h1>
+          <div class="book-divider"></div>
+          <p class="book-desc">
+            Bagan energi dasar kelahiran Anda. Dibaca secara berurutan dari Jam hingga Tahun (kiri ke kanan).
+          </p>
+          
+          <div class="temple-visual-container" style="margin-bottom: 24px;">
+            <!-- Hour -->
+            <div class="temple-pillar">
+              <div class="temple-pillar-header">Hour</div>
+              <div class="temple-char-card">
+                <span style="font-size: 8px; font-weight: bold; color: var(--el-wood); display: block;">IW</span>
+                <span class="temple-char" style="color: var(--el-wood);">乙</span>
+              </div>
+              <div class="temple-char-card">
+                <span class="temple-char" style="color: var(--el-earth);">未</span>
+                <span style="font-size: 8px; color: var(--color-graphite); display: block;">Goat</span>
+              </div>
+              <div class="temple-hidden-scroll">
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-earth);">己</span><span class="temple-hidden-tg">IR</span></div>
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-wood);">乙</span><span class="temple-hidden-tg">IW</span></div>
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-fire);">丁</span><span class="temple-hidden-tg">F</span></div>
+              </div>
+            </div>
+            <!-- Day -->
+            <div class="temple-pillar is-active-dm">
+              <div class="temple-pillar-header">Day (DM)</div>
+              <div class="temple-char-card">
+                <span style="font-size: 8px; font-weight: bold; color: var(--color-iris); display: block;">DM</span>
+                <span class="temple-char" style="color: var(--el-metal);">辛</span>
+              </div>
+              <div class="temple-char-card">
+                <span class="temple-char" style="color: var(--el-metal);">酉</span>
+                <span style="font-size: 8px; color: var(--color-graphite); display: block;">Rooster</span>
+              </div>
+              <div class="temple-hidden-scroll">
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-metal);">辛</span><span class="temple-hidden-tg">BJ</span></div>
+              </div>
+            </div>
+            <!-- Month -->
+            <div class="temple-pillar">
+              <div class="temple-pillar-header">Month</div>
+              <div class="temple-char-card">
+                <span style="font-size: 8px; font-weight: bold; color: var(--color-graphite); display: block;">DR</span>
+                <span class="temple-char" style="color: var(--el-earth);">戊</span>
+              </div>
+              <div class="temple-char-card">
+                <span class="temple-char" style="color: var(--el-water);">子</span>
+                <span style="font-size: 8px; color: var(--color-graphite); display: block;">Rat</span>
+              </div>
+              <div class="temple-hidden-scroll">
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-water);">癸</span><span class="temple-hidden-tg">EG</span></div>
+              </div>
+            </div>
+            <!-- Year -->
+            <div class="temple-pillar">
+              <div class="temple-pillar-header">Year</div>
+              <div class="temple-char-card">
+                <span style="font-size: 8px; font-weight: bold; color: var(--color-graphite); display: block;">RW</span>
+                <span class="temple-char" style="color: var(--el-metal);">庚</span>
+              </div>
+              <div class="temple-char-card">
+                <span class="temple-char" style="color: var(--el-metal);">申</span>
+                <span style="font-size: 8px; color: var(--color-graphite); display: block;">Monkey</span>
+              </div>
+              <div class="temple-hidden-scroll">
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-metal);">庚</span><span class="temple-hidden-tg">RW</span></div>
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-water);">壬</span><span class="temple-hidden-tg">HO</span></div>
+                <div class="temple-hidden-item"><span class="temple-hidden-char" style="color: var(--el-earth);">戊</span><span class="temple-hidden-tg">DR</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-right">
+          <div class="zen-illustration-card">
+            <div class="zen-brush-logo-area">
+              <svg class="zen-stroke-svg" viewBox="0 0 100 100">
+                <path d="M 10,70 L 90,70 M 20,70 Q 50,20 80,70" stroke-width="4.5"/>
+                <path d="M 50,45 L 50,70" stroke-width="2"/>
+                <path d="M 40,75 L 43,85 M 46,75 L 48,82" stroke-width="3"/>
+              </svg>
+            </div>
+            <div class="prompt-box-area">
+              <div class="prompt-header-row">
+                <span class="prompt-label">Leonardo AI Prompt (Natal Chart)</span>
+                <button class="copy-btn" onclick="copyPrompt(this, 'p2-text')">Salin Prompt</button>
+              </div>
+              <div class="prompt-text-val" id="p2-text">Zen brush painting of a busy office worker crossing a modern bridge in Jakarta's Sudirman business district, traditional ink wash style, fluid black brush strokes, gold highlights, minimalist wabi-sabi aesthetic, warm paper texture.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Halaman 3: Kompas Finansial & Gudang Rejeki (Elite Style) -->
+      <div class="book-page" data-title="Kompas Finansial & Gudang">
+        <div class="page-left" style="justify-content: center;">
+          <span class="page-tag">Halaman 3</span>
+          <h1 class="book-title">Kompas & Gudang Rejeki</h1>
+          <div class="book-divider"></div>
+          
+          <!-- Elite Left Border Style (No Boxes) -->
+          <div style="border-left: 3px solid var(--color-gold); padding: 0 0 0 16px; margin-bottom: 24px;">
+            <div style="font-size: 18px; font-weight: bold; display: flex; align-items: center; gap: 8px; color: var(--color-gold);">
+              ⚖️ Zhong Deng (Menengah)
+            </div>
+            <p style="font-size: 13.5px; color: var(--color-graphite); margin-top: 4px; line-height: 1.5;">
+              Kekayaan stabil melalui profesi & keahlian spesifik (Fu: FU_B, Gui: GUI_C).
+            </p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; border-bottom: 1px solid var(--color-fog); padding-bottom: 16px;">
+            <div>
+              <div style="font-size: 10px; color: var(--color-graphite); text-transform: uppercase;">Yong Shen (用神)</div>
+              <div style="font-size: 15px; font-weight: bold; color: var(--el-fire);">Api (Fire) - Diao Hou</div>
+            </div>
+            <div>
+              <div style="font-size: 10px; color: var(--color-graphite); text-transform: uppercase;">Ji Shen (忌神)</div>
+              <div style="font-size: 15px; font-weight: bold; color: var(--el-water);">Air (Water) - Bahaya</div>
+            </div>
+          </div>
+
+          <div style="font-size: 13.5px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-fog); padding-bottom: 6px;">
+              <span>Gudang Rejeki (Vault)</span>
+              <span style="font-weight: bold;">Kambing (未) - Ada</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-fog); padding-bottom: 6px;">
+              <span>Skor Kegunaan Vault</span>
+              <span style="font-weight: bold; color: var(--color-iris);">8.0 / 10 (Tinggi)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Status Vault</span>
+              <span style="font-weight: bold; color: var(--el-wood);">Terbuka (Clash Open)</span>
+            </div>
+          </div>
+        </div>
+        <div class="page-right">
+          <div class="zen-illustration-card">
+            <div class="zen-brush-logo-area">
+              <svg class="zen-stroke-svg" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="24" stroke-width="4.5"/>
+                <circle cx="50" cy="50" r="8" stroke-width="2"/>
+                <path d="M 20,85 Q 50,60 80,85" stroke-width="3" />
+              </svg>
+            </div>
+            <div class="prompt-box-area">
+              <div class="prompt-header-row">
+                <span class="prompt-label">Leonardo AI Prompt (Wealth)</span>
+                <button class="copy-btn" onclick="copyPrompt(this, 'p3-text')">Salin Prompt</button>
+              </div>
+              <div class="prompt-text-val" id="p3-text">Minimalist zen brush stroke illustration of a merchant counting traditional coin sacks in a bustling Jakarta market, warm ink wash style, fluid charcoal strokes, light gold paint splatters, warm parchment texture.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Halaman 4: Luck Pillars & Karir (Elite Style) -->
+      <div class="book-page" data-title="Dekade Kehidupan & Karir">
+        <div class="page-left" style="justify-content: center;">
+          <span class="page-tag">Halaman 4</span>
+          <h1 class="book-title">Dekade & Karir Penolong</h1>
+          <div class="book-divider"></div>
+          
+          <!-- Elite Left Border Style (No Boxes) -->
+          <div style="border-left: 3px solid var(--color-iris); padding: 0 0 0 16px; margin-bottom: 24px;">
+            <div style="font-size: 15px; font-weight: bold; color: var(--color-iris); margin-bottom: 4px;">
+              Pilar Dekade Aktif (壬寅)
+            </div>
+            <p style="font-size: 13.5px; color: var(--color-graphite); line-height: 1.5;">
+              Air Yang Macan (usia 36-45). Membuka keberuntungan melalui sektor jasa, namun awasi pengeluaran operasional.
+            </p>
+          </div>
+
+          <div style="font-size: 13.5px; display: flex; flex-direction: column; gap: 8px; border-bottom: 1px solid var(--color-fog); padding-bottom: 12px; margin-bottom: 16px;">
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-fog); padding-bottom: 6px;">
+              <span>Rob Wealth (RW) Status</span>
+              <span class="metric-badge badge-danger">UNFAVORABLE (75%)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-bottom: 1px solid var(--color-fog); padding-bottom: 6px;">
+              <span>Shio Penolong (Nobleman)</span>
+              <span style="font-weight: bold; color: var(--color-iris);">Tiger (寅) & Horse (午)</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span>Toleransi Risiko Investasi</span>
+              <span style="font-weight: bold; color: var(--el-fire);">Maksimal 35%</span>
+            </div>
+          </div>
+          
+          <div>
+            <h4 style="font-size: 13px; font-weight: bold; text-transform: uppercase; color: var(--color-graphite); margin-bottom: 6px;">Potensi Karir Utama:</h4>
+            <div style="font-size: 13.5px;">1. Jasa Spekulatif & Profesional | 2. Manufaktur & Aset Fisik</div>
+          </div>
+        </div>
+        <div class="page-right">
+          <div class="zen-illustration-card">
+            <div class="zen-brush-logo-area">
+              <svg class="zen-stroke-svg" viewBox="0 0 100 100">
+                <path d="M 50,95 Q 40,60 60,30 T 40,10" stroke-width="4"/>
+                <circle cx="80" cy="30" r="6" fill="var(--color-ink)"/>
+                <path d="M 20,40 Q 50,38 80,45" stroke-width="1.5" />
+              </svg>
+            </div>
+            <div class="prompt-box-area">
+              <div class="prompt-header-row">
+                <span class="prompt-label">Leonardo AI Prompt (Roadmap)</span>
+                <button class="copy-btn" onclick="copyPrompt(this, 'p4-text')">Salin Prompt</button>
+              </div>
+              <div class="prompt-text-val" id="p4-text">Zen brush wash illustration of a path winding through a serene tropical garden in Jakarta, leading towards a rising sun behind distant modern skyscrapers, wabi-sabi style, minimalist black ink, gold foil strokes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="nav-btn" id="prev-btn" onclick="prevPage()">&#8592;</div>
+  <div class="nav-btn" id="next-btn" onclick="nextPage()">&#8594;</div>
+  
+  <div class="swipe-indicator">Geser Kiri/Kanan &larr; &rarr;</div>
+
+  <script>
+    
+    let currentPage = 0;
+    const totalPages = document.querySelectorAll('.book-page').length;
+    const bookSlider = document.getElementById('book-slider');
+    const progressBar = document.querySelector('.book-progress-bar');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const pageNumText = document.getElementById('page-num-text');
+    const sectionNameText = document.getElementById('section-name-text');
+
+    const pageTitles = Array.from(document.querySelectorAll('.book-page')).map(p => p.getAttribute('data-title') || 'Analisis');
+
+    function updateNav() {
+      bookSlider.style.transform = `translate3d(-${currentPage * 100}vw, 0, 0)`;
+      const progressPercent = ((currentPage + 1) / totalPages) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+      prevBtn.classList.toggle('disabled', currentPage === 0);
+      nextBtn.classList.toggle('disabled', currentPage === totalPages - 1);
+      pageNumText.textContent = `Halaman ${currentPage + 1} dari ${totalPages}`;
+      sectionNameText.textContent = pageTitles[currentPage];
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        updateNav();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        updateNav();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        nextPage();
+      } else if (e.key === 'ArrowLeft') {
+        prevPage();
+      }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    window.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+      const swipeDistanceThreshold = 50;
+      if (touchStartX - touchEndX > swipeDistanceThreshold) {
+        nextPage();
+      } else if (touchEndX - touchStartX > swipeDistanceThreshold) {
+        prevPage();
+      }
+    }
+
+    function copyPrompt(btn, textId) {
+      const textVal = document.getElementById(textId).innerText;
+      navigator.clipboard.writeText(textVal).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Tersalin! ✓';
+        btn.style.backgroundColor = 'var(--el-wood)';
+        btn.style.color = '#ffffff';
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.backgroundColor = 'var(--color-parchment-canvas)';
+          btn.style.color = 'var(--color-ink)';
+        }, 1500);
+      });
+    }
+
+    updateNav();
+
+  </script>
+</body>
+</html>
