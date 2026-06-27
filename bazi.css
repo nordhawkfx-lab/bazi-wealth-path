@@ -581,9 +581,9 @@ p { color: var(--text-dk-primary); }
 .bazi-pillar:nth-child(3) { animation-delay: 1.6s; }
 .bazi-pillar:nth-child(4) { animation-delay: 1.9s; }
 
-.bazi-stem   { font-size: 1.6rem; color: var(--gold-warm);  font-family: var(--ff-display); line-height: 1; margin-bottom: 0.4rem; }
-.bazi-branch { font-size: 1.6rem; color: #8ecdc6;           font-family: var(--ff-display); line-height: 1; }
-.bazi-label  { font-size: 0.60rem; letter-spacing: 0.1em; text-transform: uppercase; color: #555; margin-top: 0.6rem; }
+.bazi-stem   { font-size: 2.2rem; color: var(--gold-warm);  font-family: var(--ff-display); line-height: 1; margin-bottom: 0.6rem; }
+.bazi-branch { font-size: 2.2rem; color: #8ecdc6;           font-family: var(--ff-display); line-height: 1; }
+.bazi-label  { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #777; margin-top: 0.8rem; }
 
 /* Rotating quote */
 .quote-rotator {
@@ -591,11 +591,12 @@ p { color: var(--text-dk-primary); }
   max-width: 320px;
   min-height: 3.5rem;
   display: flex; align-items: center; justify-content: center;
+  margin-top: 1.2rem;
 }
 
 .quote-zh {
   font-family: var(--ff-display);
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   color: var(--text-dk-meta);
   opacity: 0;
   transition: opacity 0.8s ease;
@@ -871,16 +872,16 @@ p { color: var(--text-dk-primary); }
 }
 
 .process-badge-title {
-  font-size: 0.82rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  color: var(--champagne);
-  margin-bottom: 0.4rem;
+  color: var(--gold-warm);
+  margin-bottom: 0.6rem;
 }
 
 .process-badge-body {
-  font-size: var(--font-micro);
-  color: var(--text-dk-secondary);
-  line-height: 1.65;
+  font-size: var(--font-prose);
+  color: var(--text-dk-primary);
+  line-height: var(--line-prose);
 }
 
 
@@ -1472,6 +1473,88 @@ footer {
   .cta-actions  { flex-direction: column; align-items: center; }
   .limits-card  { padding: var(--sp-4) var(--sp-3); }
   .layer-row    { grid-template-columns: 70px 1fr; }
+}
+
+/* ── DOOR SELECTOR (Homepage) ──────────────────────────────── */
+.door-selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.door-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  text-decoration: none;
+  background: var(--charcoal);
+  transition: border-color .3s, transform .25s;
+  min-height: 360px;
+}
+.door-card:hover { border-color: var(--gold-warm); transform: translateY(-3px); }
+
+.door-card-bg-zh {
+  position: absolute; right: -20px; bottom: -40px;
+  font-family: var(--ff-display); font-size: 12rem;
+  color: var(--gold-warm); opacity: .04;
+  line-height: 1; pointer-events: none; user-select: none;
+  transition: opacity .3s;
+}
+.door-card:hover .door-card-bg-zh { opacity: .07; }
+
+.door-card-inner { position: relative; z-index: 2; padding: 2.5rem 2rem 2rem; }
+
+.door-card-tag {
+  font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold-warm); margin-bottom: 1.2rem;
+  border: 1px solid var(--border-gold); display: inline-block;
+  padding: .25rem .7rem;
+}
+
+.door-card-h3 {
+  font-family: var(--ff-display); font-size: clamp(1.25rem,2vw,1.65rem);
+  color: var(--text-dk-primary); font-weight: 400; line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.door-card-body {
+  font-size: var(--font-prose); color: var(--text-dk-secondary);
+  line-height: var(--line-prose); margin-bottom: 1.8rem;
+}
+
+.door-card-cta {
+  font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold-warm); display: flex; align-items: center; gap: .5rem;
+  transition: gap .2s;
+}
+.door-card:hover .door-card-cta { gap: .9rem; }
+.door-card-cta span { transition: transform .2s; }
+.door-card:hover .door-card-cta span { transform: translateX(4px); }
+
+/* ── DELIVERABLE SIGNAL GRID (Homepage) ──────────────────── */
+.deliverable-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.5rem;
+}
+
+/* ── APPROACH LINK (text link with arrow) ────────────────── */
+.approach-link {
+  display: inline-block;
+  font-size: var(--font-micro); letter-spacing: .1em; text-transform: uppercase;
+  color: var(--gold-warm); border-bottom: 1px solid var(--border-gold);
+  text-decoration: none; padding-bottom: .15rem;
+  transition: border-color .2s, color .2s;
+}
+.approach-link:hover { color: var(--champagne); border-color: var(--champagne); }
+
+/* ── DOOR SELECTOR RESPONSIVE ───────────────────────────── */
+@media (max-width: 768px) {
+  .door-selector-grid { grid-template-columns: 1fr; }
+  .deliverable-grid-3 { grid-template-columns: 1fr; }
+  .door-card { min-height: auto; }
+  .door-card-bg-zh { font-size: 8rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

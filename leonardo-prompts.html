@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonardo Prompts — Life Path Image Guide</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0E0D1A;
+      --surface:   #161524;
+      --border:    rgba(255,255,255,0.07);
+      --text:      #C8C4B8;
+      --text-dim:  #6B6680;
+      --gold:      #B8955A;
+      --teal:      #2AADA0;
+      --sidebar:   240px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Page header */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 3.5rem 2rem;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .page-header h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-style: italic;
+      font-size: 2.4rem;
+      color: #EAE7DC;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      max-width: 64ch;
+      line-height: 1.7;
+    }
+
+    /* Main grid */
+    .main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 3.5rem 6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* Prompt card */
+    .prompt-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 2rem 2.2rem;
+      position: relative;
+    }
+
+    .prompt-card__section {
+      font-size: 0.60rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .prompt-card h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.3rem;
+      color: #EAE7DC;
+      margin-bottom: 0.4rem;
+      font-weight: 400;
+    }
+
+    .prompt-card__placement {
+      font-size: 0.80rem;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      padding-left: 0.8rem;
+      border-left: 2px solid rgba(184,149,90,0.30);
+    }
+
+    .prompt-label {
+      font-size: 0.60rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.5rem;
+      margin-top: 1.2rem;
+    }
+
+    .prompt-box {
+      background: #0A0917;
+      border: 1px solid rgba(184,149,90,0.20);
+      padding: 1.2rem 1.4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: #B8955A;
+      line-height: 1.75;
+      white-space: pre-wrap;
+      word-break: break-word;
+      position: relative;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.60rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.75rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .copy-btn:hover { color: var(--gold); border-color: rgba(184,149,90,0.35); }
+    .copy-btn.copied { color: var(--teal); border-color: rgba(42,173,160,0.35); }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .spec-item {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      padding: 0.8rem 1rem;
+    }
+
+    .spec-item__key {
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .spec-item__val {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: #EAE7DC;
+    }
+
+    .note {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      padding: 0.8rem 1rem;
+      background: rgba(42,173,160,0.04);
+      border: 1px solid rgba(42,173,160,0.12);
+    }
+
+    .note strong { color: var(--teal); }
+
+    h3.section-divider {
+      font-family: 'Instrument Serif', serif;
+      font-size: 1.8rem;
+      font-style: italic;
+      color: rgba(184,149,90,0.4);
+      text-align: center;
+      padding: 1rem 0 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* TOC */
+    .toc {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1.5rem 2rem;
+    }
+
+    .toc h2 {
+      font-size: 0.60rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    .toc ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .toc a {
+      font-size: 0.82rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .toc a::before {
+      content: '→';
+      color: var(--gold);
+      font-size: 0.72rem;
+    }
+
+    .toc a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .page-header, .main { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .spec-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .spec-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Leonardo.Ai Image Prompts</h1>
+  <p>
+    Panduan penggantian image placeholder (Unsplash) di <strong style="color:#EAE7DC;">index.html</strong>.
+    Setiap kartu berisi lokasi penempatan gambar, spesifikasi teknis, dan prompt siap pakai untuk
+    <a href="https://leonardo.ai" target="_blank" rel="noopener" style="color:var(--teal);">Leonardo.Ai</a>.
+    Setelah generate, simpan dengan nama file yang dicantumkan, lalu pasang di tag HTML yang ditunjuk.
+  </p>
+</div>
+
+<div class="main">
+
+  <!-- TOC -->
+  <div class="toc">
+    <h2>Daftar Image</h2>
+    <ul>
+      <li><a href="#img-about">01 — About Founder (Singapore Chinatown)</a></li>
+      <li><a href="#img-about-bg">02 — About Section Background Texture</a></li>
+      <li><a href="#img-cta">03 — Final CTA Background (Celestial Dark)</a></li>
+      <li><a href="#img-approach">04 — Approach Section Texture (Opsional)</a></li>
+      <li><a href="#img-hero-alt">05 — Hero Overlay Alt (Opsional)</a></li>
+    </ul>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────
+       IMAGE 01 — About Founder Photo
+       ───────────────────────────────────────────────── -->
+  <div class="prompt-card" id="img-about">
+    <span class="prompt-card__section">Gambar 01 · about-founder.jpg</span>
+    <h2>About / Founder Photo — Singapore Chinatown</h2>
+    <div class="prompt-card__placement">
+      <strong>Lokasi di index.html:</strong> Section #about, kolom kanan<br>
+      Tag: <code>&lt;img src="about-founder.jpg"&gt;</code> di dalam <code>.about-photo-frame</code><br>
+      Caption: "新加坡 · 牛車水 — Singapore · Chinatown, where the study began"
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-item">
+        <span class="spec-item__key">Dimensi</span>
+        <span class="spec-item__val">400 × 520 px</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Aspect Ratio</span>
+        <span class="spec-item__val">4 : 5 (Portrait)</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Nama File</span>
+        <span class="spec-item__val">about-founder.jpg</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Mood</span>
+        <span class="spec-item__val">Scholarly, atmospheric</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Palette</span>
+        <span class="spec-item__val">Warm indigo, amber, aged paper</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Style</span>
+        <span class="spec-item__val">Cinematic, grainy film</span>
+      </div>
+    </div>
+
+    <span class="prompt-label">Prompt untuk Leonardo.Ai</span>
+    <div class="prompt-box" id="prompt-01">A contemplative Southeast Asian man in his late 40s studying ancient Chinese manuscripts in a dimly lit traditional shop-house study in Singapore Chinatown. Warm amber candlelight illuminates old wooden shelves lined with thick leather-bound books and antique brass instruments. Earthy color palette: deep indigo shadows, warm ochre candlelight, aged parchment tones. Cinematic composition, slightly grainy film texture reminiscent of 35mm photography. Shallow depth of field, soft bokeh background. Portrait format, introspective mood. No text overlays, no modern devices, no neon.<button class="copy-btn" onclick="copyPrompt('prompt-01', this)">Copy</button></div>
+
+    <div class="note">
+      <strong>Catatan:</strong> Wajah tidak perlu mirip DJ Nordhawk — cukup berkesan "thoughtful Indonesian founder."
+      CSS di halaman sudah menerapkan <code>filter: grayscale(25%) brightness(0.88)</code> — jadi gambar berwarna pun akan terlihat sesuai tone.
+      Bila kurang puas dengan satu attempt, coba variasi: <em>"exterior street photography"</em> atau <em>"looking out from a study window"</em>.
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────
+       IMAGE 02 — About Section Background
+       ───────────────────────────────────────────────── -->
+  <div class="prompt-card" id="img-about-bg">
+    <span class="prompt-card__section">Gambar 02 · about-bg.jpg (Opsional)</span>
+    <h2>About Section — Background Texture</h2>
+    <div class="prompt-card__placement">
+      <strong>Lokasi di index.html:</strong> Section #about, sebagai background-image<br>
+      Saat ini: solid gradient <code>rgba(19,18,31) → rgba(28,27,46)</code><br>
+      Untuk activate: tambahkan <code>background-image: url('about-bg.jpg')</code> ke <code>.about-bg-img</code> dan set opacity ~0.08–0.12
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-item">
+        <span class="spec-item__key">Dimensi</span>
+        <span class="spec-item__val">1600 × 900 px</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Aspect Ratio</span>
+        <span class="spec-item__val">16 : 9 (Landscape)</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Nama File</span>
+        <span class="spec-item__val">about-bg.jpg</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Opacity di HTML</span>
+        <span class="spec-item__val">0.08–0.12 (subtle)</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Style</span>
+        <span class="spec-item__val">Abstract texture</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Palette</span>
+        <span class="spec-item__val">Indigo, charcoal, muted</span>
+      </div>
+    </div>
+
+    <span class="prompt-label">Prompt untuk Leonardo.Ai</span>
+    <div class="prompt-box" id="prompt-02">Abstract watercolor texture background, deep dark indigo and midnight charcoal base, faint golden botanical filigree pattern, subtle antique paper grain, moody atmospheric wash. Ultra-low contrast, meant to be used as a very subtle overlay. Horizontal landscape format. No figures, no text, no neon, no rainbow colors.<button class="copy-btn" onclick="copyPrompt('prompt-02', this)">Copy</button></div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────
+       IMAGE 03 — Final CTA Background
+       ───────────────────────────────────────────────── -->
+  <div class="prompt-card" id="img-cta">
+    <span class="prompt-card__section">Gambar 03 · cta-bg.jpg</span>
+    <h2>Final CTA Section — Celestial Dark Background</h2>
+    <div class="prompt-card__placement">
+      <strong>Lokasi di index.html:</strong> Section #mulai (Final CTA), background absolut<br>
+      Tag: inline style <code>background-image:url('cta-bg.jpg')</code><br>
+      CSS overlay sudah diterapkan: <code>filter:brightness(0.12) saturate(0.4)</code> + gradient indigo
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-item">
+        <span class="spec-item__key">Dimensi</span>
+        <span class="spec-item__val">1600 × 800 px</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Aspect Ratio</span>
+        <span class="spec-item__val">2 : 1 (Wide)</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Nama File</span>
+        <span class="spec-item__val">cta-bg.jpg</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Mood</span>
+        <span class="spec-item__val">Celestial, premium, dark</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Palette</span>
+        <span class="spec-item__val">Deep indigo, midnight, gold mist</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Overlay di HTML</span>
+        <span class="spec-item__val">brightness(0.12) — sangat gelap</span>
+      </div>
+    </div>
+
+    <span class="prompt-label">Prompt untuk Leonardo.Ai</span>
+    <div class="prompt-box" id="prompt-03">Abstract celestial atmospheric background, deep dark indigo and midnight black sky, faint golden mist and soft light rays filtering through darkness, ethereal starlight scatter, barely visible silhouette of an ancient astrolabe or compass dial, ultra-cinematic dark mood. Earth tones with warm gold undertones. Ultra-wide horizontal format. No human faces, no text overlays, no bright neon. Shot as if by an analog film camera with long exposure.<button class="copy-btn" onclick="copyPrompt('prompt-03', this)">Copy</button></div>
+
+    <div class="note">
+      <strong>Penting:</strong> Gambar ini akan di-dim sangat kuat (<code>brightness: 12%</code>) oleh CSS.
+      Generate gambar dengan tone sedang — jangan terlalu gelap. Yang penting ada <em>tekstur visual</em>
+      yang bisa terasa meski sangat redup.
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────
+       IMAGE 04 — Approach Section Texture (Optional)
+       ───────────────────────────────────────────────── -->
+  <div class="prompt-card" id="img-approach">
+    <span class="prompt-card__section">Gambar 04 · approach-texture.jpg (Opsional)</span>
+    <h2>Approach Section — Background Texture Halus</h2>
+    <div class="prompt-card__placement">
+      <strong>Lokasi di index.html:</strong> Section #pendekatan (Approach / 5 Layers)<br>
+      Saat ini: solid background <code>var(--color-dark)</code> (#1C1B2E)<br>
+      Untuk activate: tambahkan di <code>.lp-pattern-section::before</code> atau background-image dengan opacity 0.04
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-item">
+        <span class="spec-item__key">Dimensi</span>
+        <span class="spec-item__val">800 × 800 px</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Aspect Ratio</span>
+        <span class="spec-item__val">1 : 1 (tiled)</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Nama File</span>
+        <span class="spec-item__val">approach-texture.jpg</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Opacity di HTML</span>
+        <span class="spec-item__val">0.04–0.06</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Style</span>
+        <span class="spec-item__val">Seamless tile pattern</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Palette</span>
+        <span class="spec-item__val">Earthy, muted gold</span>
+      </div>
+    </div>
+
+    <span class="prompt-label">Prompt untuk Leonardo.Ai</span>
+    <div class="prompt-box" id="prompt-04">Seamless tileable batik-inspired pattern, traditional Javanese kawung motif, fine line illustration style. Muted warm gold and earthy ochre on near-black background. Extremely subtle, low contrast, geometric floral structure. Square format 1:1, minimal and elegant, no gradients, no text.<button class="copy-btn" onclick="copyPrompt('prompt-04', this)">Copy</button></div>
+  </div>
+
+  <!-- ─────────────────────────────────────────────────
+       IMAGE 05 — Hero Overlay Alt
+       ───────────────────────────────────────────────── -->
+  <div class="prompt-card" id="img-hero-alt">
+    <span class="prompt-card__section">Gambar 05 · hero-atmosphere.jpg (Opsional)</span>
+    <h2>Hero — Alternative Atmosphere Layer</h2>
+    <div class="prompt-card__placement">
+      <strong>Lokasi di index.html:</strong> Section hero (saat ini pakai batik.jpg)<br>
+      Untuk activate: ganti URL di <code>.hero-batik-bg</code> dengan <code>hero-atmosphere.jpg</code><br>
+      Gunakan jika batik.jpg kurang fit — ini alternatif lebih abstrak dan atmospheric
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec-item">
+        <span class="spec-item__key">Dimensi</span>
+        <span class="spec-item__val">1920 × 1080 px</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Aspect Ratio</span>
+        <span class="spec-item__val">16 : 9</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Nama File</span>
+        <span class="spec-item__val">hero-atmosphere.jpg</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Filter di HTML</span>
+        <span class="spec-item__val">saturate(0.45) brightness(0.38)</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Mood</span>
+        <span class="spec-item__val">Mystical, grounded, premium</span>
+      </div>
+      <div class="spec-item">
+        <span class="spec-item__key">Palette</span>
+        <span class="spec-item__val">Earthy indigo, deep warm</span>
+      </div>
+    </div>
+
+    <span class="prompt-label">Prompt untuk Leonardo.Ai</span>
+    <div class="prompt-box" id="prompt-05">Aerial view of traditional Indonesian Javanese batik fabric draped over a stone surface, warm golden natural light from above, deep indigo and earth tone batik pattern with hand-drawn parang or kawung motif, textured and organic, slightly blurred depth of field. Cinematic, editorial photography style. No people, no text, warm and grounded atmosphere.<button class="copy-btn" onclick="copyPrompt('prompt-05', this)">Copy</button></div>
+
+    <div class="note">
+      <strong>Catatan:</strong> Kamu sudah punya <code>batik.jpg</code> di folder. Coba dulu batik.jpg — gunakan prompt ini
+      hanya jika hasil batik.jpg kurang memuaskan secara visual setelah di-preview di browser.
+    </div>
+  </div>
+
+  <!-- Instruction summary -->
+  <div style="border:1px solid rgba(42,173,160,0.20); padding:2rem; background:rgba(42,173,160,0.04);">
+    <h2 style="font-family:'Instrument Serif',serif; font-style:italic; font-size:1.4rem; color:#EAE7DC; margin-bottom:1rem;">
+      Cara Pakai Setelah Generate
+    </h2>
+    <ol style="list-style:decimal; padding-left:1.5rem; display:flex; flex-direction:column; gap:0.7rem; font-size:0.84rem; color:var(--text);">
+      <li>Generate gambar di <a href="https://leonardo.ai" target="_blank" style="color:var(--teal);">leonardo.ai</a> dengan prompt di atas.</li>
+      <li>Download dalam format JPG atau WebP (quality 85%+).</li>
+      <li>Rename sesuai nama file yang dicantumkan (contoh: <code>about-founder.jpg</code>).</li>
+      <li>Simpan di folder yang sama dengan <code>index.html</code>: <code>c:\Users\hebir\OneDrive\Documents\MONEYMAGNET\website\bazi-03\</code></li>
+      <li>Di index.html, ganti URL Unsplash dengan nama file lokal sesuai komentar HTML yang sudah ditandai.</li>
+      <li>Preview di browser untuk verifikasi tone dan ukuran.</li>
+    </ol>
+
+    <div style="margin-top:1.5rem; padding:1rem; background:rgba(184,149,90,0.06); border:1px solid rgba(184,149,90,0.20); font-size:0.78rem; color:var(--text-dim);">
+      <strong style="color:var(--gold);">Recommended settings di Leonardo:</strong>
+      Model: Phoenix / Kino XL &nbsp;|&nbsp;
+      Negative prompt: "text, watermark, logo, neon, rainbow, cartoon, illustration, 3D render"
+      &nbsp;|&nbsp; Steps: 30+ &nbsp;|&nbsp; Guidance scale: 7–9
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyPrompt(id, btn) {
+  var el = document.getElementById(id);
+  var text = el.textContent.replace('Copy', '').trim();
+  navigator.clipboard.writeText(text).then(function () {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2500);
+  });
+}
+</script>
+</body>
+</html>

@@ -3,18 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pendekatan: Fokus pada Crafting Remedy | Bazi Wealth Path</title>
-  <meta name="description" content="Penjelasan praktis metodologi 5 layer Bazi Wealth Path dengan fokus utama pada Crafting Remedy dan langkah taktis bisnis yang dapat dieksekusi langsung." />
+  <title>Pendekatan: Kerangka 5 Layer | Bazi Life Path by DJ Nordhawk</title>
+  <meta name="description" content="Penjelasan praktis bagaimana Bazi Life Path mengubah pembacaan pola lahir menjadi strategi bisnis dan perlindungan wealth." />
   <link rel="stylesheet" href="bazi.css" />
-
   <style>
     /* ── PAGE-SPECIFIC: Pendekatan ── */
 
-    /* Intro text zone (dark, centered) */
     .intro {
       max-width: 860px; margin: 0 auto;
-      padding: var(--sp-7) var(--sp-4) var(--sp-6);
-      text-align: center;
+      padding: var(--sp-7) var(--sp-4) var(--sp-6); text-align: center;
     }
     .intro p {
       font-size: var(--font-prose); line-height: var(--line-prose);
@@ -23,60 +20,89 @@
     .intro a { color: var(--gold-warm); border-bottom: 1px solid rgba(184,134,11,.3); transition: border-color .2s; }
     .intro a:hover { border-color: var(--gold-warm); }
 
-    /* 5-Layer section */
+    /* Layout Split: Peta vs Aksi */
     .layers-section {
       background: var(--charcoal); padding: var(--sp-7) var(--sp-4) var(--sp-6);
       position: relative; overflow: hidden;
     }
-    .layers-bg-zh {
-      position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
-      font-family: var(--ff-display); font-size: 30rem; color: var(--gold-warm);
-      opacity: .025; line-height: 1; pointer-events: none;
-    }
-    .layers-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .layers-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 2; }
     .layers-header { text-align: center; margin-bottom: var(--sp-6); }
-    .layers-header .section-hr { margin: 1.5rem auto 2rem; }
-    .section-sub { color: var(--text-dk-secondary); font-style: italic; font-size: var(--font-prose); margin-top: var(--sp-1); }
+    
+    .cluster-title {
+      font-family: var(--ff-display); font-size: 1.8rem; color: var(--champagne);
+      margin: var(--sp-6) 0 var(--sp-4); padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-dk);
+      text-align: left;
+    }
+    .cluster-title:first-child { margin-top: 0; }
+    .cluster-title span { font-size: 1rem; color: var(--text-dk-meta); text-transform: uppercase; letter-spacing: 0.1em; margin-left: 1rem; }
 
-    /* Case studies */
-    .cases-section { padding: var(--sp-7) var(--sp-4) var(--sp-6); }
-    .cases-inner   { max-width: 1200px; margin: 0 auto; }
-    .cases-header  { margin-bottom: var(--sp-6); }
+    .layer-row {
+      display: grid; grid-template-columns: 80px 1fr; gap: var(--sp-4);
+      margin-bottom: var(--sp-4); padding: var(--sp-4);
+      border: 1px solid transparent; transition: background 0.3s, border-color 0.3s;
+    }
+    .layer-row:hover { background: rgba(255,255,255,0.02); border-color: var(--border-dk); }
+    
+    .layer-row.action-layer {
+      background: color-mix(in srgb, var(--emerald-light) 5%, transparent);
+      border: 1px solid var(--border-emerald-subtle);
+    }
+
+    .layer-num-col { text-align: center; }
+    .layer-num-col .zh { display: block; font-family: var(--ff-display); font-size: 2rem; color: var(--gold-warm); opacity: 0.3; }
+    .layer-num-col .num { display: block; font-family: var(--ff-body); font-size: 1.2rem; color: var(--text-dk-primary); font-weight: 600; margin-top: 0.2rem; }
+    
+    .layer-title { font-family: var(--ff-display); font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; font-weight: 400; }
+    .layer-desc { font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: 1.7; }
+    
+    /* Case Studies: Timeline Format */
+    .cases-section { padding: var(--sp-7) var(--sp-4); }
+    .cases-inner { max-width: 1000px; margin: 0 auto; }
+    .cases-header { text-align: center; margin-bottom: var(--sp-6); }
+
+    .timeline-case {
+      border-left: 2px solid var(--border-dk); padding-left: var(--sp-5);
+      margin-bottom: var(--sp-7); position: relative;
+    }
+    .timeline-case-h3 {
+      font-family: var(--ff-display); font-size: 1.8rem; color: #fff;
+      margin-bottom: var(--sp-4); font-weight: 400;
+    }
+    .timeline-case-h3::before {
+      content: ""; position: absolute; left: -7px; top: 12px;
+      width: 12px; height: 12px; border-radius: 50%; background: var(--gold-warm);
+    }
+    
+    .t-step { margin-bottom: var(--sp-4); }
+    .t-label { font-family: var(--ff-body); font-size: var(--font-micro); letter-spacing: 0.15em; text-transform: uppercase; color: var(--emerald-light); font-weight: 600; margin-bottom: 0.3rem; }
+    .t-body { font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: 1.7; }
+    
+    .t-result {
+      background: rgba(255,255,255,0.03); padding: var(--sp-4);
+      border-left: 2px solid var(--gold-warm);
+      margin-top: var(--sp-4);
+    }
+    .t-result strong { color: var(--champagne); }
 
     /* Limitations */
-    .limits-section { background: var(--charcoal); padding: var(--sp-7) var(--sp-4) var(--sp-6); }
-    .limits-inner   { max-width: 860px; margin: 0 auto; }
-    .limits-header  { margin-bottom: var(--sp-5); }
+    .limits-section { background: var(--charcoal); padding: var(--sp-7) var(--sp-4); }
+    .limits-inner { max-width: 860px; margin: 0 auto; }
+    .limits-card { border: 1px solid var(--border-dk); padding: var(--sp-5); }
+    .limits-h3 { font-family: var(--ff-display); font-size: 1.6rem; color: #fff; margin-bottom: 1.5rem; font-weight: 400; }
+    .limit-item {
+      display: flex; gap: 1rem; margin-bottom: 1rem;
+      font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: 1.7;
+    }
+    .limit-x { color: var(--warning-red); flex-shrink: 0; font-weight: bold; }
 
-    /* CTA bg image */
-    .cta-section .cta-bg {
-      background-image: url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1400&auto=format&q=75');
-    }
+    .hero--pendekatan { min-height: 70vh; align-items: flex-end; padding-bottom: var(--sp-6); }
+    .hero--pendekatan .hero-bg { background-image: url('https://images.unsplash.com/photo-1504197832061-98e1d1f3f4d4?w=1600&auto=format&q=80'); filter: brightness(.4) saturate(.8); }
 
-    /* Hero page-specific overrides */
-    .hero--pendekatan {
-      align-items: flex-end;
-      padding-bottom: var(--sp-6);
-    }
-    .hero--pendekatan .hero-bg {
-      background-image: url('https://images.unsplash.com/photo-1504197832061-98e1d1f3f4d4?w=1600&auto=format&q=80');
-      filter: brightness(.6) saturate(.95);
-      transform: scale(1.04);
-      animation: heroScale 12s ease-out forwards;
-    }
-    .hero--pendekatan .hero-overlay {
-      background: linear-gradient(to top, rgba(13,13,13,0.85) 0%, rgba(13,13,13,0.30) 55%, rgba(12, 60, 45, 0.60) 100%);
-    }
-
-    @keyframes heroScale {
-      to { transform: scale(1); }
-    }
-
-    @media (max-width: 900px) {
-      .intro, .layers-section, .cases-section, .limits-section, .cta-section { padding: var(--sp-5) var(--sp-3); }
-    }
-    @media (max-width: 600px) {
-      .limits-card { padding: var(--sp-4) var(--sp-3); }
+    @media (max-width: 768px) {
+      .layer-row { grid-template-columns: 1fr; gap: 1rem; }
+      .layer-num-col { text-align: left; display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--border-dk); padding-bottom: 0.5rem; }
+      .layer-num-col .zh { display: none; }
+      .timeline-case { padding-left: var(--sp-4); }
     }
   </style>
 </head>
@@ -88,12 +114,8 @@
   </symbol>
 </svg>
 
-<!-- ── NAV ── -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">
-    Bazi Wealth Path
-    <small>by djnordhawk</small>
-  </a>
+  <a href="index.html" class="nav-logo">Bazi Life Path <small>by DJ Nordhawk</small></a>
   <div class="nav-links">
     <a href="pendekatan.html" class="active">Pendekatan</a>
     <a href="remedy.html">Remedy</a>
@@ -101,188 +123,199 @@
     <a href="artikel.html">Artikel</a>
     <a href="about.html">Tentang</a>
     <a href="faq.html">FAQ</a>
-    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+konsultasi+Bazi+Wealth+Path." class="btn-nav">
+    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+cerita+situasi+saya+dulu." class="btn-nav">
       <svg><use href="#wa"/></svg> <span class="btn-nav-text">Konsultasi</span>
     </a>
   </div>
 </nav>
 
-<!-- ── HERO ── -->
-<!-- ── HERO ── -->
 <section class="hero hero--tall hero--pendekatan">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <span class="hero-zh">法</span>
-
   <div class="hero-content">
-    <p class="hero-eyebrow anim-fade-up anim-delay-1">Metodologi &amp; Aksi · Pendekatan</p>
-    <h1 class="hero-h1 anim-fade-up anim-delay-2">Dari pola kelahiran<br>menuju <em>langkah nyata bisnis.</em></h1>
-    <p class="hero-sub anim-fade-up anim-delay-3">Dari pemahaman pola menuju tindakan perlindungan wealth yang bisa langsung dieksekusi di meja kerja.</p>
+    <p class="hero-eyebrow anim-fade-up anim-delay-1">Framework 5 Layer</p>
+    <h1 class="hero-h1 anim-fade-up anim-delay-2">Dari membaca peta,<br>menuju <em>langkah nyata di meja kerja.</em></h1>
+    <div class="hero-hr anim-fade-up anim-delay-3"></div>
   </div>
 </section>
 
-<!-- ── INTRO ── -->
 <div class="intro">
-  <p>Seperti yang saya bagikan di halaman <a href="remedy.html">Remedy</a>, pemahaman terhadap pilar diri hanyalah sebuah langkah awal. Di dunia nyata bisnis, analisis pilar kelahiran tidak akan ada gunanya tanpa adanya langkah adaptasi konkret yang diturunkan darinya.</p>
-  <p>Metodologi Bazi Wealth Path dirancang secara terstruktur agar analisis Bazi tradisional yang sering dianggap abstrak, diubah seutuhnya menjadi langkah perlindungan dan hedging risiko yang logis — dan dapat Anda terapkan langsung di meja kerja.</p>
+  <p>Banyak yang bertanya, "Gimana sih cara kerjanya Bazi Life Path? Apakah ini sekadar baca karakter?" Jawabannya: tidak.</p>
+  <p>Gini deh. Buat apa tahu Anda itu orangnya perfeksionis kalau pengetahuan itu nggak dipakai buat menghindari gesekan di kantor? Untuk mengubah data lahir menjadi langkah konkret yang menguntungkan bisnis, kita butuh sistem yang urut. Saya membaginya jadi dua bagian besar: <strong>Membaca Peta</strong> dan <strong>Mengambil Tindakan</strong>.</p>
 </div>
 
-<!-- ── 5 LAYERS ── -->
+<!-- 5 LAYERS: Peta vs Aksi -->
 <div class="layers-section">
-  <div class="layers-bg-zh">法</div>
   <div class="layers-inner">
     <div class="layers-header">
-      <p class="section-eyebrow">Metodologi · 5 Layer Framework</p>
-      <h2 class="section-h2">Kerangka <em>5 Layer</em></h2>
+      <h2 class="section-h2">Metodologi <em>5 Layer</em></h2>
       <div class="section-hr"></div>
-      <p class="section-sub">Bagaimana data kelahiran diproses menjadi rekomendasi solusi nyata.</p>
     </div>
 
-    <div class="layers-list">
-      <div class="layer-row">
-        <div class="layer-num-col"><span class="zh">命</span><span class="num">01</span></div>
-        <div class="layer-body-col">
-          <div class="layer-title">Analisa Karakter</div>
-          <div class="layer-desc">Memahami batasan natural dan kecenderungan psikologis yang terbentuk dari pola pilar kelahiran. Ini adalah peta diri — bukan label, melainkan kerangka untuk memahami bagaimana Anda secara alami memproses keputusan.</div>
-        </div>
-      </div>
-
-      <div class="layer-row">
-        <div class="layer-num-col"><span class="zh">運</span><span class="num">02</span></div>
-        <div class="layer-body-col">
-          <div class="layer-title">Life Event Validation</div>
-          <div class="layer-desc">Mencocokkan pola dalam chart dengan peristiwa bisnis dan personal yang sudah terjadi. Validasi ini bukan untuk membuktikan sistem — melainkan untuk membangun kepercayaan bahwa pola yang ada relevan dengan konteks nyata Anda.</div>
-        </div>
-      </div>
-
-      <div class="layer-row">
-        <div class="layer-num-col"><span class="zh">時</span><span class="num">03</span></div>
-        <div class="layer-body-col">
-          <div class="layer-title">Timing of Event</div>
-          <div class="layer-desc">Mendeteksi periode waktu yang lebih stabil vs periode clash dalam siklus 10 tahunan dan tahunan. Ini bukan "bulan keberuntungan" — ini pemetaan kondisi makro yang mempengaruhi kualitas keputusan Anda.</div>
-        </div>
-      </div>
-
-      <div class="layer-row">
-        <div class="layer-num-col"><span class="zh">斷</span><span class="num">04</span></div>
-        <div class="layer-body-col">
-          <div class="layer-title">Diagnosis</div>
-          <div class="layer-desc">Menemukan titik sumbatan keputusan spesifik pada situasi bisnis Anda saat ini — area mana yang paling rentan terhadap kebocoran modal, konflik keputusan, atau gesekan operasional yang tidak perlu.</div>
-        </div>
-      </div>
-
-      <div class="layer-row featured">
-        <div class="layer-num-col"><span class="zh">策</span><span class="num">05</span></div>
-        <div class="layer-body-col">
-          <div class="layer-badge">⭐ Layer Utama — Fokus Seluruh Pendekatan</div>
-          <div class="layer-title">Crafting Remedy</div>
-          <div class="layer-desc">Merancang taktik mitigasi operasional dan perlindungan wealth konkret untuk menghentikan kebocoran risiko. Ini yang membedakan konsultasi ini dari pembacaan chart biasa: Anda pulang dengan langkah yang bisa langsung dieksekusi di meja kerja, bukan dengan rasa cemas.</div>
-        </div>
+    <!-- Cluster 1: Bazi -->
+    <h3 class="cluster-title">Fase 1: Membaca Peta Cuaca <span>(Analisis Bazi)</span></h3>
+    
+    <div class="layer-row">
+      <div class="layer-num-col"><span class="zh">命</span><span class="num">01</span></div>
+      <div>
+        <div class="layer-title">Analisa Pola Keputusan</div>
+        <div class="layer-desc">Ini tahap pengenalan. Gimana sih cara Anda secara natural memproses informasi? Kapan Anda gampang overthinking? Ini bukan label zodiak statis, melainkan data titik buta (blind spot) psikologis Anda saat mengambil keputusan krusial.</div>
       </div>
     </div>
+
+    <div class="layer-row">
+      <div class="layer-num-col"><span class="zh">運</span><span class="num">02</span></div>
+      <div>
+        <div class="layer-title">Validasi Kejadian Masa Lalu</div>
+        <div class="layer-desc">Saya tidak mau Anda percaya membabi-buta. Kita akan mencocokkan pola di chart dengan kejadian jatuh-bangun Anda di masa lalu. Kalau cocok, berarti petanya valid. Kalau tidak, kita tidak akan pakai sistem ini.</div>
+      </div>
+    </div>
+
+    <div class="layer-row">
+      <div class="layer-num-col"><span class="zh">時</span><span class="num">03</span></div>
+      <div>
+        <div class="layer-title">Pemetaan Kuartal Kerawanan</div>
+        <div class="layer-desc">Kita petakan kapan emosi Anda akan paling bergejolak (clash) tahun ini. Di bulan-bulan inilah Anda biasanya mengambil keputusan investasi yang buruk atau gampang bentrok dengan partner bisnis.</div>
+      </div>
+    </div>
+
+    <div class="layer-row">
+      <div class="layer-num-col"><span class="zh">斷</span><span class="num">04</span></div>
+      <div>
+        <div class="layer-title">Diagnosis Titik Kebocoran</div>
+        <div class="layer-desc">Dari peta di atas, kita tarik ke situasi bisnis Anda hari ini. Kenapa uang tunai terus bocor bulan ini? Kenapa tim selalu *turnover*? Ini adalah tahap menarik kesimpulan dari peta.</div>
+      </div>
+    </div>
+
+    <!-- Cluster 2: Vedic / Javanese -->
+    <h3 class="cluster-title" style="margin-top:var(--sp-6);">Fase 2: Mengambil Tindakan <span>(Vedic & Javanese)</span></h3>
+    
+    <div class="layer-row action-layer">
+      <div class="layer-num-col"><span class="zh" style="color:var(--emerald);">策</span><span class="num" style="color:var(--emerald-light);">05</span></div>
+      <div>
+        <div class="layer-title">Eksekusi Remedy (Taktikal BaZi + Kalibrasi Energi Vedic)</div>
+        <div class="layer-desc">Diagnosis di Layer 4 tidak ada gunanya tanpa tindakan. Kita mulai dari <strong>Remedy Taktikal BaZi</strong>: langkah operasional konkret seperti mengunci aset kas atau mendelegasikan hak keputusan. Lalu, karena solusi bisnis yang kering sering sulit dieksekusi saat ego atau kegelisahan batin sedang tinggi, Vedic masuk untuk <strong>kalibrasi energi</strong> — donasi terarah, atau membuang benda-benda yang sudah usang secara energetik. Hasilnya: tindakan Anda punya dua sayap. <em>"Biar tindakan kita tidak kosong, tapi ada juga isinya."</em></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- ── CASE STUDIES ── -->
+<!-- CASE STUDIES TIMELINE -->
 <div class="cases-section">
   <div class="cases-inner">
     <div class="cases-header">
-      <p class="section-eyebrow">Contoh Kasus · Penerapan Nyata</p>
-      <h2 class="section-h2">Bagaimana pola diubah menjadi <em>tindakan konkret.</em></h2>
+      <span class="section-eyebrow">Dari Peta ke Realita</span>
+      <h2 class="section-h2">Contoh <em>Studi Kasus</em></h2>
       <div class="section-hr"></div>
     </div>
 
-    <div class="cases-grid">
-      <div class="case-card">
-        <div class="case-card-zh">財</div>
-        <div class="case-tag">Mitigasi Kebocoran Modal</div>
-        <h3 class="case-h3">Kasus 1: Wealth-Lock Strategy</h3>
-        <div class="case-block diag">
-          <div class="case-block-label diag">Diagnosis Pola (Bazi)</div>
-          <p class="case-block-body">Pilar kelahiran klien menunjukkan elemen Outflow yang terlampau dominan, diperkuat oleh siklus 10 tahunan Metal-Fire yang rentan memicu ketidakstabilan likuiditas operasional.</p>
-        </div>
-        <div class="case-block remedy">
-          <div class="case-block-label remedy">Tindakan Penyeimbang (Remedy)</div>
-          <p class="case-block-body">Klien dilarang melakukan ekspansi tunai langsung. Kas cadangan di-lock ke dalam aset fisik tidak likuid sebelum periode siklus gejolak dimulai. Di tingkat operasional, audit ketat pihak ketiga dijadwalkan pada kuartal kedua untuk membatasi pengambilan keputusan emosional.</p>
-        </div>
+    <!-- Case 1 -->
+    <div class="timeline-case">
+      <h3 class="timeline-case-h3">Kasus 1: Sindrom Ekspansi Berujung Kebocoran Modal</h3>
+      
+      <div class="t-step">
+        <div class="t-label">Situasi Awal</div>
+        <div class="t-body">Seorang klien memiliki omzet bisnis yang sangat besar, tapi anehnya kas operasionalnya (uang tunai) selalu tipis. Ia merasa harus terus berekspansi buka cabang baru.</div>
+      </div>
+      
+      <div class="t-step">
+        <div class="t-label">Diagnosis & Waktu Makro (Layer 1-4)</div>
+        <div class="t-body">Chart Bazi-nya menunjukkan dominasi ekstrem pada elemen <em>Outflow</em> (pemicu impulsif ngeluarin uang). Melalui siklus tahunan, BaZi memberikan peringatan makro bahwa tahun ini <em>Clash</em> tersebut sangat aktif. Niat ekspansi itu sebenarnya cuma dorongan emosional sesaat.</div>
+      </div>
+      
+      <div class="t-step">
+        <div class="t-label">Tindakan Remedy & Presisi Vedic (Layer 5)</div>
+        <div class="t-body">Remedy taktikalnya murni operasional: Sebelum siklus bahaya (yang terbaca di BaZi) itu masuk, klien wajib mengunci mayoritas kas cadangan ke dalam aset tidak likuid. Plus, kita tambahkan kalibrasi energi Vedic di tahap remedy — dalam kasus ini, donasi terarah (<em>targeted donation</em>) ke kategori tertentu sesuai kondisi planetnya — agar dia punya kekuatan batin untuk tidak goyah saat tekanan ekspansi datang.</div>
       </div>
 
-      <div class="case-card">
-        <div class="case-card-zh">時</div>
-        <div class="case-tag">Optimalisasi Timing Ekspansi</div>
-        <h3 class="case-h3">Kasus 2: Timing &amp; Partnership Hedging</h3>
-        <div class="case-block diag">
-          <div class="case-block-label diag">Diagnosis Pola (Bazi)</div>
-          <p class="case-block-body">Klien berniat meluncurkan unit bisnis baru bernilai investasi tinggi, namun chart kelahiran mendeteksi pola Clash ekstrem pada pilar Day dalam siklus tahun berjalan.</p>
-        </div>
-        <div class="case-block remedy">
-          <div class="case-block-label remedy">Tindakan Penyeimbang (Remedy)</div>
-          <p class="case-block-body">Ekspansi tetap dijalankan, namun struktur kepemilikan operasional dialihkan ke partner strategis yang pilar kelahirannya harmonis dengan tahun berjalan. Klien membatasi peran publiknya dan fokus di balik layar guna meminimalkan gesekan energi keputusan personal.</p>
-        </div>
+      <div class="t-result">
+        <strong>Hasil Nyata:</strong> Klien melewati periode "gatal ingin ekspansi" itu dengan aman karena uangnya terlanjur susah dicairkan. Uang tunai terselamatkan dari kebocoran impulsif.
       </div>
     </div>
+
+    <!-- Case 2 -->
+    <div class="timeline-case">
+      <h3 class="timeline-case-h3">Kasus 2: Benturan Kepemimpinan di Kuartal Kritis</h3>
+      
+      <div class="t-step">
+        <div class="t-label">Situasi Awal</div>
+        <div class="t-body">Klien ingin merilis produk *flagship* yang bernilai miliaran rupiah. Modal sudah siap, tim sudah jalan.</div>
+      </div>
+      
+      <div class="t-step">
+        <div class="t-label">Diagnosis Peta (Layer 1-4)</div>
+        <div class="t-body">Pilar "Day" (pilar yang mengatur diri sendiri dan *decision making*) klien sedang mengalami benturan (*Clash*) parah dengan elemen tahun berjalan. Kalau dia paksakan memimpin proyek besar ini, keputusannya bakal penuh friksi dan sangat emosional.</div>
+      </div>
+      
+      <div class="t-step">
+        <div class="t-label">Tindakan Remedy (Layer 5)</div>
+        <div class="t-body">Karena proyek tidak bisa ditunda, remedy taktikalnya adalah "Partnership Hedging": posisi pimpinan proyek digeser sementara ke <em>co-founder</em> yang chart-nya stabil. Klien mundur menjadi penasihat selama 6 bulan. Karena tingkat clash-nya ekstrem, kita tambahkan kalibrasi energi Vedic — dalam hal ini membuang sejumlah benda tertentu yang secara energetik memperparah kondisi planet klien — untuk menurunkan tensi emosinya secara bertahap.</div>
+      </div>
+
+      <div class="t-result">
+        <strong>Hasil Nyata:</strong> Peluncuran produk berjalan lancar tanpa intervensi ego berlebihan. Klien tetap menjadi pemilik bisnis, tapi menyelamatkan proyek dari energi benturan yang ia bawa sendiri.
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- ── LIMITATIONS ── -->
+<!-- REAL TALK / LIMITATIONS -->
 <div class="limits-section">
   <div class="limits-inner">
-    <div class="limits-header">
-      <p class="section-eyebrow">Transparansi · Batasan Pendekatan</p>
-      <h2 class="section-h2">Batasan <em>Pendekatan</em></h2>
-      <div class="section-hr"></div>
-    </div>
     <div class="limits-card">
-      <h3 class="limits-h3">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
-        </svg>
-        Apa yang perlu dipahami sebelum memulai:
-      </h3>
-      <p class="limits-intro">Demi menjaga transparansi dan ekspektasi yang jujur, Anda perlu mengetahui apa yang <strong>bukan</strong> merupakan bagian dari jasa konsultasi ini:</p>
-      <div class="limits-list">
-        <div class="limit-item"><span class="limit-x">✕</span> Saya tidak menawarkan jaminan keuntungan investasi atau prediksi angka keuangan bisnis spesifik.</div>
-        <div class="limit-item"><span class="limit-x">✕</span> Pendekatan ini tidak menggantikan analisis legal, akuntansi formal, atau saran hukum profesional dalam keputusan korporat Anda.</div>
-        <div class="limit-item"><span class="limit-x">✕</span> Kami tidak melayani pembacaan ramalan nasib instan bertema keberuntungan cepat atau pesugihan.</div>
+      <h3 class="limits-h3">Real Talk: Apa yang Tidak Bisa Kami Lakukan</h3>
+      <p style="color:var(--text-dk-secondary); font-size:var(--font-prose); margin-bottom:1.5rem;">Biar nggak ada salah paham dan over-ekspektasi, ini batasan nyata dari pendekatan kami:</p>
+      
+      <div class="limit-item">
+        <span class="limit-x">✕</span> 
+        <div><strong>Bukan jaminan kaya mendadak.</strong> Saya membaca pola dan mengelola risiko. Saya tidak menjanjikan angka margin keuntungan atau kekayaan instan. Siapa pun yang berjanji seperti itu, sebaiknya Anda hindari.</div>
+      </div>
+      <div class="limit-item">
+        <span class="limit-x">✕</span> 
+        <div><strong>Bukan pengganti akuntan atau pengacara.</strong> Kalau bisnis Anda butuh audit legal atau restrukturisasi pajak, Anda tetap harus pergi ke pengacara atau konsultan pajak. Analisis ini adalah panduan strategis di level mental dan <em>timing</em> pemimpinnya.</div>
+      </div>
+      <div class="limit-item">
+        <span class="limit-x">✕</span> 
+        <div><strong>Bukan dukun pesugihan.</strong> Tidak ada ritual bakar dupa, jimat penglaris, atau klaim mistis. Setiap *remedy* yang kami berikan harus masuk akal secara operasional dan psikologis.</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ── CTA ── -->
+<!-- CTA -->
 <div class="cta-section">
-  <div class="cta-bg"></div>
+  <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1400&auto=format&q=75');"></div>
   <div class="cta-overlay"></div>
   <div class="cta-inner">
     <span class="cta-zh">策</span>
     <p class="cta-eyebrow">Mulai dari Situasi Anda</p>
-    <h2 class="cta-h2">Peta sudah ada. Sekarang saatnya <em>menyusun langkahnya.</em></h2>
+    <h2 class="cta-h2">Tertarik membedah <em>pola bisnis Anda sekarang?</em></h2>
     <div class="cta-hr"></div>
-    <p class="cta-body">Ceritakan situasi bisnis Anda sekarang — saya akan tunjukkan bagaimana peta pilar Anda bisa diubah menjadi langkah mitigasi konkret yang bisa langsung Anda jalankan.</p>
+    <p class="cta-body">Nggak perlu langsung ambil keputusan besar. Chat aja dulu, ceritain situasinya, dan kita lihat apakah metode 5 layer ini cocok buat ngeberesin masalah yang lagi Anda hadapi.</p>
     <div class="cta-actions">
-      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+baru+membaca+halaman+Pendekatan+dan+tertarik+untuk+konsultasi." class="btn-wa">
-        <svg><use href="#wa"/></svg> Mulai Konsultasi via WhatsApp
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+baru+baca+halaman+Pendekatan+dan+mau+cerita+dulu." class="btn-wa">
+        <svg><use href="#wa"/></svg> Chat aja, kita mulai dari sananya
       </a>
     </div>
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <!-- Kolom 1: Brand & Tagline -->
     <div>
       <div class="footer-brand">
-        Bazi Wealth Path <span class="footer-sub-brand">by djnordhawk</span>
+        Bazi Life Path <span class="footer-sub-brand">by DJ Nordhawk</span>
       </div>
       <p class="footer-tagline">
-        Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
+        Saya baca pola dari data lahir Anda, terus kita ubah jadi langkah konkret untuk bisnis dan keuangan Anda. Guide, not guru.
       </p>
       <p class="footer-tag">Guide, Not Guru.</p>
     </div>
     
-    <!-- Kolom 2: Navigasi Halaman Utama -->
     <div>
       <p class="footer-label">Halaman</p>
       <ul class="footer-links">
@@ -296,7 +329,6 @@
       </ul>
     </div>
     
-    <!-- Kolom 3: Layanan Sub-halaman -->
     <div>
       <p class="footer-label">Layanan</p>
       <ul class="footer-links">
@@ -305,48 +337,40 @@
       </ul>
     </div>
     
-    <!-- Kolom 4: Kontak & Dukungan -->
     <div>
       <p class="footer-label">Kontak</p>
       <ul class="footer-links">
-        <li><a href="https://wa.me/6282117175544">WhatsApp</a></li>
+        <li><a href="https://wa.me/6282117175544">Chat aja, kita mulai dari sananya</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
     </div>
   </div>
   
-  <!-- Footer Bottom Info -->
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Bazi Wealth Path by djnordhawk. All Rights Reserved.</span>
+    <span class="footer-copy">© 2026 Bazi Life Path by DJ Nordhawk. All Rights Reserved.</span>
     <span class="footer-guide">Guide, Not Guru.</span>
   </div>
 </footer>
 
 <script>
-  // Scroll reveal: 5-layer rows
-  const rows = document.querySelectorAll('.layer-row');
-  const obsL = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+  // Simple intersection observer for layers
+  const rows = document.querySelectorAll('.layer-row, .timeline-case');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 120);
-        obsL.unobserve(e.target);
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08 });
-  rows.forEach(r => obsL.observe(r));
-
-  // Scroll reveal: case cards
-  const cards = document.querySelectorAll('.case-card');
-  const obsC = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 150);
-        obsC.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.10 });
-  cards.forEach(c => obsC.observe(c));
+  }, { threshold: 0.1 });
+  
+  rows.forEach(r => {
+    r.style.opacity = '0';
+    r.style.transform = 'translateY(20px)';
+    r.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    obs.observe(r);
+  });
 </script>
-
 </body>
 </html>

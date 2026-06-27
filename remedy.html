@@ -3,257 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Remedy: Diagnosis Saja Tidak Cukup | Bazi Wealth Path</title>
-  <meta name="description" content="Mengapa diagnosis pilar Bazi tidak ada gunanya tanpa perancangan langkah remedy. Pelajari pendekatan Bazi Wealth Path dalam merancang remedies yang praktis dan taktis." />
+  <title>Remedy: Peta Cuaca & Tindakan Nyata | Bazi Life Path by DJ Nordhawk</title>
+  <meta name="description" content="Tahu akan ada badai tidak akan menyelamatkan Anda jika Anda tidak sedia payung. Mengapa kami fokus pada langkah nyata, bukan sekadar ramalan." />
   <link rel="stylesheet" href="bazi.css" />
   <style>
-    /* ── PAGE-SPECIFIC: REMEDY (kept for compatibility) ── */
-
-    /* Story grid */
+    /* ── PAGE-SPECIFIC: REMEDY ── */
+    
     .story-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 6rem;
-      align-items: start;
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 380px; gap: 6rem; align-items: start;
     }
-
     .story-text p {
-      color: var(--text-dk-secondary);
-      font-size: var(--font-prose);
-      line-height: var(--line-prose);
-      margin-bottom: var(--sp-4);
-      max-width: 68ch;
+      color: var(--text-dk-secondary); font-size: var(--font-prose); line-height: var(--line-prose);
+      margin-bottom: var(--sp-4); max-width: 68ch;
     }
-
     .story-text p strong { color: var(--champagne); font-weight: 500; }
-    .story-text p em     { color: var(--gold-warm); font-style: italic; }
+    .story-text p em { color: var(--gold-warm); font-style: italic; }
 
-    /* Drop cap */
     .drop-cap::first-letter {
-      font-family: var(--ff-display);
-      font-size: 5.5rem;
-      float: left;
-      line-height: .82;
-      padding-right: .8rem;
-      padding-top: .1rem;
-      color: var(--gold-warm);
+      font-family: var(--ff-display); font-size: 5.5rem; float: left;
+      line-height: .82; padding-right: .8rem; padding-top: .1rem; color: var(--gold-warm);
     }
 
-    /* Sticky image column */
     .story-image { position: sticky; top: var(--sp-7); }
-    .story-img-frame {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--border-dk);
-    }
-    .story-img-frame img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      filter: brightness(.7) saturate(.8);
-    }
-    .story-img-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 2rem 1.5rem 1.5rem;
-      background: var(--charcoal-d);
-      border-top: 1px solid var(--border-dk);
-    }
-    .caption-zh {
-      font-family: var(--ff-display);
-      font-size: 1.6rem;
-      color: var(--gold-warm);
-      display: block;
-      margin-bottom: .3rem;
-    }
-    .caption-en {
-      font-size: .68rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--text-dk-meta);
-    }
-
-    /* Bazi pillars mini visual */
-    .bazi-mini-grid {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 1px;
-      margin-top: 1px;
-      border: 1px solid var(--border-dk);
-    }
-    .bazi-mini-col {
-      background: color-mix(in srgb, var(--gold-warm) 4%, transparent);
-      padding: .8rem .4rem;
-      text-align: center;
-      border-right: 1px solid var(--border-dk);
-    }
-    .bazi-mini-col:last-child { border-right: none; }
-    .bazi-mini-stem   { font-family: var(--ff-display); font-size: 1.4rem; color: var(--gold-warm); }
-    .bazi-mini-branch { font-family: var(--ff-display); font-size: 1.4rem; color: #8ecdc6; }
-    .bazi-mini-label  { font-size: .55rem; letter-spacing: .1em; color: var(--text-dk-meta); margin-top: .4rem; text-transform: uppercase; }
-
-    /* Float quote */
+    .story-img-frame { position: relative; overflow: hidden; border: 1px solid var(--border-dk); }
+    .story-img-frame img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: brightness(.7) saturate(.8); }
+    
     .float-quote {
-      margin: var(--sp-5) 0;
-      border-left: 2px solid var(--emerald-light);
-      padding: var(--sp-3) var(--sp-4);
-      background: color-mix(in srgb, var(--emerald-light) 6%, transparent);
+      margin: var(--sp-5) 0; border-left: 2px solid var(--emerald-light);
+      padding: var(--sp-3) var(--sp-4); background: color-mix(in srgb, var(--emerald-light) 6%, transparent);
     }
     .float-quote p {
-      font-family: var(--ff-display);
-      font-size: 1.3rem;
-      color: var(--champagne);
-      line-height: 1.65;
-      font-style: italic;
-      margin: 0;
-    }
-    .float-quote cite {
-      display: block;
-      margin-top: .8rem;
-      font-size: .7rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--text-dk-meta);
-      font-style: normal;
+      font-family: var(--ff-display); font-size: 1.3rem; color: var(--champagne);
+      line-height: 1.65; font-style: italic; margin: 0;
     }
 
-    /* Core belief section */
-    .core-belief {
-      background: var(--charcoal);
-      padding: var(--sp-6) var(--sp-4) var(--sp-7);
-      position: relative;
-      overflow: hidden;
-    }
-    .core-belief-bg-zh {
-      position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-      font-family: var(--ff-display); font-size: 28rem; color: var(--gold-warm);
-      opacity: .025; line-height: 1; pointer-events: none; user-select: none; white-space: nowrap;
-    }
-    .core-belief-inner {
-      max-width: 860px; margin: 0 auto; text-align: center; position: relative; z-index: 2;
-    }
-    .belief-icon { width: 48px; height: 48px; margin: 0 auto 2rem; opacity: .4; }
-    .belief-quote {
-      font-family: var(--ff-display);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 400;
-      color: #fff;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-    }
-    .belief-quote em { color: var(--gold-warm); font-style: italic; }
-    .belief-sub {
-      color: var(--text-dk-secondary);
-      font-size: var(--font-prose);
-      line-height: var(--line-prose);
-      max-width: 56ch;
-      margin: 0 auto;
-    }
-
-    /* 3 Pillars */
-    .pillars-section { padding: var(--sp-6) var(--sp-4) var(--sp-7); }
-    .pillars-inner { max-width: 1200px; margin: 0 auto; }
-    .pillars-header { margin-bottom: var(--sp-5); }
-    .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-
-    .pillar-card {
+    /* Anatomi Section - Vertical Flow */
+    .anatomi-section { padding: var(--sp-7) var(--sp-4); background: var(--charcoal); }
+    .anatomi-inner { max-width: 860px; margin: 0 auto; }
+    .anatomi-header { text-align: center; margin-bottom: var(--sp-6); }
+    
+    .step-box {
       border: 1px solid var(--border-dk);
-      padding: var(--sp-4);
-      position: relative; overflow: hidden;
-      opacity: 0; transform: translateY(24px);
-      transition: opacity .6s ease, transform .6s ease, border-color 0.3s, box-shadow 0.3s;
+      padding: var(--sp-5); margin-bottom: var(--sp-3);
+      background: rgba(255,255,255,0.02);
+      display: grid; grid-template-columns: 60px 1fr; gap: var(--sp-4);
+      align-items: start;
     }
-    .pillar-card.visible { opacity: 1; transform: translateY(0); }
-    .pillar-card:hover {
-      border-color: var(--border-gold);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    .step-num {
+      font-family: var(--ff-display); font-size: 2.5rem; color: var(--gold-warm); opacity: 0.8;
+      line-height: 1; border-right: 1px solid var(--border-dk); padding-right: 1rem;
     }
-    .pillar-card-zh {
-      position: absolute; right: -8px; bottom: -16px;
-      font-family: var(--ff-display); font-size: 6rem; color: var(--gold-warm);
-      opacity: .06; line-height: 1; pointer-events: none;
-    }
-    .pillar-num {
-      font-size: var(--font-micro);
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--text-dk-meta);
-      margin-bottom: 1rem;
-    }
-    .pillar-zh-small {
-      font-family: var(--ff-display);
-      font-size: 2rem;
-      color: var(--gold-warm);
-      margin-bottom: .8rem;
-      line-height: 1;
-    }
-    .pillar-title {
-      font-size: clamp(0.82rem, 0.75vw + 0.3rem, 0.92rem);
-      font-weight: 600;
-      color: var(--champagne);
-      margin-bottom: .8rem;
-      font-family: var(--ff-body);
-    }
-    .pillar-body {
-      font-size: var(--font-prose);
-      color: var(--text-dk-secondary);
-      line-height: var(--line-prose);
-      max-width: 44ch;
-    }
+    .step-content h3 { font-family: var(--ff-display); font-size: 1.4rem; color: #fff; margin-bottom: 0.5rem; font-weight: 400; }
+    .step-content p { color: var(--text-dk-secondary); font-size: var(--font-prose); line-height: 1.7; }
 
-    /* Guide Not Guru */
-    .guide-section { padding: var(--sp-6) var(--sp-4) var(--sp-7); }
-    .guide-inner { max-width: 860px; margin: 0 auto; }
+    /* Guide Not Guru Section */
+    .guide-section { padding: var(--sp-6) var(--sp-4); max-width: 860px; margin: 0 auto; }
     .guide-card {
-      display: grid; grid-template-columns: var(--sp-5) 1fr; gap: var(--sp-4);
-      border: 1px solid var(--border-dk); padding: var(--sp-5);
-      background: color-mix(in srgb, var(--emerald-light) 5%, transparent);
+      border-left: 3px solid var(--warning-red); padding: var(--sp-4) var(--sp-5);
+      background: color-mix(in srgb, var(--warning-red) 5%, transparent);
     }
-    .guide-icon { color: var(--gold-warm); opacity: .6; margin-top: .2rem; }
-    .guide-h3 {
-      font-family: var(--ff-display);
-      font-size: 1.8rem;
-      color: #fff;
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-    .guide-body {
-      color: var(--text-dk-secondary);
-      font-size: var(--font-prose);
-      line-height: var(--line-prose);
-      max-width: 62ch;
-    }
+    .guide-h3 { font-family: var(--ff-display); font-size: 1.5rem; color: #fff; margin-bottom: 1rem; font-weight: 400; }
+    .guide-body { color: var(--text-dk-secondary); font-size: var(--font-prose); line-height: 1.7; }
 
-    .hero--filosofi {
-      min-height: 80vh;
-      display: flex;
-      align-items: flex-end;
-      padding-bottom: var(--sp-5);
-    }
-    .hero--filosofi .hero-bg {
-      filter: brightness(.6) saturate(.9);
-      animation: heroScale 12s ease-out forwards;
-    }
-    @keyframes heroScale {
-      from { transform: scale(1.0); }
-      to   { transform: scale(1.04); }
-    }
+    .hero--remedy { min-height: 80vh; display: flex; align-items: flex-end; padding-bottom: var(--sp-5); }
+    .hero--remedy .hero-bg { filter: brightness(.5) saturate(.8); animation: heroScale 12s ease-out forwards; }
+    @keyframes heroScale { from { transform: scale(1.0); } to { transform: scale(1.04); } }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .story-grid { grid-template-columns: 1fr; }
-      .story-image { position: static; }
-      .story-img-frame img { aspect-ratio: 16/9; }
-      .pillars-grid { grid-template-columns: 1fr; }
-      .core-belief, .pillars-section, .guide-section { padding: var(--sp-5) 1.5rem; }
-    }
-    @media (max-width: 600px) {
-      .guide-card { grid-template-columns: 1fr; gap: 1rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .pillar-card { opacity: 1; transform: none; transition: none; }
+      .story-image { position: static; display: none; } /* Hide sticky image on mobile to save space */
+      .step-box { grid-template-columns: 1fr; gap: 1rem; }
+      .step-num { border-right: none; border-bottom: 1px solid var(--border-dk); padding-bottom: 0.5rem; }
     }
   </style>
 </head>
@@ -265,11 +86,10 @@
   </symbol>
 </svg>
 
-<!-- ── NAV ── -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">
-    Bazi Wealth Path
-    <small>by djnordhawk</small>
+    Bazi Life Path
+    <small>by DJ Nordhawk</small>
   </a>
   <div class="nav-links">
     <a href="pendekatan.html">Pendekatan</a>
@@ -278,154 +98,96 @@
     <a href="artikel.html">Artikel</a>
     <a href="about.html">Tentang</a>
     <a href="faq.html">FAQ</a>
-    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+konsultasi+Bazi+Wealth+Path." class="btn-nav">
+    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+cerita+situasi+saya+dulu." class="btn-nav">
       <svg><use href="#wa"/></svg> <span class="btn-nav-text">Konsultasi</span>
     </a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero hero--filosofi">
+<section class="hero hero--remedy">
   <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1600&auto=format&q=80');"></div>
   <div class="hero-overlay"></div>
   <span class="hero-zh">策</span>
   <div class="hero-content">
-    <p class="hero-eyebrow anim-fade-up anim-delay-1">Diagnosis &amp; Intervensi · djnordhawk</p>
-    <h1 class="hero-h1 anim-fade-up anim-delay-2">Diagnosis saja tidak cukup.<br>Mengapa kami fokus pada <em>Crafting Remedy.</em></h1>
+    <p class="hero-eyebrow anim-fade-up anim-delay-1">Kenapa Harus Ada Remedy?</p>
+    <h1 class="hero-h1 anim-fade-up anim-delay-2">Peta cuaca nggak akan bikin Anda kering kalau <em>tidak bawa payung.</em></h1>
     <div class="hero-hr anim-fade-up anim-delay-3"></div>
-    <p class="hero-sub anim-fade-up" style="animation-delay:.85s">Mengetahui arah badai tidak akan menyelamatkan Anda jika Anda tidak membangun perlindungan.</p>
+    <p class="hero-sub anim-fade-up" style="animation-delay:.85s">Tahu besok bakal ada badai itu bagus. Tapi yang menyelamatkan bisnis Anda adalah langkah konkrit yang diambil hari ini.</p>
   </div>
 </section>
 
-<!-- EDITORIAL STORY -->
+<!-- EDITORIAL STORY (ELI15) -->
 <div class="section" style="padding-top:var(--sp-7); padding-bottom:var(--sp-7);">
   <div class="story-grid">
 
-    <!-- LEFT: text -->
     <div class="story-text">
-      <p class="drop-cap">Di dalam navigasi wealth dan bisnis, banyak praktisi metafisika berhenti pada tahap pembacaan karakter dan prediksi pasif. Mereka memberitahu Anda pilar mana yang lemah, tahun mana yang buruk, lalu membiarkan Anda pulang dengan rasa cemas. Bagi saya, <strong>diagnosis tanpa solusi adalah kelalaian profesional.</strong></p>
+      <p class="drop-cap">Banyak orang datang ke pembaca Bazi hanya untuk mendengar "wah tahun depan usahamu bagus" atau "hati-hati tahun depan ciong". Setelah itu apa? Mereka pulang dengan rasa puas sesaat atau malah cemas, tapi tidak melakukan apa-apa.</p>
 
-      <p>Pilar kelahiran Bazi Anda bukanlah rel kereta yang tidak bisa diubah arahnya, melainkan sebuah peta cuaca. Mengetahui bahwa musim badai akan melanda kuartal depan tidak akan secara otomatis mengamankan likuiditas atau melindungi aset bisnis Anda. Yang Anda butuhkan bukanlah ramalan masa depan, melainkan <strong>rencana intervensi yang konkret.</strong></p>
+      <p>Gini deh. Bayangkan Anda ke dokter dan di-rontgen. Dokternya bilang, "Oh iya, tulang kakimu patah nih." Terus dokternya diam saja dan menyuruh Anda pulang. Aneh kan?</p>
 
-      <p>Di Bazi Wealth Path, kami memandang analisis pilar kelahiran sebagai instrumen audit risiko. Jika sebuah pilar terdeteksi mengalami Clash ekstrem yang berpotensi memicu gejolak keputusan emosional, kami tidak menyarankan ritual takhayul. Kami merancang <strong>hedging strategis</strong> dan penyesuaian operasional nyata yang dapat Anda bawa langsung ke meja kerja bisnis Anda.</p>
+      <p>Hasil rontgen itu namanya <strong>Diagnosis</strong>. Dan sekadar tahu tulang Anda patah tidak akan membuatnya sembuh. Yang Anda butuhkan adalah dipasangkan gips dan jadwal istirahat. Itu namanya <strong>Remedy</strong> (solusi).</p>
+
+      <p>Di dunia bisnis, membaca chart Bazi itu sama persis seperti melihat rontgen atau membaca peta cuaca. Bazi cuma ngasih tahu kecenderungan pola. Kalau pola Anda tahun ini menunjukkan potensi kerugian besar akibat keputusan emosional, informasi itu tidak ada gunanya kalau tidak ditindaklanjuti dengan langkah nyata di meja kerja.</p>
 
       <div class="float-quote">
-        <p>"Tujuan akhir pembacaan bagan bukanlah untuk meramal hari keberuntungan, tetapi untuk mengidentifikasi kebocoran pilar diri dan merancang perlindungan taktis (remedy) saat risiko gejolak berada di puncaknya."</p>
-        <cite>djnordhawk · Bazi Strategist</cite>
+        <p>"Membaca chart tanpa ngasih solusi langkah nyata itu sama aja kayak ngasih tahu kapal bakal nabrak karang, tapi nggak bantuin muter kemudinya."</p>
       </div>
 
-      <p>Remedy yang kami buat berlandaskan logika bisnis dan manajemen risiko. Ini mencakup penyesuaian arah kemudi bisnis strategis, cara mempertahankan modal operasional agar tidak bocor, serta pembersihan titik buta psikologis saat Anda harus mengambil keputusan bernilai investasi tinggi.</p>
-
-      <p>Dengan menggabungkan analisis pilar Bazi tradisional dan akurasi struktural Vedic Astrology, kami merancang peta remedies yang rasional — bertindak sebagai sistem perlindungan portofolio wealth Anda menghadapi fluktuasi siklus waktu.</p>
+      <p>Itulah kenapa saya tidak berhenti di diagnosis Bazi. Saya menggabungkannya dengan Vedic Astrology untuk mencari tahu kapan <em>timing</em> terburuknya, lalu kita susun bareng langkah nyatanya (remedy). Remedy ini bukan ritual bakar-bakar kertas. Ini penyesuaian strategi bisnis yang sangat masuk akal.</p>
     </div>
 
-    <!-- RIGHT: sticky image -->
     <div class="story-image">
       <div class="story-img-frame">
-        <img
-          src="https://images.unsplash.com/photo-1564289183831-094e1dbf3799?w=800&auto=format&q=80"
-          alt="Singapore Chinatown — where the study began"
-          loading="lazy"
-        />
-        <div class="story-img-caption">
-          <span class="caption-zh">新加坡 · 牛車水</span>
-          <span class="caption-en">Singapore · Chinatown — where it began</span>
-        </div>
-      </div>
-
-      <!-- Bazi pillars mini visual -->
-      <div class="bazi-mini-grid">
-        <div class="bazi-mini-col">
-          <div class="bazi-mini-stem">丙</div>
-          <div class="bazi-mini-branch">戌</div>
-          <div class="bazi-mini-label">Thn</div>
-        </div>
-        <div class="bazi-mini-col">
-          <div class="bazi-mini-stem">戊</div>
-          <div class="bazi-mini-branch">午</div>
-          <div class="bazi-mini-label">Bln</div>
-        </div>
-        <div class="bazi-mini-col">
-          <div class="bazi-mini-stem">甲</div>
-          <div class="bazi-mini-branch">寅</div>
-          <div class="bazi-mini-label">Hari</div>
-        </div>
-        <div class="bazi-mini-col">
-          <div class="bazi-mini-stem">壬</div>
-          <div class="bazi-mini-branch">子</div>
-          <div class="bazi-mini-label">Jam</div>
-        </div>
+        <img src="https://images.unsplash.com/photo-1564289183831-094e1dbf3799?w=800&auto=format&q=80" alt="Singapore Chinatown" loading="lazy" />
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- CORE BELIEF -->
-<div class="core-belief">
-  <div class="core-belief-bg-zh">策</div>
-  <div class="core-belief-inner">
-    <svg class="belief-icon" viewBox="0 0 24 24" fill="none" stroke="var(--gold-warm)" stroke-width="1.2">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </svg>
-    <p class="belief-quote">
-      "Intervensi yang berhasil bukanlah keajaiban mistis, melainkan <em>pengelolaan risiko pilar diri</em> secara disiplin — untuk meminimalkan dampak gejolak dan melindungi fondasi wealth Anda."
-    </p>
-    <p class="belief-sub">Remedy taktis mencakup restrukturisasi kepemilikan operasional, penahanan cadangan kas fisik selama siklus clash, optimalisasi timing ekspansi modal, dan pemetaan penyeimbang pilar tim manajemen kunci Anda.</p>
-  </div>
-</div>
-
-<!-- 3 PILLARS -->
-<div class="pillars-section">
-  <div class="pillars-inner">
-    <div class="pillars-header">
-      <span class="section-eyebrow">Pilar Solusi</span>
-      <h2 class="section-h2">Bagaimana remedy ini <em>bekerja melindungi bisnis Anda.</em></h2>
+<!-- ANATOMI REMEDY -->
+<div class="anatomi-section">
+  <div class="anatomi-inner">
+    <div class="anatomi-header">
+      <span class="section-eyebrow">Studi Kasus Sederhana</span>
+      <h2 class="section-h2">Gimana bentuk <em>remedy</em> di dunia nyata?</h2>
       <div class="section-hr"></div>
+      <p style="color:var(--text-dk-secondary); font-size:var(--font-prose);">Ini contoh nyata bagaimana kita mengubah "ramalan" menjadi strategi pertahanan bisnis.</p>
     </div>
-    <div class="pillars-grid">
-      <div class="pillar-card">
-        <div class="pillar-card-zh">防</div>
-        <div class="pillar-num">Pilar 01 · Hedging</div>
-        <div class="pillar-zh-small">防</div>
-        <div class="pillar-title">Mitigasi Kebocoran Modal &amp; Aset</div>
-        <p class="pillar-body">Ketika siklus waktu mendeteksi kerawanan pada pilar Outflow, kami merancang langkah proteksi likuiditas agar kekayaan yang telah Anda perjuangkan tidak bocor akibat investasi impulsif.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-card-zh">協</div>
-        <div class="pillar-num">Pilar 02 · Partnership</div>
-        <div class="pillar-zh-small">協</div>
-        <div class="pillar-title">Penyelarasan Struktur Tim Bisnis</div>
-        <p class="pillar-body">Jika pilar Anda sedang mengalami benturan (clash) tahunan, remedy berupa pendelegasian wewenang kontrak kepada partner yang memiliki pilar penyeimbang adalah langkah taktis rasional.</p>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-card-zh">時</div>
-        <div class="pillar-num">Pilar 03 · Timing</div>
-        <div class="pillar-zh-small">時</div>
-        <div class="pillar-title">Penjagaan Momentum Pengambilan Keputusan</div>
-        <p class="pillar-body">Mengarahkan ekspansi modal besar hanya di periode pilar yang stabil. Menghindari langkah ekspansif di kuartal rawan untuk menjaga ketenangan operasional bisnis Anda.</p>
+    
+    <div class="step-box">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Membaca Peta: Diagnosis BaZi</h3>
+        <p>Chart Anda menunjukkan ada pola "Clash" besar di area uang (Outflow). BaZi — melalui <em>Annual Pillar</em> dan <em>Luck Pillar</em> — memberikan peringatan makro: tahun ini atau siklus ini Anda sedang sangat rentan terhadap keputusan finansial impulsif. Ini adalah sinyal bahwa kita perlu bertindak.</p>
       </div>
     </div>
+
+    <div class="step-box">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Langkah Operasional: Remedy Taktikal BaZi</h3>
+        <p>BaZi memberikan arah tindakan konkret yang masuk akal secara bisnis. Misalnya: kunci sebagian besar kas ke aset yang susah dicairkan, atau pindahkan hak veto kontrak ke <em>co-founder</em> yang siklus chart-nya lebih stabil saat ini. Ini bukan saran mistis — ini manajemen risiko berbasis pola.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Kalibrasi Energi: Remedy Vedic</h3>
+        <p>Solusi operasional saja kadang tidak cukup — ego dan kegelisahan batin bisa menggagalkan tindakan yang sudah direncanakan. Di sinilah Vedic masuk, murni di tahap remedy: kalibrasi energi berupa donasi terarah (<em>targeted donation</em>) ke jenis tertentu, atau membuang benda-benda yang secara energetik sudah usang. Sederhana, tapi punya landasan spesifik dari kondisi planet Anda. Hasilnya: tindakan Anda tidak kosong, ada isinya.</p>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- STRATEGIC INTERVENTION (GUIDE NOT GURU) -->
-<div style="background:var(--charcoal);">
-  <div class="guide-section">
-    <div class="guide-inner">
-      <span class="section-eyebrow" style="margin-bottom:2rem;display:block;">Transparansi · Strategi &amp; Batasan</span>
-      <div class="guide-card">
-        <div class="guide-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
-          </svg>
-        </div>
-        <div>
-          <h3 class="guide-h3">Intervensi Strategis, Bukan Superstisi</h3>
-          <p class="guide-body">Bazi Wealth Path memperlakukan remedy sebagai tindakan penyesuaian operasional dan taktis yang logis. Kami sama sekali tidak menyediakan cincin keberuntungan, jimat metafisika, atau janji-janji spiritual instan. Setiap remedy yang dirancang dalam sesi kami didiskusikan secara rasional dan didesain agar kompatibel dengan akal sehat keputusan bisnis Anda.<br><br>Peta pilar kelahiran adalah alat diagnosis risiko, namun kualitas eksekusi di lapangan tetap seutuhnya menjadi tanggung jawab kepemimpinan Anda.</p>
-        </div>
-      </div>
-    </div>
+<!-- REAL TALK -->
+<div class="guide-section">
+  <div class="guide-card">
+    <h3 class="guide-h3">Satu hal yang perlu diperjelas (Real Talk)</h3>
+    <p class="guide-body">Remedy ini bukan jimat penglaris. Ini murni manajemen risiko yang disesuaikan dengan pola bawaan Anda. Kalau pola Anda sudah dipetakan, remedy sudah disarankan, tapi Anda tetap nekat ngambil keputusan gegabah saat emosi... ya bisnisnya tetap bakal berantakan.<br><br>Saya cuma bisa bantu nunjukin jalannya (<em>Guide</em>). Yang harus berjalan dan mengambil keputusan akhir tetap Anda.</p>
   </div>
 </div>
 
@@ -435,33 +197,31 @@
   <div class="cta-overlay"></div>
   <div class="cta-inner">
     <span class="cta-zh">策</span>
-    <p class="cta-eyebrow">Mulai Mengelola Risiko</p>
-    <h2 class="cta-h2">Diagnosis saja tidak cukup. <em>Apakah Anda siap menerapkan remedy?</em></h2>
+    <p class="cta-eyebrow">Mari kita cek petanya</p>
+    <h2 class="cta-h2">Mau tahu pola apa yang lagi <em>berjalan di bisnis Anda?</em></h2>
     <div class="cta-hr"></div>
-    <p class="cta-body">Jika Anda siap beralih dari sekadar membaca ramalan menuju perancangan rencana aksi taktis untuk bisnis Anda — mari kita bicarakan situasinya langsung.</p>
+    <p class="cta-body">Nggak perlu komitmen apa-apa dulu. Chat aja, ceritain situasinya, dan kita lihat apakah pendekatan ini cocok buat bantu Anda.</p>
     <div class="cta-actions">
-      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+baru+membaca+halaman+Remedy+dan+ingin+tahu+bagaimana+menerapkan+mitigasi+pilar+diri." class="btn-wa">
-        <svg><use href="#wa"/></svg> Mulai Percakapan via WhatsApp
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+baru+baca+halaman+Remedy+dan+mau+cerita+situasi+saya." class="btn-wa">
+        <svg><use href="#wa"/></svg> Mari ngobrol via WhatsApp
       </a>
     </div>
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <!-- Kolom 1: Brand & Tagline -->
     <div>
       <div class="footer-brand">
-        Bazi Wealth Path <span class="footer-sub-brand">by djnordhawk</span>
+        Bazi Life Path <span class="footer-sub-brand">by DJ Nordhawk</span>
       </div>
       <p class="footer-tagline">
-        Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
+        Saya baca pola dari data lahir Anda, terus kita ubah jadi langkah konkret untuk bisnis dan keuangan Anda. Guide, not guru.
       </p>
       <p class="footer-tag">Guide, Not Guru.</p>
     </div>
     
-    <!-- Kolom 2: Navigasi Halaman Utama -->
     <div>
       <p class="footer-label">Halaman</p>
       <ul class="footer-links">
@@ -475,7 +235,6 @@
       </ul>
     </div>
     
-    <!-- Kolom 3: Layanan Sub-halaman -->
     <div>
       <p class="footer-label">Layanan</p>
       <ul class="footer-links">
@@ -484,35 +243,41 @@
       </ul>
     </div>
     
-    <!-- Kolom 4: Kontak & Dukungan -->
     <div>
       <p class="footer-label">Kontak</p>
       <ul class="footer-links">
-        <li><a href="https://wa.me/6282117175544">WhatsApp</a></li>
+        <li><a href="https://wa.me/6282117175544">Chat aja, kita mulai dari sananya</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
     </div>
   </div>
   
-  <!-- Footer Bottom Info -->
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Bazi Wealth Path by djnordhawk. All Rights Reserved.</span>
+    <span class="footer-copy">© 2026 Bazi Life Path by DJ Nordhawk. All Rights Reserved.</span>
     <span class="footer-guide">Guide, Not Guru.</span>
   </div>
 </footer>
 
 <script>
-  // Pillar cards reveal on scroll
-  const cards = document.querySelectorAll('.pillar-card');
-  const obs = new IntersectionObserver((entries) => {
+  // Simple scroll reveal for anatomy steps
+  const steps = document.querySelectorAll('.step-box');
+  const obsSteps = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 150);
-        obs.unobserve(e.target);
+        e.target.style.transition = `opacity 0.6s ease ${i * 150}ms, transform 0.6s ease ${i * 150}ms`;
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obsSteps.unobserve(e.target);
       }
     });
   }, { threshold: 0.1 });
-  cards.forEach(c => obs.observe(c));
+  
+  steps.forEach(s => {
+    s.style.opacity = '0';
+    s.style.transform = 'translateY(24px)';
+    obsSteps.observe(s);
+  });
 </script>
+
 </body>
 </html>

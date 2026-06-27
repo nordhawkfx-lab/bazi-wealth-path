@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Konsultasi Bazi untuk Bisnis & Karir | Bazi Wealth Path by djnordhawk</title>
-  <meta name="description" content="Bazi Wealth Path — kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih. Bukan ramalan. Rekomendasi yang bisa dieksekusi." />
-  <meta property="og:title" content="Konsultasi Bazi untuk Bisnis & Karir | Bazi Wealth Path by djnordhawk" />
+  <title>Life Path by DJ Nordhawk — Forecast & Remedy untuk Wealth dan Love</title>
+  <meta name="description" content="Ada pola di balik mengapa usahamu mentok. Life Path membantu membaca timing & rencana remedy konkret untuk keuangan dan hubungan Anda. Guide, not guru." />
+  <meta property="og:title" content="Life Path by DJ Nordhawk — Forecast & Remedy untuk Wealth dan Love" />
   <meta property="og:type" content="website" />
   <link rel="stylesheet" href="bazi.css" />
 
@@ -44,8 +44,10 @@
     .approach-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
     .approach-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
     .approach-do, .approach-dont { padding: 2rem; border: 1px solid var(--border-dk); }
-    .approach-do-label   { font-size: var(--font-micro); letter-spacing: .15em; text-transform: uppercase; color: var(--emerald-light); margin-bottom: 1rem; }
-    .approach-dont-label { font-size: var(--font-micro); letter-spacing: .15em; text-transform: uppercase; color: var(--text-dk-meta); margin-bottom: 1rem; }
+    .approach-do-label   { font-family: var(--ff-display); font-size: clamp(1.1rem, 1.5vw + 0.1rem, 1.25rem); font-weight: 600; color: var(--text-dk-primary); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .approach-do-label span { color: var(--emerald-light); }
+    .approach-dont-label { font-family: var(--ff-display); font-size: clamp(1.1rem, 1.5vw + 0.1rem, 1.25rem); font-weight: 600; color: var(--text-dk-primary); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+    .approach-dont-label span { color: #d9534f; }
     .approach-do p, .approach-dont p { color: var(--text-dk-secondary); font-size: var(--font-prose); line-height: var(--line-prose); }
 
     /* Compact layer rows for index (different from pendekatan full rows) */
@@ -64,8 +66,8 @@
     .layer-num-zh { font-family: var(--ff-display); font-size: 1.4rem; color: var(--gold-warm); opacity: .5; }
     .layer-num-en { font-size: .60rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dk-meta); margin-top: .3rem; }
     .layer-body   { padding: 1.2rem 1.5rem; }
-    .layer-body .layer-title { font-size: clamp(.82rem,.75vw + .3rem,.92rem); font-weight: 500; color: var(--text-dk-primary); margin-bottom: .3rem; }
-    .layer-body .layer-desc  { font-size: clamp(.82rem,.75vw + .3rem,.9rem); color: var(--text-dk-secondary); line-height: 1.65; }
+    .layer-body .layer-title { font-size: clamp(1.05rem, 0.9vw + 0.4rem, 1.15rem); font-weight: 600; color: var(--text-dk-primary); margin-bottom: .4rem; }
+    .layer-body .layer-desc  { font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: var(--line-prose); }
     .layer.star  { border-color: var(--border-gold); }
     .layer.star .layer-num { background: rgba(184,134,11,.08); }
     .layer.star .layer-num-zh { opacity: 1; }
@@ -112,10 +114,18 @@
     #cta { padding: var(--sp-8) 2.5rem; text-align: center; position: relative; overflow: hidden; background: var(--charcoal-d); }
     #cta .cta-bg { background-image: url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1600&auto=format&q=80'); }
 
+    /* Case Study block */
+    #case-study { padding: var(--sp-6) 2.5rem; background: var(--charcoal-d); position: relative; }
+    .case-card-inner {
+      border: 1px solid var(--border-gold); padding: 3rem;
+      background: rgba(184, 134, 11, 0.025); position: relative; border-radius: 4px;
+    }
+
     @media (max-width: 900px) {
       .approach-cols { grid-template-columns: 1fr; }
       #about { padding: 70px 1.5rem; }
-      #approach, #process, #insights { padding: 70px 1.5rem; }
+      #approach, #process, #insights, #case-study { padding: 70px 1.5rem; }
+      .case-card-inner { padding: 1.8rem; }
       #services, #testimonials { padding: 70px 1.5rem; }
     }
   </style>
@@ -132,8 +142,8 @@
 <!-- ── NAV ── -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">
-    Bazi Wealth Path
-    <small>by djnordhawk</small>
+    Bazi Life Path
+    <small>by DJ Nordhawk</small>
   </a>
   <div class="nav-links">
     <a href="pendekatan.html">Pendekatan</a>
@@ -150,7 +160,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero hero--full">
-  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1600&auto=format&q=80')"></div>
+  <div class="hero-bg" style="background-image:url('batik.jpg')"></div>
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -158,24 +168,26 @@
 
       <!-- Left: text -->
       <div>
-        <p class="hero-eyebrow">Kerangka Analisis · Wealth &amp; Bisnis</p>
+        <p class="hero-eyebrow">Life Path · DJ Nordhawk (北鷹)</p>
         <h1 class="hero-h1">
-          Bukan ramalan.<br>
-          <em>Peta pola keputusan bisnis Anda.</em>
+          Sesuatu terasa tidak selaras.<br>
+          <em>Kamu belum bisa menamainya — tapi kamu tahu rasanya.</em>
         </h1>
         <div class="hero-hr"></div>
         <p class="hero-body">
-          Bazi Wealth Path adalah kerangka analisis berbasis pola untuk entrepreneur dan profesional
-          yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih —
-          bukan dengan tebakan, melainkan dengan rekomendasi yang bisa dieksekusi.
+          Saya tidak hanya membaca apa yang akan datang. Kita petakan polanya, lalu siapkan langkah remedy taktis &amp; energetik untuk menyambut peluang Anda.
         </p>
         <div class="hero-ctas">
-          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F" class="btn-wa">
-            <svg><use href="#wa"/></svg> Mulai Percakapan
+          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+ingin+ngobrol+santai+dulu+soal+situasi+saya.+%28Dari+Halaman+Utama%29" class="btn-wa">
+            <svg><use href="#wa"/></svg> Kita ngobrol santai aja dulu
           </a>
-          <a href="pendekatan.html" class="btn-ghost">Pelajari Pendekatan</a>
+          <a href="pendekatan.html" class="btn-ghost">Penasaran gimana cara kerjanya?</a>
         </div>
-        <p style="font-size:.74rem;color:var(--text-dk-meta)">Tidak ada komitmen di percakapan awal.</p>
+        <div style="display:flex;gap:1.2rem;font-size:0.85rem;color:var(--text-dk-meta);margin-top:0.5rem;flex-wrap:wrap;">
+          <span><strong style="color:var(--emerald);">✓</strong> Fokus 100% pada Remedy</span>
+          <span><strong style="color:var(--emerald);">✓</strong> Langkah Taktis &amp; Logis</span>
+          <span><strong style="color:var(--emerald);">✓</strong> Privasi Sangat Dijaga</span>
+        </div>
       </div>
 
       <!-- Right: BaZi visual -->
@@ -212,62 +224,35 @@
   </div><!-- /hero-content -->
 </section>
 
-<!-- ── ABOUT / FOUNDER ── -->
-<section id="about">
-  <div class="about-bg"></div>
-  <div class="about-overlay"></div>
-  <div class="about-inner" style="position:relative;z-index:2;">
-
-    <div>
-      <p class="about-eyebrow">Founder · Kisah</p>
-      <h2 class="about-h2">Pemahaman saja tidak cukup. <em>Yang mengubah arah adalah langkah konkret.</em></h2>
-
-      <blockquote class="about-quote">
-        "Saya mempelajari Bazi melalui bimbingan langsung dari dua guru yang sangat saya hormati secara personal,
-        disusul oleh sertifikasi Vedic Astrology terstruktur. Dari penggabungan dua tradisi inilah,
-        saya menyadari bahwa nilai tertinggi bukanlah pada pembacaan nasib yang pasrah —
-        melainkan pada ketepatan merancang langkah penyeimbang."
-      </blockquote>
-
-      <p class="about-body">
-        Banyak orang datang dengan harapan bisa memahami peta pilar kehidupan mereka. Itu penting.
-        Tapi mengetahui bahwa ada badai di depan tidak secara otomatis menghentikan kerusakan yang ditimbulkannya.
-        <br><br>
-        Yang benar-benar mengubah arah hidup dan bisnis adalah ketika kita bisa merancang langkah konkret
-        untuk <strong>mengurangi dampak gejolak</strong> tersebut —
-        agar kekayaan yang telah Anda perjuangkan bisa bertahan dan keputusan penting bisa diambil dengan kepala dingin.
-      </p>
-
-      <div class="about-stats">
-        <div>
-          <div class="stat-num">15+</div>
-          <div class="stat-label">Tahun Studi</div>
+<!-- ── DOOR SELECTOR ── -->
+<section id="door-selector" style="background:var(--charcoal-d);padding:4rem 2.5rem;">
+  <div style="max-width:960px;margin:0 auto;">
+    <p style="text-align:center;font-size:var(--font-prose);color:var(--text-dk-secondary);margin-bottom:2.5rem;line-height:var(--line-prose);max-width:560px;margin-left:auto;margin-right:auto;">
+      Dua domain utama kehidupan. Pilih mana yang sedang terasa paling mendesak, sisanya bisa kita eksplorasi sambil ngobrol santai.
+    </p>
+    <div class="door-selector-grid">
+      <!-- Door: Wealth Path -->
+      <a href="wealth-path.html" class="door-card" id="door-wealth">
+        <div class="door-card-bg-zh">財</div>
+        <div class="door-card-inner">
+          <div class="door-card-tag">Wealth Path</div>
+          <h3 class="door-card-h3">Kerja keras sudah maksimal, tapi hasil tetap mentok?</h3>
+          <p class="door-card-body">Mari baca pola rezeki, arah karir, dan kesalahan keputusan finansial yang terus berulang di chart Anda.</p>
+          <div class="door-card-cta">Masuk Wealth Path <span>→</span></div>
         </div>
-        <div>
-          <div class="stat-num">2</div>
-          <div class="stat-label">Tradisi Keilmuan</div>
+      </a>
+      <!-- Door: Love Path -->
+      <a href="love-path.html" class="door-card" id="door-love">
+        <div class="door-card-bg-zh">緣</div>
+        <div class="door-card-inner">
+          <div class="door-card-tag">Love Path</div>
+          <h3 class="door-card-h3">Merasa ada yang salah dalam hubungan tapi tidak punya bukti?</h3>
+          <p class="door-card-body">Pahami pola relasi berulang, spouse clashing, hingga mitigasi risiko hubungan di sini.</p>
+          <div class="door-card-cta">Masuk Love Path <span>→</span></div>
         </div>
-        <div>
-          <div class="stat-num">1</div>
-          <div class="stat-label">Fokus: Remedy</div>
-        </div>
-      </div>
+      </a>
     </div>
-
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1.5rem">
-      <div class="sgp-frame">
-        <img
-          src="https://images.unsplash.com/photo-1564289183831-094e1dbf3799?w=800&h=1000&fit=crop&auto=format&q=80"
-          alt="Chinatown Singapore — tempat studi Bazi"
-          loading="lazy"
-        />
-        <div class="sgp-caption">
-          <span class="sgp-caption-zh">新加坡 · 牛車水</span>
-          <span class="sgp-caption-en">Singapore · Chinatown — where the study began</span>
-        </div>
-      </div>
-    </div>
-
+    <p style="text-align:center;font-size:1rem;font-weight:500;color:#fff;margin-top:2.5rem;letter-spacing:0.02em;">Setiap sesi: 90 Menit Live · PDF Analisis + Remedy · Rekaman Penuh</p>
   </div>
 </section>
 
@@ -276,25 +261,21 @@
   <div class="approach-bg-img"></div>
   <div class="approach-inner">
     <p class="section-eyebrow">Filosofi Inti · The Approach</p>
-    <h2 class="section-h2">Ini bukan tentang nasib. <em>Ini tentang pola.</em></h2>
+    <h2 class="section-h2">Setiap forecast datang <em>dengan window untuk bertindak.</em></h2>
     <div class="section-hr"></div>
 
-    <p style="color:var(--text-dk-meta);font-size:.9rem;line-height:1.85;max-width:620px;margin-bottom:3rem;">
-      Bazi adalah sistem yang membaca interaksi pola karakteristik berdasarkan data kelahiran.
-      Bukan untuk menetapkan nasib — melainkan untuk mengidentifikasi bagaimana seseorang secara natural
-      cenderung membuat keputusan, di mana titik buta yang sering muncul, dan kapan kondisi lebih
-      kondusif untuk langkah tertentu.
+    <p style="color:var(--text-dk-secondary);font-size:var(--font-prose);line-height:var(--line-prose);max-width:720px;margin-bottom:3rem;">
+      BaZi, Vedic, dan Javanese Esoteric membaca tiga hal sekaligus: pola karakteristik, timing kejadian, dan jalur tindakan. Forecast tanpa rencana konkret hanya akan menjadi vonis mati yang tak bisa diubah. Di sini, setiap bacaan selalu disertai dual-remedy — langkah BaZi yang taktis dan kalibrasi energi Vedic — supaya kamu keluar membawa pemahaman sekaligus langkah nyata yang siap dijalankan.
     </p>
 
     <div class="approach-cols">
       <div class="approach-do">
-        <p class="approach-do-label">Yang dilakukan</p>
-        <p>Membaca pola pengambilan keputusan, mengidentifikasi area potensi yang belum teroptimalkan,
-        dan mendiskusikan periode yang lebih kondusif — dikaitkan dengan situasi bisnis atau karir yang konkret.</p>
+        <h3 class="approach-do-label"><span>✓</span> Yang Selalu Ada</h3>
+        <p>Diagnosis pola dari chart — mengapa situasi ini berulang, lebih dari sekadar apa yang sedang terjadi. Plus dual-remedy konkret: langkah BaZi taktis dan kalibrasi Vedic, disesuaikan dengan situasi nyata Anda.</p>
       </div>
       <div class="approach-dont">
-        <p class="approach-dont-label">Yang tidak dilakukan</p>
-        <p>Tidak ada prediksi spesifik, jaminan hasil, atau asumsi bahwa masa depan sudah tertulis.</p>
+        <h3 class="approach-dont-label"><span>✕</span> Yang Tidak Ada</h3>
+        <p>Tidak ada jaminan outcome — "manusia berusaha, Tuhan menentukan." Dan tidak ada tebak-tebakan buta yang membiarkan Anda pulang kebingungan mencari jalan sendiri.</p>
       </div>
     </div>
 
@@ -329,95 +310,122 @@
   </div>
 </section>
 
-<!-- ── SERVICES ── -->
-<section id="services">
-  <div class="services-bg-char">財</div>
-  <div class="services-inner">
-    <div class="services-header">
-      <p class="section-eyebrow">Layanan · Services</p>
-      <h2 class="section-h2">Ada dua cara saya bisa <em>membantu Anda saat ini.</em></h2>
-      <p style="color:var(--text-lt-meta);margin-top:.8rem;font-size:.88rem;">Pilih yang paling sesuai dengan apa yang sedang Anda hadapi sekarang.</p>
-    </div>
+<!-- ── CASE STUDY (PA-03 — PNS, outcome nyata) ── -->
+<section id="case-study">
+  <div class="container--narrow">
+    <div class="case-card-inner">
+      <p class="section-eyebrow" style="color: var(--gold-warm); margin-bottom: 1rem;">Wealth Path · Kasus Nyata</p>
+      <h3 style="font-family: var(--ff-display); font-size: clamp(1.4rem, 2.5vw, 2rem); color: #fff; margin-bottom: 1.5rem; font-weight: 400; line-height: 1.2;">
+        Jadwal kerja malam yang merusak hormon — <em>berubah dalam sekitar satu bulan.</em>
+      </h3>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-card-bg-zh">明</div>
-        <p class="service-tag">Mulai Dari Sini</p>
-        <h3 class="service-h3">Clarity &amp; Direction Consultation</h3>
-        <p class="service-body">Untuk Anda yang sedang menghadapi keputusan penting — baik di bisnis maupun kehidupan pribadi — dan butuh perspektif yang lebih jelas sebelum mengambil langkah.</p>
-        <div class="service-meta">
-          <span class="service-meta-item">60 menit via Zoom</span>
-          <span class="service-meta-item">1-on-1, privat, direkam</span>
-        </div>
-        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Clarity+%26+Direction+Consultation." class="btn-service">
-          <svg width="14" height="14"><use href="#wa"/></svg> Tanya via WhatsApp
-        </a>
-      </div>
-
-      <div class="service-card">
-        <div class="service-card-bg-zh">財</div>
-        <p class="service-tag featured">Layanan Utama</p>
-        <h3 class="service-h3">Wealth Path Bazi Session</h3>
-        <p class="service-body">Untuk entrepreneur dan professional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih. Kita akan memetakan pola keputusan, mengidentifikasi area potensi wealth, dan mendiskusikan timing.</p>
-        <div class="service-meta">
-          <span class="service-meta-item">90 menit via Zoom</span>
-          <span class="service-meta-item">1-on-1, privat, direkam</span>
-          <span class="service-meta-item">+ Ringkasan rekomendasi tertulis</span>
-        </div>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-          <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+Wealth+Path+Bazi+Session." class="btn-service primary">
-            <svg width="14" height="14"><use href="#wa"/></svg> Mulai Sesi
-          </a>
-          <a href="yang-anda-dapatkan.html" style="font-size:var(--font-micro);letter-spacing:.1em;text-transform:uppercase;color:var(--emerald);border-bottom:1px solid rgba(12,60,45,.3);transition:border-color .2s;">Lihat detail lengkap →</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="services-cta-bar">
-      <p>Belum yakin mana yang paling pas?
-        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+belum+tahu+harus+mulai+dari+mana.">Cerita dulu kondisinya via WhatsApp → saya yang bantu Anda memilih</a>
+      <p style="font-size: var(--font-micro); color: var(--text-dk-meta); margin-bottom: 2rem; font-style: italic; border-bottom: 1px solid var(--border-dk); padding-bottom: 1rem;">
+        Klien nyata · Identitas dianonimkan atas permintaan klien · Screenshot tersedia
       </p>
+
+      <div style="color: var(--text-dk-secondary); font-size: var(--font-prose); line-height: var(--line-prose); display: flex; flex-direction: column; gap: 1.8rem;">
+        <div>
+          <h4 style="color:var(--emerald);font-size:1.05rem;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Kondisi Awal</h4>
+          <p>
+            Seorang PNS perempuan datang dengan satu masalah konkret: <strong style="color:var(--text-dk-primary);">jadwal kerja malam (23.00–05.00) yang sudah berlangsung lama dan merusak keseimbangan hormonnya.</strong> Ini adalah masalah nyata dengan dampak fisik yang sudah ia rasakan. Dia datang sepenuhnya karena butuh sesuatu yang bisa berubah, terlepas dari sekadar penasaran dengan chart-nya.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--gold-warm);font-size:1.05rem;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Diagnosis Struktural</h4>
+          <p>
+            Dari chart, terbaca pola struktural: ada keterlambatan yang tertulis di jalur karirnya, dan ia membutuhkan kredensial eksternal yang sengaja dibangun secara proaktif. <strong style="color:var(--text-dk-primary);">Diagnosis ini melampaui urusan jadwal kerja. Ini soal bagaimana ia perlu membangun posisi karirnya secara berbeda dari orang lain.</strong>
+          </p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.03);border-left:2px solid var(--gold-warm);padding:1.5rem;border-radius:0 4px 4px 0;">
+          <h4 style="color:var(--text-dk-primary);font-size:1.05rem;margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;">Langkah Remedy</h4>
+          <p style="color:var(--text-dk-secondary);">
+            Tiga putaran puasa Saturnus — dirancang sebagai kalibrasi Vedic untuk membuka apa yang tersumbat di jalur karir. Ia menyelesaikan dua dari tiga putaran secara konsisten.
+          </p>
+        </div>
+
+        <p>
+          Sekitar satu bulan kemudian, ia kembali menghubungi — tanpa diminta. Pesannya sendiri:
+        </p>
+
+        <p style="color: var(--text-dk-primary); font-weight: 500; font-style: italic; border-left: 2px solid var(--gold-warm); padding-left: 1.2rem;">
+          "Mas aku udah 2x puasa. Udah ada perubahan. Aku harus ngapain?"<br>
+          <span style="font-size:.88rem;font-weight:400;">"Nampaknya dengan perubahan sistem jam kerja 2 pekan ini, aku mulai bisa menata kembali hidupku untuk berbagai hal."</span>
+        </p>
+
+        <p style="color:var(--text-dk-meta);font-size:.82rem;font-style:italic;">
+          Cepat? Saya juga heran. Tapi ini yang terjadi — dan saya tidak mengklaim bahwa remedylah satu-satunya penyebabnya. Yang saya tahu: ada langkah yang diambil, dan ada sesuatu yang berubah.
+        </p>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ── PROOF STRIP ── -->
+<section id="proof-strip" style="background:var(--cream);padding:var(--sp-7) 2.5rem;position:relative;overflow:hidden;">
+  <div class="services-bg-char" style="color:rgba(12,60,45,.04);">證</div>
+  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;">
+    <div style="margin-bottom:2.5rem;">
+      <p class="section-eyebrow" style="color:var(--emerald);">Apa yang Klien Katakan</p>
+      <h2 class="section-h2" style="color:var(--text-lt-primary);">Fokus pada hasilnya — <em style="color:var(--emerald);">apa yang benar-benar berubah.</em></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card" style="background:#fff;border-color:#e0dbd2;">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-body" style="font-style:italic;">Gak sedalam ini. Aku jadi tau kenapa ada pola seperti ini. Ternyata sudah tertulis di birthchart akan ada pengulangan-pengulangan.</p>
+        <div class="testi-initial">R</div>
+        <div class="testi-role">Klien kedua · Sebelumnya sudah konsultasi ke beberapa reader lain · Wealth Path</div>
+      </div>
+      <div class="testi-card" style="background:#fff;border-color:#e0dbd2;">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-body" style="font-style:italic;">Awalnya hopeless karena aku pernah baca tentang clashes dan punishment yang ternyata ada di chartku. Dan ternyata kakak kasih solusinya. Solusi-solusinya untuk aku sangat doable.</p>
+        <div class="testi-initial">S</div>
+        <div class="testi-role">Klien perempuan · Chart dengan konflik berat · Love Path</div>
+      </div>
+      <div class="testi-card" style="background:#fff;border-color:#e0dbd2;">
+        <div class="testi-quote-mark">"</div>
+        <p class="testi-body" style="font-style:italic;">Aku heran karena dia bisa tahu aku sering insomnia dan GERD hanya dari jam lahir. Analisisnya sangat logis dan tidak mistis.</p>
+        <div class="testi-initial">PA-02</div>
+        <div class="testi-role">Startup Founder · Validasi via 8 Falsifiable Confirmations · Wealth Path</div>
+      </div>
+    </div>
+    <p class="testi-disclaimer" style="color:var(--text-lt-meta);">Nama dan detail disamarkan atas permintaan klien.</p>
   </div>
 </section>
 
 <!-- ── PROCESS ── -->
 <section id="process">
   <div class="container">
-    <p class="section-eyebrow">Cara Kerja · Process</p>
-    <h2 class="section-h2">Dari data kelahiran <em>menuju langkah nyata di meja kerja.</em></h2>
+    <p class="section-eyebrow">Cara Kerja · Tiga Langkah</p>
+    <h2 class="section-h2">Dari data kelahiran <em>menuju langkah konkret yang bisa langsung dijalankan.</em></h2>
 
     <div class="process-steps process-steps--index">
       <div class="process-step">
         <div class="process-step-num">01</div>
-        <div class="process-step-title">Percakapan Awal</div>
-        <div class="process-step-body">Ceritakan situasi nyata Anda via WhatsApp. Tidak ada formulir, tidak ada komitmen.</div>
+        <div class="process-step-title">Chat dulu via WhatsApp</div>
+        <div class="process-step-body">Ceritakan situasinya via chat — santai saja. Dari obrolan awal ini saya bisa langsung menilai apakah pendekatan saya cocok untuk kondisi Anda saat ini.</div>
       </div>
       <div class="process-step">
         <div class="process-step-num">02</div>
-        <div class="process-step-title">Pemetaan Pola</div>
-        <div class="process-step-body">Saya membaca chart kelahiran Anda dan menghubungkan pola dengan konteks bisnis yang Anda bawa.</div>
+        <div class="process-step-title">Sesi 90 Menit — Live & Interaktif</div>
+        <div class="process-step-body">Google Meet, 1-on-1. Saya baca pola dari chart kelahiran Anda, Anda bisa tanya langsung saat sesi. Tidak ada template — sesi mengikuti situasi nyata yang Anda bawa.</div>
       </div>
       <div class="process-step">
         <div class="process-step-num">03</div>
-        <div class="process-step-title">Sesi Konsultasi</div>
-        <div class="process-step-body">90 menit 1-on-1 via Zoom. Tidak ada template — sesi mengikuti situasi nyata Anda.</div>
-      </div>
-      <div class="process-step">
-        <div class="process-step-num">04</div>
-        <div class="process-step-title">Crafting Remedy</div>
-        <div class="process-step-body">Ringkasan tertulis berisi rekomendasi taktis yang langsung bisa Anda bawa ke meja kerja.</div>
+        <div class="process-step-title">Terima PDF + Rekaman Penuh</div>
+        <div class="process-step-body">Seluruh analisis dan rencana remedy dalam PDF yang bisa Anda baca ulang kapan saja. Plus rekaman sesi lengkap — tidak ada yang perlu dicatat ulang.</div>
       </div>
     </div>
 
     <div class="process-badges">
       <div class="process-badge">
         <div class="process-badge-title">Rekaman Lengkap</div>
-        <div class="process-badge-body">Dikirim dalam 24 jam. Putar ulang kapanpun Anda butuhkan.</div>
+        <div class="process-badge-body">Dikirim setelah sesi. Putar ulang kapanpun Anda butuhkan.</div>
       </div>
       <div class="process-badge">
-        <div class="process-badge-title">Ringkasan Tertulis</div>
-        <div class="process-badge-body">Bukan catatan panjang. Rekomendasi yang bisa langsung dieksekusi.</div>
+        <div class="process-badge-title">PDF Analisis + Remedy</div>
+        <div class="process-badge-body">Format langsung ke sasaran. Temuan dan langkah konkret dirangkum dalam satu dokumen.</div>
       </div>
       <div class="process-badge">
         <div class="process-badge-title">Kerahasiaan Penuh</div>
@@ -427,34 +435,58 @@
   </div>
 </section>
 
-<!-- ── TESTIMONIALS ── -->
-<section id="testimonials">
-  <div class="testi-bg-char">證</div>
-  <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;">
-    <p class="section-eyebrow">Hasil Nyata · Testimonial</p>
-    <h2 class="section-h2">Apa yang biasanya berubah <em>setelah satu sesi.</em></h2>
+<!-- ── ABOUT / FOUNDER ── -->
+<section id="about">
+  <div class="about-bg"></div>
+  <div class="about-overlay"></div>
+  <div class="about-inner" style="position:relative;z-index:2;">
 
-    <div class="testi-grid" style="margin-top:3rem;">
-      <div class="testi-card">
-        <div class="testi-quote-mark">"</div>
-        <p class="testi-body">Setelah sesi, saya akhirnya paham kenapa saya selalu ragu di momen yang justru paling krusial. Saya kira itu ketakutan biasa — ternyata ada pola yang lebih dalam dari itu.</p>
-        <div class="testi-initial">E</div>
-        <div class="testi-role">Entrepreneur · Jakarta · Wealth Path Bazi Session</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote-mark">"</div>
-        <p class="testi-body">Saya datang dengan skeptis tinggi. Yang membuat saya tetap ikut adalah karena dari awal sudah dibilang ini bukan ramalan. Dan memang, tidak ada satu pun klaim yang tidak bisa saya evaluasi sendiri.</p>
-        <div class="testi-initial">R</div>
-        <div class="testi-role">Professional · Surabaya · Clarity &amp; Direction</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote-mark">"</div>
-        <p class="testi-body">Yang saya hargai adalah djnordhawk tidak buru-buru memberikan jawaban. Dia menghubungkan analisis dengan situasi nyata bisnis saya — bukan template generik. Ringkasan tertulisnya masih saya pakai sampai sekarang.</p>
-        <div class="testi-initial">A</div>
-        <div class="testi-role">Business Owner · Bali · Wealth Path Bazi Session</div>
+    <div>
+      <p class="about-eyebrow">Founder · DJ Nordhawk</p>
+      <h2 class="about-h2">"I show them the path. <em>Let them walk the path."</em></h2>
+
+      <blockquote class="about-quote">
+        Ada hal-hal yang BaZi gak bisa lihat. BaZi kekuatan musim, 5 elemen. Vedic kekuatan planet — timing of event. Makanya saya pakai keduanya sekaligus.
+      </blockquote>
+
+      <p class="about-body">
+        Saya belajar Vedic Astrology secara formal di astrometa.id — melalui lima kursus terstruktur. BaZi saya pelajari lewat apprenticeship dengan dua guru dan ratusan sesi klien nyata. Javanese Esoteric saya terima lewat transmisi lisan selama enam tahun dari seorang guru kehidupan.
+        <br><br>
+        Tiga sistem — satu tujuan: setiap forecast selalu disertai jalan keluar. Diagnosis tanpa tindakan itu verdict yang tidak berguna.
+        <br><br>
+        <strong>— DJ Nordhawk (北鷹)</strong>
+      </p>
+
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">3</div>
+          <div class="stat-label">Tradisi Keilmuan</div>
+        </div>
+        <div>
+          <div class="stat-num">90'</div>
+          <div class="stat-label">Sesi Live Interaktif</div>
+        </div>
+        <div>
+          <div class="stat-num">1</div>
+          <div class="stat-label">Fokus: Remedy</div>
+        </div>
       </div>
     </div>
-    <p class="testi-disclaimer">Nama, kota, dan detail disamarkan sepenuhnya atas permintaan klien.</p>
+
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1.5rem">
+      <div class="sgp-frame">
+        <img
+          src="https://images.unsplash.com/photo-1564289183831-094e1dbf3799?w=800&h=1000&fit=crop&auto=format&q=80"
+          alt="Chinatown Singapore — tempat studi Bazi"
+          loading="lazy"
+        />
+        <div class="sgp-caption">
+          <span class="sgp-caption-zh">新加坡 · 牛車水</span>
+          <span class="sgp-caption-en">Singapore · Chinatown — where the study began</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -468,7 +500,7 @@
       <div class="insight-card">
         <p class="insight-tag">Wealth Psychology</p>
         <h4 class="insight-h4">Mengapa Orang Cerdas Pun Bisa Membuat Keputusan Keuangan yang Buruk</h4>
-        <p class="insight-desc">Titik buta bukan soal kecerdasan. Ini soal pola yang tidak terlihat dari dalam.</p>
+        <p class="insight-desc">Titik buta tidak ada hubungannya dengan kecerdasan. Ini soal pola yang tidak terlihat dari dalam.</p>
         <div class="insight-meta">Maret 2026 <span style="color:var(--emerald-light)">→</span></div>
       </div>
       <div class="insight-card">
@@ -480,7 +512,7 @@
       <div class="insight-card">
         <p class="insight-tag">Timing Strategy</p>
         <h4 class="insight-h4">Kapan Sebenarnya Waktu yang Tepat untuk Ekspansi Bisnis?</h4>
-        <p class="insight-desc">Bukan soal memilih bulan keberuntungan. Ini soal membaca kondisi sebelum melangkah.</p>
+        <p class="insight-desc">Lebih dari sekadar memilih bulan keberuntungan. Ini soal menguasai kondisi sebelum melangkah.</p>
         <div class="insight-meta">Januari 2026 <span style="color:var(--emerald-light)">→</span></div>
       </div>
     </div>
@@ -496,35 +528,32 @@
   <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?w=1600&auto=format&q=80');filter:brightness(.18) saturate(.5)"></div>
   <div class="cta-overlay"></div>
   <div class="cta-inner">
-    <span class="cta-zh">財</span>
-    <p class="cta-eyebrow">Mulai Percakapan</p>
-    <h2 class="cta-h2">Remedy yang berhasil bukan yang membuat hidup sempurna seketika — tapi yang membuat <em>gejolak risiko seminimal mungkin.</em></h2>
+    <span class="cta-zh">命</span>
+    <p class="cta-eyebrow">Mulai dari sini</p>
+    <h2 class="cta-h2">Kamu tidak harus tahu dari mana harus mulai. <em>Ceritakan saja apa yang sedang terasa berat saat ini.</em></h2>
     <div class="cta-hr"></div>
-    <p class="cta-body">Jika kerangka ini masuk akal untuk situasi bisnis Anda sekarang — tidak perlu memutuskan apa-apa dulu. Mari kita bicarakan situasinya langsung, santai.</p>
+    <p class="cta-body">Langsung sampaikan apa yang sedang terasa berat saat ini. Pilih pintu yang paling dekat dengan situasi Anda — atau sekadar cerita dulu via WhatsApp. Privasi 100% aman.</p>
     <div class="cta-actions">
-      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+dengan+konsultasi+Bazi+Wealth+Path.+Boleh+saya+ceritakan+situasi+saya%3F" class="btn-wa">
-        <svg><use href="#wa"/></svg> Mulai Percakapan
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+ingin+ngobrol+santai+dulu+soal+situasi+saya.+%28Dari+CTA+Bawah%29" class="btn-wa">
+        <svg><use href="#wa"/></svg> Ngobrol santai dulu
       </a>
-      <a href="pendekatan.html" class="btn-ghost">Pelajari Pendekatan</a>
+      <a href="pendekatan.html" class="btn-ghost">Gimana cara kerjanya?</a>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- ── FOOTER (via includes) ── -->
 <footer>
   <div class="footer-inner">
-    <!-- Kolom 1: Brand & Tagline -->
     <div>
       <div class="footer-brand">
-        Bazi Wealth Path <span class="footer-sub-brand">by djnordhawk</span>
+        Life Path <span class="footer-sub-brand">by DJ Nordhawk</span>
       </div>
       <p class="footer-tagline">
-        Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
+        Setiap forecast datang dengan window untuk bertindak — diagnosis pola dari BaZi, Vedic &amp; Javanese Esoteric, selalu disertai langkah konkret.
       </p>
       <p class="footer-tag">Guide, Not Guru.</p>
     </div>
-    
-    <!-- Kolom 2: Navigasi Halaman Utama -->
     <div>
       <p class="footer-label">Halaman</p>
       <ul class="footer-links">
@@ -533,33 +562,28 @@
         <li><a href="remedy.html">Remedy</a></li>
         <li><a href="yang-anda-dapatkan.html">Layanan</a></li>
         <li><a href="artikel.html">Artikel</a></li>
-        <li><a href="about.html">Tentang</a></li>
         <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">Tentang</a></li>
       </ul>
     </div>
-    
-    <!-- Kolom 3: Layanan Sub-halaman -->
     <div>
-      <p class="footer-label">Layanan</p>
+      <p class="footer-label">Masuk via</p>
       <ul class="footer-links">
-        <li><a href="yang-anda-dapatkan.html#services">Clarity &amp; Direction</a></li>
-        <li><a href="yang-anda-dapatkan.html#timeline">Wealth Path Session</a></li>
+        <li><a href="wealth-path.html">Wealth Path</a></li>
+        <li><a href="love-path.html">Love Path</a></li>
+        <li><a href="yang-anda-dapatkan.html">Apa yang Anda Dapatkan</a></li>
       </ul>
     </div>
-    
-    <!-- Kolom 4: Kontak & Dukungan -->
     <div>
       <p class="footer-label">Kontak</p>
       <ul class="footer-links">
-        <li><a href="https://wa.me/6282117175544">WhatsApp</a></li>
+        <li><a href="https://wa.me/6282117175544">Chat via WhatsApp</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
     </div>
   </div>
-  
-  <!-- Footer Bottom Info -->
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Bazi Wealth Path by djnordhawk. All Rights Reserved.</span>
+    <span class="footer-copy">© 2026 Life Path by DJ Nordhawk. All Rights Reserved.</span>
     <span class="footer-guide">Guide, Not Guru.</span>
   </div>
 </footer>
@@ -580,7 +604,7 @@
   function showQuote() {
     quoteEl.classList.remove('visible');
     setTimeout(() => {
-      quoteEl.innerHTML = `${quotes[qi].zh}<br><span style="font-size:.72rem;letter-spacing:.08em;color:var(--text-dk-meta);font-family:var(--ff-body);font-style:normal">${quotes[qi].id}</span>`;
+      quoteEl.innerHTML = `${quotes[qi].zh}<br><span style="font-size:.85rem;letter-spacing:.08em;color:var(--text-dk-meta);font-family:var(--ff-body);font-style:normal;margin-top:.4rem;display:inline-block">${quotes[qi].id}</span>`;
       quoteEl.classList.add('visible');
       qi = (qi + 1) % quotes.length;
     }, 800);
@@ -599,6 +623,26 @@
     });
   }, { threshold: 0.15 });
   layers.forEach(l => { l.style.opacity = '0'; l.style.transition = 'opacity .5s ease'; obs.observe(l); });
+
+  // Scroll reveal: door cards
+  const obsDoor = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }, i * 150);
+        obsDoor.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('.door-card').forEach(d => { 
+    d.style.opacity = '0'; 
+    d.style.transform = 'translateY(30px)';
+    d.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out, border-color 0.3s'; 
+    obsDoor.observe(d); 
+  });
 </script>
 
 </body>

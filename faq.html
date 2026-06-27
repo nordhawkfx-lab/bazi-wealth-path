@@ -3,170 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ — Pertanyaan yang Sering Diajukan | Bazi Wealth Path</title>
-  <meta name="description" content="Jawaban atas pertanyaan paling umum mengenai Wealth Path Bazi Session: cara kerja, harga, proses, kerahasiaan, dan kompatibilitas dengan keyakinan Anda." />
+  <title>FAQ & Real Talk | Bazi Life Path by DJ Nordhawk</title>
+  <meta name="description" content="Jawaban atas pertanyaan paling umum mengenai Wealth Path Bazi Session: cara kerja, harga, proses, kerahasiaan, dan batasan metode." />
   <link rel="stylesheet" href="bazi.css" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Apa itu Wealth Path Bazi Session?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Wealth Path Bazi Session adalah sesi konsultasi privat 90 menit via Zoom yang memetakan pola pilar kelahiran Anda, mengidentifikasi area potensi wealth, dan mendiskusikan timing keputusan bisnis." } },
-      { "@type": "Question", "name": "Apakah ini sama dengan ramalan nasib?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Tidak. Pendekatan ini fokus pada diagnosis pola dan perancangan langkah remedy yang konkret — Anda tetap pemegang kendali penuh atas keputusan." } },
-      { "@type": "Question", "name": "Berapa biaya sesinya?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Biaya dan metode pembayaran diinformasikan langsung saat Anda menghubungi via WhatsApp. Tidak ada biaya tersembunyi atau langganan otomatis." } }
-    ]
-  }
-  </script>
-
   <style>
-    /* ══════════════════════════════════════════════════════════════
-       FAQ — PAGE-SPECIFIC
-       Theme: DARK (charcoal-d) — sesuai audit Sarah Chen:
-         • Gold on dark = 5.97:1 ✓ AA (hover/open states)
-         • Gold on cream = 3.04:1 ✗ FAIL (dihindari)
-         • FAQ adalah utility page, bukan long-form reading
-         → dark frame = konsisten dengan nav/CTA/footer
+    /* ── PAGE-SPECIFIC: FAQ — Unified Design System ── */
 
-       FIXES dari Sarah Chen audit:
-         1. faq-arrow #555 → var(--text-dk-meta) = 4.5:1 ✓
-         2. faq-item-body font-size → override ke ~17px
-         3. --text-dk-eyebrow token undefined → inline color fix
-         4. footer-links--row color #555 on dark = 2.61:1 FAIL
-            sudah fixed di bazi.css class (bazi.css issue, workaround here)
-         5. faq-item opacity:0 JS-dependent → CSS fallback added
-       ══════════════════════════════════════════════════════════════ */
+    /* === SHARED CONTAINER (konsisten max-width 800px untuk seluruh FAQ) === */
+    .faq-page-inner { max-width: 800px; margin: 0 auto; }
 
-    /* ── Hero: short, glow-centered ── */
+    /* === HERO === */
     .hero--faq {
       padding: var(--sp-8) var(--sp-gutter) var(--sp-5);
-      text-align: center;
-      min-height: auto;
-      align-items: center;
+      text-align: center; min-height: auto; align-items: center;
     }
 
-    /* ── Quick nav ── */
-    .quicknav-section { padding: 0 var(--sp-gutter) var(--sp-5); }
+    /* === QUICK NAV PILLS === */
+    .quicknav-wrap {
+      padding: 0 var(--sp-gutter) var(--sp-6);
+    }
+    .quicknav-pills {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+    }
+    .qp-link {
+      min-height: 40px; display: inline-flex; align-items: center;
+      padding: 0.4rem 1.2rem; font-size: 0.78rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-dk-secondary);
+      border: 1px solid var(--border-dk);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      cursor: pointer; text-decoration: none;
+    }
+    .qp-link:hover, .qp-link.active {
+      border-color: var(--gold-warm);
+      color: var(--champagne);
+      background: color-mix(in srgb, var(--gold-warm) 6%, transparent);
+    }
 
-    /* ── FAQ list zone ── */
-    .faq-section-wrap { padding: 0 var(--sp-gutter) var(--sp-7); }
+    /* === SECTION DIVIDER LABEL === */
+    .faq-section { padding: var(--sp-2) var(--sp-gutter) var(--sp-6); }
+    .faq-section + .faq-section { padding-top: 0; }
 
-    /* ── CTA background ── */
+    .section-label-bar {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: var(--sp-5);
+    }
+    .section-label-bar .slb-text {
+      font-family: var(--ff-body); font-size: 0.75rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-dk-meta); white-space: nowrap;
+    }
+    .section-label-bar .slb-line {
+      flex: 1; height: 1px; background: var(--border-dk);
+    }
+
+    /* === UNIFIED FAQ CARD (Real Talk & Accordion pakai card yang sama) === */
+    .fq-card {
+      border: 1px solid var(--border-dk);
+      margin-bottom: 0.75rem;
+      background: rgba(255,255,255,0.015);
+      transition: border-color 0.25s ease;
+      position: relative;
+    }
+    .fq-card:hover { border-color: color-mix(in srgb, var(--gold-warm) 35%, transparent); }
+    .fq-card[open] { border-color: color-mix(in srgb, var(--gold-warm) 40%, transparent); }
+
+    /* Card header — used for BOTH Real Talk (always open) and Accordion (toggle) */
+    .fq-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 1rem; padding: 1.5rem 1.75rem 1.25rem; cursor: pointer;
+      list-style: none;
+    }
+    .fq-header::-webkit-details-marker { display: none; }
+
+    /* Real Talk cards: header is a div, not summary */
+    .fq-header--static { cursor: default; }
+
+    .fq-question {
+      font-family: var(--ff-display); font-size: 1.2rem;
+      color: var(--champagne); font-weight: 400; line-height: 1.4;
+      flex: 1;
+    }
+    
+    /* Color variant: Real Talk questions in gold */
+    .fq-card--realtalk .fq-question { color: var(--gold-warm); }
+    
+    .fq-badge {
+      font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--emerald-light); font-weight: 600; font-family: var(--ff-body);
+      margin-bottom: 0.35rem; display: block;
+    }
+
+    /* SVG arrow icon for accordion */
+    .fq-icon {
+      flex-shrink: 0; margin-top: 0.25rem; width: 18px; height: 18px;
+      color: var(--text-dk-meta); transition: transform 0.28s ease, color 0.2s;
+    }
+    details.fq-card[open] .fq-icon { transform: rotate(180deg); color: var(--gold-warm); }
+
+    /* Card body */
+    .fq-body {
+      padding: 0 1.75rem 1.5rem;
+      font-size: var(--font-prose); line-height: 1.8;
+      color: var(--text-dk-secondary);
+    }
+    .fq-body p { margin-bottom: 0.9rem; }
+    .fq-body p:last-child { margin-bottom: 0; }
+    .fq-body a { color: var(--gold-warm); border-bottom: 1px solid rgba(184,134,11,.25); transition: border-color .2s; }
+    .fq-body a:hover { border-color: var(--gold-warm); }
+    .fq-body strong { color: var(--champagne); font-weight: 500; }
+
+    /* Separator between header and open body */
+    details.fq-card[open] .fq-header { border-bottom: 1px solid var(--border-dk); }
+
+    /* CTA background */
     .cta-section .cta-bg {
       background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&auto=format&q=75');
     }
 
-    /* ══ FIX 1: faq-arrow contrast ══
-       bazi.css: color:#555 on #0D0D0D = 2.61:1 FAIL
-       Fix: var(--text-dk-meta) = #888 = 5.48:1 ✓ AA           */
-    .faq-arrow {
-      font-size: 0.65rem;
-      color: var(--text-dk-meta);   /* override #555 → #888 */
-      transition: transform 0.25s ease, color 0.2s ease;
-      flex-shrink: 0;
-    }
-    .faq-item[open] .faq-arrow {
-      transform: rotate(180deg);
-      color: var(--gold-warm);      /* gold on dark = 5.97:1 ✓ AA */
-    }
-
-    /* ══ FIX 2: faq-item-body font size ══
-       bazi.css: var(--font-prose) ≈ 15px — terlalu kecil untuk Q&A
-       Sarah Chen: min 17px untuk comfortable reading
-       Fix: clamp(1.06rem, 1.1vw + 0.5rem, 1.2rem) → ~17–19px   */
-    .faq-item-body {
-      padding: var(--sp-3) var(--sp-5) var(--sp-4);
-      font-size: var(--font-prose-utility);
-      line-height: var(--line-prose);
-      color: var(--text-dk-secondary);
-      max-width: 68ch;
-    }
-    .faq-item-body a {
-      color: var(--gold-warm);                          /* gold on dark = 5.97:1 ✓ */
-      border-bottom: 1px solid rgba(184,134,11,0.30);
-      transition: border-color 0.2s;
-    }
-    .faq-item-body a:hover { border-color: var(--gold-warm); }
-
-    /* ══ FIX 3: faq-cat-label token undefined ══
-       bazi.css uses var(--text-dk-eyebrow) but it's NEVER defined in :root
-       → browser treats as invalid → inherits body color (champagne/white)
-       → visually wrong size/weight but readable (lucky accident)
-       Fix: use var(--text-dk-secondary) = #A89968 = 6.87:1 ✓ AA  */
-    .faq-cat-label {
-      font-size: var(--font-micro);
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--text-dk-secondary);   /* defined token, 6.87:1 ✓ */
-      margin: var(--sp-5) 0 var(--sp-3);
-      font-family: var(--ff-body);
-    }
-    .faq-cat-label:first-of-type { margin-top: 0; }
-
-    /* ══ FIX 4: quicknav-link touch target & readability ══
-       bazi.css: var(--font-micro) ≈ 11px, padding .55rem 1.3rem
-       Sarah Chen: min 44px touch target, min 13px label text      */
-    .quicknav-link {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--sp-2) var(--sp-4);
-      font-size: clamp(0.75rem, 0.7vw + 0.3rem, 0.88rem);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text-dk-secondary);
-      border: 1px solid var(--border-dk);
-      transition: border-color 0.25s, color 0.25s;
-    }
-    .quicknav-link:hover { border-color: var(--border-gold); color: var(--champagne); }
-
-    /* ══ FIX 5: JS-dependent opacity fallback ══
-       If JS fails, faq-item stays at opacity:1 (visible)
-       Fix: @media prefers-reduced-motion also handles this      */
-    @media (prefers-reduced-motion: reduce) {
-      .faq-item { opacity: 1 !important; transform: none !important; }
-    }
-    .faq-item {
-      border: 1px solid var(--border-dk);
-      margin-bottom: var(--sp-3);
-      transition: border-color 0.3s ease;
-    }
-    .faq-item.js-reveal {
-      opacity: 0; transform: translateY(16px);
-    }
-    .faq-item.js-reveal.visible {
-      opacity: 1; transform: translateY(0);
-      transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s;
-    }
-    .faq-item summary:focus-visible {
-      outline: 2px solid var(--gold-warm);
-      outline-offset: 3px;
-      border-radius: 2px;
-    }
-
-    /* ══ FIX 6: footer-links--row color #555 on dark ══
-       bazi.css .footer-links--row a { color: #555 } = 2.61:1 FAIL
-       Override here since we can't edit bazi.css               */
-    .footer-links--row a {
-      color: var(--text-dk-secondary) !important;   /* #A89968 = 6.87:1 ✓ */
-    }
-    .footer-links--row a:hover,
-    .footer-links--row a.active { color: var(--gold-warm) !important; }
-
-    /* ══ FIX 7: footer-tag #444 on dark = FAIL ══
-       bazi.css: .footer-tag { color: #444 } = 2.3:1 FAIL     */
-    .footer-tag { color: var(--text-dk-meta) !important; }  /* #888 = 5.48:1 ✓ */
-
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .hero--faq        { padding: var(--sp-8) var(--sp-3) var(--sp-5); }
-      .quicknav-section { padding: 0 var(--sp-3) var(--sp-4); }
-      .faq-section-wrap { padding: 0 var(--sp-3) var(--sp-6); }
-    }
-    @media (max-width: 600px) {
-      .quicknav { gap: 0.5rem; }
+    @media (max-width: 768px) {
+      .hero--faq { padding: var(--sp-8) var(--sp-3) var(--sp-5); }
+      .quicknav-wrap, .faq-section { padding-left: var(--sp-3); padding-right: var(--sp-3); }
+      .fq-header, .fq-body { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .fq-question { font-size: 1.05rem; }
     }
   </style>
 </head>
@@ -176,14 +136,14 @@
   <symbol id="wa" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </symbol>
+  <!-- Chevron SVG for accordion -->
+  <symbol id="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19 9l-7 7-7-7"/>
+  </symbol>
 </svg>
 
-<!-- ── NAV ── -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">
-    Bazi Wealth Path
-    <small>by djnordhawk</small>
-  </a>
+  <a href="index.html" class="nav-logo">Bazi Life Path <small>by DJ Nordhawk</small></a>
   <div class="nav-links">
     <a href="pendekatan.html">Pendekatan</a>
     <a href="remedy.html">Remedy</a>
@@ -191,7 +151,7 @@
     <a href="artikel.html">Artikel</a>
     <a href="about.html">Tentang</a>
     <a href="faq.html" class="active">FAQ</a>
-    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+konsultasi+Bazi+Wealth+Path." class="btn-nav">
+    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+cerita+situasi+saya+dulu." class="btn-nav">
       <svg><use href="#wa"/></svg> <span class="btn-nav-text">Konsultasi</span>
     </a>
   </div>
@@ -200,110 +160,154 @@
 <!-- HERO -->
 <section class="hero hero--faq">
   <div class="hero-glow"></div>
-  <span class="hero-zh hero-zh--left">問</span>
-  <div class="hero-content" style="max-width:760px; text-align:center; margin:0 auto;">
-    <p class="hero-eyebrow anim-fade-up anim-delay-1">Pertanyaan yang Sering Diajukan</p>
-    <h1 class="hero-h1 anim-fade-up anim-delay-2">Sebelum Anda <em>menghubungi saya</em></h1>
+  <span class="hero-zh hero-zh--left" style="opacity:0.07;">問</span>
+  <div class="hero-content" style="max-width:700px; text-align:center; margin:0 auto;">
+    <p class="hero-eyebrow anim-fade-up anim-delay-1">Real Talk & Pertanyaan Umum</p>
+    <h1 class="hero-h1 anim-fade-up anim-delay-2">Ada yang mengganjal? <em>Mari kita bahas terbuka.</em></h1>
     <div class="hero-hr hero-hr--center anim-fade-up anim-delay-3"></div>
     <p class="hero-sub anim-fade-up" style="animation-delay:.9s; margin:0 auto;">
-      Beberapa pertanyaan yang paling sering ditanyakan calon klien — soal cara kerja, proses, kerahasiaan, dan apakah pendekatan ini cocok untuk Anda.
+      Skeptis itu wajar. Dimulai dari keraguan yang paling besar, kemudian ke pertanyaan teknis seputar proses dan harga.
     </p>
   </div>
 </section>
 
-<!-- QUICK NAV -->
-<div class="quicknav-section">
-  <div class="container--narrow">
-    <div class="quicknav">
-      <a href="#umum"   class="quicknav-link">Umum</a>
-      <a href="#proses" class="quicknav-link">Proses &amp; Harga</a>
-      <a href="#hasil"  class="quicknav-link">Hasil &amp; Kerahasiaan</a>
+<!-- QUICK NAV PILLS -->
+<div class="quicknav-wrap">
+  <div class="quicknav-pills">
+    <a href="#realtalk" class="qp-link active" id="pill-realtalk">Real Talk (Wajib Baca)</a>
+    <a href="#proses"   class="qp-link" id="pill-proses">Proses &amp; Harga</a>
+    <a href="#hasil"    class="qp-link" id="pill-hasil">Hasil &amp; Kerahasiaan</a>
+  </div>
+</div>
+
+<!-- ──────────────────────────────────────────
+  SECTION 1: REAL TALK
+────────────────────────────────────────── -->
+<section class="faq-section" id="realtalk">
+  <div class="faq-page-inner">
+    <div class="section-label-bar">
+      <span class="slb-text">Real Talk — Pertanyaan Berat</span>
+      <span class="slb-line"></span>
     </div>
-  </div>
-</div>
 
-<!-- FAQ LIST -->
-<div class="faq-section-wrap">
-  <div class="container--narrow">
-
-    <p class="faq-cat-label" id="umum">Umum</p>
-
-    <details class="faq-item">
-      <summary>Apa itu Wealth Path Bazi Session? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Wealth Path Bazi Session adalah sesi konsultasi privat 90 menit via Zoom yang memetakan pola pilar kelahiran Anda, mengidentifikasi area potensi wealth, dan mendiskusikan timing keputusan bisnis. Sesi ini diakhiri dengan ringkasan rekomendasi tertulis yang Anda terima dalam 3–5 hari kerja. Penjelasan lengkap ada di halaman <a href="yang-anda-dapatkan.html">Apa yang Anda Dapatkan</a>.
+    <!-- Card 1 -->
+    <div class="fq-card fq-card--realtalk">
+      <div class="fq-header fq-header--static">
+        <div style="flex:1">
+          <span class="fq-badge">Mitos vs Realita</span>
+          <p class="fq-question">Bukannya ini sama aja kayak ramalan nasib?</p>
+        </div>
       </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Apakah ini sama dengan ramalan nasib? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Tidak. Ramalan nasib konvensional berasumsi masa depan sudah tertulis mati dan Anda hanya bisa pasrah. Pendekatan ini menolak determinisme tersebut — fokusnya adalah diagnosis pola dan perancangan langkah remedy yang konkret. Anda tetap pemegang kendali penuh atas setiap keputusan. Baca lebih lanjut di halaman <a href="remedy.html">Remedy</a>.
+      <div class="fq-body">
+        <p><em>Fair question.</em> Banyak yang datang dengan asumsi ini. Gini deh bedanya: ramalan nasib (<em>fortune-telling</em>) berasumsi masa depan Anda sudah tertulis, baku, nggak bisa diubah — Anda cuma bisa pasrah. "Tahun depan ciong ya, siap-siap aja." Itu <em>fortune-telling</em>.</p>
+        <p>Saya nggak percaya itu. Yang saya baca itu <strong>pola</strong>. Sama seperti membaca laporan keuangan atau data cuaca. Pola itu nunjukin Anda punya kebiasaan apa saat ngambil keputusan, dan kapan siklus di luar lagi kurang bersahabat. Setelah tahu polanya, Anda bisa milih langkah (remedy) yang tepat. Prediksi yang baik harusnya memberikan Anda kendali, bukan malah merampasnya.</p>
       </div>
-    </details>
+    </div>
 
-    <details class="faq-item">
-      <summary>Apakah pendekatan ini kompatibel dengan keyakinan agama saya? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Kerangka analisis ini bersifat netral secara keyakinan — ia membaca pola, bukan menggantikan keyakinan spiritual Anda. Banyak klien dari berbagai latar belakang agama telah menggunakan kerangka ini sebagai alat bantu analisis bisnis tanpa konflik nilai.
+    <!-- Card 2 -->
+    <div class="fq-card fq-card--realtalk">
+      <div class="fq-header fq-header--static">
+        <div style="flex:1">
+          <span class="fq-badge">Skeptisisme Rasional</span>
+          <p class="fq-question">Gimana saya tahu ini bukan Barnum Effect — cuma cocok-cocokan kalimat umum?</p>
+        </div>
       </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Apakah artikel-artikel di blog ini berarti kerja keras itu sia-sia? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Sama sekali tidak. Kerja keras adalah bahan bakar mutlak bagi setiap bisnis. Namun kerja keras tanpa sinkronisasi timing risiko dan perlindungan pilar personal sering kali menghasilkan usaha yang terbuang karena benturan keputusan yang salah di kuartal kritis.
+      <div class="fq-body">
+        <p>Pertanyaan yang sangat cerdas. Barnum effect itu sering banget dipakai zodiak majalah mingguan — bikin kalimat umum yang seolah-olah cocok buat semua orang ("Anda orangnya penyayang tapi kadang keras kepala").</p>
+        <p>Cara saya menghindari ini: Pola yang saya baca lahir dari kombinasi spesifik tahun, bulan, hari, dan jam lahir Anda — bukan pernyataan generik. Dan sebelum saya ngasih satu pun saran, saya melakukan <em>Life Event Validation</em> (Layer 2 dalam pendekatan saya). Saya ngecek kejadian spesifik di masa lalu Anda. Kalau pola di chart <em>nggak nyambung</em> sama realita yang pernah Anda alami, saya langsung bilang jujur — dan kita nggak akan pakai alat ini.</p>
       </div>
-    </details>
+    </div>
 
-    <p class="faq-cat-label" id="proses">Proses &amp; Harga</p>
-
-    <details class="faq-item">
-      <summary>Bagaimana alur dari menghubungi hingga sesi selesai? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Anda menghubungi via WhatsApp untuk menceritakan situasi, mengisi data kelahiran dan konteks bisnis, menjalani sesi 90 menit via Zoom, lalu menerima ringkasan tertulis dalam 3–5 hari kerja. Alur lengkap dengan rincian setiap tahap ada di halaman <a href="yang-anda-dapatkan.html">Apa yang Anda Dapatkan</a>.
+    <!-- Card 3 -->
+    <div class="fq-card fq-card--realtalk">
+      <div class="fq-header fq-header--static">
+        <div style="flex:1">
+          <span class="fq-badge">Untuk Orang Skeptis</span>
+          <p class="fq-question">Saya sangat skeptis sama hal-hal kayak gini. Apakah ini cocok buat saya?</p>
+        </div>
       </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Berapa biaya sesinya dan bagaimana cara pembayaran? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Biaya dan metode pembayaran akan diinformasikan langsung saat Anda menghubungi via WhatsApp, karena dapat menyesuaikan dengan kompleksitas situasi yang Anda ceritakan. Tidak ada biaya tersembunyi atau langganan otomatis — sesi ini bersifat satu kali (one-off).
+      <div class="fq-body">
+        <p>Skeptis itu sehat. Faktanya, banyak klien saya justru datang dari <em>background</em> sangat rasional — analis, dokter, founder tech — dan mereka awalnya juga mikir, "Masa sih data lahir ngaruh ke operasional bisnis?"</p>
+        <p>Saya nggak minta Anda percaya membabi-buta. Saya cuma mengundang Anda untuk tes datanya. Ceritakan situasi bisnis Anda, kita baca petanya bareng. Kalau rekomendasinya masuk akal dan bisa dinalar sebagai strategi bisnis, silakan dipakai. Kalau dirasa nggak <em>makes sense</em>, anggap saja obrolan kita sebagai <em>second opinion</em> gratis. <em>I show you the path. Let you walk the path.</em></p>
       </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Apa yang harus saya siapkan sebelum sesi? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Cukup siapkan tanggal, jam, dan lokasi kelahiran yang akurat, serta deskripsi singkat situasi bisnis yang sedang Anda hadapi. Keduanya diisi melalui formulir yang dikirimkan setelah Anda menghubungi via WhatsApp — sehingga waktu 90 menit bisa langsung fokus ke diskusi.
-      </div>
-    </details>
-
-    <p class="faq-cat-label" id="hasil">Hasil &amp; Kerahasiaan</p>
-
-    <details class="faq-item">
-      <summary>Apa yang saya terima setelah sesi selesai? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Anda menerima ringkasan rekomendasi tertulis dalam 3–5 hari kerja, berisi peta pilar personal, peta kuartal kerawanan tahun ini, area potensi wealth, dan 2–3 langkah remedy konkret yang bisa langsung dijalankan. Rincian lengkap isi laporan ada di halaman <a href="yang-anda-dapatkan.html">Apa yang Anda Dapatkan</a>.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Bagaimana saya tahu jika bisnis saya sedang mengalami sumbatan pilar kelahiran? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Indikator paling umum adalah pola repetisi masalah: kebocoran modal yang sama berulang, kemacetan komunikasi di kuartal tertentu secara konsisten, atau keputusan ekspansi yang selalu stagnan meski aspek rasional dirasa sudah benar.
-      </div>
-    </details>
-
-    <details class="faq-item">
-      <summary>Apakah data kelahiran dan hasil sesi saya akan dirahasiakan? <span class="faq-arrow">▼</span></summary>
-      <div class="faq-item-body">
-        Ya. Data kelahiran dan isi diskusi bersifat privat dan hanya digunakan untuk keperluan analisis sesi Anda. Rekaman sesi dan ringkasan tertulis dikirim langsung ke Anda dan tidak dibagikan ke pihak lain.
-      </div>
-    </details>
+    </div>
 
   </div>
-</div>
+</section>
+
+<!-- ──────────────────────────────────────────
+  SECTION 2: PROSES & HARGA
+────────────────────────────────────────── -->
+<section class="faq-section" style="background:var(--charcoal); padding-top:var(--sp-6);" id="proses">
+  <div class="faq-page-inner">
+    <div class="section-label-bar">
+      <span class="slb-text">Proses &amp; Harga</span>
+      <span class="slb-line"></span>
+    </div>
+
+    <details class="fq-card">
+      <summary class="fq-header">
+        <p class="fq-question">Gimana alur dari ngobrol awal sampai sesi selesai?</p>
+        <svg class="fq-icon"><use href="#chevron"/></svg>
+      </summary>
+      <div class="fq-body">
+        <p>Gampang deh. Anda chat saya via WhatsApp buat cerita situasinya. Kalau saya ngerasa bisa bantu, Anda isi data lahir dan form konteks. Setelah itu kita jadwalkan sesi Zoom privat selama 90 menit. Selesai sesi, dalam 3–5 hari kerja saya kirimkan ringkasan rekomendasi tertulis (PDF) biar Anda gampang me-<em>review</em> langkah nyatanya. Rinciannya ada di halaman <a href="yang-anda-dapatkan.html">Layanan</a>.</p>
+      </div>
+    </details>
+
+    <details class="fq-card">
+      <summary class="fq-header">
+        <p class="fq-question">Berapa biayanya?</p>
+        <svg class="fq-icon"><use href="#chevron"/></svg>
+      </summary>
+      <div class="fq-body">
+        <p>Harganya <strong>Rp 777.000</strong> (flat, <em>one-off session</em>). Nggak ada <em>upsell</em>, nggak ada biaya langganan, dan nggak ada produk tambahan (jimat/kristal) yang akan saya tawarkan di akhir sesi. Harga ini adalah <em>premium yang masuk akal</em> untuk waktu dan kedalaman analisis tiga sistem sekaligus (BaZi + Vedic + Javanese Esoteric).</p>
+      </div>
+    </details>
+
+    <details class="fq-card">
+      <summary class="fq-header">
+        <p class="fq-question">Apa aja yang harus saya siapkan sebelum sesi Zoom?</p>
+        <svg class="fq-icon"><use href="#chevron"/></svg>
+      </summary>
+      <div class="fq-body">
+        <p>Siapkan tiga hal: <strong>Tanggal lahir, Jam lahir (penting!), dan Kota kelahiran</strong>. Selain itu, siapin satu atau dua masalah bisnis yang lagi bikin pusing saat ini. Begitu masuk sesi, kita nggak bahas teori panjang lebar — langsung bedah masalah itu.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ──────────────────────────────────────────
+  SECTION 3: HASIL & KERAHASIAAN
+────────────────────────────────────────── -->
+<section class="faq-section" id="hasil">
+  <div class="faq-page-inner">
+    <div class="section-label-bar">
+      <span class="slb-text">Hasil &amp; Kerahasiaan</span>
+      <span class="slb-line"></span>
+    </div>
+
+    <details class="fq-card">
+      <summary class="fq-header">
+        <p class="fq-question">Apakah rahasia bisnis saya terjamin aman?</p>
+        <svg class="fq-icon"><use href="#chevron"/></svg>
+      </summary>
+      <div class="fq-body">
+        <p>Privasi Anda 100% terkunci. Data kelahiran, rekam jejak finansial, dan isi obrolan kita nggak akan pernah saya <em>share</em>, upload, atau pakai sebagai studi kasus tanpa <em>consent</em> tertulis dari Anda. File rekaman dan PDF langsung saya kirimkan ke Anda pribadi, tidak tersimpan di server pihak ketiga.</p>
+      </div>
+    </details>
+
+    <details class="fq-card">
+      <summary class="fq-header">
+        <p class="fq-question">Apakah saya wajib menjalankan semua Remedy yang disarankan?</p>
+        <svg class="fq-icon"><use href="#chevron"/></svg>
+      </summary>
+      <div class="fq-body">
+        <p>Tidak sama sekali. Kerangka ini sepenuhnya netral dan tidak memaksa. Saya kasih opsi langkah pelindung (<em>remedy</em>), tapi keputusan akhir sepenuhnya ada di tangan Anda. Banyak klien yang cuma butuh "diagnosis"-nya saja untuk <em>peace of mind</em>, dan itu sangat tidak apa-apa. <em>I show you the path. Let you walk the path.</em></p>
+      </div>
+    </details>
+  </div>
+</section>
 
 <!-- CTA -->
 <div class="cta-section">
@@ -311,34 +315,27 @@
   <div class="cta-overlay"></div>
   <div class="cta-inner">
     <span class="cta-zh">問</span>
-    <p class="cta-eyebrow">Masih Ada Pertanyaan?</p>
-    <h2 class="cta-h2">Tanyakan <em>langsung</em> via WhatsApp.</h2>
+    <p class="cta-eyebrow">Ada pertanyaan lain?</p>
+    <h2 class="cta-h2">Masih ada yang <em>mengganjal?</em></h2>
     <div class="cta-hr"></div>
-    <p class="cta-body">Tidak menemukan jawaban yang Anda cari? Ceritakan situasinya — saya akan jawab secara personal, tanpa komitmen apa pun di awal.</p>
+    <p class="cta-body">Tanya langsung. Nggak usah ragu — ceritakan situasinya, kita mulai dari sananya.</p>
     <div class="cta-actions">
       <a href="https://wa.me/6282117175544?text=Halo%2C+saya+punya+pertanyaan+tentang+Wealth+Path+Bazi+Session." class="btn-wa">
-        <svg><use href="#wa"/></svg> Tanya via WhatsApp
+        <svg><use href="#wa"/></svg> Chat langsung via WhatsApp
       </a>
       <a href="yang-anda-dapatkan.html" class="btn-ghost">Lihat Detail Layanan</a>
     </div>
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <!-- Kolom 1: Brand & Tagline -->
     <div>
-      <div class="footer-brand">
-        Bazi Wealth Path <span class="footer-sub-brand">by djnordhawk</span>
-      </div>
-      <p class="footer-tagline">
-        Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
-      </p>
+      <div class="footer-brand">Bazi Life Path <span class="footer-sub-brand">by DJ Nordhawk</span></div>
+      <p class="footer-tagline">Saya baca pola dari data lahir Anda, terus kita ubah jadi langkah konkret untuk bisnis dan keuangan Anda.</p>
       <p class="footer-tag">Guide, Not Guru.</p>
     </div>
-    
-    <!-- Kolom 2: Navigasi Halaman Utama -->
     <div>
       <p class="footer-label">Halaman</p>
       <ul class="footer-links">
@@ -351,8 +348,6 @@
         <li><a href="faq.html" class="active">FAQ</a></li>
       </ul>
     </div>
-    
-    <!-- Kolom 3: Layanan Sub-halaman -->
     <div>
       <p class="footer-label">Layanan</p>
       <ul class="footer-links">
@@ -360,41 +355,58 @@
         <li><a href="yang-anda-dapatkan.html#timeline">Wealth Path Session</a></li>
       </ul>
     </div>
-    
-    <!-- Kolom 4: Kontak & Dukungan -->
     <div>
       <p class="footer-label">Kontak</p>
       <ul class="footer-links">
-        <li><a href="https://wa.me/6282117175544">WhatsApp</a></li>
+        <li><a href="https://wa.me/6282117175544">Chat aja, kita mulai dari sananya</a></li>
         <li><a href="faq.html" class="active">FAQ</a></li>
       </ul>
     </div>
   </div>
-  
-  <!-- Footer Bottom Info -->
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Bazi Wealth Path by djnordhawk. All Rights Reserved.</span>
+    <span class="footer-copy">© 2026 Bazi Life Path by DJ Nordhawk. All Rights Reserved.</span>
     <span class="footer-guide">Guide, Not Guru.</span>
   </div>
 </footer>
 
 <script>
-  // Scroll reveal with progressive enhancement fallback (Finding #1)
-  if ('IntersectionObserver' in window) {
-    const items = document.querySelectorAll('.faq-item');
-    // Add js-reveal class only after confirming JS is active
-    items.forEach(it => it.classList.add('js-reveal'));
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), (i % 4) * 70);
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.10 });
-    items.forEach(it => obs.observe(it));
-  }
-</script>
+  // Scroll reveal
+  const cards = document.querySelectorAll('.fq-card');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  cards.forEach(c => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(14px)';
+    obs.observe(c);
+  });
 
+  // Quick nav active pill on scroll
+  const sections = [
+    { id: 'realtalk', pill: 'pill-realtalk' },
+    { id: 'proses',   pill: 'pill-proses' },
+    { id: 'hasil',    pill: 'pill-hasil' },
+  ];
+  const pillObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        sections.forEach(s => document.getElementById(s.pill)?.classList.remove('active'));
+        const match = sections.find(s => s.id === e.target.id);
+        if (match) document.getElementById(match.pill)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) pillObs.observe(el);
+  });
+</script>
 </body>
 </html>

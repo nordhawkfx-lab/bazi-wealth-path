@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Love Path — Memahami Pola Relasi dari Chart | Life Path by DJ Nordhawk</title>
+  <meta name="description" content="Bagaimana BaZi membaca pola hubungan — bukan dari perasaan, tapi dari struktur. Untuk Anda yang ingin benar-benar memahami mengapa pola yang sama terus berulang dalam relasi." />
+  <link rel="stylesheet" href="bazi.css" />
+
+  <style>
+    /* ── Love Path Edukatif — page-specific ── */
+
+    /* Confidentiality strip */
+    .lp-conf-strip {
+      background: var(--charcoal);
+      padding: .9rem 2.5rem;
+      border-bottom: 1px solid var(--border-dk);
+      display: flex; align-items: center; gap: 1rem;
+      font-size: .82rem; color: var(--text-dk-meta);
+    }
+    .lp-conf-strip-icon { color: var(--gold-warm); font-size: 1.1rem; flex-shrink: 0; }
+    .lp-conf-strip strong { color: var(--text-dk-secondary); }
+
+    /* Hero */
+    .lp-hero {
+      position: relative; overflow: hidden;
+      padding: var(--sp-8) 2.5rem var(--sp-7);
+      background: var(--charcoal-d);
+      min-height: 72vh;
+      display: flex; align-items: center;
+    }
+    .lp-hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1600&auto=format&q=60') center/cover no-repeat;
+      filter: grayscale(30%) brightness(0.12);
+    }
+    .lp-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, rgba(10,20,30,.98) 0%, rgba(10,20,30,.85) 55%, rgba(10,20,30,.6) 100%);
+    }
+    .lp-hero-inner {
+      position: relative; z-index: 2;
+      max-width: 760px; margin: 0 auto;
+    }
+    .lp-hero-eyebrow {
+      font-size: var(--font-micro); letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold-warm); margin-bottom: 1.2rem;
+    }
+    .lp-hero-h1 {
+      font-family: var(--ff-display); font-size: clamp(2.2rem,5vw,3.6rem);
+      color: #fff; font-weight: 400; line-height: 1.12; margin-bottom: 1.5rem;
+    }
+    .lp-hero-h1 em { color: var(--gold-warm); font-style: italic; }
+    .lp-hero-body {
+      font-size: clamp(1rem,1.2vw,1.15rem); color: var(--text-dk-secondary);
+      line-height: var(--line-prose); margin-bottom: 2.5rem; max-width: 620px;
+    }
+    .lp-conf-badge {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: rgba(184,134,11,.06); border: 1px solid var(--border-gold);
+      padding: .7rem 1.3rem; font-size: .8rem; color: var(--text-dk-meta);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Intro edukatif — "apa itu BaZi untuk relasi" ── */
+    #lp-intro {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal);
+    }
+    .lp-intro-inner { max-width: 820px; margin: 0 auto; }
+    .lp-intro-lead {
+      font-family: var(--ff-display);
+      font-size: clamp(1.3rem,2vw,1.7rem);
+      color: var(--text-dk-primary);
+      line-height: 1.45;
+      font-weight: 500;
+      margin-bottom: 2rem;
+    }
+    .lp-intro-lead em { color: var(--gold-warm); font-style: italic; }
+    .lp-intro-body {
+      color: var(--text-dk-secondary);
+      font-size: var(--font-prose);
+      line-height: var(--line-prose);
+      display: flex; flex-direction: column; gap: 1.4rem;
+    }
+    .lp-intro-divider {
+      width: 48px; height: 1px;
+      background: var(--border-gold);
+      margin: 2rem 0;
+    }
+
+    /* ── Konsep: Mengapa pola berulang ── */
+    #lp-why-pattern {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal-d);
+    }
+    .lp-why-inner { max-width: 1200px; margin: 0 auto; }
+    .lp-why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; margin-top: 3rem; align-items: start;
+    }
+    .lp-why-text { display: flex; flex-direction: column; gap: 1.5rem; }
+    .lp-why-text p {
+      font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: var(--line-prose);
+    }
+    .lp-concept-box {
+      border: 1px solid var(--border-gold);
+      padding: 2rem 2rem 1.8rem;
+      background: rgba(184,134,11,.025);
+    }
+    .lp-concept-label {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold-warm); margin-bottom: .8rem;
+    }
+    .lp-concept-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.1rem,1.5vw,1.4rem);
+      color: var(--text-dk-primary);
+      line-height: 1.3; margin-bottom: 1rem; font-weight: 500;
+    }
+    .lp-concept-body {
+      font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: var(--line-prose);
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .lp-concept-highlight {
+      padding: 1rem 1.2rem;
+      border-left: 2px solid var(--border-gold);
+      font-style: italic;
+      font-size: .92rem;
+      color: var(--text-dk-primary);
+      line-height: 1.65;
+      margin-top: .5rem;
+    }
+
+    /* ── Apa yang Chart Baca: 4 Dimensi ── */
+    #lp-dimensions {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal);
+      position: relative; overflow: hidden;
+    }
+    .lp-dim-bg-char {
+      position: absolute; right: -60px; top: 50%; transform: translateY(-50%);
+      font-family: var(--ff-display); font-size: 30rem; color: rgba(184,134,11,.025);
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .lp-dim-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+    .lp-dim-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin-top: 3rem;
+      border: 1px solid var(--border-dk);
+    }
+    .lp-dim-item {
+      padding: 2rem 2rem 1.8rem;
+      border: none;
+      background: var(--charcoal-d);
+      border-bottom: 1px solid var(--border-dk);
+      border-right: 1px solid var(--border-dk);
+      transition: background .2s;
+    }
+    .lp-dim-item:hover { background: rgba(184,134,11,.02); }
+    .lp-dim-num {
+      font-family: var(--ff-display); font-size: 2.2rem;
+      color: var(--gold-warm); opacity: .25; line-height: 1; margin-bottom: .8rem;
+    }
+    .lp-dim-title {
+      font-size: 1rem; font-weight: 600; color: var(--text-dk-primary); margin-bottom: .6rem;
+    }
+    .lp-dim-q {
+      font-size: .8rem; letter-spacing: .05em;
+      color: var(--gold-warm); margin-bottom: .8rem;
+      font-style: italic;
+    }
+    .lp-dim-desc {
+      font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: 1.7;
+    }
+    .lp-dim-example {
+      margin-top: 1rem;
+      padding: .8rem 1rem;
+      background: rgba(184,134,11,.03);
+      border-left: 2px solid var(--border-gold);
+      font-size: .82rem; color: var(--text-dk-meta);
+      font-style: italic; line-height: 1.6;
+    }
+    .lp-dim-more {
+      margin-top: 2rem;
+      padding: 1.2rem 1.6rem;
+      border: 1px dashed var(--border-dk);
+      font-size: .82rem; color: var(--text-dk-meta);
+      line-height: 1.6;
+    }
+
+    /* ── Bagian "Apa itu EG Star" — konsep edukatif ── */
+    #lp-mechanism {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal-d);
+    }
+    .lp-mech-inner { max-width: 860px; margin: 0 auto; }
+    .lp-mech-intro {
+      font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: var(--line-prose);
+      margin-bottom: 2.5rem; display: flex; flex-direction: column; gap: 1.3rem;
+    }
+    .lp-case-edu {
+      border: 1px solid var(--border-dk);
+      padding: 2.5rem 2.5rem 2rem;
+      margin: 2.5rem 0;
+      background: rgba(184,134,11,.015);
+    }
+    .lp-case-edu-label {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold-warm); margin-bottom: 1rem;
+    }
+    .lp-case-edu-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.2rem,2vw,1.7rem);
+      color: var(--text-dk-primary);
+      line-height: 1.3; font-weight: 500; margin-bottom: 1.8rem;
+    }
+    .lp-case-edu-title em { color: var(--gold-warm); font-style: italic; }
+    .lp-case-edu-meta {
+      font-size: .77rem; color: var(--text-dk-meta); font-style: italic;
+      padding-bottom: 1.2rem; margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-dk);
+    }
+    .lp-case-edu-body {
+      color: var(--text-dk-secondary); font-size: var(--font-prose);
+      line-height: var(--line-prose); display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .lp-concept-pull {
+      padding: 1.2rem 1.5rem;
+      border-left: 2px solid var(--border-gold);
+      background: rgba(184,134,11,.03);
+      font-style: italic;
+      color: var(--text-dk-primary);
+      font-size: .94rem; line-height: 1.65;
+    }
+    .lp-case-edu-footer {
+      margin-top: 1.5rem;
+      font-size: .8rem; color: var(--text-dk-meta); font-style: italic;
+    }
+
+    /* ── Kesimpulan Sesi — Edukatif ── */
+    #lp-what-a-session-is {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal);
+    }
+    .lp-session-inner { max-width: 860px; margin: 0 auto; }
+    .lp-session-body {
+      color: var(--text-dk-secondary); font-size: var(--font-prose);
+      line-height: var(--line-prose); display: flex; flex-direction: column; gap: 1.4rem;
+      margin-top: 2rem;
+    }
+    .lp-session-steps {
+      display: flex; flex-direction: column; gap: 0; margin: 2rem 0;
+    }
+    .lp-session-step {
+      display: grid; grid-template-columns: 48px 1fr;
+      gap: 1.5rem; padding: 1.8rem 0;
+      border-bottom: 1px solid var(--border-dk);
+      align-items: start;
+    }
+    .lp-session-step:last-child { border-bottom: none; }
+    .lp-step-num {
+      font-family: var(--ff-display); font-size: 2rem;
+      color: var(--gold-warm); opacity: .3; line-height: 1;
+    }
+    .lp-step-content {}
+    .lp-step-title {
+      font-size: 1rem; font-weight: 600; color: var(--text-dk-primary);
+      margin-bottom: .5rem;
+    }
+    .lp-step-desc {
+      font-size: var(--font-prose); color: var(--text-dk-secondary); line-height: 1.7;
+    }
+
+    /* ── Testimonial ── */
+    #lp-testimonial {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal-d);
+    }
+    .lp-testi-inner { max-width: 800px; margin: 0 auto; }
+    .lp-testi-block {
+      border: 1px solid var(--border-gold); padding: 2.5rem 2.5rem 2rem;
+      background: rgba(184,134,11,.02); margin: 2.5rem 0;
+      position: relative;
+    }
+    .lp-testi-openquote {
+      font-family: var(--ff-display); font-size: 5rem; color: var(--gold-warm);
+      opacity: .25; line-height: .6; display: block; margin-bottom: .5rem;
+    }
+    .lp-testi-text {
+      font-size: clamp(1rem,1.2vw,1.1rem); color: var(--text-dk-primary);
+      line-height: var(--line-prose); font-style: italic;
+    }
+    .lp-testi-attr {
+      font-size: .78rem; color: var(--text-dk-meta); font-style: normal;
+      display: block; margin-top: 1.2rem;
+    }
+    .lp-testi-context {
+      margin-top: 2rem;
+      color: var(--text-dk-secondary); font-size: var(--font-prose);
+      line-height: var(--line-prose); display: flex; flex-direction: column; gap: 1.2rem;
+    }
+
+    /* ── Deliverable — Edukatif ── */
+    #lp-deliverable {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--cream);
+    }
+    .lp-deliv-inner { max-width: 1000px; margin: 0 auto; }
+    .lp-deliv-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 2rem; margin-top: 2.5rem;
+    }
+    .lp-deliv-card {
+      padding: 2rem 1.6rem; background: #fff; border: 1px solid #e0dcd4;
+    }
+    .lp-deliv-num {
+      font-family: var(--ff-display); font-size: 2.5rem; color: var(--emerald);
+      opacity: .3; line-height: 1; margin-bottom: .8rem;
+    }
+    .lp-deliv-title {
+      font-size: 1rem; font-weight: 600; color: var(--text-lt-primary); margin-bottom: .5rem;
+    }
+    .lp-deliv-desc {
+      font-size: var(--font-prose); color: var(--text-lt-secondary); line-height: var(--line-prose);
+    }
+    .lp-deliv-why {
+      margin-top: 1rem; padding-top: 1rem;
+      border-top: 1px solid #eee;
+      font-size: .8rem; color: var(--text-lt-meta); line-height: 1.6;
+    }
+    .lp-conf-reminder {
+      margin-top: 2rem; padding: 1.2rem 1.8rem;
+      border: 1px solid rgba(12,60,45,.2); background: rgba(12,60,45,.03);
+      font-size: .84rem; color: var(--text-lt-secondary);
+      display: flex; align-items: center; gap: .8rem;
+    }
+
+    /* Family note */
+    .lp-family-note {
+      margin-top: 1.5rem; padding: 1rem 1.5rem;
+      border: 1px solid var(--border-dk); font-size: .82rem;
+      color: var(--text-dk-meta); line-height: 1.6;
+    }
+    .lp-family-note strong { color: var(--text-dk-secondary); }
+
+    /* ── Closing Reflection ── */
+    #lp-closing {
+      padding: var(--sp-7) 2.5rem;
+      background: var(--charcoal);
+    }
+    .lp-closing-inner { max-width: 760px; margin: 0 auto; }
+    .lp-closing-quote {
+      font-family: var(--ff-display);
+      font-size: clamp(1.3rem,2.2vw,1.85rem);
+      color: var(--text-dk-primary);
+      line-height: 1.4; font-weight: 400; font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .lp-closing-quote em { color: var(--gold-warm); }
+    .lp-closing-body {
+      color: var(--text-dk-secondary); font-size: var(--font-prose);
+      line-height: var(--line-prose); display: flex; flex-direction: column; gap: 1.3rem;
+    }
+
+    /* ── CTA ── */
+    #lp-cta {
+      padding: var(--sp-8) 2.5rem;
+      background: var(--charcoal-d); text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .lp-why-grid,
+      .lp-dim-grid,
+      .lp-deliv-grid { grid-template-columns: 1fr; }
+      .lp-hero { padding: 70px 1.5rem 60px; min-height: auto; }
+      #lp-intro, #lp-why-pattern, #lp-dimensions, #lp-mechanism,
+      #lp-what-a-session-is, #lp-testimonial, #lp-deliverable,
+      #lp-closing, #lp-cta { padding: 60px 1.5rem; }
+      .lp-conf-strip { flex-direction: column; align-items: flex-start; gap: .6rem; }
+      .lp-dim-item { border-right: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- WA Icon Sprite -->
+<svg style="display:none">
+  <symbol id="wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+</svg>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    Life Path
+    <small>by DJ Nordhawk</small>
+  </a>
+  <div class="nav-links">
+    <a href="pendekatan.html" class="nav-link-pendekatan">Pendekatan</a>
+    <a href="remedy.html" class="nav-link-remedy">Remedy</a>
+    <a href="yang-anda-dapatkan.html" class="nav-link-layanan active">Layanan</a>
+    <a href="artikel.html" class="nav-link-artikel">Artikel</a>
+    <a href="faq.html" class="nav-link-faq">FAQ</a>
+    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+diskusi+soal+situasi+relasi+saya." class="btn-nav">
+      <svg><use href="#wa"/></svg> <span class="btn-nav-text">Konsultasi</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ── CONFIDENTIALITY STRIP ── -->
+<div class="lp-conf-strip">
+  <span class="lp-conf-strip-icon">🔒</span>
+  <span><strong>Kerahasiaan penuh.</strong> Semua yang Anda ceritakan — nama, situasi, detail hubungan — dijaga sepenuhnya dan tidak dibagikan ke siapapun, termasuk untuk dinamika keluarga yang terasa tidak selaras.</span>
+</div>
+
+<!-- ── HERO ── -->
+<section class="lp-hero">
+  <div class="lp-hero-bg"></div>
+  <div class="lp-hero-overlay"></div>
+  <div class="lp-hero-inner">
+    <p class="lp-hero-eyebrow">Love Path · Memahami Pola Relasi dari Chart</p>
+    <h1 class="lp-hero-h1">
+      Mengapa pola yang sama<br>
+      <em>terus terulang dalam hubungan?</em>
+    </h1>
+    <p class="lp-hero-body">
+      Setiap orang datang ke relasi dengan sesuatu yang sudah tertulis — kapasitas, kecenderungan, dan titik rawan yang terbentuk jauh sebelum pertemuan pertama terjadi. BaZi membaca struktur itu. Bukan untuk menghakimi — tapi untuk memberi gambar yang lebih jelas dari yang bisa kita lihat sendiri.
+    </p>
+    <div class="lp-conf-badge">
+      🔒 Semua yang dibahas dalam sesi dijaga kerahasiaannya sepenuhnya.
+    </div>
+    <div class="hero-ctas">
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+diskusi+soal+situasi+relasi+saya." class="btn-wa">
+        <svg><use href="#wa"/></svg> Chat dulu — tidak ada komitmen
+      </a>
+      <a href="yang-anda-dapatkan.html" class="btn-ghost">Lihat apa yang Anda terima</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── INTRO EDUKATIF ── -->
+<section id="lp-intro">
+  <div class="lp-intro-inner">
+    <p class="section-eyebrow">Dasar · Cara BaZi Membaca Relasi</p>
+    <p class="lp-intro-lead">
+      BaZi bukan sistem yang menebak perasaan.<br>
+      <em>Ia membaca struktur — dan struktur tidak berbohong.</em>
+    </p>
+    <div class="lp-intro-divider"></div>
+    <div class="lp-intro-body">
+      <p>
+        Dalam sistem BaZi, setiap orang lahir dengan kombinasi elemen tertentu — kayu, api, tanah, logam, dan air — dalam proporsi yang unik. Kombinasi ini tidak hanya membentuk temperamen dan cara berpikir. Ia juga membentuk pola relasional: bagaimana Anda menarik pasangan, bagaimana Anda mempertahankan kedekatan, di mana titik rawan Anda dalam konflik, dan elemen apa dalam pasangan yang secara struktural menguras atau memperkuat Anda.
+      </p>
+      <p>
+        Ketika seseorang berkata "hubungan saya selalu berakhir dengan pola yang sama" — itu bukan kutukan dan bukan kebetulan. Kemungkinan besar ada pola elemen di chart yang terus-menerus menarik situasi sejenis, atau ada komponen yang hilang yang membuat jenis kedekatan tertentu terasa selalu sulit dijangkau.
+      </p>
+      <p>
+        Inilah yang chart bisa tunjukkan: <em>mengapa</em> — bukan hanya <em>apa</em>.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── MENGAPA POLA BERULANG ── -->
+<section id="lp-why-pattern">
+  <div class="lp-why-inner">
+    <p class="section-eyebrow">Konsep Kunci · Partnership Star & Spouse Pillar</p>
+    <h2 class="section-h2">Dua hal yang selalu dibaca<br><em>sebelum apapun yang lain.</em></h2>
+    <div class="section-hr"></div>
+    <div class="lp-why-grid">
+      <div class="lp-why-text">
+        <p>
+          Dalam analisis Love Path, ada dua struktur yang paling menentukan pola relasional seseorang: <strong>Partnership Star</strong> dan <strong>Spouse Pillar</strong>.
+        </p>
+        <p>
+          Partnership Star adalah "bintang" yang menunjukkan kapasitas alami seseorang untuk terhubung dengan orang lain secara dalam. Ini bukan soal apakah seseorang "baik" atau "tidak baik" dalam hubungan — ini soal apakah chart-nya memiliki kapasitas struktural untuk jenis kedekatan emosional tertentu.
+        </p>
+        <p>
+          Spouse Pillar adalah pilar di chart yang menggambarkan profil dan dinamika pasangan. Bila pilar ini "bersih" (clean), perjalanan relasional cenderung lebih mulus. Bila ada clash atau punishment di pilar ini — ini bukan tanda bahwa seseorang tidak bisa bahagia. Ini tanda bahwa ada area spesifik yang butuh navigasi, dan navigasi itu ada caranya.
+        </p>
+        <p>
+          Yang penting dipahami: <em>chart yang penuh clash bukan chart yang rusak</em>. Itu chart yang butuh pemahaman yang lebih dalam untuk dijalani dengan bijak.
+        </p>
+        <div class="lp-family-note">
+          <strong>Soal dinamika keluarga?</strong> Relasi tidak hanya soal pasangan. Sering kali pola dengan orang tua, saudara, atau keluarga besar juga terbaca dari elemen yang sama. Kalau concern utama Anda adalah dinamika keluarga, <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+diskusi+situasi+keluarga+saya." style="color:var(--gold-warm);">cerita dulu via WA</a> dan kita lihat apakah Love Path adalah pintu yang paling tepat.
+        </div>
+      </div>
+      <div class="lp-concept-box">
+        <div class="lp-concept-label">Analogi · Memahami Partnership Star</div>
+        <div class="lp-concept-title">Bayangkan radio yang mencari frekuensi</div>
+        <div class="lp-concept-body">
+          <p>
+            Setiap orang memiliki "frekuensi" elemental tertentu. Partnership Star adalah antena yang menentukan frekuensi orang seperti apa yang bisa "ditangkap" dan dihubungkan secara alami.
+          </p>
+          <p>
+            Seseorang dengan Partnership Star yang kuat akan dengan mudah menarik orang — tapi belum tentu mempertahankan kedekatan. Seseorang tanpa Partnership Star yang dominan mungkin lebih selektif dalam menarik, tapi koneksi yang terbentuk cenderung lebih dalam dan tahan lama.
+          </p>
+          <p>
+            Keduanya adalah kondisi struktural, bukan kekurangan. Yang berubah adalah strategi yang tepat untuk masing-masing.
+          </p>
+          <div class="lp-concept-highlight">
+            "Klien ini tahu ada yang tidak beres. Tapi baru di sesi ini ia tahu <em>mengapa</em> — dan bahwa itu bisa dinavigasi."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── 4 DIMENSI YANG DIBACA CHART ── -->
+<section id="lp-dimensions">
+  <div class="lp-dim-bg-char">緣</div>
+  <div class="lp-dim-inner">
+    <p class="section-eyebrow">Kerangka · 12 Komponen Love Path</p>
+    <h2 class="section-h2">Chart tidak membaca perasaan.<br><em>Chart membaca struktur di balik perasaan itu.</em></h2>
+    <div class="section-hr"></div>
+    <p style="color:var(--text-dk-secondary);font-size:var(--font-prose);line-height:var(--line-prose);max-width:680px;margin-bottom:1rem;">
+      Analisis Love Path menjawab 12 pertanyaan spesifik tentang pola relasional seseorang — dari kapasitas menarik pasangan hingga risiko kekosongan emosional di usia matang. Empat di antaranya paling sering membuka pemahaman baru:
+    </p>
+    <div class="lp-dim-grid">
+      <div class="lp-dim-item">
+        <div class="lp-dim-num">一</div>
+        <div class="lp-dim-title">Kapasitas Menarik & Mempertahankan</div>
+        <div class="lp-dim-q">Apakah chart saya memiliki kapasitas struktural untuk ini?</div>
+        <p class="lp-dim-desc">
+          Partnership Star, Spouse Pillar, dan Charisma Star dibaca bersamaan untuk menjawab dua pertanyaan yang berbeda: kemampuan menarik pasangan, dan kemampuan mempertahankan kedekatan. Keduanya tidak selalu berjalan seiring — dan memahami di mana Anda kuat dan di mana Anda butuh strategi berbeda adalah langkah pertama yang konkret.
+        </p>
+        <div class="lp-dim-example">
+          Seseorang dengan Charisma Star kuat tapi Spouse Pillar yang clash mungkin mudah menarik orang — tapi hubungan sering terganggu di titik yang sama berulang kali.
+        </div>
+      </div>
+      <div class="lp-dim-item">
+        <div class="lp-dim-num">二</div>
+        <div class="lp-dim-title">Profil Pasangan — Ideal & Berisiko</div>
+        <div class="lp-dim-q">Siapa yang secara chart cocok, dan siapa yang perlu diwaspadai?</div>
+        <p class="lp-dim-desc">
+          Chart bisa membaca elemen, temperamen, dan pola energi yang secara struktural kompatibel — dan yang secara struktural membawa gesekan tinggi. Ini bukan daftar hitam, bukan pula jaminan. Ini peta yang bisa Anda gunakan untuk membaca orang-orang yang sudah ada di hidup Anda dengan mata yang lebih jernih.
+        </p>
+        <div class="lp-dim-example">
+          Klien startup founder (PA-02): setelah birth hour dikonfirmasi lewat 8 titik verifikasi, analisis profil pasangan dilakukan — dan pola attraction vs. retention dalam chart-nya menjadi jauh lebih jelas.
+        </div>
+      </div>
+      <div class="lp-dim-item">
+        <div class="lp-dim-num">三</div>
+        <div class="lp-dim-title">Ancestral Mandate — Relasi & Rezeki</div>
+        <div class="lp-dim-q">Adakah pola dari sisi leluhur yang mempengaruhi hubungan saya?</div>
+        <p class="lp-dim-desc">
+          Dalam beberapa chart, ada "mandat" yang tertulis tentang interseksi antara relasi dan rezeki — terutama untuk perempuan yang memiliki pencapaian finansial tinggi dan khawatir hal itu menjadi faktor risiko dalam hubungan. Ini komponen yang paling relevan untuk dibaca dalam situasi seperti itu, dan yang paling jarang dianalisis di pembacaan BaZi konvensional.
+        </p>
+      </div>
+      <div class="lp-dim-item">
+        <div class="lp-dim-num">四</div>
+        <div class="lp-dim-title">Late-Life Relationship Void</div>
+        <div class="lp-dim-q">Apakah ada risiko kekosongan emosional di usia matang?</div>
+        <p class="lp-dim-desc">
+          Ini adalah salah satu komponen yang paling sering tidak terdeteksi di pembacaan awal — risiko kekosongan emosional dalam pernikahan di usia 30-an akhir hingga 50-an. Pembacaan ini bukan untuk menakut-nakuti. Tujuannya adalah memberi gambaran dan strategi preventif jauh sebelum pola itu menguat menjadi krisis yang sulit dibalikkan.
+        </p>
+      </div>
+    </div>
+    <div class="lp-dim-more">
+      + 8 komponen lainnya dianalisis dalam sesi lengkap, termasuk analisis chart pasangan (bila tersedia) — tanpa biaya tambahan. Komponen lainnya tidak dipublikasikan di sini untuk mencegah pembacaan sendiri yang tanpa konteks penuh.
+    </div>
+  </div>
+</section>
+
+
+<!-- ── MEKANISME: KASUS NYATA ── -->
+<section id="lp-mechanism">
+  <div class="lp-mech-inner">
+    <p class="section-eyebrow">Kasus Nyata · Bagaimana Chart Bekerja dalam Praktik</p>
+    <h2 class="section-h2">Ketika chart membaca<br><em>apa yang tidak bisa diungkapkan dengan kata-kata.</em></h2>
+    <div class="section-hr"></div>
+    <div class="lp-mech-intro">
+      <p>
+        Salah satu kekuatan BaZi dalam konteks relasi adalah kemampuannya untuk membaca sesuatu yang sudah dirasakan — tapi belum bisa dinamai. Bukan karena orangnya tidak cukup peka. Tapi karena ada pola struktural yang membutuhkan sistem pembacaan tersendiri untuk terlihat dengan jelas.
+      </p>
+      <p>
+        Kasus berikut ini adalah contoh nyata dari bagaimana pembacaan itu bekerja — dan mengapa hasilnya kadang lebih grounded dari yang diharapkan.
+      </p>
+    </div>
+
+    <div class="lp-case-edu">
+      <div class="lp-case-edu-label">Kasus Nyata · Love Path · Preventive Intervention</div>
+      <div class="lp-case-edu-title">
+        Kekosongan emosional dalam pernikahan —<br>
+        <em>dibaca dari chart, bukan dari asumsi.</em>
+      </div>
+      <div class="lp-case-edu-meta">
+        Kasus nyata · Identitas dianonimkan · Sekitar satu bulan lalu
+      </div>
+      <div class="lp-case-edu-body">
+        <p>
+          Seorang klien perempuan datang dengan concern relasi yang pada permukaannya terdengar umum. Selama sesi berlangsung, chart suaminya juga dibaca — ini adalah praktik standar dalam Love Path ketika concern menyangkut pasangan yang ada.
+        </p>
+        <p>
+          Yang terbaca: suaminya tidak memiliki <strong>EG Star</strong> — atau dalam bahasa BaZi, <em>Eating God</em>. Apa artinya? EG Star adalah simbol kapasitas seseorang untuk mengekspresikan diri keluar — rasa, kreativitas, dan koneksi emosional yang mengalir. Tanpa EG Star, kapasitas seseorang untuk terhubung secara emosional yang dalam memang secara struktural terbatas.
+        </p>
+        <div class="lp-concept-pull">
+          Ini bukan soal karakter yang buruk. Bukan soal tidak cinta. Ini soal kapasitas struktural yang memang berbeda — dan selama ini mungkin tidak pernah terbaca oleh siapapun, termasuk oleh suaminya sendiri.
+        </div>
+        <p>
+          Klien mengkonfirmasi pola itu. Apa yang selama ini ia rasakan sebagai kekosongan dalam komunikasi — bukan imajinasi, bukan tuntutan berlebihan. Itu adalah pola struktural yang memang tertulis di chart.
+        </p>
+        <p>
+          Remedy yang diberikan pada kasus ini bukan ritual dan bukan instrumen. <strong>Rekomendasinya adalah konseling pernikahan dengan profesional</strong> — karena situasi ini membutuhkan intervensi yang tepat, bukan kalibrasi energi semata. Ada saat-saat di mana alat yang paling tepat bukan BaZi, dan di sini itu yang disampaikan dengan jujur.
+        </p>
+        <p class="lp-case-edu-footer">
+          Ini bukan soal menyalahkan siapapun. Ini soal memberi nama pada sesuatu yang sudah lama dirasakan — dan memberikan langkah konkret yang sesuai dengan situasinya.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── APA ITU SESI LOVE PATH ── -->
+<section id="lp-what-a-session-is">
+  <div class="lp-session-inner">
+    <p class="section-eyebrow">Apa yang Terjadi · Dalam Sesi Love Path</p>
+    <h2 class="section-h2">Sesi ini bukan pembacaan horoscope.<br><em>Ini percakapan dengan struktur yang dalam.</em></h2>
+    <div class="section-hr"></div>
+    <div class="lp-session-body">
+      <p>
+        Sebelum sesi dimulai, tidak perlu tahu persis apa yang ingin ditanyakan. Yang perlu ada hanyalah tanggal lahir, jam lahir, dan tempat lahir — dari sini, analisis 12 komponen bisa berjalan.
+      </p>
+      <p>
+        Bila chart pasangan tersedia, analisis dilakukan untuk keduanya — dan kompatibilitas dibaca dari dua arah, bukan hanya dari satu sisi.
+      </p>
+    </div>
+    <div class="lp-session-steps">
+      <div class="lp-session-step">
+        <div class="lp-step-num">一</div>
+        <div class="lp-step-content">
+          <div class="lp-step-title">Pembacaan Struktural (BaZi)</div>
+          <p class="lp-step-desc">
+            Chart dibaca untuk memahami pola relasional Anda secara mendalam — dari kapasitas menarik dan mempertahankan pasangan, profil pasangan yang secara chart kompatibel, hingga titik rawan yang sering menjadi sumber konflik berulang. Ini bukan tentang "apakah Anda cocok" secara umum — ini tentang pola spesifik yang terbaca dari kombinasi elemen Anda.
+          </p>
+        </div>
+      </div>
+      <div class="lp-session-step">
+        <div class="lp-step-num">二</div>
+        <div class="lp-step-content">
+          <div class="lp-step-title">Pembacaan Timing (Vedic)</div>
+          <p class="lp-step-desc">
+            Ada hal-hal yang BaZi tidak bisa lihat dengan sendirinya. BaZi kuat dalam membaca kekuatan musim dan 5 elemen — tapi untuk membaca <em>timing of event</em>: kapan sebuah periode relasional membuka atau menutup, kapan kondisi lebih kondusif untuk melangkah atau menunggu — Vedic planetary timing memberikan presisi yang berbeda. Keduanya dipakai bersamaan, bukan sebagai kompetitor.
+          </p>
+        </div>
+      </div>
+      <div class="lp-session-step">
+        <div class="lp-step-num">三</div>
+        <div class="lp-step-content">
+          <div class="lp-step-title">Dual-Remedy — Konkret & Bisa Dijalankan</div>
+          <p class="lp-step-desc">
+            Setiap sesi selalu diakhiri dengan langkah konkret — bukan hanya deskripsi tentang chart Anda. Langkah BaZi bersifat taktis: keputusan mana yang perlu dipertimbangkan ulang, arah mana yang lebih sejalan dengan chart Anda. Kalibrasi Vedic bersifat energetik: puasa, ritual, atau praktik yang disesuaikan dengan situasi spesifik. Tidak ada yang generik. Semuanya dirancang untuk situasi Anda.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── TESTIMONIAL ── -->
+<section id="lp-testimonial">
+  <div class="lp-testi-inner">
+    <p class="section-eyebrow" style="color:var(--gold-warm);">Kasus Nyata · Love Path</p>
+    <h2 class="section-h2">Dari chart yang terasa <em>hopeless</em><br>ke langkah yang bisa dijalankan.</h2>
+    <div class="section-hr"></div>
+    <div class="lp-testi-block">
+      <span class="lp-testi-openquote">"</span>
+      <p class="lp-testi-text">
+        Awalnya hopeless karena aku pernah baca tentang clashes dan punishment yang ternyata ada di chartku. Sebelumnya bertanya-tanya apakah ada hal baik yang bisa dilakukan untuk improve chart ini dengan konkret. Dan ternyata kakak kasih solusinya. Solusi-solusinya untuk aku sangat doable. Terharu.
+      </p>
+      <span class="lp-testi-attr">— Klien perempuan · Chart dengan konflik berat · Partner concern diselesaikan dalam sesi yang sama · Identitas dianonimkan</span>
+    </div>
+    <div class="lp-testi-context">
+      <p>
+        Clash dan punishment dalam chart BaZi sering kali terdengar sebagai vonis — apalagi bila dibaca sendiri tanpa konteks yang cukup. Yang tidak tersampaikan di sebagian besar pembacaan adalah bahwa setiap konfigurasi, termasuk yang sulit, memiliki cara navigasinya sendiri.
+      </p>
+      <p>
+        Chart yang penuh konflik bukan chart yang rusak. Itu chart yang butuh pendekatan yang lebih presisi — dan seseorang yang bersedia membaca sampai ke lapisan yang lebih dalam, bukan berhenti di permukaan.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── DELIVERABLE — EDUKATIF ── -->
+<section id="lp-deliverable">
+  <div class="lp-deliv-inner">
+    <p class="section-eyebrow" style="color:var(--emerald);">Yang Anda Terima · Setiap Sesi</p>
+    <h2 class="section-h2" style="color:var(--text-lt-primary);">Tiga hal yang Anda bawa pulang —<br><em style="color:var(--emerald);">dan mengapa masing-masing itu penting.</em></h2>
+    <div class="section-hr" style="background:var(--emerald);"></div>
+    <div class="lp-deliv-grid">
+      <div class="lp-deliv-card">
+        <div class="lp-deliv-num">一</div>
+        <div class="lp-deliv-title">90 Menit Google Meet — Live & Interaktif</div>
+        <p class="lp-deliv-desc">
+          Sesi 1-on-1 langsung, bukan rekaman yang dikirim. Anda bisa bertanya langsung saat sesi berlangsung — termasuk untuk hal-hal yang baru muncul setelah mendengar pembacaan chart Anda.
+        </p>
+        <p class="lp-deliv-why">
+          Mengapa ini penting: pembacaan chart yang dalam sering memunculkan pertanyaan yang tidak bisa diantisipasi sebelum sesi. Kemampuan bertanya langsung mengubah sesi dari monolog menjadi dialog yang benar-benar menjawab situasi Anda.
+        </p>
+      </div>
+      <div class="lp-deliv-card">
+        <div class="lp-deliv-num">二</div>
+        <div class="lp-deliv-title">PDF Analisis + Rencana Remedy</div>
+        <p class="lp-deliv-desc">
+          Seluruh temuan sesi — profil relasional, analisis pasangan (bila chart tersedia), dan langkah konkret — dalam format yang bisa Anda baca ulang kapan saja.
+        </p>
+        <p class="lp-deliv-why">
+          Mengapa ini penting: detail dalam pembacaan chart sering baru terasa penuh relevansinya beberapa hari setelah sesi. Dokumen ini memastikan Anda bisa kembali ke temuan itu kapanpun dibutuhkan.
+        </p>
+      </div>
+      <div class="lp-deliv-card">
+        <div class="lp-deliv-num">三</div>
+        <div class="lp-deliv-title">Rekaman Sesi Penuh untuk Anda Simpan</div>
+        <p class="lp-deliv-desc">
+          Sesi direkam dan dikirimkan setelah selesai. Anda bisa memutar ulang kapanpun — tidak ada yang perlu dicatat selama sesi berlangsung.
+        </p>
+        <p class="lp-deliv-why">
+          Mengapa ini penting untuk Love Path khususnya: dalam sesi relasi, sering ada nuansa dan detail yang baru terasa relevan ketika situasi Anda berubah beberapa minggu kemudian. Rekaman memberi Anda akses ke pembacaan itu kembali.
+        </p>
+      </div>
+    </div>
+    <div class="lp-conf-reminder">
+      🔒 <span>Semua yang dibicarakan dalam sesi — nama, detail hubungan, situasi sensitif — dijaga kerahasiaannya sepenuhnya dan tidak dibagikan ke siapapun, dalam bentuk apapun.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CLOSING REFLECTION ── -->
+<section id="lp-closing">
+  <div class="lp-closing-inner">
+    <p class="section-eyebrow">Catatan Penutup · Sebelum Anda Memutuskan</p>
+    <div class="section-hr"></div>
+    <p class="lp-closing-quote">
+      "I show them the path.<br><em>Let them walk the path."</em>
+    </p>
+    <div class="lp-closing-body">
+      <p>
+        Forecast yang baik hanya terwujud kalau Anda siap menyambutnya. Pembacaan chart Love Path bukan tentang menemukan formula ajaib untuk hubungan yang sempurna — itu tidak ada dan tidak pernah ada.
+      </p>
+      <p>
+        Yang ada: pemahaman yang lebih jelas tentang diri sendiri, tentang pola yang sudah berjalan, dan tentang langkah konkret yang bisa diambil — termasuk langkah-langkah kecil yang terasa doable, bukan yang membebani.
+      </p>
+      <p>
+        Sesi ini adalah titik awal dari kejernihan itu. Apa yang Anda lakukan setelahnya sepenuhnya ada di tangan Anda.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CTA ── -->
+<section id="lp-cta">
+  <div style="max-width:600px;margin:0 auto;">
+    <p class="section-eyebrow">Mulai dari sini</p>
+    <h2 class="section-h2">Tidak perlu tahu dulu mau cerita apa.<br><em>Ceritakan situasinya — biarkan chart yang membaca strukturnya.</em></h2>
+    <div class="section-hr"></div>
+    <p style="color:var(--text-dk-secondary);font-size:var(--font-prose);line-height:var(--line-prose);margin-bottom:2.5rem;">
+      Tidak ada formulir panjang. Tidak ada komitmen di percakapan pertama. Semua yang Anda sampaikan dijaga kerahasiaannya.
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+diskusi+soal+situasi+relasi+saya." class="btn-wa">
+        <svg><use href="#wa"/></svg> Chat dulu — tidak ada komitmen
+      </a>
+      <a href="yang-anda-dapatkan.html" class="btn-ghost">Lihat apa yang Anda terima</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Life Path <span class="footer-sub-brand">by DJ Nordhawk</span></div>
+      <p class="footer-tagline">Setiap forecast datang dengan window untuk bertindak — diagnosis pola dari BaZi, Vedic &amp; Javanese Esoteric, selalu disertai langkah konkret.</p>
+      <p class="footer-tag">Guide, Not Guru.</p>
+    </div>
+    <div>
+      <p class="footer-label">Halaman</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pendekatan.html">Pendekatan</a></li>
+        <li><a href="remedy.html">Remedy</a></li>
+        <li><a href="yang-anda-dapatkan.html">Layanan</a></li>
+        <li><a href="artikel.html">Artikel</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">Tentang</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-label">Masuk via</p>
+      <ul class="footer-links">
+        <li><a href="wealth-path.html">Wealth Path</a></li>
+        <li><a href="love-path.html">Love Path</a></li>
+        <li><a href="yang-anda-dapatkan.html">Apa yang Anda Dapatkan</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-label">Kontak</p>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/6282117175544">Chat via WhatsApp</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Life Path by DJ Nordhawk. All Rights Reserved.</span>
+    <span class="footer-guide">Guide, Not Guru.</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -3,493 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenapa Banyak Entrepreneur Sudah Kerja Keras Tapi Tetap Stagnan? | Bazi Wealth Path</title>
-  <meta name="description" content="Mengapa usaha keras sering kali terhambat oleh variabel gejolak pilar kelahiran yang memicu keputusan bisnis yang salah di saat kritis. Analisis dan solusi konkret." />
+  <title>Kenapa Kerja Keras Saja Kadang Mentok? | Bazi Life Path</title>
+  <meta name="description" content="Studi kasus nyata tentang jebakan overwork dan bagaimana energi waktu (clash) memengaruhi kelelahan mental seorang entrepreneur." />
   <link rel="stylesheet" href="bazi.css" />
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Kenapa Banyak Entrepreneur Sudah Kerja Keras Tapi Tetap Stagnan?",
-    "author": { "@type": "Person", "name": "djnordhawk" },
-    "publisher": { "@type": "Organization", "name": "Bazi Wealth Path" },
-    "datePublished": "2026-06-07"
-  }
-  </script>
-
   <style>
-    /* ════════════════════════════════════════════════════════════════
-       ARTIKEL DETAIL — LIGHT CREAM READING ZONE
-       Design brief: Swiss editorial grid, print-magazine feel.
-       Signature: vertical column rule body↔sidebar, tidak ada card border.
-
-       WCAG CONTRACT (style-guide-v3):
-         #1A1A1A on #F9F7F3 = 16:1  ✓ AAA  (body primary)
-         #4A4440 on #F9F7F3 = 7.8:1 ✓ AAA  (body secondary)
-         #8B8275 on #F9F7F3 = 4.5:1 ✓ AA   (meta/caption)
-         #0C3C2D on #F9F7F3 = 13:1  ✓ AAA  (emerald links)
-         #B8860B on #F9F7F3 = 2.9:1 ✗ FAIL → gold DILARANG untuk teks
-         Gold BOLEH: drop-cap ≥4rem (large text), border dekoratif, progress bar
-       ════════════════════════════════════════════════════════════════ */
-
-    /* ── Reading progress bar ── */
-    #read-progress {
-      position: fixed; top: 0; left: 0; z-index: 500;
-      height: 2px; width: 0%;
-      background: var(--gold-warm);
-      transition: width .08s linear;
+    /* ── PAGE-SPECIFIC: Artikel Detail ── */
+    
+    .article-hero {
+      background: var(--charcoal); padding: var(--sp-8) var(--sp-gutter) var(--sp-5);
+      border-bottom: 1px solid var(--border-dk);
+    }
+    .article-hero-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    
+    .ah-meta {
+      font-family: var(--ff-body); font-size: var(--font-micro); letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--gold-warm); margin-bottom: var(--sp-4); font-weight: 600;
+    }
+    .ah-title {
+      font-family: var(--ff-display); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1;
+      color: #fff; margin-bottom: var(--sp-5); font-weight: 400;
     }
 
-    /* ── HERO — tetap dark full-bleed ── */
-    .a-hero {
-      position: relative; overflow: hidden;
-      min-height: 72vh; display: flex; align-items: flex-end;
+    /* Executive Summary Box */
+    .executive-summary {
+      background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--emerald-light);
+      padding: var(--sp-4); text-align: left; margin: 0 auto var(--sp-6); max-width: 700px;
     }
-    .a-hero-bg {
-      position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&auto=format&q=80')
-                  center / cover no-repeat;
-      filter: brightness(.3) saturate(.6);
-      transform: scale(1.05);
-      animation: aHeroScale 14s ease-out forwards;
+    .es-title {
+      font-family: var(--ff-body); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--emerald-light); margin-bottom: 0.5rem; font-weight: 600;
     }
-    @keyframes aHeroScale { to { transform: scale(1); } }
+    .es-body { font-size: 1rem; color: var(--text-dk-secondary); line-height: 1.6; margin: 0; }
+    .es-body strong { color: var(--champagne); }
 
-    .a-hero-grad {
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(13,13,13,1)   0%,
-        rgba(13,13,13,.55) 45%,
-        rgba(13,13,13,.25) 100%
-      );
+    .ah-image {
+      width: 100%; aspect-ratio: 21/9; overflow: hidden; margin-top: var(--sp-5);
     }
-    .a-hero-body {
-      position: relative; z-index: 2;
-      max-width: 1200px; margin: 0 auto; width: 100%;
-      padding: 148px 2.5rem 64px;
-    }
+    .ah-image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) saturate(0.8); }
 
-    /* ── Breadcrumb on dark ── */
-    .a-breadcrumb {
-      display: flex; gap: var(--sp-1); align-items: center;
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .12em; text-transform: uppercase;
-      color: var(--text-dk-meta); margin-bottom: var(--sp-3);
-      opacity: 0; animation: afadeUp .6s ease forwards .15s;
+    /* Article Body Layout */
+    .article-body-section {
+      padding: var(--sp-6) var(--sp-gutter) var(--sp-8);
+      display: grid; grid-template-columns: 1fr 320px; gap: var(--sp-6);
+      max-width: 1100px; margin: 0 auto; align-items: start;
     }
-    .a-breadcrumb a:hover { color: var(--champagne); }
-    .a-breadcrumb .sep    { opacity: .35; }
-    .a-breadcrumb .cur    { color: var(--champagne); }
-
-    /* ── Badges on dark ── */
-    .a-badges {
-      display: flex; flex-wrap: wrap; gap: var(--sp-1); margin-bottom: var(--sp-3);
-      opacity: 0; animation: afadeUp .7s ease forwards .3s;
+    
+    .article-content { font-size: var(--font-prose); line-height: 1.8; color: var(--text-dk-secondary); }
+    .article-content p { margin-bottom: var(--sp-4); }
+    .article-content h2 {
+      font-family: var(--ff-display); font-size: 2rem; color: #fff;
+      margin: var(--sp-6) 0 var(--sp-3); font-weight: 400;
     }
-    .abadge {
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .12em; text-transform: uppercase;
-      padding: var(--sp-1) var(--sp-2); border-radius: 20px; border: 1px solid;
-    }
-    .abadge--gold  { color: var(--gold-warm); border-color: var(--border-gold); background: var(--bg-gold-tint); }
-    .abadge--green { color: var(--badge-green); border-color: var(--badge-green-border); background: var(--badge-green-bg); }
-    .abadge--red   { color: var(--badge-red); border-color: var(--badge-red-border); background: var(--badge-red-bg); }
-
-    .a-h1 {
-      font-family: var(--ff-display);
-      font-size: clamp(2rem, 4.5vw, 3.6rem);
-      font-weight: 700; color: #fff; line-height: 1.1;
-      max-width: 840px; margin-bottom: var(--sp-3);
-      opacity: 0; animation: afadeUp .9s ease forwards .45s;
-    }
-    .a-meta {
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .12em; text-transform: uppercase;
-      color: var(--text-dk-meta);
-      display: flex; gap: var(--sp-2); align-items: center; flex-wrap: wrap;
-      opacity: 0; animation: afadeUp .9s ease forwards .6s;
-    }
-    .a-meta .dot { opacity: .3; }
-
-    @keyframes afadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .article-content strong { color: var(--champagne); font-weight: 500; }
+    .article-content .drop-cap::first-letter {
+      font-family: var(--ff-display); font-size: 5rem; float: left;
+      line-height: .8; padding-right: .8rem; padding-top: .1rem; color: var(--gold-warm);
     }
 
-    /* ── MAIN READING LAYOUT — light cream ── */
-    .a-layout {
-      background: var(--cream);
-      display: flex;
-      max-width: 1200px; margin: 0 auto;
-      padding: var(--sp-7) var(--sp-5);
-      gap: 0;
-      align-items: flex-start;
-    }
-
-    /* ── ARTICLE COLUMN ── */
-    .a-main { flex: 1; min-width: 0; padding-right: var(--sp-6); }
-
-    /* ── VERTICAL COLUMN RULE ── */
-    .a-sidebar {
-      width: 260px; flex-shrink: 0;
-      border-left: 1px solid var(--border-lt);
-      padding-left: var(--sp-5);
-    }
-    .a-sidebar-sticky { position: sticky; top: 88px; }
-
-    /* ── PROSE ── */
-    .prose { color: var(--text-lt-secondary); }
-    .prose p {
-      font-size: var(--font-prose-article);
-      line-height: 1.9;
-      margin-bottom: var(--sp-4);
-      max-width: 65ch;
-      color: var(--text-lt-secondary);
-    }
-    .prose p strong { color: var(--text-lt-primary); font-weight: 600; }
-    .prose p em { color: var(--emerald); font-style: italic; font-weight: 500; }
-
-    /* drop-cap: gold allowed */
-    .prose .drop-cap::first-letter {
-      font-family: var(--ff-display); font-weight: 700;
-      font-size: clamp(5.5rem, 9vw, 7.5rem);
-      float: left; line-height: .78;
-      padding-right: var(--sp-1); padding-top: var(--sp-1);
-      color: var(--gold-warm);
-    }
-
-    .prose h2 {
-      font-family: var(--ff-display); font-weight: 700;
-      font-size: var(--font-h2-article);
-      color: var(--text-lt-primary); line-height: 1.15;
-      margin: var(--sp-6) 0 var(--sp-3);
-      padding-top: var(--sp-6);
-      border-top: 1px solid var(--border-lt);
-      letter-spacing: -.01em;
-    }
-    .prose h2:first-of-type { border-top: none; padding-top: 0; }
-
-    .prose h3 {
-      font-family: var(--ff-display); font-weight: 600;
-      font-size: var(--font-h3-article);
-      color: var(--text-lt-primary); line-height: 1.2;
-      margin: var(--sp-5) 0 var(--sp-2);
-      letter-spacing: -.005em;
-    }
-
-    /* ── CALLOUT ── */
-    .callout {
-      margin: var(--sp-4) 0; padding: var(--sp-4) var(--sp-5);
-      border-left: 3px solid var(--emerald);
-      background: var(--bg-emerald-tint);
-      display: flex; gap: var(--sp-2);
-    }
-    .callout-icon { color: var(--emerald); flex-shrink: 0; width: var(--sp-3); height: var(--sp-3); margin-top: var(--sp-1); }
-    .callout-text {
-      font-size: clamp(1rem, 1vw + 0.45rem, 1.12rem);
-      line-height: 1.85;
-      color: var(--text-lt-secondary);
-    }
-    .callout-text a {
-      color: var(--emerald); font-weight: 500;
-      border-bottom: 1px solid var(--border-emerald-subtle);
-      transition: border-color .2s;
-    }
-    .callout-text a:hover { border-color: var(--emerald); }
-
-    /* ── PULL QUOTE ── */
+    /* Pull Quote */
     .pull-quote {
-      margin: var(--sp-5) 0; padding: var(--sp-4) var(--sp-5);
-      border-left: 3px solid var(--gold-warm);
-      background: var(--bg-gold-tint);
+      margin: var(--sp-5) 0; border-left: 2px solid var(--gold-warm);
+      padding: var(--sp-3) 0 var(--sp-3) var(--sp-4);
     }
     .pull-quote p {
-      font-family: var(--ff-display); font-style: italic;
-      font-size: clamp(1.25rem, 2.2vw, 1.7rem); line-height: 1.5;
-      color: var(--text-lt-primary);
-      margin: 0; max-width: none;
+      font-family: var(--ff-display); font-size: 1.6rem; color: var(--champagne);
+      line-height: 1.5; font-style: italic; margin: 0;
     }
 
-    /* ── INLINE FLOAT IMAGE ── */
-    .float-fig {
-      margin: var(--sp-1) 0 var(--sp-3);
-      border: 1px solid var(--border-lt);
-      overflow: hidden;
+    /* Reflection Prompt Box */
+    .reflection-box {
+      background: color-mix(in srgb, var(--gold-warm) 5%, transparent);
+      border: 1px solid var(--border-gold-subtle); padding: var(--sp-4) var(--sp-5);
+      margin: var(--sp-5) 0; border-radius: 4px;
     }
-    @media (min-width: 720px) {
-      .float-fig { float: right; width: 260px; margin: var(--sp-1) 0 var(--sp-3) var(--sp-4); }
-    }
-    .float-fig img {
-      width: 100%; aspect-ratio: 4/3; object-fit: cover;
-      filter: brightness(.88) saturate(.85);
-      display: block; transition: transform .6s ease;
-    }
-    .float-fig:hover img { transform: scale(1.04); }
-    .float-fig figcaption {
-      padding: var(--sp-1) var(--sp-2);
-      border-top: 1px solid var(--border-lt);
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .1em; text-transform: uppercase;
-      color: var(--text-lt-meta);
-      background: var(--cream);
-    }
+    .ref-title { font-family: var(--ff-body); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-warm); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .ref-title::before { content: "✍️"; }
+    .ref-body { color: #fff; font-size: 1.1rem; line-height: 1.6; margin: 0; font-family: var(--ff-display); }
 
-    /* ── NUMBERED FRAMEWORK ── */
-    .steps { margin: var(--sp-4) 0; border: 1px solid var(--border-lt); }
-    .step {
-      display: grid; grid-template-columns: var(--sp-6) 1fr;
-      border-bottom: 1px solid var(--border-lt);
-      transition: opacity .5s ease, transform .5s ease, background .2s;
-    }
-    .step:last-child { border-bottom: none; }
-    .step.js-reveal { opacity: 0; transform: translateY(var(--sp-2)); }
-    .step.js-reveal.in { opacity: 1; transform: translateY(0); }
-    .step:hover { background: var(--bg-emerald-tint); }
+    /* Sidebar */
+    .sidebar { position: sticky; top: var(--sp-6); }
+    .sb-widget { border: 1px solid var(--border-dk); padding: var(--sp-5); margin-bottom: var(--sp-5); background: rgba(255,255,255,0.01); }
+    .sb-title { font-family: var(--ff-body); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-dk); padding-bottom: 0.5rem; }
+    .sb-link { display: block; color: var(--text-dk-secondary); text-decoration: none; margin-bottom: 1rem; line-height: 1.5; font-size: 0.95rem; transition: color 0.2s; }
+    .sb-link:hover { color: var(--gold-warm); }
+    
+    .sb-author { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+    .sb-author-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 1px solid var(--border-dk); }
+    .sb-author-name { font-family: var(--ff-display); color: var(--champagne); font-size: 1.1rem; }
+    .sb-author-role { font-size: 0.8rem; color: var(--text-dk-meta); text-transform: uppercase; letter-spacing: 0.1em; }
 
-    .step-num {
-      display: flex; align-items: center; justify-content: center;
-      border-right: 1px solid var(--border-lt);
-      font-family: var(--ff-display); font-weight: 700;
-      font-size: var(--font-h2-article); color: var(--text-lt-meta);
-    }
-    .step-body { padding: var(--sp-4) var(--sp-5); }
-    .step-title {
-      font-family: var(--ff-body); font-weight: 600;
-      font-size: clamp(1rem, 1.1vw + 0.2rem, 1.15rem);
-      color: var(--text-lt-primary); margin-bottom: var(--sp-1);
-    }
-    .step-desc {
-      font-size: clamp(1rem, 1vw + 0.4rem, 1.1rem);
-      color: var(--text-lt-secondary);
-      line-height: 1.85; max-width: 58ch;
-    }
-
-    /* ── CINEMATIC BAND ── */
-    .cinematic-band {
-      margin: var(--sp-5) 0;
-      position: relative; overflow: hidden;
-      aspect-ratio: 21/9;
-      border-top: 1px solid var(--border-lt);
-      border-bottom: 1px solid var(--border-lt);
-    }
-    .cinematic-band img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: brightness(.38) saturate(.55);
-    }
-    .cinematic-band-caption {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      padding: var(--sp-4);
-    }
-    .cinematic-band-caption p {
-      font-family: var(--ff-display); font-style: italic;
-      font-size: clamp(1.05rem, 2vw, 1.55rem); line-height: 1.5;
-      color: var(--champagne); text-align: center; max-width: 600px;
-      margin: 0;
-    }
-    .cinematic-band-label {
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .14em; text-transform: uppercase;
-      color: var(--taupe); margin-top: var(--sp-2);
-    }
-
-    /* ── WARNING BOX ── */
-    .warn-box {
-      margin: var(--sp-4) 0; padding: var(--sp-4) var(--sp-5);
-      border: 1px dashed var(--warning-red-border);
-      background: var(--warning-red-bg);
-    }
-    .warn-head {
-      display: flex; align-items: center; gap: var(--sp-1);
-      font-family: var(--ff-display); font-weight: 600;
-      font-size: clamp(.95rem, 1.3vw, 1.15rem);
-      color: var(--text-lt-primary); margin-bottom: var(--sp-2);
-    }
-    .warn-head svg { color: var(--warning-red); width: var(--sp-3); height: var(--sp-3); flex-shrink: 0; }
-    .warn-body {
-      font-size: clamp(1rem, 1vw + 0.4rem, 1.1rem);
-      color: var(--text-lt-secondary);
-      line-height: 1.85;
-    }
-
-    /* ── INTERNAL LINK CARDS ── */
-    .link-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin: var(--sp-5) 0; border: 1px solid var(--border-lt); }
-    .link-card {
-      padding: var(--sp-4) var(--sp-5);
-      border-right: 1px solid var(--border-lt);
-      display: flex; flex-direction: column; gap: var(--sp-1);
-      transition: background .2s;
-    }
-    .link-card:last-child { border-right: none; }
-    .link-card:hover { background: var(--bg-emerald-tint); }
-    .link-card-eyebrow {
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .14em; text-transform: uppercase;
-      color: var(--emerald); font-weight: 600;
-    }
-    .link-card-title {
-      font-family: var(--ff-display); font-size: clamp(.9rem, 1.1vw, 1.05rem);
-      color: var(--text-lt-primary); line-height: 1.35;
-    }
-    .link-card:hover .link-card-title { color: var(--emerald); }
-
-    /* ── FAQ LIGHT ── */
-    .faq-lt { margin-top: var(--sp-5); padding-top: var(--sp-4); border-top: 1px solid var(--border-lt); }
-    .faq-lt-h {
-      font-family: var(--ff-display); font-weight: 700;
-      font-size: clamp(1.3rem, 2vw, 1.7rem);
-      color: var(--text-lt-primary); margin-bottom: var(--sp-3);
-    }
-    .faq-lt details {
-      border: 1px solid var(--border-lt);
-      margin-bottom: var(--sp-1); background: var(--cream);
-      transition: border-color .25s;
-    }
-    .faq-lt details:hover,
-    .faq-lt details[open] { border-color: var(--border-gold); }
-    .faq-lt summary {
-      padding: var(--sp-3) var(--sp-5); list-style: none; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: var(--sp-3);
-      font-family: var(--ff-display); font-size: clamp(.95rem, 1.3vw, 1.15rem);
-      color: var(--text-lt-primary);
-    }
-    .faq-lt summary::-webkit-details-marker { display: none; }
-    .faq-lt details[open] summary { color: var(--emerald); }
-    .faq-lt .chevron { font-size: .65rem; color: var(--text-lt-meta); transition: transform .22s; flex-shrink: 0; }
-    .faq-lt details[open] .chevron { transform: rotate(180deg); color: var(--emerald); }
-    .faq-lt .faq-ans {
-      padding: 0 var(--sp-5) var(--sp-4);
-      font-size: clamp(1rem, 1vw + 0.4rem, 1.1rem);
-      line-height: 1.85;
-      color: var(--text-lt-secondary);
-    }
-
-    /* ── BACK LINK ── */
-    .back-link {
-      margin-top: var(--sp-5); padding-top: var(--sp-3);
-      border-top: 1px solid var(--border-lt);
-    }
-    .back-link a {
-      display: inline-flex; align-items: center; gap: var(--sp-1);
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .1em; text-transform: uppercase;
-      color: var(--text-lt-meta); transition: color .2s;
-    }
-    .back-link a:hover { color: var(--text-lt-primary); }
-    .back-link a svg { width: 13px; height: 13px; transition: transform .2s; }
-    .back-link a:hover svg { transform: translateX(-3px); }
-
-    /* ── SIDEBAR — right column ── */
-    .sb-section { margin-bottom: var(--sp-4); }
-    .sb-rule {
-      height: 1px; background: var(--border-lt);
-      margin: var(--sp-4) 0;
-    }
-    .sb-eyebrow {
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .16em; text-transform: uppercase;
-      color: var(--emerald); font-weight: 600; margin-bottom: var(--sp-2);
-    }
-
-    /* author block */
-    .sb-author { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); }
-    .sb-av {
-      width: var(--sp-5); height: var(--sp-5); border-radius: 50%; flex-shrink: 0;
-      background: var(--bg-emerald-tint); border: 1px solid var(--border-emerald-subtle);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--ff-display); font-weight: 700;
-      font-size: .95rem; color: var(--emerald);
-    }
-    .sb-name {
-      font-family: var(--ff-display); font-size: 1.1rem;
-      color: var(--text-lt-primary); font-weight: 600; margin-bottom: .15rem;
-    }
-    .sb-role {
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .12em; text-transform: uppercase;
-      color: var(--text-lt-meta);
-    }
-    .sb-bio {
-      font-size: var(--font-prose);
-      line-height: 1.8; color: var(--text-lt-secondary); margin-bottom: var(--sp-2);
-    }
-    .sb-text-link {
-      font-family: var(--ff-body); font-size: var(--font-micro);
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--emerald); font-weight: 600;
-      border-bottom: 1px solid var(--border-emerald-subtle); padding-bottom: 1px;
-      transition: border-color .2s;
-    }
-    .sb-text-link:hover { border-color: var(--emerald); }
-
-    /* related links */
-    .sb-links { display: flex; flex-direction: column; gap: var(--sp-1); }
-    .sb-link-item {
-      display: flex; align-items: baseline; gap: var(--sp-1);
-      font-size: var(--font-prose);
-      color: var(--text-lt-secondary); line-height: 1.6;
-      transition: color .2s;
-    }
-    .sb-link-item:hover { color: var(--text-lt-primary); }
-    .sb-link-marker {
-      font-family: var(--ff-body);
-      font-size: var(--font-micro); letter-spacing: .1em;
-      color: var(--emerald); flex-shrink: 0; font-weight: 600;
-    }
-
-    /* CTA card in sidebar */
-    .sb-cta {
-      padding: var(--sp-3);
-      border: 1px solid var(--border-lt);
-      background: var(--bg-emerald-tint);
-      transition: border-color .25s;
-    }
-    .sb-cta:hover { border-color: var(--border-emerald-subtle); }
-    .sb-cta-h {
-      font-family: var(--ff-display); font-weight: 600;
-      font-size: clamp(1.05rem, 1.3vw, 1.2rem);
-      color: var(--text-lt-primary); margin-bottom: var(--sp-1);
-    }
-    .sb-cta-p {
-      font-size: var(--font-prose);
-      line-height: 1.75; color: var(--text-lt-secondary); margin-bottom: var(--sp-2);
-    }
-    .btn-wa-sm {
-      display: flex; align-items: center; justify-content: center; gap: var(--sp-1);
-      width: 100%; background: var(--warning-red); color: #fff;
-      padding: var(--sp-1) var(--sp-2); border-radius: 2px;
-      font-family: var(--ff-body); font-size: var(--font-micro);
-      letter-spacing: .1em; text-transform: uppercase; font-weight: 600;
-      transition: background .2s;
-    }
-    .btn-wa-sm:hover { background: var(--warning-red-hover); }
-    .btn-wa-sm svg  { width: 14px; height: 14px; flex-shrink: 0; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 960px) {
-      .a-layout  { flex-direction: column; padding: var(--sp-5) var(--sp-3); }
-      .a-main    { padding-right: 0; }
-      .a-sidebar { width: 100%; border-left: none; border-top: 1px solid var(--border-lt); padding-left: 0; padding-top: var(--sp-4); margin-top: var(--sp-4); }
-      .a-sidebar-sticky { position: static; display: flex; flex-direction: column; gap: var(--sp-5); }
-      .sb-rule   { display: block; }
-      .cinematic-band { margin: var(--sp-5) 0; }
-      .link-cards { grid-template-columns: 1fr; }
-      .link-card  { border-right: none; border-bottom: 1px solid var(--border-lt); }
-      .link-card:last-child { border-bottom: none; }
-      .float-fig  { float: none; width: 100%; margin: var(--sp-3) 0; }
-    }
-    @media (max-width: 600px) {
-      .a-sidebar-sticky { grid-template-columns: 1fr; }
-      .step { grid-template-columns: var(--sp-5) 1fr; }
-      .step-num { font-size: var(--font-h3-article); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .a-hero-bg { animation: none; transform: scale(1); }
-      .a-breadcrumb, .a-badges, .a-h1, .a-meta { animation: none; opacity: 1; }
-      .step { opacity: 1; transform: none; transition: none; }
+    @media (max-width: 900px) {
+      .article-body-section { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .ah-image { aspect-ratio: 16/9; }
     }
   </style>
 </head>
@@ -501,15 +108,8 @@
   </symbol>
 </svg>
 
-<!-- reading progress -->
-<div id="read-progress"></div>
-
-<!-- ── NAV ── -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">
-    Bazi Wealth Path
-    <small>by djnordhawk</small>
-  </a>
+  <a href="index.html" class="nav-logo">Bazi Life Path <small>by DJ Nordhawk</small></a>
   <div class="nav-links">
     <a href="pendekatan.html">Pendekatan</a>
     <a href="remedy.html">Remedy</a>
@@ -517,255 +117,121 @@
     <a href="artikel.html" class="active">Artikel</a>
     <a href="about.html">Tentang</a>
     <a href="faq.html">FAQ</a>
-    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+tertarik+konsultasi+Bazi+Wealth+Path." class="btn-nav">
+    <a href="https://wa.me/6282117175544?text=Halo%2C+saya+mau+cerita+situasi+saya+dulu." class="btn-nav">
       <svg><use href="#wa"/></svg> <span class="btn-nav-text">Konsultasi</span>
     </a>
   </div>
 </nav>
 
-<!-- HERO — dark zone -->
-<section class="hero hero--article">
-  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&auto=format&q=80');"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-
-    <nav class="a-breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="sep">/</span>
-      <a href="artikel.html">Artikel</a>
-      <span class="sep">/</span>
-      <span class="cur">Entrepreneur Stagnan</span>
-    </nav>
-
-    <div class="a-badges">
-      <span class="abadge abadge--gold">Pillar Article</span>
-      <span class="abadge abadge--green">Practicality</span>
-      <span class="abadge abadge--red">Warning</span>
+<!-- ARTICLE HERO -->
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <div class="ah-meta">Studi Kasus / Mitigasi Risiko</div>
+    <h1 class="ah-title">Kenapa Kerja Keras Saja Kadang Mentok? (Mitos Entrepreneur Stagnan)</h1>
+    
+    <div class="executive-summary">
+      <div class="es-title">Intisari (30 Detik)</div>
+      <p class="es-body">
+        Banyak entrepreneur terjebak dalam ilusi bahwa satu-satunya solusi bisnis yang sedang mentok adalah <strong>"kerja lebih keras"</strong>. Faktanya, berlari lebih cepat di arah yang salah—apalagi saat *timing* (energi tahunan Anda) sedang mengalami *Clash* besar—hanya mempercepat *burnout*. Artikel ini membedah sebuah studi kasus nyata tentang klien yang harus dipaksa berhenti bekerja keras demi menyelamatkan perusahaannya.
+      </p>
     </div>
-
-    <h1 class="hero-h1">Kenapa Banyak Entrepreneur Sudah Kerja Keras Tapi Tetap Stagnan?</h1>
-
-    <div class="a-meta">
-      <span>6 min read</span>
-      <span class="dot">·</span>
-      <span>djnordhawk</span>
-      <span class="dot">·</span>
-      <span>7 Juni 2026</span>
-    </div>
-
   </div>
-</section>
+  <div class="ah-image">
+    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1600&auto=format&q=80" alt="Entrepreneur Stagnan" />
+  </div>
+</header>
 
-<!-- READING ZONE — light cream -->
-<div class="a-layout" id="read-zone">
+<div class="article-body-section">
+  <!-- MAIN CONTENT -->
+  <main class="article-content">
+    <p class="drop-cap">Kita didoktrin sejak kecil bahwa kalau ada masalah, solusinya cuma satu: usahanya kurang keras. Tambah jam kerjanya. Tidur lebih sedikit. Sayangnya, saya sering melihat doktrin ini menjadi resep kehancuran yang sempurna bagi banyak klien saya.</p>
 
-  <!-- MAIN ARTICLE COLUMN -->
-  <main class="a-main">
-    <article class="prose">
+    <p>Gini deh. Bayangkan Anda sedang berenang, tapi Anda tidak sadar sedang berada di arus bawah (<em>rip current</em>) yang menarik Anda ke tengah laut. Insting pertama pasti berenang sekuat tenaga melawan arus ke arah pantai. Hasilnya? Anda kelelahan dan tenggelam. Cara selamat yang benar adalah berenang menyamping, atau biarkan arus membawa Anda sebentar sampai arusnya melemah.</p>
 
-      <p class="drop-cap">Banyak entrepreneur percaya bahwa jalan keluar dari stagnansi bisnis selalu berupa penambahan jam kerja, perekrutan staf baru, atau suntikan modal. Namun di lapangan, kita sering melihat fenomena sebaliknya — usaha keras yang digandakan justru berakhir pada keletihan mental tanpa ada pergeseran berarti pada grafik keuangan operasional.</p>
+    <p>Dalam BaZi, "arus bawah" ini disebut dengan energi benturan atau <strong>Clash</strong>.</p>
 
-      <p>Masalahnya sering kali bukan terletak pada kurangnya kerja keras. Masalahnya adalah adanya <strong>variabel tersembunyi</strong> yang tidak pernah dihitung di dalam rencana bisnis strategis — yaitu benturan pilar energi kelahiran yang memengaruhi cara Anda mengambil keputusan krusial di balik kemudi.</p>
+    <h2>Ketika Lari Cepat Adalah Kesalahan</h2>
 
-      <!-- float image -->
-      <figure class="float-fig">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&auto=format&q=75"
-             alt="Diskusi strategi bisnis" loading="lazy">
-        <figcaption>Mapping keputusan — bukan sekadar analisis</figcaption>
-      </figure>
+    <p>Beberapa bulan lalu, seorang *founder* agensi kreatif datang ke saya. Wajahnya kelelahan ekstrem. Omzetnya stagnan di angka yang sama selama dua tahun terakhir. Setiap kali dia mencoba berekspansi (buka cabang baru, rekrut tim <em>sales</em> mahal), selalu berakhir dengan kerugian. Solusinya? Dia mengambil alih pekerjaan timnya, kerja 16 jam sehari, dan mulai tidur di kantor.</p>
 
-      <h2>Analisis vs Tindakan Nyata</h2>
+    <p>Ketika saya membuka chart Bazi-nya, situasinya langsung terlihat jelas. Dia sedang berada dalam siklus "Clash" langsung dengan elemen kekayaannya (<em>Wealth Element</em>). Di momen seperti ini, *decision making*-nya sangat tumpul. Dia merasa produktif (karena kerja 16 jam), tapi sebenarnya dia sedang membuang-buang uang ke proyek yang salah sasaran akibat kepanikan.</p>
 
-      <p>Banyak praktisi Bazi konvensional hanya fokus pada pembacaan karakter dasar atau sekadar meramal masa depan. Namun klaim pasif seperti ini tidak menyelesaikan masalah. Di dalam dunia bisnis yang bergerak cepat, informasi yang bersifat prediksi pasif justru berbahaya karena memicu <em>bias konfirmasi</em> — kita percaya hanya pada hal yang ingin kita dengar.</p>
-
-      <p>Yang dibutuhkan adalah diagnosis yang logis: memetakan di mana letak sumbatan pilar keputusan Anda saat ini, dan merancang tindakan konkret untuk memitigasi risiko tersebut. Di sinilah <em>Crafting Remedy</em> mengambil peran sebagai layer tertinggi dalam kerangka analisis ini.</p>
-
-      <div class="callout">
-        <svg class="callout-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
-        <p class="callout-text">
-          Ingin memahami mengapa pendekatan ini fokus pada <em>remedy</em> dan bukan sekadar pembacaan chart?
-          Baca halaman <a href="remedy.html">Remedy</a> untuk konteks lengkap di baliknya.
-        </p>
-      </div>
-
-      <div class="pull-quote">
-        <p>"Mengetahui bahwa pilar kelahiran Anda bergejolak adalah informasi. Merancang strategi bisnis taktis untuk melindungi kas operasional di kuartal rawan adalah solusinya."</p>
-      </div>
-
-      <h2>Framework Taktis: Tiga Langkah Mengatasi Sumbatan</h2>
-
-      <p>Berikut kerangka kerja yang digunakan dalam sesi konsultasi untuk menyusun remedy bisnis yang bisa langsung dieksekusi. Urutan ini bukan dekoratif — ia adalah urutan kausalitas yang sesungguhnya.</p>
-
-    </article>
-
-    <!-- STEPS — numbered because they ARE sequential -->
-    <div class="steps" id="steps-block">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-body">
-          <div class="step-title">Identify the Leak — Identifikasi Kebocoran</div>
-          <div class="step-desc">Mendeteksi pilar Outflow dalam chart kelahiran yang sedang berbenturan. Ini menjelaskan mengapa modal tunai terus bocor meski omzet terlihat tumbuh di atas kertas.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-body">
-          <div class="step-title">Map the Timing — Petakan Kuartal Kerawanan</div>
-          <div class="step-desc">Mengisolasi bulan atau kuartal di mana siklus tahun berjalan memicu Clash pada pilar Day. Periode ini adalah masa rawan di mana emosi cenderung mendominasi logika bisnis.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-body">
-          <div class="step-title">Apply the Remedy — Implementasikan Penyeimbang</div>
-          <div class="step-desc">Menjalankan rencana aksi pelindung modal: memindahkan kas ke aset non-likuid sebelum periode gejolak, atau mendelegasikan wewenang kontrak ke co-founder yang pilarnya stabil.</div>
-        </div>
-      </div>
+    <div class="pull-quote">
+      <p>"Berlari lebih cepat di atas treadmill tidak akan membawa Anda ke tempat yang baru. Anda hanya akan kehabisan napas lebih cepat."</p>
     </div>
 
-    <!-- CINEMATIC BAND -->
-    <div class="cinematic-band">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&auto=format&q=70"
-           alt="Analisis data bisnis" loading="lazy">
-      <div class="cinematic-band-caption">
-        <p>"Data yang tidak diterjemahkan menjadi tindakan hanya menghasilkan kecemasan baru."</p>
-        <span class="cinematic-band-label">Analisis pola → tindakan → ketenangan operasional</span>
-      </div>
+    <p>Saya bilang kepadanya, "Penyakit bisnismu bukan karena kamu kurang kerja keras. Penyakitmu adalah kamu terlalu banyak bekerja di saat akal sehatmu sedang dalam titik terendah."</p>
+
+    <div class="reflection-box">
+      <div class="ref-title">Reflection Prompt</div>
+      <p class="ref-body">Coba ingat kembali keputusan terbesar Anda dalam 3 bulan terakhir. Apakah keputusan itu lahir dari ketenangan dan perhitungan, atau dari rasa panik karena keadaan tidak berubah?</p>
     </div>
 
-    <article class="prose">
+    <h2>Tindakan Remedy: Dipaksa Berhenti</h2>
 
-      <div class="warn-box">
-        <div class="warn-head">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-          </svg>
-          Yang Sebaiknya Dihindari
-        </div>
-        <div class="warn-body">Jangan pernah menyerahkan kendali operasional bisnis Anda sepenuhnya pada asumsi keberuntungan. Keberuntungan dalam konteks profesional adalah kesiapan logis yang bertemu dengan momentum waktu yang stabil. Menolak melihat data keuangan riil dan hanya mengandalkan ramalan adalah resep kegagalan paling instan.</div>
-      </div>
+    <p>Solusi yang saya berikan (Remedy) sangat berlawanan dengan buku motivasi bisnis manapun: <strong>Saya menyuruhnya berhenti berekspansi.</strong></p>
+    
+    <p>Menggunakan kalibrasi Vedic, kita menemukan jendela waktu di mana *Clash* ini akan mereda (sekitar 8 bulan ke depan). Selama 8 bulan itu, *remedy* operasionalnya adalah: hentikan semua *project* baru. Putus *sales team* yang berkinerja di bawah rata-rata. Kunci kas perusahaan ke dalam instrumen yang sangat aman (deposito), dan dia diwajibkan untuk pulang jam 5 sore setiap hari.</p>
 
-      <h3>Menjaga Keberlanjutan Stabilitas Wealth</h3>
+    <p>Awalnya dia menolak. Ego seorang *founder* sangat sulit menerima instruksi "diam". Tapi setelah dua bulan mencoba *remedy* ini, sebuah keajaiban operasional terjadi. Karena dia tidak lagi sibuk me-<em>micromanage</em> hal-hal tidak penting dari ekspansi yang gagal, dia mulai melihat celah efisiensi di produk lamanya. Biaya operasional turun drastis, dan meskipun omzet tidak naik, profit margin-nya melonjak 20%.</p>
 
-      <p>Pada akhirnya, tujuan utama dari penataan remedy bukanlah membuat Anda kaya dalam semalam. Tujuan tertingginya adalah menciptakan <strong>ketenangan operasional</strong> — kondisi di mana keputusan bisnis bebas dari gejolak emosional akibat ketidaktahuan timing risiko. Stabilitas wealth terbentuk dari sana, secara konsisten.</p>
+    <h2>Guide, Not Guru</h2>
 
-      <!-- internal link cards -->
-      <div class="link-cards">
-        <a href="pendekatan.html" class="link-card">
-          <span class="link-card-eyebrow">Lanjut Baca</span>
-          <span class="link-card-title">Lihat Kerangka 5 Layer secara lengkap →</span>
-        </a>
-        <a href="remedy.html" class="link-card">
-          <span class="link-card-eyebrow">Konteks Lebih Dalam</span>
-          <span class="link-card-title">Mengapa diagnosis saja tidak cukup: Pendekatan Remedy →</span>
-        </a>
-      </div>
+    <p>Kasus ini membuktikan satu hal: diagnosis dari BaZi hanya berguna kalau Anda berani mengambil tindakan nyata yang seringkali tidak nyaman di ego Anda. Saya tidak menggunakan jimat. Saya menggunakan data *timing* dari diri Anda sendiri untuk merancang strategi manajemen risiko.</p>
 
-    </article>
+    <p>Terkadang, langkah paling strategis yang bisa Anda ambil adalah menyadari bahwa cuaca sedang tidak mendukung, melipat layar kapal Anda, dan beristirahat.</p>
 
-    <!-- FAQ -->
-    <div class="faq-lt">
-      <h2 class="faq-lt-h">Pertanyaan yang Sering Diajukan</h2>
-
-      <details>
-        <summary>Apakah artikel ini berarti kerja keras itu sia-sia? <span class="chevron">▼</span></summary>
-        <div class="faq-ans">Sama sekali tidak. Kerja keras adalah bahan bakar mutlak bagi setiap bisnis. Namun kerja keras tanpa sinkronisasi timing risiko sering menghasilkan usaha yang terbuang karena benturan keputusan yang salah di kuartal kritis.</div>
-      </details>
-      <details>
-        <summary>Apa perbedaan Crafting Remedy dengan ramalan nasib biasa? <span class="chevron">▼</span></summary>
-        <div class="faq-ans">Ramalan nasib konvensional berasumsi masa depan sudah tertulis mati. Crafting Remedy menolak determinisme itu — kami memetakan pola pilar untuk merancang strategi mitigasi konkret yang bisa dikendalikan, bukan hanya dipasrahi.</div>
-      </details>
-      <details>
-        <summary>Bagaimana saya tahu jika bisnis saya mengalami sumbatan pilar kelahiran? <span class="chevron">▼</span></summary>
-        <div class="faq-ans">Indikator paling umum adalah pola repetisi masalah: kebocoran modal yang sama berulang, kemacetan komunikasi di kuartal tertentu secara konsisten, atau keputusan ekspansi yang selalu stagnan meski aspek rasional sudah tampak benar.</div>
-      </details>
-    </div>
-
-    <!-- back link -->
-    <div class="back-link">
-      <a href="artikel.html">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
-        </svg>
-        Kembali ke semua artikel
+    <!-- INVITATIONAL CTA INSIDE ARTICLE -->
+    <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-dk); padding:var(--sp-5); margin-top:var(--sp-6); text-align:center;">
+      <h3 style="font-family:var(--ff-display); font-size:1.6rem; color:var(--champagne); margin-bottom:1rem; font-weight:400;">Lagi ngerasa "mentok" juga sekarang?</h3>
+      <p style="color:var(--text-dk-secondary); margin-bottom:1.5rem; line-height:1.6;">Nggak usah terburu-buru ambil keputusan besar. Chat aja dulu, ceritain situasinya, dan kita lihat apakah ada pola *Clash* yang lagi bikin Anda lari di atas *treadmill*.</p>
+      <a href="https://wa.me/6282117175544?text=Halo%2C+saya+baru+baca+artikel+stagnan+dan+mau+cerita+situasi+saya." class="btn-wa" style="display:inline-flex;">
+        <svg><use href="#wa"/></svg> Chat via WhatsApp
       </a>
     </div>
+
   </main>
 
-  <!-- SIDEBAR — separated by column rule -->
-  <aside class="a-sidebar">
-    <div class="a-sidebar-sticky">
-
-      <!-- Author -->
-      <div class="sb-section">
-        <div class="sb-eyebrow">Penulis</div>
-        <div class="sb-author">
-          <div class="sb-av">Dj</div>
-          <div>
-            <div class="sb-name">djnordhawk</div>
-            <div class="sb-role">Bazi Strategist</div>
-          </div>
-        </div>
-        <p class="sb-bio">Membantu para entrepreneur menyusun peta mitigasi risiko keputusan bisnis dan stabilitas wealth berbasis pola pilar kelahiran.</p>
-        <a href="remedy.html" class="sb-text-link">Pelajari Pendekatan Remedy →</a>
-      </div>
-
-      <div class="sb-rule"></div>
-
-      <!-- Related -->
-      <div class="sb-section">
-        <div class="sb-eyebrow">Baca Juga</div>
-        <div class="sb-links">
-          <a href="pendekatan.html" class="sb-link-item">
-            <span class="sb-link-marker">→</span>
-            Kerangka 5 Layer Metodologi
-          </a>
-          <a href="remedy.html" class="sb-link-item">
-            <span class="sb-link-marker">→</span>
-            Pendekatan Remedy
-          </a>
-          <a href="artikel.html" class="sb-link-item">
-            <span class="sb-link-marker">→</span>
-            Semua Artikel
-          </a>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    
+    <div class="sb-widget">
+      <div class="sb-title">Penulis</div>
+      <div class="sb-author">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="DJ Nordhawk" class="sb-author-img">
+        <div>
+          <div class="sb-author-name">DJ Nordhawk</div>
+          <div class="sb-author-role">Founder &amp; Practitioner</div>
         </div>
       </div>
-
-      <div class="sb-rule"></div>
-
-      <!-- CTA -->
-      <div class="sb-cta">
-        <div class="sb-cta-h">Bisnis Anda Stagnan?</div>
-        <p class="sb-cta-p">Ceritakan situasinya — saya bantu petakan letak sumbatan secara personal, tanpa komitmen di awal.</p>
-        <a href="https://wa.me/6282117175544?text=Halo%2C+saya+baru+membaca+artikel+stagnan+dan+ingin+konsultasi." class="btn-wa-sm">
-          <svg><use href="#wa"/></svg> Konsultasi via WA
-        </a>
-      </div>
-
+      <p style="font-size:0.9rem; color:var(--text-dk-secondary); line-height:1.6;">
+        Saya memadukan BaZi, Vedic, dan Javanese Esoteric untuk memberikan arah yang *actionable* bagi profesional dan entrepreneur.
+      </p>
     </div>
+
+    <div class="sb-widget">
+      <div class="sb-title">Artikel Terkait</div>
+      <a href="#" class="sb-link">Seni Mendelegasikan Hak Veto ke Co-Founder</a>
+      <a href="#" class="sb-link">Apakah Anda Pengambil Keputusan Intuitif atau Analitis?</a>
+      <a href="#" class="sb-link">Paradoks Pegawai Bintang yang Gagal Menjadi CEO</a>
+    </div>
+    
   </aside>
+</div>
 
-</div><!-- /a-layout -->
-
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <!-- Kolom 1: Brand & Tagline -->
     <div>
       <div class="footer-brand">
-        Bazi Wealth Path <span class="footer-sub-brand">by djnordhawk</span>
+        Bazi Life Path <span class="footer-sub-brand">by DJ Nordhawk</span>
       </div>
       <p class="footer-tagline">
-        Kerangka analisis berbasis pola untuk entrepreneur dan profesional yang ingin memahami situasi bisnis dan wealth mereka dengan lebih jernih.
+        Saya baca pola dari data lahir Anda, terus kita ubah jadi langkah konkret untuk bisnis dan keuangan Anda. Guide, not guru.
       </p>
       <p class="footer-tag">Guide, Not Guru.</p>
     </div>
     
-    <!-- Kolom 2: Navigasi Halaman Utama -->
     <div>
       <p class="footer-label">Halaman</p>
       <ul class="footer-links">
@@ -779,7 +245,6 @@
       </ul>
     </div>
     
-    <!-- Kolom 3: Layanan Sub-halaman -->
     <div>
       <p class="footer-label">Layanan</p>
       <ul class="footer-links">
@@ -788,47 +253,20 @@
       </ul>
     </div>
     
-    <!-- Kolom 4: Kontak & Dukungan -->
     <div>
       <p class="footer-label">Kontak</p>
       <ul class="footer-links">
-        <li><a href="https://wa.me/6282117175544">WhatsApp</a></li>
+        <li><a href="https://wa.me/6282117175544">Chat aja, kita mulai dari sananya</a></li>
         <li><a href="faq.html">FAQ</a></li>
       </ul>
     </div>
   </div>
   
-  <!-- Footer Bottom Info -->
   <div class="footer-bottom">
-    <span class="footer-copy">© 2026 Bazi Wealth Path by djnordhawk. All Rights Reserved.</span>
+    <span class="footer-copy">© 2026 Bazi Life Path by DJ Nordhawk. All Rights Reserved.</span>
     <span class="footer-guide">Guide, Not Guru.</span>
   </div>
 </footer>
 
-<script>
-  // Reading progress
-  const bar = document.getElementById('read-progress');
-  const zone = document.getElementById('read-zone');
-  function updateBar() {
-    const top  = zone.getBoundingClientRect().top;
-    const h    = zone.offsetHeight - window.innerHeight;
-    const pct  = Math.min(100, Math.max(0, (-top / h) * 100));
-    bar.style.width = pct + '%';
-  }
-  window.addEventListener('scroll', updateBar, { passive: true });
-
-  // Step reveal
-  const steps = document.querySelectorAll('.step');
-  steps.forEach(s => s.classList.add('js-reveal'));
-  const io = new IntersectionObserver(entries => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('in'), i * 100);
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  steps.forEach(s => io.observe(s));
-</script>
 </body>
 </html>
