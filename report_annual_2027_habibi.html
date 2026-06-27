@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bazi Annual 2027 — Habibi</title>
+  <meta name="description" content="Laporan Tahunan Bazi 2027 Habibi - format buku online 5 halaman dengan visualisasi foto full-page." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:slnt,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <style>
+    
+    :root {
+      --color-parchment-canvas: #f2f0eb;
+      --color-ink: #292827;
+      --color-bone: #ffffff;
+      --color-fog: #e3e3e2;
+      --color-driftwood: #dcd7d3;
+      --color-graphite: #666666;
+      --color-aubergine: #421d24;
+      --color-aubergine-deep: #4e242c;
+      --color-iris: #714cb6;
+      --color-indigo-glow: #353088;
+      --color-lavender-chip: #d4c7ff;
+      --color-gold: #c5a880;
+      
+      --font-super-sans-vf: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-weight-body: 460;
+      --font-weight-medium: 500;
+      --font-weight-heading: 540;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      
+      --radius-lg: 8px;
+      --radius-xl: 12px;
+      --radius-2xl: 16px;
+      --radius-3xl: 24px;
+      --radius-full: 999px;
+      
+      /* Bazi Elements (Light contrasts) */
+      --el-wood: #059669;
+      --el-wood-glow: rgba(5, 150, 105, 0.12);
+      --el-fire: #dc2626;
+      --el-fire-glow: rgba(220, 38, 38, 0.12);
+      --el-earth: #b45309;
+      --el-earth-glow: rgba(180, 83, 9, 0.12);
+      --el-metal: #4b5563;
+      --el-metal-glow: rgba(75, 85, 99, 0.12);
+      --el-water: #1d4ed8;
+      --el-water-glow: rgba(29, 78, 216, 0.12);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--color-parchment-canvas);
+      color: var(--color-ink);
+      font-family: var(--font-super-sans-vf);
+      font-weight: var(--font-weight-body);
+      line-height: 1.5;
+    }
+
+    /* ── BOOK CONTAINER & SLIDER ── */
+    #book-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #book-slider {
+      display: flex;
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .book-page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .page-left {
+      width: 50%;
+      height: 100%;
+      overflow-y: auto;
+      background: var(--color-bone);
+      padding: 60px 80px 80px 80px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .page-right {
+      width: 50%;
+      height: 100%;
+      background: var(--color-parchment-canvas);
+      border-left: 1px solid var(--color-driftwood);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .page-left { padding: 40px 50px; }
+    }
+
+    @media (max-width: 900px) {
+      .book-page {
+        flex-direction: column;
+        overflow-y: auto;
+      }
+      .page-left, .page-right {
+        width: 100%;
+        height: auto;
+        min-height: fit-content;
+      }
+      .page-right {
+        height: 400px;
+        border-left: none;
+        border-top: 1px solid var(--color-driftwood);
+      }
+      #book-container {
+        height: 100%;
+      }
+    }
+
+    /* ── NAVIGATION & PROGRESS ── */
+    .book-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: var(--color-iris);
+      z-index: 1000;
+      transition: width 0.3s ease;
+    }
+
+    .book-nav-header {
+      position: fixed;
+      top: 16px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 900;
+      pointer-events: none;
+    }
+
+    .nav-breadcrumb {
+      font-size: 11px;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-graphite);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: rgba(242, 240, 235, 0.8);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--color-fog);
+      pointer-events: auto;
+    }
+
+    .nav-controls {
+      display: none; /* Container no longer needed for separate absolute buttons */
+    }
+
+    .nav-btn {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--color-bone);
+      border: 2px solid var(--color-gold);
+      color: var(--color-ink);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(197, 168, 128, 0.2);
+      font-weight: bold;
+      font-size: 20px;
+      user-select: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 950;
+    }
+
+    #prev-btn {
+      left: 24px;
+    }
+
+    #next-btn {
+      right: 24px;
+    }
+
+    .nav-btn:hover {
+      background: var(--color-gold);
+      color: var(--color-bone);
+      box-shadow: 0 8px 24px rgba(197, 168, 128, 0.4);
+      transform: translateY(-50%) scale(1.08);
+    }
+    
+    .nav-btn.disabled {
+      opacity: 0.15;
+      pointer-events: none;
+      border-color: var(--color-driftwood);
+    }
+
+    @media (max-width: 900px) {
+      .nav-btn {
+        display: none; /* Hide on mobile screens to prioritize swipe gestures */
+      }
+    }
+
+    /* Swipe indicator */
+    .swipe-indicator {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--color-graphite);
+      background: rgba(255,255,255,0.8);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-fog);
+      z-index: 800;
+      letter-spacing: 0.05em;
+    }
+    @media (max-width: 900px) {
+      .swipe-indicator { display: block; }
+    }
+
+    /* ── TYPOGRAPHY & DESIGN ELEMENTS ── */
+    h1.book-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--color-ink);
+      line-height: 1.15;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .page-tag {
+      font-size: 11px;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-iris);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .book-divider {
+      height: 1px;
+      background: var(--color-fog);
+      margin: 24px 0;
+      width: 100%;
+    }
+
+    p.book-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--color-graphite);
+      margin-bottom: 20px;
+    }
+
+    .metric-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: var(--font-weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .badge-primary { background: rgba(113, 76, 182, 0.08); color: var(--color-iris); border: 1px solid rgba(113, 76, 182, 0.2); }
+    .badge-success { background: rgba(5, 150, 105, 0.08); color: var(--el-wood); border: 1px solid rgba(5, 150, 105, 0.2); }
+    .badge-danger { background: rgba(220, 38, 38, 0.08); color: var(--el-fire); border: 1px solid rgba(220, 38, 38, 0.2); }
+    .badge-warning { background: rgba(180, 83, 9, 0.08); color: var(--el-earth); border: 1px solid rgba(180, 83, 9, 0.2); }
+
+    /* Bento and list grids - ELITE STYLING (No Boxes) */
+    .bento-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 16px;
+    }
+
+    .bento-node {
+      border: none;
+      border-radius: 0;
+      padding: 24px 0;
+      background: none;
+      border-bottom: 1px solid var(--color-fog);
+    }
+    
+    .bento-node:last-child {
+      border-bottom: none;
+    }
+
+    .node-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .node-title {
+      font-size: 16px;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .node-source {
+      font-size: 12px;
+      color: var(--color-graphite);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .node-body {
+      font-size: 14px;
+      color: var(--color-ink);
+      line-height: 1.55;
+    }
+
+    /* Tabs & forensic collapse style */
+    .tabs-wrap {
+      display: flex;
+      border-bottom: 1px solid var(--color-fog);
+      gap: 16px;
+      margin: 12px 0;
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      font-size: 13.5px;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-graphite);
+      padding: 6px 0;
+      cursor: pointer;
+      position: relative;
+      font-family: var(--font-super-sans-vf);
+    }
+    
+    .tab-btn.active-tab {
+      color: var(--color-ink);
+    }
+    
+    .tab-btn.active-tab::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; width: 100%; height: 2px;
+      background: var(--color-iris);
+    }
+    
+    .tab-pane {
+      display: none;
+    }
+    
+    .tab-pane.active-pane {
+      display: block;
+    }
+
+    /* ELITE COLLAPSIBLE (No Boxes) */
+    .forensic-collapse {
+      border: none;
+      border-bottom: 1px solid var(--color-fog);
+      border-radius: 0;
+      margin-top: 12px;
+    }
+
+    .collapse-header {
+      background: none;
+      padding: 14px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: var(--font-weight-semibold);
+      user-select: none;
+      font-size: 14px;
+    }
+
+    .collapse-body {
+      padding: 12px 0 20px 0;
+      background: none;
+      border-top: none;
+      display: none;
+    }
+
+    .collapse-body.active-body {
+      display: block;
+    }
+
+    .collapse-icon {
+      transition: transform 0.3s ease;
+      font-weight: bold;
+    }
+
+    .forensic-collapse.is-open .collapse-icon {
+      transform: rotate(180deg);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="book-progress-bar"></div>
+
+  <div class="book-nav-header">
+    <div class="nav-breadcrumb">
+      <span id="page-num-text">Halaman 1 dari 5</span> &bull; <span id="section-name-text">Cover</span>
+    </div>
+  </div>
+
+  <div id="book-container">
+    <div id="book-slider">
+      
+      <!-- Halaman 1: Cover Page -->
+      <div class="book-page" data-title="Cover">
+        <div class="page-left" style="justify-content: center;">
+          <div style="margin-bottom: 24px;">
+            <div style="font-size: 80px; font-weight: bold; line-height: 1; font-family: 'Kaiti', 'STKaiti', serif; letter-spacing: 0.05em;">
+              <span style="color: var(--el-fire);">丁</span><span style="color: var(--el-earth);">未</span>
+            </div>
+            <div style="font-size: 14px; font-weight: bold; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 6px;">
+              Kambing Api (Fire Goat)
+            </div>
+          </div>
+          
+          <span class="page-tag">Laporan Proyeksi Tahunan</span>
+          <h1 class="book-title" style="font-size: 40px; margin-bottom: 16px;">Proyeksi Bazi<br/>Tahun 2027</h1>
+          <p class="book-desc" style="font-size: 15px; margin-bottom: 24px;">
+            Panduan taktis navigasi kemakmuran dan analisis energi tahun kambing api untuk kesuksesan finansial Anda.
+          </p>
+          <div style="border-top: 1px solid var(--color-driftwood); padding-top: 20px;">
+            <div style="font-size: 10px; color: var(--color-graphite); text-transform: uppercase;">Klien</div>
+            <div style="font-size: 18px; font-weight: bold; margin-top: 2px;">Habibi</div>
+          </div>
+        </div>
+        <div class="page-right">
+          <img src="yearly_1.jpg" alt="Yearly Summary Cover">
+        </div>
+      </div>
+
+      <!-- Halaman 2: Summary / Bazi overview -->
+      <div class="book-page" data-title="Kualitas & Status">
+        <div class="page-left" style="justify-content: center;">
+          <span class="page-tag">Halaman 2</span>
+          <h1 class="book-title">Ringkasan & Kualitas Tahun</h1>
+          <div class="book-divider"></div>
+          
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+            <span class="metric-badge badge-success" style="font-size: 14px; padding: 6px 14px;">MOMENTUM 🚀</span>
+            <span style="font-weight: bold; font-size: 15px;">Ekspansi Strategis</span>
+          </div>
+
+          <p class="book-desc">
+            Energi terbaik Anda aktif tahun ini. Waktu yang tepat untuk melakukan pergerakan maju terencana di bidang usaha baru atau investasi.
+          </p>
+
+          <div style="font-size: 13.5px; border-top: 1px solid var(--color-fog); padding-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+            <div>Tai Sui Advisory: <span style="font-weight: bold;">Stabil (Tidak Ada Benturan Langsung)</span></div>
+            <div>Da Yun Status: <span style="font-weight: bold; color: var(--el-wood);">Melindungi (Neutral)</span></div>
+            <div>DM Condition: <span style="font-weight: bold;">Stabil & Tidak Ada Tekanan Besar</span></div>
+          </div>
+        </div>
+        <div class="page-right">
+          <img src="yearly_2.jpg" alt="Yearly Overview">
+        </div>
+      </div>
+
+      <!-- Halaman 3: Threat Vectors (Ancaman) - Elite Layout -->
+      <div class="book-page" data-title="Ancaman & Mitigasi">
+        <div class="page-left" style="justify-content: center;">
+          <span class="page-tag">Halaman 3</span>
+          <h1 class="book-title">Ancaman Tahunan (Threats)</h1>
+          <div class="book-divider"></div>
+          
+          <div class="tabs-container">
+            <div class="bento-list">
+              <!-- Threat 1: Karir -->
+              <div class="bento-node" style="border-left: 3px solid var(--el-earth); padding-left: 20px;">
+                <div class="node-header">
+                  <span class="node-title">⚠️ KARIR — Risiko Hukum & Regulasi</span>
+                  <span class="metric-badge badge-warning">Sedang</span>
+                </div>
+                <div class="node-source">Sumber: Energi Otoritas (Sha) masuk via stem/branch tahunan.</div>
+                <p class="node-body" style="margin-bottom: 12px;">
+                  Tekanan dari sistem hukum, audit, kontrak bermasalah, atau kewajiban perpajakan yang menumpuk.
+                </p>
+                
+                <div class="tabs-wrap">
+                  <button class="tab-btn active-tab" onclick="switchTab(this, 'threat-karir-karyawan')">Karyawan</button>
+                  <button class="tab-btn" onclick="switchTab(this, 'threat-karir-pengusaha')">Pengusaha</button>
+                </div>
+                <div class="tab-pane active-pane" id="threat-karir-karyawan">
+                  <p style="font-size: 13px; color: var(--color-graphite);">Hati-hati menandatangani perjanjian non-compete atau IP baru. Verifikasi klausul perjanjian kerja dengan detail.</p>
+                </div>
+                <div class="tab-pane" id="threat-karir-pengusaha">
+                  <p style="font-size: 13px; color: var(--color-graphite);">Lakukan audit legal internal perusahaan secara berkala. Bersihkan pembukuan dan administrasi pajak sebelum mengajukan izin ekspansi.</p>
+                </div>
+                
+                <div style="margin-top: 14px; font-size: 13px; border-top: 1px dashed var(--color-driftwood); padding-top: 12px;">
+                  <strong>Mitigasi Aksi:</strong>
+                  <ul style="padding-left: 14px; margin-top: 4px; display: flex; flex-direction: column; gap: 4px;">
+                    <li>Konsultasi legal/notaris sebelum menyepakati kontrak besar.</li>
+                    <li>Segera selesaikan kewajiban perpajakan sebelum Q2 berakhir.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Threat 2: Relasi -->
+              <div class="bento-node" style="border-left: 3px solid var(--el-wood); padding-left: 20px;">
+                <div class="node-header">
+                  <span class="node-title">⚠️ RELASI — Pasangan & Sosial</span>
+                  <span class="metric-badge badge-success">Rendah</span>
+                </div>
+                <div class="node-source">Sumber: Area hubungan inti aman tanpa tekanan langsung.</div>
+                <div class="node-body">
+                  Hubungan rumah tangga dalam kondisi relatif stabil. Cocok untuk merencanakan langkah bersama jangka panjang.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-right">
+          <img src="yearly_3.jpg" alt="Threat Vectors">
+        </div>
+      </div>
+
+      <!-- Halaman 4: Opportunity Vectors (Peluang) - Elite Layout -->
+      <div class="book-page" data-title="Peluang & Pertumbuhan">
+        <div class="page-left" style="justify-content: center;">
+          <span class="page-tag">Halaman 4</span>
+          <h1 class="book-title">Peluang Tahunan (Opportunities)</h1>
+          <div class="book-divider"></div>
+          
+          <div class="tabs-container">
+            <div class="bento-list">
+              <!-- Opportunity 1 -->
+              <div class="bento-node" style="border-left: 3px solid var(--el-wood); padding-left: 20px;">
+                <div class="node-header">
+                  <span class="node-title">✨ ENERGI & MOMENTUM DIRi</span>
+                  <span class="metric-badge badge-success">Besar</span>
+                </div>
+                <p class="node-body" style="margin-bottom: 12px;">
+                  Energi terbaik masuk secara natural, menopang kepercayaan diri dan meningkatkan daya eksekusi pribadi.
+                </p>
+                <div class="tabs-wrap">
+                  <button class="tab-btn active-tab" onclick="switchTab(this, 'opp-karyawan')">Karyawan</button>
+                  <button class="tab-btn" onclick="switchTab(this, 'opp-pengusaha')">Pengusaha</button>
+                </div>
+                <div class="tab-pane active-pane" id="opp-karyawan">
+                  <p style="font-size: 13px; color: var(--color-graphite);">Mintalah kenaikan gaji, promosi, atau inisiasi pimpin proyek penting.</p>
+                </div>
+                <div class="tab-pane" id="opp-pengusaha">
+                  <p style="font-size: 13px; color: var(--color-graphite);">Waktu terbaik melakukan pitching investor, fundraising, atau meluncurkan produk baru.</p>
+                </div>
+              </div>
+
+              <!-- Opportunity 2 -->
+              <div class="bento-node" style="border-left: 3px solid var(--el-wood); padding-left: 20px;">
+                <div class="node-header">
+                  <span class="node-title">✨ KEUANGAN — Sumber Penghasilan Aktif Baru</span>
+                  <span class="metric-badge badge-success">Besar</span>
+                </div>
+                <div class="node-body">
+                  Pintu rezeki terbuka lebar. Amankan peluang bisnis baru di waktu-waktu produktif tahun ini.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-right">
+          <img src="yearly_4.jpg" alt="Opportunity Vectors">
+        </div>
+      </div>
+
+      <!-- Halaman 5: Forensic, Actions & Timing - Elite Layout -->
+      <div class="book-page" data-title="Panduan Aksi & Forensik">
+        <div class="page-left" style="justify-content: center;">
+          <span class="page-tag">Halaman 5</span>
+          <h1 class="book-title">Timing, Aksi & Forensik</h1>
+          <div class="book-divider"></div>
+          
+          <!-- New Dedicated Timing Emas & Krisis Component -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--color-fog); padding-bottom: 20px;">
+            <!-- Best Month -->
+            <div style="border-left: 3px solid var(--el-wood); padding-left: 16px;">
+              <div style="font-size: 11px; font-weight: bold; color: var(--el-wood); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">🎯 Bulan Terbaik (Best Window)</div>
+              <div style="font-size: 15px; font-weight: bold; margin-bottom: 6px;">Juni - Juli 2027</div>
+              <p style="font-size: 13px; color: var(--color-graphite); line-height: 1.5;">
+                Sinergi elemen Api & Tanah memperkuat Day Master logam lemah dan membuka Gudang Rejeki secara harmonis.
+              </p>
+            </div>
+            <!-- Worst Month -->
+            <div style="border-left: 3px solid var(--el-fire); padding-left: 16px;">
+              <div style="font-size: 11px; font-weight: bold; color: var(--el-fire); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">⚠️ Bulan Terlemah (Risk Window)</div>
+              <div style="font-size: 15px; font-weight: bold; margin-bottom: 6px;">Desember 2027</div>
+              <p style="font-size: 13px; color: var(--color-graphite); line-height: 1.5;">
+                Benturan Chuan (Rat-Goat) merusak akar energi di pilar jam dan memicu risiko kerugian finansial mendadak.
+              </p>
+            </div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; font-size: 13.5px; border-bottom: 1px solid var(--color-fog); padding-bottom: 16px;">
+            <div>
+              <span style="color: var(--el-wood); font-weight: bold; display: block; margin-bottom: 4px;">✓ Lakukan (Do):</span>
+              <ul style="padding-left: 14px; display: flex; flex-direction: column; gap: 4px;">
+                <li>Ambil langkah ekspansi di tengah tahun</li>
+                <li>Gunakan mediator Ular (Snake 🐍)</li>
+              </ul>
+            </div>
+            <div>
+              <span style="color: var(--el-fire); font-weight: bold; display: block; margin-bottom: 4px;">✗ Hindari (Avoid):</span>
+              <ul style="padding-left: 14px; display: flex; flex-direction: column; gap: 4px;">
+                <li>Konfrontasi terbuka dengan otoritas</li>
+                <li>Menunda pelaporan administrasi formal</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Collapse Practitioner Area (No box styling) -->
+          <div class="forensic-collapse">
+            <div class="collapse-header" onclick="toggleCollapse(this)">
+              <span>Analisa Forensik Lanjutan (Praktisi)</span>
+              <span class="collapse-icon">&#9662;</span>
+            </div>
+            <div class="collapse-body" style="font-size: 13px;">
+              <div style="margin-bottom: 8px;">Zang Gan Clash: <span style="font-weight: bold; color: var(--el-wood);">Rat vs Goat (Chuan - JiShen Purged)</span></div>
+              <div style="margin-bottom: 8px;">Self Punishment: <span style="font-weight: bold; color: var(--el-fire);">Goat vs Goat (Hour Pillar)</span></div>
+              <div>Proactive Career: <span style="font-weight: bold; color: var(--color-iris);">Aktif (Chuan di Month)</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="page-right">
+          <img src="yearly_5.jpg" alt="Bazi Forensic & Actions">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="nav-btn" id="prev-btn" onclick="prevPage()">&#8592;</div>
+  <div class="nav-btn" id="next-btn" onclick="nextPage()">&#8594;</div>
+  
+  <div class="swipe-indicator">Geser Kiri/Kanan &larr; &rarr;</div>
+
+  <script>
+    
+    let currentPage = 0;
+    const totalPages = document.querySelectorAll('.book-page').length;
+    const bookSlider = document.getElementById('book-slider');
+    const progressBar = document.querySelector('.book-progress-bar');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const pageNumText = document.getElementById('page-num-text');
+    const sectionNameText = document.getElementById('section-name-text');
+
+    const pageTitles = Array.from(document.querySelectorAll('.book-page')).map(p => p.getAttribute('data-title') || 'Analisis');
+
+    function updateNav() {
+      bookSlider.style.transform = `translate3d(-${currentPage * 100}vw, 0, 0)`;
+      const progressPercent = ((currentPage + 1) / totalPages) * 100;
+      progressBar.style.width = `${progressPercent}%`;
+      prevBtn.classList.toggle('disabled', currentPage === 0);
+      nextBtn.classList.toggle('disabled', currentPage === totalPages - 1);
+      pageNumText.textContent = `Halaman ${currentPage + 1} dari ${totalPages}`;
+      sectionNameText.textContent = pageTitles[currentPage];
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        updateNav();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        updateNav();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') {
+        nextPage();
+      } else if (e.key === 'ArrowLeft') {
+        prevPage();
+      }
+    });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    window.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+      const swipeDistanceThreshold = 50;
+      if (touchStartX - touchEndX > swipeDistanceThreshold) {
+        nextPage();
+      } else if (touchEndX - touchStartX > swipeDistanceThreshold) {
+        prevPage();
+      }
+    }
+
+    function switchTab(btn, paneId) {
+      const parent = btn.closest('.tabs-container');
+      parent.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-tab'));
+      parent.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active-pane'));
+      btn.classList.add('active-tab');
+      parent.querySelector('#' + paneId).classList.add('active-pane');
+    }
+
+    function toggleCollapse(header) {
+      const collapseNode = header.closest('.forensic-collapse');
+      const body = collapseNode.querySelector('.collapse-body');
+      collapseNode.classList.toggle('is-open');
+      body.classList.toggle('active-body');
+    }
+
+    updateNav();
+
+  </script>
+</body>
+</html>
